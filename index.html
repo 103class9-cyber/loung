@@ -1,492 +1,840 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>閒人案內所 ｜ 頂級生活陪伴平台</title>
-<style>
-:root {
---bg-dark: #06040a;
---neon-gold: #f59e0b;
---neon-purple: #a855f7;
---neon-orange: #f97316;
---neon-blue: #06b6d4;
---text-light: #ffffff;
---text-gray: #a7a2b5;
---card-glass: rgba(18, 12, 30, 0.95); /* 提高不透明度，防止磨砂玻璃濾鏡在部分 Chrome 瀏覽器塌陷 */
---border-glow: rgba(168, 85, 247, 0.35);
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>閒人案內所 ｜ 官方傳送門</title>
+    <style>
+        :root {
+            --bg-dark: #050308;
+            --neon-gold: #f59e0b;
+            --neon-purple: #a855f7;
+            --neon-orange: #f97316;
+            --neon-blue: #06b6d4;
+            --neon-pink: #ff2a5f;
+            --neon-cyan: #00f3ff;
+            --text-light: #ffffff;
+            --text-gray: #9c97aa;
+            --card-glass: rgba(13, 9, 24, 0.78);
+            --border-glow: rgba(168, 85, 247, 0.15);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-premium: cubic-bezier(0.25, 1, 0.3, 1);
+        }
 
-* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
--webkit-tap-highlight-color: transparent;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-body {
-background-color: var(--bg-dark);
-background-image:
-radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.2) 0%, transparent 50%),
-radial-gradient(circle at 100% 30%, rgba(249, 115, 22, 0.15) 0%, transparent 40%),
-radial-gradient(circle at 0% 80%, rgba(138, 75, 245, 0.15) 0%, transparent 50%);
-color: var(--text-light);
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: flex-start;
-padding: 40px 15px;
-overflow-y: auto;
-overflow-x: hidden;
-}
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.28) 0%, transparent 50%),
+                radial-gradient(circle at 100% 20%, rgba(249, 115, 22, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 0% 80%, rgba(0, 243, 255, 0.12) 0%, transparent 50%);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 15px;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-.container {
-width: 100%;
-max-width: 480px;
-margin: 0 auto;
-text-align: center;
-position: relative;
-z-index: 1;
-display: block; /* 確保容器不會塌陷 */
-}
+        /* 秩序矩陣微光底紋 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 12, 32, 0.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(18, 12, 32, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+            pointer-events: none;
+        }
 
-/* 華麗動態標頭 */
-.header {
-margin-bottom: 25px;
-width: 100%;
-}
+        .container {
+            width: 100%;
+            max-width: 460px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
 
-.logo-container {
-position: relative;
-width: 90px;
-height: 90px;
-margin: 0 auto 15px;
-}
+        /* 標頭設計 */
+        .header {
+            margin-bottom: 35px;
+        }
 
-.logo-pulse {
-position: absolute;
-width: 100%; height: 100%;
-border-radius: 50%;
-background: linear-gradient(135deg, var(--neon-purple), var(--neon-orange));
-animation: pulseGlow 2s infinite alternate;
-filter: blur(8px);
-opacity: 0.8;
-}
+        .logo-container {
+            position: relative;
+            width: 94px;
+            height: 94px;
+            margin: 0 auto 20px;
+        }
 
-.logo-inner {
-position: absolute;
-top: 2px; left: 2px; right: 2px; bottom: 2px;
-background: #120c1f;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 38px;
-border: 1px solid rgba(255, 255, 255, 0.1);
-box-shadow: inset 0 0 15px rgba(168, 85, 247, 0.4);
-}
+        .logo-pulse {
+            position: absolute;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+            animation: pulseGlow 3s infinite alternate var(--ease-premium);
+            filter: blur(12px);
+            opacity: 0.9;
+        }
 
-.title {
-font-size: 28px;
-font-weight: 900;
-letter-spacing: 3px;
-margin-bottom: 6px;
-background: linear-gradient(90deg, #ffffff, var(--neon-gold), var(--neon-orange));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.3));
-}
+        .logo-inner {
+            position: absolute;
+            top: 2px; left: 2px; right: 2px; bottom: 2px;
+            background: #0d061c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: inset 0 0 25px rgba(168, 85, 247, 0.5);
+        }
 
-.subtitle {
-font-size: 12px;
-color: var(--text-gray);
-letter-spacing: 3px;
-text-transform: uppercase;
-}
+        .title {
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #ffffff 20%, var(--neon-gold), var(--neon-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 12px rgba(245, 158, 11, 0.4));
+        }
 
-/* 賽博三分頁切換導航 */
-.tab-navigation {
-display: flex;
-background: rgba(255, 255, 255, 0.05);
-border: 1px solid rgba(255, 255, 255, 0.1);
-border-radius: 14px;
-padding: 4px;
-margin-bottom: 30px;
-gap: 4px;
-width: 100%;
-}
+        .subtitle {
+            font-size: 11px;
+            color: var(--text-gray);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
 
-.tab-btn {
-flex: 1;
-padding: 12px 2px;
-background: none;
-border: none;
-color: var(--text-gray);
-font-size: 13px;
-font-weight: 700;
-border-radius: 10px;
-cursor: pointer;
-transition: all 0.3s ease;
-white-space: nowrap;
-}
+        /* 高級懸浮分頁導航條 */
+        .tab-navigation {
+            display: flex;
+            background: rgba(10, 6, 20, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 6px;
+            margin-bottom: 35px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            gap: 4px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.04);
+        }
 
-.tab-btn.active {
-color: #ffffff;
-background: linear-gradient(135deg, rgba(168, 85, 247, 0.45) 0%, rgba(249, 115, 22, 0.35) 100%);
-border: 1px solid rgba(168, 85, 247, 0.4);
-box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
-text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-}
+        .tab-btn {
+            flex: 1;
+            padding: 13px 4px;
+            background: none;
+            border: none;
+            color: var(--text-gray);
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
 
-/* 內容面板控制 */
-.tab-panel {
-display: none;
-width: 100%;
-animation: fadeIn 0.4s ease forwards;
-}
+        .tab-btn:hover {
+            color: #ffffff;
+        }
 
-.tab-panel.active {
-display: block;
-}
+        .tab-btn.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.4) 0%, rgba(0, 243, 255, 0.2) 100%);
+            border: 1px solid rgba(168, 85, 245, 0.45);
+            box-shadow: 0 0 20px rgba(168, 85, 245, 0.3);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+            transform: scale(1.03);
+        }
 
-/* 卡片與容器樣式 */
-.card-box {
-background: var(--card-glass);
-border: 1px solid var(--border-glow);
-border-radius: 24px;
-padding: 24px 16px;
-margin-bottom: 25px;
-box-shadow: 0 0 25px rgba(168, 85, 247, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.02);
-text-align: left;
-width: 100%;
-}
+        /* 深邃立體玻璃卡片盒 */
+        .card-box {
+            background: var(--card-glass);
+            border: 1px solid var(--border-glow);
+            border-radius: 28px;
+            padding: 26px 20px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(35px);
+            -webkit-backdrop-filter: blur(35px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.03);
+            text-align: left;
+        }
 
-.card-box.phone-box {
-border-color: rgba(6, 182, 212, 0.5);
-box-shadow: 0 0 25px rgba(6, 182, 212, 0.2);
-}
+        .card-box.phone-box {
+            border-color: rgba(6, 182, 212, 0.35);
+            box-shadow: 0 0 35px rgba(6, 182, 212, 0.18), 0 20px 50px rgba(0, 0, 0, 0.65);
+        }
 
-.card-header {
-font-size: 15px;
-font-weight: 800;
-color: var(--neon-gold);
-margin-bottom: 18px;
-display: flex;
-align-items: center;
-gap: 10px;
-letter-spacing: 2px;
-text-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
-}
+        .card-header {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--neon-gold);
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+        }
 
-.card-header.blue-header {
-color: var(--neon-blue);
-text-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
-}
+        .card-header.blue-header {
+            color: var(--neon-blue);
+            text-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
+        }
 
-.card-header::after {
-content: '';
-flex-grow: 1;
-height: 2px;
-background: linear-gradient(to right, rgba(245, 158, 11, 0.5), transparent);
-}
+        .card-header::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(to right, rgba(245, 158, 11, 0.4), transparent);
+        }
 
-.card-header.blue-header::after {
-background: linear-gradient(to right, rgba(6, 182, 212, 0.5), transparent);
-}
+        .card-header.blue-header::after {
+            background: linear-gradient(to right, rgba(6, 182, 212, 0.4), transparent);
+        }
 
-/* 分組標題 */
-.section-title {
-font-size: 13px;
-text-transform: uppercase;
-letter-spacing: 2px;
-color: #9a8eb8;
-margin: 25px 0 12px;
-text-align: left;
-padding-left: 5px;
-font-weight: 700;
-display: flex;
-align-items: center;
-gap: 8px;
-}
+        /* 導引門生動流光卡片 */
+        .link-card {
+            display: flex;
+            align-items: center;
+            padding: 22px 24px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 22px;
+            text-decoration: none;
+            color: #ffffff;
+            margin-bottom: 18px;
+            transition: var(--ease-premium) 0.4s;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
 
-/* 連結列表 */
-.links-group {
-display: flex;
-flex-direction: column;
-gap: 14px;
-margin-bottom: 10px;
-width: 100%;
-}
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -150%;
+            width: 100%; height: 100%;
+            background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+            transition: 0.55s ease;
+        }
 
-/* 按鈕與卡片基礎 */
-.link-card {
-display: flex;
-align-items: center;
-padding: 16px 20px;
-background: rgba(255, 255, 255, 0.04);
-border: 1px solid rgba(255, 255, 255, 0.08);
-border-radius: 16px;
-text-decoration: none;
-color: #ffffff;
-transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-position: relative;
-overflow: hidden;
-width: 100%;
-}
+        .link-card:hover::before, .link-card:active::before {
+            left: 150%;
+        }
 
-.link-card:active, .link-card:hover {
-background: rgba(255, 255, 255, 0.08);
-border-color: var(--neon-purple);
-transform: translateY(-2px);
-box-shadow: 0 6px 20px rgba(168, 85, 247, 0.25);
-}
+        .link-card.match-card {
+            border: 1px solid rgba(249, 115, 22, 0.35);
+            background: linear-gradient(90deg, rgba(249, 115, 22, 0.08) 0%, rgba(18, 12, 32, 0.4) 100%);
+        }
+        .link-card.match-card:hover, .link-card.match-card:active {
+            border-color: var(--neon-orange);
+            transform: translateY(-5px) scale(1.015);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.35);
+        }
 
-.link-card.primary {
-border-color: rgba(138, 75, 245, 0.5);
-background: linear-gradient(90deg, rgba(138, 75, 245, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
-}
+        .link-card.chat-card {
+            border: 1px solid rgba(168, 85, 247, 0.35);
+            background: linear-gradient(90deg, rgba(168, 85, 247, 0.08) 0%, rgba(18, 12, 32, 0.4) 100%);
+        }
+        .link-card.chat-card:hover, .link-card.chat-card:active {
+            border-color: var(--neon-purple);
+            transform: translateY(-5px) scale(1.015);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.35);
+        }
 
-.link-card.primary:active, .link-card.primary:hover {
-border-color: var(--neon-purple);
-box-shadow: 0 6px 20px rgba(138, 75, 245, 0.35);
-}
+        .link-card.room-card {
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.005);
+        }
+        .link-card.room-card:hover, .link-card.room-card:active {
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateY(-3px);
+        }
 
-.link-icon {
-font-size: 22px;
-margin-right: 15px;
-width: 30px;
-display: flex;
-justify-content: center;
-align-items: center;
-}
+        .link-icon {
+            font-size: 28px;
+            margin-right: 20px;
+            width: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.link-content {
-text-align: left;
-flex-grow: 1;
-}
+        .match-card .link-icon { filter: drop-shadow(0 0 8px var(--neon-orange)); }
+        .chat-card .link-icon { filter: drop-shadow(0 0 8px var(--neon-purple)); }
 
-.link-title {
-font-size: 16px;
-font-weight: 700;
-margin-bottom: 2px;
-color: #f1e9ff;
-}
+        .link-content {
+            text-align: left;
+            flex-grow: 1;
+        }
 
-.link-desc {
-font-size: 12px;
-color: var(--text-gray);
-}
+        .link-title {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
 
-/* 限出租者標籤 */
-.badge {
-font-size: 10px;
-padding: 3px 8px;
-border-radius: 20px;
-font-weight: 700;
-margin-left: 10px;
-text-transform: uppercase;
-}
+        .link-desc {
+            font-size: 12px;
+            color: #aaa2b5;
+        }
 
-.badge-warning {
-background-color: rgba(249, 115, 22, 0.2);
-color: #ff8a5c;
-border: 1px solid rgba(249, 115, 22, 0.4);
-}
+        .badge {
+            font-size: 10px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-left: 10px;
+            background-color: rgba(235, 94, 40, 0.18);
+            color: #ff9a6e;
+            border: 1px solid rgba(235, 94, 40, 0.3);
+            letter-spacing: 0.5px;
+        }
 
-/* 專人聯絡雙欄排版 */
-.contact-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 12px;
-margin-top: 5px;
-width: 100%;
-}
+        /* 雙欄一對一玻璃名片 */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
 
-.contact-card {
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 18px 10px;
-background: rgba(255, 255, 255, 0.04);
-border: 1px solid rgba(255, 255, 255, 0.08);
-border-radius: 16px;
-text-decoration: none;
-color: #ffffff;
-transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
+        .contact-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 26px 14px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.002) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: var(--ease-premium) 0.4s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        }
 
-.contact-card:active, .contact-card:hover {
-background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(249, 115, 22, 0.05) 100%);
-border-color: var(--neon-orange);
-transform: translateY(-2px);
-box-shadow: 0 6px 15px rgba(249, 115, 22, 0.25);
-}
+        .contact-card:hover, .contact-card:active {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--neon-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.18);
+        }
 
-.contact-avatar {
-width: 46px;
-height: 46px;
-border-radius: 50%;
-background: #120c1f;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 20px;
-margin-bottom: 10px;
-border: 1px solid rgba(255, 255, 255, 0.1);
-box-shadow: inset 0 0 10px rgba(168, 85, 247, 0.3);
-}
+        .contact-avatar {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: #150d24;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+            transition: 0.35s var(--ease-premium);
+        }
 
-.contact-name {
-font-size: 14px;
-font-weight: 700;
-color: #f1e9ff;
-}
+        .contact-card:hover .contact-avatar {
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--neon-gold);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.45);
+        }
 
-/* 電話大按鈕樣式 */
-.primary-card {
-display: flex;
-align-items: center;
-padding: 20px;
-background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
-border: 1.5px solid var(--neon-blue);
-border-radius: 18px;
-color: #ffffff;
-text-decoration: none;
-transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
-width: 100%;
-}
+        .contact-name {
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: #faf3b3;
+            text-shadow: 0 0 6px rgba(245, 158, 11, 0.2);
+        }
 
-.primary-card:hover, .primary-card:active {
-background: linear-gradient(90deg, rgba(6, 182, 212, 0.25) 0%, rgba(168, 85, 247, 0.1) 100%);
-border-color: #ffffff;
-transform: translateY(-3px);
-box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
-}
+        /* 電話頻道卡片 */
+        .primary-card {
+            display: flex;
+            align-items: center;
+            padding: 24px;
+            background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, rgba(13, 8, 24, 0.5) 100%);
+            border: 1.5px solid var(--neon-blue);
+            border-radius: 22px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: var(--ease-premium) 0.4s;
+            box-shadow: 0 0 22px rgba(6, 182, 212, 0.15);
+            margin-bottom: 6px;
+        }
 
-.primary-icon {
-font-size: 26px;
-margin-right: 15px;
-filter: drop-shadow(0 0 5px var(--neon-blue));
-}
+        .primary-card:hover, .primary-card:active {
+            background: linear-gradient(90deg, rgba(6, 182, 212, 0.25) 0%, rgba(168, 85, 247, 0.06) 100%);
+            border-color: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+        }
 
-.primary-title {
-font-size: 17px;
-font-weight: 800;
-color: #ffffff;
-letter-spacing: 1px;
-margin-bottom: 4px;
-}
+        .primary-icon {
+            font-size: 28px;
+            margin-right: 18px;
+            filter: drop-shadow(0 0 8px var(--neon-blue));
+        }
 
-.primary-desc {
-font-size: 12px;
-color: #b2ced4;
-}
+        /* 5欄網格房號按鈕 */
+        .grid-rooms {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
 
-/* 5欄網格房間按鈕 */
-.grid-rooms {
-display: grid;
-grid-template-columns: repeat(5, 1fr);
-gap: 8px;
-width: 100%;
-}
+        .room-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 58px;
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            color: #ded7eb;
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 700;
+            transition: 0.25s var(--ease-premium);
+        }
 
-.room-item {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-height: 52px;
-background: rgba(255, 255, 255, 0.04);
-border: 1px solid rgba(255, 255, 255, 0.08);
-border-radius: 14px;
-color: #e2dbe9;
-text-decoration: none;
-font-size: 14px;
-font-weight: 700;
-transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
+        .room-item span {
+            font-size: 8px;
+            color: #766a85;
+            font-weight: 600;
+            margin-top: 3px;
+            letter-spacing: 0.5px;
+        }
 
-.room-item span {
-font-size: 8px;
-color: #7d758a;
-font-weight: 500;
-margin-top: 2px;
-}
+        .room-item:hover, .room-item:active {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(249, 115, 22, 0.2) 100%);
+            border-color: var(--neon-orange);
+            color: #ffffff;
+            transform: translateY(-5px) scale(1.07);
+            box-shadow: 0 6px 18px rgba(249, 115, 22, 0.38);
+        }
 
-.room-item:hover, .room-item:active {
-background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(249, 115, 22, 0.2) 100%);
-border-color: var(--neon-orange);
-color: #ffffff;
-transform: translateY(-4px) scale(1.05);
-box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
-}
+        .room-item:hover span {
+            color: #ffd4be;
+        }
 
-.room-item:hover span {
-color: #fbd5c0;
-}
+        /* 語音對談光纖導光條 */
+        .talk-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-/* 語音對談行條 */
-.talk-list {
-display: flex;
-flex-direction: column;
-gap: 12px;
-width: 100%;
-}
+        .talk-item {
+            display: flex;
+            align-items: center;
+            padding: 18px 24px;
+            background: linear-gradient(90deg, rgba(168, 85, 247, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%);
+            border: 1px solid rgba(168, 85, 247, 0.12);
+            border-left: 3px solid rgba(168, 85, 247, 0.35);
+            border-radius: 18px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: var(--ease-premium) 0.35s;
+        }
 
-.talk-item {
-display: flex;
-align-items: center;
-padding: 16px 20px;
-background: linear-gradient(90deg, rgba(168, 85, 247, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-border: 1px solid rgba(168, 85, 247, 0.25);
-border-radius: 18px;
-color: #ffffff;
-text-decoration: none;
-transition: all 0.3s ease;
-position: relative;
-overflow: hidden;
-width: 100%;
-}
+        .talk-item:hover, .talk-item:active {
+            border-color: var(--neon-purple);
+            border-left-color: var(--neon-cyan);
+            background: linear-gradient(90deg, rgba(168, 85, 247, 0.18) 0%, rgba(0, 243, 255, 0.04) 100%);
+            transform: translateX(6px);
+            box-shadow: 0 4px 18px rgba(168, 85, 247, 0.25);
+        }
 
-.talk-item::before {
-content: '';
-position: absolute;
-top: 0; left: -100%;
-width: 100%; height: 100%;
-background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.2), transparent);
-transition: 0.6s linear;
-}
+        /* 政策文件鈦金面板風格 */
+        .policy-content {
+            line-height: 1.8;
+            font-size: 14.5px;
+            color: #e1d8eb;
+        }
 
-.talk-item:hover::before {
-left: 100%;
-}
+        .policy-section {
+            margin-bottom: 30px;
+        }
 
-.talk-icon {
-font-size: 20px;
-margin-right: 14px;
-color: var(--neon-purple);
-filter: drop-shadow(0 0 5px var(--neon-purple));
-}
+        .policy-section-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--neon-gold);
+            margin-bottom: 15px;
+            border-left: 3.5px solid var(--neon-gold);
+            padding-left: 14px;
+            text-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+            letter-spacing: 0.5px;
+        }
 
-.talk-text {
-flex-grow: 1;
-font-size: 15px;
-font-weight: 700;
-color: #f1e9ff;
-letter-spacing: 1px;
-}
+        .policy-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-.talk-arrow {
-font-size: 12px;
-color: #5d546c;
-transition: transform 0.3s ease;
-}
+        .policy-item {
+            background: rgba(255, 255, 255, 0.005);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 18px 20px;
+            box-shadow: inset 0 1px 15px rgba(0,0,0,0.3);
+        }
 
-.talk-item:hover, .talk-item:active {
-border-color: var(--neon-purple);
-background: linear-gradient(90deg, rgba(168, 85, 247, 0.15) 0%, rgba(249, 115, 22, 0.05) 100%);
-transform: translateX(4px);
-box-shadow: 0 0 15px rgba(168, 85,
+        .policy-item-title {
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 6px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .policy-item-title span {
+            color: var(--neon-purple);
+            margin-right: 5px;
+        }
+
+        .policy-item-desc {
+            color: #aba3b8;
+            font-size: 13.5px;
+        }
+
+        .highlight-text {
+            color: var(--neon-pink);
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 59, 87, 0.35);
+        }
+
+        .highlight-blue {
+            color: var(--neon-cyan);
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.35);
+        }
+
+        .footer {
+            margin-top: 45px;
+            font-size: 11px;
+            color: #554e63;
+            letter-spacing: 2px;
+            opacity: 0.7;
+        }
+
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.96); box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); }
+            100% { transform: scale(1.04); box-shadow: 0 0 35px rgba(0, 243, 255, 0.6); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 賽博華麗標頭 -->
+    <div class="header">
+        <div class="logo-container">
+            <div class="logo-pulse"></div>
+            <div class="logo-inner">👻</div>
+        </div>
+        <h1 class="title">閒人案內所</h1>
+        <p class="subtitle">VIP Lounge Portal</p>
+    </div>
+
+    <!-- 3分頁切換導航 (3 Tabs) -->
+    <div class="tab-navigation">
+        <button class="tab-btn active" onclick="switchTab('home')">Lounge 導引門</button>
+        <button class="tab-btn" onclick="switchTab('rooms')">VIP 招待所</button>
+        <button class="tab-btn" onclick="switchTab('policy')">交付及退費政策</button>
+    </div>
+
+    <!-- 分頁 1：主頁 (專屬：聯絡與加群) -->
+    <div id="panel-home" class="tab-panel active">
+        <div class="card-box">
+            <div class="card-header">🏢 核心功能社群</div>
+
+            <a href="https://line.me/ti/g2/HjSXyaP1srrEd-vHV9h9uxaHtc4Q-NC4Z3VsXg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="link-card match-card" target="_blank">
+                <div class="link-icon">🤝</div>
+                <div class="link-content">
+                    <div class="link-title">求租．出租媒合</div>
+                    <div class="link-desc">尋找陪伴服務，或上架出租您的時間</div>
+                </div>
+            </a>
+
+            <a href="https://line.me/ti/g2/neX2NWHUb5KNngE6IKt7qj_1jlHjYuUON-k85w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="link-card chat-card" target="_blank">
+                <div class="link-icon">💬</div>
+                <div class="link-content">
+                    <div class="link-title">閒人聊天室 👻</div>
+                    <div class="link-desc">日常閒聊、交流與找尋同好的溫馨角落</div>
+                </div>
+            </a>
+
+            <a href="https://line.me/ti/g2/NHXeqbaUztcj7Hs_c8aXZWObCMAvAZoB2kAACQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="link-card room-card" target="_blank">
+                <div class="link-icon">💼</div>
+                <div class="link-content" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                    <div>
+                        <div class="link-title">會議室</div>
+                        <div class="link-desc">內部行政討論與通知專區</div>
+                    </div>
+                    <span class="badge">限出租者</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-box">
+            <div class="card-header">👤 一對一 專人聯絡</div>
+            <div class="contact-grid">
+                <a href="https://line.me/ti/p/mR19KggePp" class="contact-card" target="_blank">
+                    <div class="contact-avatar">👨‍💼</div>
+                    <div class="contact-name">聯絡所長</div>
+                </a>
+                <a href="https://line.me/ti/p/L1iM3COUPl" class="contact-card" target="_blank">
+                    <div class="contact-avatar">👩‍💼</div>
+                    <div class="contact-name">聯絡管管</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 分頁 2：VIP 招待所 (專屬：管制房號區) -->
+    <div id="panel-rooms" class="tab-panel">
+        <div class="card-box phone-box">
+            <div class="card-header blue-header">📞 HOTLINE ｜ 即時語音諮詢</div>
+            <a href="https://line.me/ti/g2/wxs8HU9a3dQJKFlBm1k-2qEYB3hPhIGrlFi6Ig?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="primary-card" target="_blank">
+                <div class="primary-icon">📞</div>
+                <div style="text-align: left;">
+                    <div style="font-size: 16px; font-weight: 800;">招待所 ➔ 電話專用頻道</div>
+                    <div style="font-size: 12px; color: #b2ced4;">點擊立刻進入語音聯絡，享受專人即時接待</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-box">
+            <div class="card-header">⚡ VIP Lounge ｜ 101 - 110（社群會員限定）</div>
+            <div class="grid-rooms">
+                <a href="https://line.me/ti/g2/_pozcfjocgAIcl5oXuMb0s1RJ0uKrlmKp8L84g?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">101<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/m4OF-0zcsdEALTD3QE4lpSkwfU8uZjZ3rsTqSQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">102<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/k2lIL7GMrhOquBmdFLw6r7Wpu-K0a_QM_p6MHA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">103<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/hlx3ehotkyYz307eerHCDhezkqlkIo9XXyH9Dg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">104<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/5HBoo3LVf3zmvU49X_1AmrnUAlO949XHltnrvA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">105<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/TmjoaxprqX5LMZIOEhQ9Dmp5hlirHKwyDr3CnQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">106<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/jU7YjqDh3ndA94BMpP6QKwnPfEth0dxT5q3dkg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">107<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/AwxKpQUhZf4HA2AS6HxMGG861ZnNxGDPVO8tTg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">108<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/AYcDvBN5lkxjPEyGR4QStfEdduJAVKSir9n7JA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">109<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/o_uIRGp-rTHkarNc0H9D5n5KMtUSl_FC9PlvvQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">110<span>ROOM</span></a>
+            </div>
+        </div>
+
+        <div class="card-box">
+            <div class="card-header">⚡ VIP Lounge ｜ 201 - 210（社群會員限定）</div>
+            <div class="grid-rooms">
+                <a href="https://line.me/ti/g2/fTDW_9l2FN74IF-163pWhH3nfgzPCWKcv0GaXQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">201<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/G82ouWUBpRvx1TWV6WbHKdh4fp3rNLJx10cicw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">202<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/yYxAF4LPd4n4gxZAGpmRUIyoHl06unOuOPsJGg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">203<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/ZEvB1tJOkQRXysiLR15gIwtJb2IRNZI0ZTUyvA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">204<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/-iIOpFDLnPY5PcRKJj0jYw2V0-pWYVRScHZE5w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">205<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/a7wG0W_ZUg1Lu1ADbrTlA0p1BdsPJs4J5Q8BQg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">206<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/JNCL2JNdFD8OHUqXNpYvybo25hwnAcugJkce6Q?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">207<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/GfUp7qx4DO6do_S8TZUgTwdpmwht0djXYIfbKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">208<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/m1uOuZNgJA07iCzdvy4POGc9ZZpgKjJ2i0zq8Q?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">209<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/3eeJF2Og-tHV1T6Zq6c0RaiEbnrJgkt_Ms48nA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="room-item" target="_blank">210<span>ROOM</span></a>
+            </div>
+        </div>
+
+        <div class="card-box">
+            <div class="card-header">🔮 Live Chat ｜ 線上即時互動對談</div>
+            <div class="talk-list">
+                <a href="https://line.me/R/meeting/e542693b760742ee86658f38d8e03508" class="talk-item" target="_blank">
+                    <span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
+                    <span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 1</span>
+                    <span style="font-size: 12px; color: #5d546c;">➔</span>
+                </a>
+                <a href="https://line.me/R/meeting/21671530b37848ca81deaa9364d3c56a" class="talk-item" target="_blank">
+                    <span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
+                    <span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 2</span>
+                    <span style="font-size: 12px; color: #5d546c;">➔</span>
+                </a>
+                <a href="https://line.me/R/meeting/25f77373437b479d96a6fb1d0fbcfad1" class="talk-item" target="_blank">
+                    <span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
+                    <span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 3</span>
+                    <span style="font-size: 12px; color: #5d546c;">➔</span>
+                </a>
+                <a href="https://line.me/R/meeting/658f31b379fb4cd69edf43bb0d08dbd0" class="talk-item" target="_blank">
+                    <span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
+                    <span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 4</span>
+                    <span style="font-size: 12px; color: #5d546c;">➔</span>
+                </a>
+                <a href="https://line.me/R/meeting/fed096a8acd5409bb79688119c1ac43b" class="talk-item" target="_blank">
+                    <span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
+                    <span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 5</span>
+                    <span style="font-size: 12px; color: #5d546c;">➔</span>
+                </a>
+                <a href="https://line.me/R/meeting/4f094712f1e04dae915f5b8f9e6b6c0a" class="talk-item" target="_blank">
+                    <span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
+                    <span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 6</span>
+                    <span style="font-size: 12px; color: #5d546c;">➔</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 分頁 3：交付及退費政策 (專屬：其餘官方政策) -->
+    <div id="panel-policy" class="tab-panel">
+        <div class="card-box policy-content">
+            <div class="policy-section">
+                <div class="policy-section-title">一、 服務預約與建立服務之 SOP</div>
+                <ul class="policy-list">
+                    <li class="policy-item">
+                        <div class="policy-item-title"><span>1.</span> 客戶線上預約</div>
+                        <div class="policy-item-desc">客戶透過官方管道諮詢，並選擇所需的生活陪伴項目（如：探店飯友、遊戲陪玩、語意傾聽）。</div>
+                    </li>
+                    <li class="policy-item">
+                        <div class="policy-item-title"><span>2.</span> 雙方合意與守則確認</div>
+                        <div class="policy-item-desc">平台提供詳細價目表與《服務守則》（內含：<span class="highlight-text">嚴禁肢體接觸</span>、車內禁菸、違規將立即終止服務等規範）。客戶確認同意後，方可進入付款程序。</div>
+                    </li>
+                    <li class="policy-item">
+                        <div class="policy-item-title"><span>3.</span> 金流支付（訂金/全額）</div>
+                        <div class="policy-item-desc">客戶透過金流系統支付服務費用（或支付 30% 訂金+車資）。付款完成後，系統正式建立訂單並鎖定夥伴出勤時間。</div>
+                    </li>
+                    <li class="policy-item">
+                        <div class="policy-item-title"><span>4.</span> 平台指派與服務履行</div>
+                        <div class="policy-item-desc">平台指派陪伴夥伴依約前往指定公共場所（如餐廳、咖啡廳）履行實體陪伴服務，或於線上進行陪玩與語音互動.</div>
+                    </li>
+                    <li class="policy-item">
+                        <div class="policy-item-title"><span>5.</span> 服務確認與結案</div>
+                        <div class="policy-item-desc">服務完成後，夥伴與客戶互相回報。平台於後台對帳系統標記「服務完成」，案件結案。</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <div class="policy-section-title">二、 最長預付期</div>
+                <ul class="policy-list">
+                    <li class="policy-item">
+                        <div class="policy-item-title"><span>•</span> 最長預付期限</div>
+                        <div class="policy-item-desc">本平台之服務預約，最長預付期以<span class="highlight-text">「1個月（30天）」</span>為限。</div>
+                    </li>
+                    <li class="policy-item">
+                        <div class="policy-item-title"><span>•</span> 控管機制</div>
+                        <div class="policy-item-desc">客戶下單預約之時間，僅能選擇自付款日起算 30 天內之檔期，不接受超過 30 天以上之遠期預約，以降低預收款項之延遲交付風險。</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <div class="policy-section-title">三、 服務交付與退款政策</div>
+                <ul class="policy-list">
+                    <li class="policy-item">
+                        <div class="policy-item-title"><span>1.</span> 服務履行確認（完成交付）</div>
+                        <div class="policy-item-desc" style="margin-bottom: 8px;">
+                            <strong style="color:var(--neon-gold);">線下陪同（探店/飯友）：</strong><br>服務當日由出勤夥伴與客戶於約地地點會合。服務完成時，夥伴於系統回報。服務結束後 <span class="highlight-blue">24 小時內</span>無任何爭議回報，即視為「服務已完整交付」。
+                        </div>
+                        <div class="policy-item-desc">
+                            <strong style="color:var(--neon-gold);">線上服務（陪玩/掛睡）：</strong><br>於約定之線上時段完成陪伴後，<span class="highlight-blue">24 小時內</span>無爭議回報即視為完成交付。
+                        </div>
+                    </li>
+
+                    <li class="policy-item">
+                        <div class="policy-item-title"><span>2.</span> 退費與改期規範（特殊情況）</div>
+                        <div class="policy-item-desc">
+                            <strong style="color:var(--neon-gold);">非可歸責於客戶之取消（如天災、夥伴缺席）：</strong><br>平台將協助安排改期，若客戶不願改期，平台將於 <span class="highlight-blue">3 個工作天內</span>主動辦理全額退費。
+                        </div>
+                        <div class="policy-item-desc" style="margin-top: 8px;">
+                            <strong style="color:var(--neon-gold);">客戶主動取消：</strong><br>
+                            • 約定服務時間 <span class="highlight-text">一個禮拜（7天）前</span>取消：退還餘額（扣除必要之金流手續費）。<br>
+                            • 約定服務時間 <span class="highlight-text">一個禮拜（7天）內</span>取消 : <span class="highlight-text">沒收訂金/服務費用</span>（用以補償出勤夥伴已付出之排班與交通預備成本）。
+                        </div>
+                    </li>
+
+                    <li class="policy-item">
+                        <div class="policy-item-title"><span>3.</span> 交易糾紛與申訴管道</div>
+                        <div class="policy-item-desc" style="margin-bottom: 8px;">
+                            本平台設有專屬客戶服務管道（LINE官方帳號客服）。若有任何服務不符之處，請於服務結束後 <span class="highlight-blue">24 小時內</span>提出申訴。
+                        </div>
+                        <div class="policy-item-desc">
+                            平台客服將於收到申訴後 <span class="highlight-blue">48 小時內</span>完成事實釐清。若確認夥伴違約（遲到、早退、態度惡劣），將依比例或全額退款（退刷至原支付信用卡或帳戶）。
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <div class="footer">
+        &copy; 2026 閒人案內所 ｜ 頂級生活陪伴體驗
+    </div>
+
+</div>
+
+<!-- 三分頁流暢切換 + 密碼驗證鎖 JavaScript -->
+<script>
+    let isUnlocked = false;
+
+    function switchTab(tabId) {
+        if (tabId === 'rooms' && !isUnlocked) {
+            let password = prompt("🔒 此頁面為【社群會員限定】\n請輸入專屬通關密碼：");
+
+            if (password === "0126") {
+                alert("🔓 密碼正確！已為您導引至 VIP 招待所。");
+                isUnlocked = true;
+            } else {
+                alert("❌ 密碼錯誤或取消輸入！無法進入管制專區。");
+                return;
+            }
+        }
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-panel').forEach(panel => {
+            panel.classList.remove('active');
+        });
+
+        if (tabId === 'home') {
+            document.querySelectorAll('.tab-btn')[0].classList.add('active');
+            document.getElementById('panel-home').classList.add('active');
+        } else if (tabId === 'rooms') {
+            document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            document.getElementById('panel-rooms').classList.add('active');
+        } else if (tabId === 'policy') {
+            document.querySelectorAll('.tab-btn')[2].classList.add('active');
+            document.getElementById('panel-policy').classList.add('active');
+        }
+    }
+</script>
+</body>
+</html>
