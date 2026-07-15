@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>閒人案內所 ｜ 頂級生活陪伴平台</title>
+<style>
+:root {
+--bg-dark: #06040a;
+--neon-gold: #f59e0b;
+--neon-purple: #a855f7;
+--neon-orange: #f97316;
+--neon-blue: #06b6d4;
+--text-light: #ffffff;
+--text-gray: #a7a2b5;
+--card-glass: rgba(18, 12, 30, 0.95); /* 提高不透明度，防止磨砂玻璃濾鏡在部分 Chrome 瀏覽器塌陷 */
+--border-glow: rgba(168, 85, 247, 0.35);
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+-webkit-tap-highlight-color: transparent;
+}
+
+body {
+background-color: var(--bg-dark);
+background-image:
+radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.2) 0%, transparent 50%),
+radial-gradient(circle at 100% 30%, rgba(249, 115, 22, 0.15) 0%, transparent 40%),
+radial-gradient(circle at 0% 80%, rgba(138, 75, 245, 0.15) 0%, transparent 50%);
+color: var(--text-light);
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+padding: 40px 15px;
+overflow-y: auto;
+overflow-x: hidden;
+}
+
+.container {
+width: 100%;
+max-width: 480px;
+margin: 0 auto;
+text-align: center;
+position: relative;
+z-index: 1;
+display: block; /* 確保容器不會塌陷 */
+}
+
+/* 華麗動態標頭 */
+.header {
+margin-bottom: 25px;
+width: 100%;
+}
+
+.logo-container {
+position: relative;
+width: 90px;
+height: 90px;
+margin: 0 auto 15px;
+}
+
+.logo-pulse {
+position: absolute;
+width: 100%; height: 100%;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--neon-purple), var(--neon-orange));
+animation: pulseGlow 2s infinite alternate;
+filter: blur(8px);
+opacity: 0.8;
+}
+
+.logo-inner {
+position: absolute;
+top: 2px; left: 2px; right: 2px; bottom: 2px;
+background: #120c1f;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 38px;
+border: 1px solid rgba(255, 255, 255, 0.1);
+box-shadow: inset 0 0 15px rgba(168, 85, 247, 0.4);
+}
+
+.title {
+font-size: 28px;
+font-weight: 900;
+letter-spacing: 3px;
+margin-bottom: 6px;
+background: linear-gradient(90deg, #ffffff, var(--neon-gold), var(--neon-orange));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.3));
+}
+
+.subtitle {
+font-size: 12px;
+color: var(--text-gray);
+letter-spacing: 3px;
+text-transform: uppercase;
+}
+
+/* 賽博三分頁切換導航 */
+.tab-navigation {
+display: flex;
+background: rgba(255, 255, 255, 0.05);
+border: 1px solid rgba(255, 255, 255, 0.1);
+border-radius: 14px;
+padding: 4px;
+margin-bottom: 30px;
+gap: 4px;
+width: 100%;
+}
+
+.tab-btn {
+flex: 1;
+padding: 12px 2px;
+background: none;
+border: none;
+color: var(--text-gray);
+font-size: 13px;
+font-weight: 700;
+border-radius: 10px;
+cursor: pointer;
+transition: all 0.3s ease;
+white-space: nowrap;
+}
+
+.tab-btn.active {
+color: #ffffff;
+background: linear-gradient(135deg, rgba(168, 85, 247, 0.45) 0%, rgba(249, 115, 22, 0.35) 100%);
+border: 1px solid rgba(168, 85, 247, 0.4);
+box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* 內容面板控制 */
+.tab-panel {
+display: none;
+width: 100%;
+animation: fadeIn 0.4s ease forwards;
+}
+
+.tab-panel.active {
+display: block;
+}
+
+/* 卡片與容器樣式 */
+.card-box {
+background: var(--card-glass);
+border: 1px solid var(--border-glow);
+border-radius: 24px;
+padding: 24px 16px;
+margin-bottom: 25px;
+box-shadow: 0 0 25px rgba(168, 85, 247, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.02);
+text-align: left;
+width: 100%;
+}
+
+.card-box.phone-box {
+border-color: rgba(6, 182, 212, 0.5);
+box-shadow: 0 0 25px rgba(6, 182, 212, 0.2);
+}
+
+.card-header {
+font-size: 15px;
+font-weight: 800;
+color: var(--neon-gold);
+margin-bottom: 18px;
+display: flex;
+align-items: center;
+gap: 10px;
+letter-spacing: 2px;
+text-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+}
+
+.card-header.blue-header {
+color: var(--neon-blue);
+text-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+}
+
+.card-header::after {
+content: '';
+flex-grow: 1;
+height: 2px;
+background: linear-gradient(to right, rgba(245, 158, 11, 0.5), transparent);
+}
+
+.card-header.blue-header::after {
+background: linear-gradient(to right, rgba(6, 182, 212, 0.5), transparent);
+}
+
+/* 分組標題 */
+.section-title {
+font-size: 13px;
+text-transform: uppercase;
+letter-spacing: 2px;
+color: #9a8eb8;
+margin: 25px 0 12px;
+text-align: left;
+padding-left: 5px;
+font-weight: 700;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+/* 連結列表 */
+.links-group {
+display: flex;
+flex-direction: column;
+gap: 14px;
+margin-bottom: 10px;
+width: 100%;
+}
+
+/* 按鈕與卡片基礎 */
+.link-card {
+display: flex;
+align-items: center;
+padding: 16px 20px;
+background: rgba(255, 255, 255, 0.04);
+border: 1px solid rgba(255, 255, 255, 0.08);
+border-radius: 16px;
+text-decoration: none;
+color: #ffffff;
+transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+position: relative;
+overflow: hidden;
+width: 100%;
+}
+
+.link-card:active, .link-card:hover {
+background: rgba(255, 255, 255, 0.08);
+border-color: var(--neon-purple);
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(168, 85, 247, 0.25);
+}
+
+.link-card.primary {
+border-color: rgba(138, 75, 245, 0.5);
+background: linear-gradient(90deg, rgba(138, 75, 245, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.link-card.primary:active, .link-card.primary:hover {
+border-color: var(--neon-purple);
+box-shadow: 0 6px 20px rgba(138, 75, 245, 0.35);
+}
+
+.link-icon {
+font-size: 22px;
+margin-right: 15px;
+width: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.link-content {
+text-align: left;
+flex-grow: 1;
+}
+
+.link-title {
+font-size: 16px;
+font-weight: 700;
+margin-bottom: 2px;
+color: #f1e9ff;
+}
+
+.link-desc {
+font-size: 12px;
+color: var(--text-gray);
+}
+
+/* 限出租者標籤 */
+.badge {
+font-size: 10px;
+padding: 3px 8px;
+border-radius: 20px;
+font-weight: 700;
+margin-left: 10px;
+text-transform: uppercase;
+}
+
+.badge-warning {
+background-color: rgba(249, 115, 22, 0.2);
+color: #ff8a5c;
+border: 1px solid rgba(249, 115, 22, 0.4);
+}
+
+/* 專人聯絡雙欄排版 */
+.contact-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+margin-top: 5px;
+width: 100%;
+}
+
+.contact-card {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 18px 10px;
+background: rgba(255, 255, 255, 0.04);
+border: 1px solid rgba(255, 255, 255, 0.08);
+border-radius: 16px;
+text-decoration: none;
+color: #ffffff;
+transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.contact-card:active, .contact-card:hover {
+background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(249, 115, 22, 0.05) 100%);
+border-color: var(--neon-orange);
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(249, 115, 22, 0.25);
+}
+
+.contact-avatar {
+width: 46px;
+height: 46px;
+border-radius: 50%;
+background: #120c1f;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+margin-bottom: 10px;
+border: 1px solid rgba(255, 255, 255, 0.1);
+box-shadow: inset 0 0 10px rgba(168, 85, 247, 0.3);
+}
+
+.contact-name {
+font-size: 14px;
+font-weight: 700;
+color: #f1e9ff;
+}
+
+/* 電話大按鈕樣式 */
+.primary-card {
+display: flex;
+align-items: center;
+padding: 20px;
+background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+border: 1.5px solid var(--neon-blue);
+border-radius: 18px;
+color: #ffffff;
+text-decoration: none;
+transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+width: 100%;
+}
+
+.primary-card:hover, .primary-card:active {
+background: linear-gradient(90deg, rgba(6, 182, 212, 0.25) 0%, rgba(168, 85, 247, 0.1) 100%);
+border-color: #ffffff;
+transform: translateY(-3px);
+box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+}
+
+.primary-icon {
+font-size: 26px;
+margin-right: 15px;
+filter: drop-shadow(0 0 5px var(--neon-blue));
+}
+
+.primary-title {
+font-size: 17px;
+font-weight: 800;
+color: #ffffff;
+letter-spacing: 1px;
+margin-bottom: 4px;
+}
+
+.primary-desc {
+font-size: 12px;
+color: #b2ced4;
+}
+
+/* 5欄網格房間按鈕 */
+.grid-rooms {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+gap: 8px;
+width: 100%;
+}
+
+.room-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 52px;
+background: rgba(255, 255, 255, 0.04);
+border: 1px solid rgba(255, 255, 255, 0.08);
+border-radius: 14px;
+color: #e2dbe9;
+text-decoration: none;
+font-size: 14px;
+font-weight: 700;
+transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.room-item span {
+font-size: 8px;
+color: #7d758a;
+font-weight: 500;
+margin-top: 2px;
+}
+
+.room-item:hover, .room-item:active {
+background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(249, 115, 22, 0.2) 100%);
+border-color: var(--neon-orange);
+color: #ffffff;
+transform: translateY(-4px) scale(1.05);
+box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+}
+
+.room-item:hover span {
+color: #fbd5c0;
+}
+
+/* 語音對談行條 */
+.talk-list {
+display: flex;
+flex-direction: column;
+gap: 12px;
+width: 100%;
+}
+
+.talk-item {
+display: flex;
+align-items: center;
+padding: 16px 20px;
+background: linear-gradient(90deg, rgba(168, 85, 247, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+border: 1px solid rgba(168, 85, 247, 0.25);
+border-radius: 18px;
+color: #ffffff;
+text-decoration: none;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+width: 100%;
+}
+
+.talk-item::before {
+content: '';
+position: absolute;
+top: 0; left: -100%;
+width: 100%; height: 100%;
+background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.2), transparent);
+transition: 0.6s linear;
+}
+
+.talk-item:hover::before {
+left: 100%;
+}
+
+.talk-icon {
+font-size: 20px;
+margin-right: 14px;
+color: var(--neon-purple);
+filter: drop-shadow(0 0 5px var(--neon-purple));
+}
+
+.talk-text {
+flex-grow: 1;
+font-size: 15px;
+font-weight: 700;
+color: #f1e9ff;
+letter-spacing: 1px;
+}
+
+.talk-arrow {
+font-size: 12px;
+color: #5d546c;
+transition: transform 0.3s ease;
+}
+
+.talk-item:hover, .talk-item:active {
+border-color: var(--neon-purple);
+background: linear-gradient(90deg, rgba(168, 85, 247, 0.15) 0%, rgba(249, 115, 22, 0.05) 100%);
+transform: translateX(4px);
+box-shadow: 0 0 15px rgba(168, 85,
