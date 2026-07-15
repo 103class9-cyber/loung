@@ -17,8 +17,8 @@
             --text-gray: #9c97aa;
             --card-glass: rgba(13, 9, 24, 0.78);
             --border-glow: rgba(168, 85, 247, 0.15);
-            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             --ease-premium: cubic-bezier(0.25, 1, 0.3, 1);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -40,12 +40,11 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 40px 15px;
+            padding: 40px 12px;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* 秩序矩陣微光底紋 */
         body::before {
             content: '';
             position: fixed;
@@ -65,9 +64,8 @@
             z-index: 1;
         }
 
-        /* 標頭設計 */
         .header {
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .logo-container {
@@ -119,34 +117,33 @@
             opacity: 0.7;
         }
 
-        /* 高級懸浮分頁導航條 */
+        /* 4分頁微調膠囊導航（防擠壓優化） */
         .tab-navigation {
             display: flex;
             background: rgba(10, 6, 20, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            padding: 6px;
-            margin-bottom: 35px;
+            padding: 5px;
+            margin-bottom: 30px;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            gap: 4px;
+            gap: 3px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.04);
         }
 
         .tab-btn {
             flex: 1;
-            padding: 13px 4px;
+            padding: 12px 2px;
             background: none;
             border: none;
             color: var(--text-gray);
-            font-size: 13px;
+            font-size: 11.5px;
             font-weight: 700;
             border-radius: 14px;
             cursor: pointer;
             transition: var(--transition-smooth);
             white-space: nowrap;
-            letter-spacing: 0.5px;
-            position: relative;
+            letter-spacing: 0.3px;
         }
 
         .tab-btn:hover {
@@ -157,12 +154,12 @@
             color: #ffffff;
             background: linear-gradient(135deg, rgba(168, 85, 247, 0.4) 0%, rgba(0, 243, 255, 0.2) 100%);
             border: 1px solid rgba(168, 85, 245, 0.45);
-            box-shadow: 0 0 20px rgba(168, 85, 245, 0.3);
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(168, 85, 245, 0.3);
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+            transform: scale(1.02);
         }
 
-        /* 深邃立體玻璃卡片盒 */
+        /* 卡片主體 */
         .card-box {
             background: var(--card-glass);
             border: 1px solid var(--border-glow);
@@ -208,7 +205,7 @@
             background: linear-gradient(to right, rgba(6, 182, 212, 0.4), transparent);
         }
 
-        /* 導引門生動流光卡片 */
+        /* 導引門按鈕 */
         .link-card {
             display: flex;
             align-items: center;
@@ -234,9 +231,7 @@
             transition: 0.55s ease;
         }
 
-        .link-card:hover::before, .link-card:active::before {
-            left: 150%;
-        }
+        .link-card:hover::before, .link-card:active::before { left: 150%; }
 
         .link-card.match-card {
             border: 1px solid rgba(249, 115, 22, 0.35);
@@ -280,280 +275,61 @@
         .match-card .link-icon { filter: drop-shadow(0 0 8px var(--neon-orange)); }
         .chat-card .link-icon { filter: drop-shadow(0 0 8px var(--neon-purple)); }
 
-        .link-content {
-            text-align: left;
-            flex-grow: 1;
-        }
+        .link-content { text-align: left; flex-grow: 1; }
+        .link-title { font-size: 16px; font-weight: 800; margin-bottom: 4px; letter-spacing: 0.5px; }
+        .link-desc { font-size: 12px; color: #aaa2b5; }
+        .badge { font-size: 10px; padding: 4px 10px; border-radius: 20px; font-weight: 700; margin-left: 10px; background-color: rgba(235, 94, 40, 0.18); color: #ff9a6e; border: 1px solid rgba(235, 94, 40, 0.3); letter-spacing: 0.5px; }
 
-        .link-title {
-            font-size: 16px;
-            font-weight: 800;
-            margin-bottom: 4px;
-            letter-spacing: 0.5px;
-        }
+        /* 一對一名片 */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .contact-card { display: flex; flex-direction: column; align-items: center; padding: 26px 14px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.002) 100%); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 24px; text-decoration: none; color: #ffffff; transition: var(--ease-premium) 0.4s; box-shadow: 0 8px 25px rgba(0,0,0,0.35); }
+        .contact-card:hover, .contact-card:active { background: rgba(255, 255, 255, 0.04); border-color: var(--neon-gold); transform: translateY(-6px); box-shadow: 0 12px 30px rgba(245, 158, 11, 0.18); }
+        .contact-avatar { width: 54px; height: 54px; border-radius: 50%; background: #150d24; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 14px; border: 1px solid rgba(245, 158, 11, 0.25); box-shadow: 0 0 15px rgba(245, 158, 11, 0.15); transition: 0.35s var(--ease-premium); }
+        .contact-card:hover .contact-avatar { transform: scale(1.1) rotate(5deg); border-color: var(--neon-gold); box-shadow: 0 0 20px rgba(245, 158, 11, 0.45); }
+        .contact-name { font-weight: 800; font-size: 14px; letter-spacing: 1px; color: #faf3b3; text-shadow: 0 0 6px rgba(245, 158, 11, 0.2); }
 
-        .link-desc {
-            font-size: 12px;
-            color: #aaa2b5;
-        }
+        /* 招待所專用 */
+        .primary-card { display: flex; align-items: center; padding: 24px; background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, rgba(13, 8, 24, 0.5) 100%); border: 1.5px solid var(--neon-blue); border-radius: 22px; color: #ffffff; text-decoration: none; transition: var(--ease-premium) 0.4s; box-shadow: 0 0 22px rgba(6, 182, 212, 0.15); margin-bottom: 6px; }
+        .primary-card:hover, .primary-card:active { background: linear-gradient(90deg, rgba(6, 182, 212, 0.25) 0%, rgba(168, 85, 247, 0.06) 100%); border-color: #ffffff; transform: translateY(-5px); box-shadow: 0 0 30px rgba(6, 182, 212, 0.5); }
+        .primary-icon { font-size: 28px; margin-right: 18px; filter: drop-shadow(0 0 8px var(--neon-blue)); }
+        .grid-rooms { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+        .room-item { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 58px; background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; color: #ded7eb; text-decoration: none; font-size: 14.5px; font-weight: 700; transition: 0.25s var(--ease-premium); }
+        .room-item span { font-size: 8px; color: #766a85; font-weight: 600; margin-top: 3px; letter-spacing: 0.5px; }
+        .room-item:hover, .room-item:active { background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(249, 115, 22, 0.2) 100%); border-color: var(--neon-orange); color: #ffffff; transform: translateY(-5px) scale(1.07); box-shadow: 0 6px 18px rgba(249, 115, 22, 0.38); }
+        .room-item:hover span { color: #ffd4be; }
+        .talk-list { display: flex; flex-direction: column; gap: 12px; }
+        .talk-item { display: flex; align-items: center; padding: 18px 24px; background: linear-gradient(90deg, rgba(168, 85, 247, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%); border: 1px solid rgba(168, 85, 247, 0.12); border-left: 3px solid rgba(168, 85, 247, 0.35); border-radius: 18px; color: #ffffff; text-decoration: none; transition: var(--ease-premium) 0.35s; }
+        .talk-item:hover, .talk-item:active { border-color: var(--neon-purple); border-left-color: var(--neon-cyan); background: linear-gradient(90deg, rgba(168, 85, 247, 0.18) 0%, rgba(0, 243, 255, 0.04) 100%); transform: translateX(6px); box-shadow: 0 4px 18px rgba(168, 85, 247, 0.25); }
 
-        .badge {
-            font-size: 10px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 700;
-            margin-left: 10px;
-            background-color: rgba(235, 94, 40, 0.18);
-            color: #ff9a6e;
-            border: 1px solid rgba(235, 94, 40, 0.3);
-            letter-spacing: 0.5px;
-        }
+        /* 公告與政策樣式 */
+        .policy-content { line-height: 1.8; font-size: 14.5px; color: #e1d8eb; }
+        .policy-section { margin-bottom: 30px; }
+        .policy-section-title { font-size: 16px; font-weight: 800; color: var(--neon-gold); margin-bottom: 15px; border-left: 3.5px solid var(--neon-gold); padding-left: 14px; text-shadow: 0 0 12px rgba(245, 158, 11, 0.35); letter-spacing: 0.5px; }
+        .policy-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .policy-item { background: rgba(255, 255, 255, 0.005); border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 16px; padding: 18px 20px; box-shadow: inset 0 1px 15px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
+        
+        /* 公告專屬左側彩條 */
+        .policy-item.notice-cyan { border-left: 3.5px solid var(--neon-cyan); }
+        .policy-item.notice-pink { border-left: 3.5px solid var(--neon-pink); }
+        .policy-item.notice-blue { border-left: 3.5px solid var(--neon-blue); }
 
-        /* 雙欄一對一玻璃名片 */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
+        .policy-item-title { font-weight: 800; color: #ffffff; margin-bottom: 6px; font-size: 15px; letter-spacing: 0.5px; }
+        .policy-item-title span { color: var(--neon-purple); margin-right: 5px; }
+        .policy-item-desc { color: #aba3b8; font-size: 13.5px; }
+        
+        /* 亮色強調 */
+        .highlight-text { color: var(--neon-pink); font-weight: 700; text-shadow: 0 0 10px rgba(255, 59, 87, 0.35); }
+        .highlight-blue { color: var(--neon-cyan); font-weight: 700; text-shadow: 0 0 10px rgba(0, 243, 255, 0.35); }
+        .highlight-gold { color: var(--neon-gold); font-weight: 700; text-shadow: 0 0 10px rgba(245, 158, 11, 0.35); }
 
-        .contact-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 26px 14px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.002) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 24px;
-            text-decoration: none;
-            color: #ffffff;
-            transition: var(--ease-premium) 0.4s;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-        }
-
-        .contact-card:hover, .contact-card:active {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: var(--neon-gold);
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.18);
-        }
-
-        .contact-avatar {
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            background: #150d24;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 14px;
-            border: 1px solid rgba(245, 158, 11, 0.25);
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
-            transition: 0.35s var(--ease-premium);
-        }
-
-        .contact-card:hover .contact-avatar {
-            transform: scale(1.1) rotate(5deg);
-            border-color: var(--neon-gold);
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.45);
-        }
-
-        .contact-name {
-            font-weight: 800;
-            font-size: 14px;
-            letter-spacing: 1px;
-            color: #faf3b3;
-            text-shadow: 0 0 6px rgba(245, 158, 11, 0.2);
-        }
-
-        /* 電話頻道卡片 */
-        .primary-card {
-            display: flex;
-            align-items: center;
-            padding: 24px;
-            background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, rgba(13, 8, 24, 0.5) 100%);
-            border: 1.5px solid var(--neon-blue);
-            border-radius: 22px;
-            color: #ffffff;
-            text-decoration: none;
-            transition: var(--ease-premium) 0.4s;
-            box-shadow: 0 0 22px rgba(6, 182, 212, 0.15);
-            margin-bottom: 6px;
-        }
-
-        .primary-card:hover, .primary-card:active {
-            background: linear-gradient(90deg, rgba(6, 182, 212, 0.25) 0%, rgba(168, 85, 247, 0.06) 100%);
-            border-color: #ffffff;
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
-        }
-
-        .primary-icon {
-            font-size: 28px;
-            margin-right: 18px;
-            filter: drop-shadow(0 0 8px var(--neon-blue));
-        }
-
-        /* 5欄網格房號按鈕 */
-        .grid-rooms {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-        }
-
-        .room-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 58px;
-            background: rgba(255, 255, 255, 0.015);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
-            color: #ded7eb;
-            text-decoration: none;
-            font-size: 14.5px;
-            font-weight: 700;
-            transition: 0.25s var(--ease-premium);
-        }
-
-        .room-item span {
-            font-size: 8px;
-            color: #766a85;
-            font-weight: 600;
-            margin-top: 3px;
-            letter-spacing: 0.5px;
-        }
-
-        .room-item:hover, .room-item:active {
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(249, 115, 22, 0.2) 100%);
-            border-color: var(--neon-orange);
-            color: #ffffff;
-            transform: translateY(-5px) scale(1.07);
-            box-shadow: 0 6px 18px rgba(249, 115, 22, 0.38);
-        }
-
-        .room-item:hover span {
-            color: #ffd4be;
-        }
-
-        /* 語音對談光纖導光條 */
-        .talk-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .talk-item {
-            display: flex;
-            align-items: center;
-            padding: 18px 24px;
-            background: linear-gradient(90deg, rgba(168, 85, 247, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%);
-            border: 1px solid rgba(168, 85, 247, 0.12);
-            border-left: 3px solid rgba(168, 85, 247, 0.35);
-            border-radius: 18px;
-            color: #ffffff;
-            text-decoration: none;
-            transition: var(--ease-premium) 0.35s;
-        }
-
-        .talk-item:hover, .talk-item:active {
-            border-color: var(--neon-purple);
-            border-left-color: var(--neon-cyan);
-            background: linear-gradient(90deg, rgba(168, 85, 247, 0.18) 0%, rgba(0, 243, 255, 0.04) 100%);
-            transform: translateX(6px);
-            box-shadow: 0 4px 18px rgba(168, 85, 247, 0.25);
-        }
-
-        /* 政策文件鈦金面板風格 */
-        .policy-content {
-            line-height: 1.8;
-            font-size: 14.5px;
-            color: #e1d8eb;
-        }
-
-        .policy-section {
-            margin-bottom: 30px;
-        }
-
-        .policy-section-title {
-            font-size: 16px;
-            font-weight: 800;
-            color: var(--neon-gold);
-            margin-bottom: 15px;
-            border-left: 3.5px solid var(--neon-gold);
-            padding-left: 14px;
-            text-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
-            letter-spacing: 0.5px;
-        }
-
-        .policy-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .policy-item {
-            background: rgba(255, 255, 255, 0.005);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 18px 20px;
-            box-shadow: inset 0 1px 15px rgba(0,0,0,0.3);
-        }
-
-        .policy-item-title {
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 6px;
-            font-size: 15px;
-            letter-spacing: 0.5px;
-        }
-
-        .policy-item-title span {
-            color: var(--neon-purple);
-            margin-right: 5px;
-        }
-
-        .policy-item-desc {
-            color: #aba3b8;
-            font-size: 13.5px;
-        }
-
-        .highlight-text {
-            color: var(--neon-pink);
-            font-weight: 700;
-            text-shadow: 0 0 10px rgba(255, 59, 87, 0.35);
-        }
-
-        .highlight-blue {
-            color: var(--neon-cyan);
-            font-weight: 700;
-            text-shadow: 0 0 10px rgba(0, 243, 255, 0.35);
-        }
-
-        .footer {
-            margin-top: 45px;
-            font-size: 11px;
-            color: #554e63;
-            letter-spacing: 2px;
-            opacity: 0.7;
-        }
-
-        .tab-panel {
-            display: none;
-            animation: fadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .tab-panel.active {
-            display: block;
-        }
+        .footer { margin-top: 45px; font-size: 11px; color: #554e63; letter-spacing: 2px; opacity: 0.7; }
+        .tab-panel { display: none; animation: fadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .tab-panel.active { display: block; }
 
         @keyframes pulseGlow {
             0% { transform: scale(0.96); box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); }
             100% { transform: scale(1.04); box-shadow: 0 0 35px rgba(0, 243, 255, 0.6); }
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -574,14 +350,15 @@
         <p class="subtitle">VIP Lounge Portal</p>
     </div>
 
-    <!-- 3分頁切換導航 (3 Tabs) -->
+    <!-- 4分頁切換導航（已優化間距與字體） -->
     <div class="tab-navigation">
-        <button class="tab-btn active" onclick="switchTab('home')">Lounge 導引門</button>
+        <button class="tab-btn active" onclick="switchTab('home')">Lounge 導引</button>
         <button class="tab-btn" onclick="switchTab('rooms')">VIP 招待所</button>
-        <button class="tab-btn" onclick="switchTab('policy')">交付及退費政策</button>
+        <button class="tab-btn" onclick="switchTab('notice')">營運公告</button>
+        <button class="tab-btn" onclick="switchTab('policy')">交付及退費</button>
     </div>
 
-    <!-- 分頁 1：主頁 (專屬：聯絡與加群) -->
+    <!-- 分頁 1：主頁 -->
     <div id="panel-home" class="tab-panel active">
         <div class="card-box">
             <div class="card-header">🏢 核心功能社群</div>
@@ -629,7 +406,7 @@
         </div>
     </div>
 
-    <!-- 分頁 2：VIP 招待所 (專屬：管制房號區) -->
+    <!-- 分頁 2：VIP 招待所 -->
     <div id="panel-rooms" class="tab-panel">
         <div class="card-box phone-box">
             <div class="card-header blue-header">📞 HOTLINE ｜ 即時語音諮詢</div>
@@ -711,7 +488,46 @@
         </div>
     </div>
 
-    <!-- 分頁 3：交付及退費政策 (專屬：其餘官方政策) -->
+    <!-- 分頁 3：【全新加入】平台營運重要公告 -->
+    <div id="panel-notice" class="tab-panel">
+        <div class="card-box policy-content">
+            <div class="card-header">📢 NOTICE ｜ 營運調整重要公告</div>
+            
+            <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px; color: #dcd4e8; font-size: 14px;">
+                各位夥伴辛苦了！跟大家分享一個好消息：我們的第三方線上金流已經正式申請成功！🎉 <br><br>
+                接下來客戶預約付款將更方便、更安全，這對大家未來接單和推廣都會有極大的幫助。為了維護更穩定的系統營運與法律合規，平台自 <span class="highlight-blue">8 月 1 日</span>起將進行以下調整：
+            </div>
+
+            <div class="policy-list">
+                <div class="policy-item notice-pink">
+                    <div class="policy-item-title">💰 媒合費調整（利潤優化）</div>
+                    <div class="policy-item-desc">
+                        平台抽成（媒合費）將調整為 <span class="highlight-text">20%</span>。大家可以根據自身狀況，<span class="highlight-gold">適度微調自己的服務定價</span>，確保自己的利潤空間。
+                    </div>
+                </div>
+
+                <div class="policy-item notice-cyan">
+                    <div class="policy-item-title">💎 服務品質升級（建立品牌）</div>
+                    <div class="policy-item-desc">
+                        隨著平台正規化，也請大家共同維護並提升服務品質，給客戶更棒的陪伴體驗，建立好口碑、帶進源源不絕的單。
+                    </div>
+                </div>
+
+                <div class="policy-item notice-blue">
+                    <div class="policy-item-title">📅 統一撥款時間（財務合規）</div>
+                    <div class="policy-item-desc">
+                        為了財務流程合規與對帳安全，自 8 月起，平台將固定於 <span class="highlight-blue">次月 15 號</span> 統一撥款給各位夥伴。
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 25px; font-weight: 800; color: #faf3b3; letter-spacing: 1px; text-shadow: 0 0 10px rgba(245,158,11,0.25);">
+                感謝大家跟著案內所一起成長，引進流量，大家一起賺滿荷包！💪
+            </div>
+        </div>
+    </div>
+
+    <!-- 分頁 4：交付及退費政策 -->
     <div id="panel-policy" class="tab-panel">
         <div class="card-box policy-content">
             <div class="policy-section">
@@ -735,7 +551,7 @@
                     </li>
                     <li class="policy-item">
                         <div class="policy-item-title"><span>5.</span> 服務確認與結案</div>
-                        <div class="policy-item-desc">服務完成後，夥伴與客戶互相回報。平台於後台對帳系統標記「服務完成」，案件結案。</div>
+                        <div class="policy-item-desc">服務完成後，夥伴與客戶互相回報.平台於後台對帳系統標記「服務完成」，案件結案。</div>
                     </li>
                 </ul>
             </div>
@@ -800,11 +616,12 @@
 
 </div>
 
-<!-- 三分頁流暢切換 + 密碼驗證鎖 JavaScript -->
+<!-- 智慧動態辨識分頁切換 + 密碼鎖 JavaScript -->
 <script>
     let isUnlocked = false;
 
     function switchTab(tabId) {
+        // 密碼安全防線（僅管制招待所房號分頁）
         if (tabId === 'rooms' && !isUnlocked) {
             let password = prompt("🔒 此頁面為【社群會員限定】\n請輸入專屬通關密碼：");
 
@@ -817,23 +634,16 @@
             }
         }
 
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        document.querySelectorAll('.tab-panel').forEach(panel => {
-            panel.classList.remove('active');
-        });
+        // 智慧型動態類別移除
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
 
-        if (tabId === 'home') {
-            document.querySelectorAll('.tab-btn')[0].classList.add('active');
-            document.getElementById('panel-home').classList.add('active');
-        } else if (tabId === 'rooms') {
-            document.querySelectorAll('.tab-btn')[1].classList.add('active');
-            document.getElementById('panel-rooms').classList.add('active');
-        } else if (tabId === 'policy') {
-            document.querySelectorAll('.tab-btn')[2].classList.add('active');
-            document.getElementById('panel-policy').classList.add('active');
-        }
+        // 智慧型動態類別激活
+        const targetBtn = document.querySelector(`.tab-btn[onclick*="${tabId}"]`);
+        if (targetBtn) targetBtn.classList.add('active');
+        
+        const targetPanel = document.getElementById(`panel-${tabId}`);
+        if (targetPanel) targetPanel.classList.add('active');
     }
 </script>
 </body>
