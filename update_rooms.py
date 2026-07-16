@@ -31,10 +31,19 @@ for link in room_links:
     try:
         response = requests.get(line_url, headers=headers, timeout=15)
         if response.status_code == 200:
-            member_match = re.search(r"成員\s*[:：]?\s*([\d,]+)", response.text)
+            # 💡 雙重保險高階匹配：優先尋找 LINE 最穩定的 og:description 結構
+            member_match = re.search(r'content="[^"]*成員\s*[:：]\s*([\d,]+)\s*人', response.text)
+            if not member_match:
+                member_match = re.search(r"成員\s*[:：]?\s*([\d,]+)\s*人", response.text)
+            if not member_match:
+                member_match = re.search(r"成員\s*[:：]?\s*([\d,]+)", response.text)
+            if not member_match:
+                # 備用防護：抓取 LINE 系統腳本中的 JSON 序列化人數資料
+                member_match = re.search(r'"memberCount"\s*:\s*(\d+)', response.text)
+
             if member_match:
                 current_members = int(member_match.group(1).replace(",", ""))
-                print(f"房號 {room_id} ｜ 當前人數：{current_members} 人")
+                print(f"房號 {room_id} ｜ 實際在線人數：{current_members} 人")
                 
                 current_classes = link.get("class", [])
                 if current_members >= 4:
@@ -42,13 +51,13 @@ for link in room_links:
                         current_classes.append("busy")
                         link["class"] = current_classes
                         has_changed = True
-                        print(f" ➔ 🔴 房間 {room_id} 達到或超過 4 人，自動鎖房標記為【使用中】")
+                        print(f" ➔ 🔴 房間 {room_id} 達到客滿線 (>=4人)，自動亮起【使用中】")
                 else:
                     if "busy" in current_classes:
                         current_classes.remove("busy")
                         link["class"] = current_classes if current_classes else None
                         has_changed = True
-                        print(f" ➔ 🟢 房間 {room_id} 釋出空位，恢復為空房狀態")
+                        print(f" ➔ 🟢 房間 {room_id} 尚有空位 (<4人)，自動釋出房間")
             else:
                 print(f"⚠️ 房號 {room_id} ｜ 無法成功解析人數文字結構")
         else:
@@ -66,10 +75,18 @@ for link in talk_links:
     talk_id = link["data-talk"]
     line_url = link["href"]
     
+    # 💡 如果使用的是私密會議室連結，提示所長並維持現有狀態不誤刪
+    if "/R/meeting/" in line_url:
+        print(f"💡 對談室 {talk_id} ｜ 偵測為私密 LINE 會議室，官方預設不公開人數，維持獨立防線。")
+        continue
+
     try:
         response = requests.get(line_url, headers=headers, timeout=15)
         if response.status_code == 200:
-            member_match = re.search(r"成員\s*[:：]?\s*([\d,]+)", response.text)
+            member_match = re.search(r'content="[^"]*成員\s*[:：]\s*([\d,]+)\s*人', response.text)
+            if not member_match:
+                member_match = re.search(r"成員\s*[:：]?\s*([\d,]+)", response.text)
+            
             if member_match:
                 current_members = int(member_match.group(1).replace(",", ""))
                 print(f"對談室 {talk_id} ｜ 當前人數：{current_members} 人")
@@ -80,18 +97,13 @@ for link in talk_links:
                         current_classes.append("busy")
                         link["class"] = current_classes
                         has_changed = True
-                        print(f" ➔ 🔴 對談室 {talk_id} 已有 1 人以上使用，自動標記為【使用中】")
+                        print(f" ➔ 🔴 对談室 {talk_id} 有人進駐 (>=1人)，自動亮起【使用中】")
                 else:
                     if "busy" in current_classes:
                         current_classes.remove("busy")
                         link["class"] = current_classes if current_classes else None
                         has_changed = True
-                        print(f" ➔ 🟢 對談室 {talk_id} 目前空閒")
-            else:
-                # 針對 LINE 會議室（/R/meeting/）原生網頁版未提供公開人數時做相容性輸出
-                print(f"💡 對談室 {talk_id} ｜ 解析不到人數（LINE 會議室網頁預覽預設不公開人數數字）")
-        else:
-            print(f"❌ 對談室 {talk_id} ｜ 請求失敗，狀態碼：{response.status_code}")
+                        print(f" ➔ 🟢 對談室 {talk_id} 釋出空閒")
     except Exception as e:
         print(f"💥 對談室 {talk_id} ｜ 連線異常：{e}")
 
@@ -101,6 +113,6 @@ for link in talk_links:
 if has_changed:
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(str(soup))
-    print("\n✅ 檢測到狀態改變，index.html 檔案已成功更新寫入！")
+    print("\n✅ 檢測到變更，網頁代碼已自動更新寫入！")
 else:
-    print("\n☕ 掃描完畢：招待所與對談室狀態均無變更，跳過本次寫入。")
+    print("\n☕ 掃描完畢：無任何狀態變更，安全跳過。")
