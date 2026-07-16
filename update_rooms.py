@@ -36,14 +36,15 @@ for link in room_links:
                 
                 current_classes = link.get("class", [])
                 
-                # 核心判定：當人數大於等於 3 人時，觸發滿房鎖定
-                if current_members >= 3:
+                # 🔥 核心判定優化：當人數大於等於 4 人時，才觸發滿房鎖定
+                if current_members >= 4:
                     if "busy" not in current_classes:
                         current_classes.append("busy")
                         link["class"] = current_classes
                         has_changed = True
-                        print(f" ➔ 🔴 房間 {room_id} 超過3人，自動標記為【使用中】")
+                        print(f" ➔ 🔴 房間 {room_id} 達到或超過4人，自動標記為【使用中】")
                 else:
+                    # 如果人數低於 4 人，自動解鎖房間恢復空房
                     if "busy" in current_classes:
                         current_classes.remove("busy")
                         link["class"] = current_classes if current_classes else None
