@@ -19,7 +19,16 @@ with open(html_path, "r", encoding="utf-8") as f:
     html_content = f.read()
 
 soup = BeautifulSoup(html_content, "html.parser")
-headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+
+# 💡 升級：自動獲取 GitHub 虛擬機內建的官方通行證，防止被 API 限制阻擋
+github_token = os.environ.get("GITHUB_TOKEN")
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "Accept": "application/vnd.github.v3+json"
+}
+if github_token:
+    headers["Authorization"] = f"token {github_token}"
+
 has_changed = False
 total_busy_count = 0
 
@@ -33,7 +42,7 @@ for link in room_links:
     room_id = link["data-room"]
     line_url = link["href"]
     try:
-        response = requests.get(line_url, headers=headers, timeout=15)
+        response = requests.get(line_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
         if response.status_code == 200:
             member_match = re.search(r'"memberCount"\s*:\s*(\d+)', response.text)
             if not member_match:
@@ -75,7 +84,7 @@ for link in talk_links:
     if "/R/meeting/" in line_url:
         continue
     try:
-        response = requests.get(line_url, headers=headers, timeout=15)
+        response = requests.get(line_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
         if response.status_code == 200:
             member_match = re.search(r"成員\s*[:：]?\s*([\d,]+)", response.text)
             if member_match:
@@ -98,7 +107,7 @@ for link in talk_links:
         print(f"💥 對談室 {talk_id} 連線異常: {e}")
 
 # -------------------------------------------------------------
-# 3. 智慧同步：計算「時光交換中」計數器
+# 3. 智慧同步：計算「時光交換中」計計數器
 # -------------------------------------------------------------
 counter_span = soup.find("span", class_="counter-num")
 if counter_span and counter_span.string != str(total_busy_count):
@@ -112,7 +121,7 @@ if counter_span and counter_span.string != str(total_busy_count):
 print("\n📝 開始撈取 GitHub Issues 同步公告條文...")
 issues_url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/issues?state=open"
 try:
-    res = requests.get(issues_url, timeout=10)
+    res = requests.get(issues_url, headers=headers, timeout=10)
     if res.status_code == 200:
         issues_list = res.json()
         notice_container = soup.find(id="auto-notices")
