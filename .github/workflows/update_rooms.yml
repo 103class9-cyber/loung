@@ -2,9 +2,9 @@ name: Auto Update Room Status
 
 on:
   schedule:
-    # 🔥 每 5 分鐘全自動在背景跑一次爬蟲數人頭（地表最快安全極限速度）
+    # 每 5 分鐘全自動在背景跑一次爬蟲數人頭
     - cron: '*/5 * * * *'
-  workflow_dispatch: # 允許在 Actions 頁面手動點擊按鈕隨時強制刷新
+  workflow_dispatch: 
 
 permissions:
   contents: write 
