@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>閒人案內所 ｜ 官方傳送門</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>閒人案內所 ｜ 官方傳送門</title>
+<style>
         :root {
             --bg-dark: #050308;
             --neon-gold: #ffb020;
@@ -189,198 +190,183 @@
     </style>
 </head>
 <body>
-
 <div class="container">
-
-    <div class="header">
-        <div class="logo-container">
-            <div class="logo-pulse"></div>
-            <div class="logo-inner">👻</div>
-        </div>
-        <h1 class="title">閒人案內所</h1>
-        <p class="subtitle">VIP Lounge Portal</p>
-    </div>
-
-    <!-- 🔥 動態計數看板 -->
-    <div id="live-counter" class="live-counter-bar">
-        ⚡ VIP Lounge 當前在線：<span class="counter-num">0</span>組尊榮相處正實時交換中
-    </div>
-
-    <div class="tab-navigation">
-        <button class="tab-btn active" onclick="switchTab('home')">主頁</button>
-        <button class="tab-btn" onclick="switchTab('rooms')">VIP 招待所</button>
-        <button class="tab-btn" onclick="switchTab('notice')">主要公告</button>
-        <button class="tab-btn" onclick="switchTab('policy')">交付及退費</button>
-    </div>
-
-    <!-- 分頁 1：【主頁】 -->
-    <div id="panel-home" class="tab-panel active">
-        <div class="card-box">
-            <div class="card-header">🏢 核心功能社群</div>
-            <a href="https://line.me/ti/g2/HjSXyaP1srrEd-vHV9h9uxaHtc4Q-NC4Z3VsXg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="link-card match-card" target="_blank">
-                <div class="link-icon">🤝</div>
-                <div class="link-content">
-                    <div class="link-title">求租．出租媒合</div>
-                    <div class="link-desc">尋找陪伴服務，或上架出租您的時間</div>
-                </div>
-            </a>
-            <a href="https://line.me/ti/g2/neX2NWHUb5KNngE6IKt7qj_1jlHjYuUON-k85w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="link-card chat-card" target="_blank">
-                <div class="link-icon">💬</div>
-                <div class="link-content">
-                    <div class="link-title">閒人聊天室 👻</div>
-                    <div class="link-desc">日常閒聊、交流與找尋同好的溫馨角落</div>
-                </div>
-            </a>
-            <a href="https://line.me/ti/g2/NHXeqbaUztcj7Hs_c8aXZWObCMAvAZoB2kAACQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="link-card room-card" target="_blank">
-                <div class="link-icon">💼</div>
-                <div class="link-content" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                    <div>
-                        <div class="link-title">會議室</div>
-                        <div class="link-desc">內部行政討論與通知專區</div>
-                    </div>
-                    <span class="badge">限時光分享者</span>
-                </div>
-            </a>
-        </div>
-
-        <div class="card-box">
-            <div class="card-header">👤 一對一 專人聯絡</div>
-            <div class="contact-grid">
-                <a href="https://line.me/ti/p/mR19KggePp" class="contact-card" target="_blank">
-                    <div class="contact-avatar">👨‍💼</div>
-                    <div class="contact-name">聯絡所長</div>
-                </a>
-                <a href="https://line.me/ti/p/L1iM3COUPl" class="contact-card" target="_blank">
-                    <div class="contact-avatar">👩‍💼</div>
-                    <div class="contact-name">聯絡管管</div>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- 分頁 2：VIP 招待所 -->
-    <div id="panel-rooms" class="tab-panel">
-        <div class="card-box phone-box">
-            <div class="card-header blue-header">📞 HOTLINE ｜ 即時語音諮詢</div>
-            <a href="https://line.me/ti/g2/wxs8HU9a3dQJKFlBm1k-2qEYB3hPhIGrlFi6Ig?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="primary-card" target="_blank">
-                <div class="primary-icon">📞</div>
-                <div style="text-align: left;">
-                    <div style="font-size: 16px; font-weight: 800;">招待所 ➔ 電話專用頻道</div>
-                    <div style="font-size: 12px; color: #b2ced4;">點擊立刻進入語音聯絡，享受專人即時接待</div>
-                </div>
-            </a>
-        </div>
-
-        <div class="card-box">
-            <div class="card-header">⚡ VIP Lounge ｜ 101 - 110（社群會員限定）</div>
-            <div class="grid-rooms">
-                <a href="https://line.me/ti/g2/_pozcfjocgAIcl5oXuMb0s1RJ0uKrlmKp8L84g" class="room-item" data-room="101" target="_blank">101<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/m4OF-0zcsdEALTD3QE4lpSkwfU8uZjZ3rsTqSQ" class="room-item" data-room="102" target="_blank">102<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/k2lIL7GMrhOquBmdFLw6r7Wpu-K0a_QM_p6MHA" class="room-item" data-room="103" target="_blank">103<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/hlx3ehotkyYz307eerHCDhezkqlkIo9XXyH9Dg" class="room-item" data-room="104" target="_blank">104<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/5HBoo3LVf3zmvU49X_1AmrnUAlO949XHltnrvA" class="room-item" data-room="105" target="_blank">105<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/TmjoaxprqX5LMZIOEhQ9Dmp5hlirHKwyDr3CnQ" class="room-item" data-room="106" target="_blank">106<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/jU7YjqDh3ndA94BMpP6QKwnPfEth0dxT5q3dkg" class="room-item" data-room="107" target="_blank">107<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/AwxKpQUhZf4HA2AS6HxMGG861ZnNxGDPVO8tTg" class="room-item" data-room="108" target="_blank">108<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/AYcDvBN5lkxjPEyGR4QStfEdduJAVKSir9n7JA" class="room-item" data-room="109" target="_blank">109<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/o_uIRGp-rTHkarNc0H9D5n5KMtUSl_FC9PlvvQ" class="room-item" data-room="110" target="_blank">110<span>ROOM</span></a>
-            </div>
-        </div>
-
-        <div class="card-box">
-            <div class="card-header">⚡ VIP Lounge ｜ 201 - 210（社群會員限定）</div>
-            <div class="grid-rooms">
-                <a href="https://line.me/ti/g2/fTDW_9l2FN74IF-163pWhH3nfgzPCWKcv0GaXQ" class="room-item" data-room="201" target="_blank">201<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/G82ouWUBpRvx1TWV6WbHKdh4fp3rNLJx10cicw" class="room-item" data-room="202" target="_blank">202<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/yYxAF4LPd4n4gxZAGpmRUIyoHl06unOuOPsJGg" class="room-item" data-room="203" target="_blank">203<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/ZEvB1tJOkQRXysiLR15gIwtJb2IRNZI0ZTUyvA" class="room-item" data-room="204" target="_blank">204<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/-iIOpFDLnPY5PcRKJj0jYw2V0-pWYVRScHZE5w" class="room-item" data-room="205" target="_blank">205<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/a7wG0W_ZUg1Lu1ADbrTlA0p1BdsPJs4J5Q8BQg" class="room-item" data-room="206" target="_blank">206<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/JNCL2JNdFD8OHUXNpYvybo25hwnAcugJkce6Q" class="room-item" data-room="207" target="_blank">207<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/GfUp7qx4DO6do_S8TZUgTwdpmwht0djXYIfbKg" class="room-item" data-room="208" target="_blank">208<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/m1uOuZNgJA07iCzdvy4POGc9ZZpgKjJ2i0zq8Q" class="room-item" data-room="209" target="_blank">209<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/3eeJF2Og-tHV1T6Zq6c0RaiEbnrJgkt_Ms48nA" class="room-item" data-room="210" target="_blank">210<span>ROOM</span></a>
-            </div>
-        </div>
-
-        <div class="card-box">
-            <div class="card-header">🔮 Live Chat ｜ 線上即時互動對談</div>
-            <div class="talk-list">
-                <a href="https://line.me/R/meeting/e542693b760742ee86658f38d8e03508" class="talk-item" data-talk="1" target="_blank">
-                    <span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
-                    <span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 1</span>
-                    <span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
-                </a>
-                <a href="https://line.me/R/meeting/21671530b37848ca81deaa9364d3c56a" class="talk-item" data-talk="2" target="_blank">
-                    <span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
-                    <span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 2</span>
-                    <span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
-                </a>
-                <a href="https://line.me/R/meeting/25f77373437b479d96a6fb1d0fbcfad1" class="talk-item" data-talk="3" target="_blank">
-                    <span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
-                    <span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 3</span>
-                    <span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
-                </a>
-                <a href="https://line.me/R/meeting/658f31b379fb4cd69edf43bb0d08dbd0" class="talk-item" data-talk="4" target="_blank">
-                    <span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
-                    <span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 4</span>
-                    <span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
-                </a>
-                <a href="https://line.me/R/meeting/fed096a8acd5409bb79688119c1ac43b" class="talk-item" data-talk="5" target="_blank">
-                    <span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
-                    <span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 5</span>
-                    <span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
-                </a>
-                <a href="https://line.me/R/meeting/4f094712f1e04dae915f5b8f9e6b6c0a" class="talk-item" data-talk="6" target="_blank">
-                    <span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
-                    <span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 6</span>
-                    <span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- 分頁 3：【主要公告】 -->
-    <div id="panel-notice" class="tab-panel">
-        <div class="card-box policy-content">
-            <div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
-            <div class="sub-tab-navigation">
-                <button class="sub-tab-btn active" onclick="switchSubTab('sub-finance')">金流與拆帳</button>
-                <button class="sub-tab-btn" onclick="switchSubTab('sub-trust')">誠信與互選</button>
-                <button class="sub-tab-btn" onclick="switchSubTab('sub-privacy')">分流與隱私</button>
-            </div>
-
-            <!-- 🔥 智慧公告容器：在沒有 Issue 時會自動退回這段預設條文 -->
-            <div id="auto-notices">
-                <div id="sub-panel-sub-finance" class="sub-tab-panel active">
-                    <div class="card-box sub-notice-box">
-                        <div class="policy-list">
-                            <div class="policy-item notice-cyan">
-                                <div class="policy-item-title">💳 官方信託商家金流帳戶性質</div>
-                                <div class="policy-item-desc">目前平台串接之街口支付及多項申請中的第三方金流，均是由平台官方正式申請的「特約商家專屬金流」，絕非個人私人帳戶。尋茶人付款時，資金直接進入信託平台（由金流商與合作銀行全程託管），並於次月 15 號統一合規撥款給各位時光分享者，健全交易安全保障防線。</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 分頁 4：交付及退費政策 -->
-    <div id="panel-policy" class="tab-panel">
-        <div class="card-box policy-content">
-            <div class="policy-section">
-                <div class="policy-section-title">一、 服務預約與建立服務之 SOP</div>
-                <ul class="policy-list">
-                    <li class="policy-item"><div class="policy-item-title"><span>1.</span> 尋茶人線上預約</div><div class="policy-item-desc">尋茶人透過官方管道諮詢，並選擇所需的生活陪伴項目（如：探店飯友、遊戲陪玩、語意傾聽）。</div></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">&copy; 2026 閒人案內所 ｜ 頂級生活陪伴體驗</div>
+<div class="header">
+<div class="logo-container">
+<div class="logo-pulse"></div>
+<div class="logo-inner">👻</div>
 </div>
-
+<h1 class="title">閒人案內所</h1>
+<p class="subtitle">VIP Lounge Portal</p>
+</div>
+<!-- 🔥 動態計數看板 -->
+<div class="live-counter-bar" id="live-counter">
+        ⚡ VIP Lounge 當前在線：<span class="counter-num">8</span>組尊榮相處正實時交換中
+    </div>
+<div class="tab-navigation">
+<button class="tab-btn active" onclick="switchTab('home')">主頁</button>
+<button class="tab-btn" onclick="switchTab('rooms')">VIP 招待所</button>
+<button class="tab-btn" onclick="switchTab('notice')">主要公告</button>
+<button class="tab-btn" onclick="switchTab('policy')">交付及退費</button>
+</div>
+<!-- 分頁 1：【主頁】 -->
+<div class="tab-panel active" id="panel-home">
+<div class="card-box">
+<div class="card-header">🏢 核心功能社群</div>
+<a class="link-card match-card" href="https://line.me/ti/g2/HjSXyaP1srrEd-vHV9h9uxaHtc4Q-NC4Z3VsXg?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
+<div class="link-icon">🤝</div>
+<div class="link-content">
+<div class="link-title">求租．出租媒合</div>
+<div class="link-desc">尋找陪伴服務，或上架出租您的時間</div>
+</div>
+</a>
+<a class="link-card chat-card" href="https://line.me/ti/g2/neX2NWHUb5KNngE6IKt7qj_1jlHjYuUON-k85w?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
+<div class="link-icon">💬</div>
+<div class="link-content">
+<div class="link-title">閒人聊天室 👻</div>
+<div class="link-desc">日常閒聊、交流與找尋同好的溫馨角落</div>
+</div>
+</a>
+<a class="link-card room-card" href="https://line.me/ti/g2/NHXeqbaUztcj7Hs_c8aXZWObCMAvAZoB2kAACQ?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
+<div class="link-icon">💼</div>
+<div class="link-content" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+<div>
+<div class="link-title">會議室</div>
+<div class="link-desc">內部行政討論與通知專區</div>
+</div>
+<span class="badge">限時光分享者</span>
+</div>
+</a>
+</div>
+<div class="card-box">
+<div class="card-header">👤 一對一 專人聯絡</div>
+<div class="contact-grid">
+<a class="contact-card" href="https://line.me/ti/p/mR19KggePp" target="_blank">
+<div class="contact-avatar">👨‍💼</div>
+<div class="contact-name">聯絡所長</div>
+</a>
+<a class="contact-card" href="https://line.me/ti/p/L1iM3COUPl" target="_blank">
+<div class="contact-avatar">👩‍💼</div>
+<div class="contact-name">聯絡管管</div>
+</a>
+</div>
+</div>
+</div>
+<!-- 分頁 2：VIP 招待所 -->
+<div class="tab-panel" id="panel-rooms">
+<div class="card-box phone-box">
+<div class="card-header blue-header">📞 HOTLINE ｜ 即時語音諮詢</div>
+<a class="primary-card" href="https://line.me/ti/g2/wxs8HU9a3dQJKFlBm1k-2qEYB3hPhIGrlFi6Ig?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
+<div class="primary-icon">📞</div>
+<div style="text-align: left;">
+<div style="font-size: 16px; font-weight: 800;">招待所 ➔ 電話專用頻道</div>
+<div style="font-size: 12px; color: #b2ced4;">點擊立刻進入語音聯絡，享受專人即時接待</div>
+</div>
+</a>
+</div>
+<div class="card-box">
+<div class="card-header">⚡ VIP Lounge ｜ 101 - 110（社群會員限定）</div>
+<div class="grid-rooms">
+<a class="room-item busy" data-room="101" href="https://line.me/ti/g2/_pozcfjocgAIcl5oXuMb0s1RJ0uKrlmKp8L84g" target="_blank">101<span>ROOM</span></a>
+<a class="room-item" data-room="102" href="https://line.me/ti/g2/m4OF-0zcsdEALTD3QE4lpSkwfU8uZjZ3rsTqSQ" target="_blank">102<span>ROOM</span></a>
+<a class="room-item busy" data-room="103" href="https://line.me/ti/g2/k2lIL7GMrhOquBmdFLw6r7Wpu-K0a_QM_p6MHA" target="_blank">103<span>ROOM</span></a>
+<a class="room-item" data-room="104" href="https://line.me/ti/g2/hlx3ehotkyYz307eerHCDhezkqlkIo9XXyH9Dg" target="_blank">104<span>ROOM</span></a>
+<a class="room-item busy" data-room="105" href="https://line.me/ti/g2/5HBoo3LVf3zmvU49X_1AmrnUAlO949XHltnrvA" target="_blank">105<span>ROOM</span></a>
+<a class="room-item" data-room="106" href="https://line.me/ti/g2/TmjoaxprqX5LMZIOEhQ9Dmp5hlirHKwyDr3CnQ" target="_blank">106<span>ROOM</span></a>
+<a class="room-item" data-room="107" href="https://line.me/ti/g2/jU7YjqDh3ndA94BMpP6QKwnPfEth0dxT5q3dkg" target="_blank">107<span>ROOM</span></a>
+<a class="room-item" data-room="108" href="https://line.me/ti/g2/AwxKpQUhZf4HA2AS6HxMGG861ZnNxGDPVO8tTg" target="_blank">108<span>ROOM</span></a>
+<a class="room-item busy" data-room="109" href="https://line.me/ti/g2/AYcDvBN5lkxjPEyGR4QStfEdduJAVKSir9n7JA" target="_blank">109<span>ROOM</span></a>
+<a class="room-item busy" data-room="110" href="https://line.me/ti/g2/o_uIRGp-rTHkarNc0H9D5n5KMtUSl_FC9PlvvQ" target="_blank">110<span>ROOM</span></a>
+</div>
+</div>
+<div class="card-box">
+<div class="card-header">⚡ VIP Lounge ｜ 201 - 210（社群會員限定）</div>
+<div class="grid-rooms">
+<a class="room-item busy" data-room="201" href="https://line.me/ti/g2/fTDW_9l2FN74IF-163pWhH3nfgzPCWKcv0GaXQ" target="_blank">201<span>ROOM</span></a>
+<a class="room-item" data-room="202" href="https://line.me/ti/g2/G82ouWUBpRvx1TWV6WbHKdh4fp3rNLJx10cicw" target="_blank">202<span>ROOM</span></a>
+<a class="room-item" data-room="203" href="https://line.me/ti/g2/yYxAF4LPd4n4gxZAGpmRUIyoHl06unOuOPsJGg" target="_blank">203<span>ROOM</span></a>
+<a class="room-item" data-room="204" href="https://line.me/ti/g2/ZEvB1tJOkQRXysiLR15gIwtJb2IRNZI0ZTUyvA" target="_blank">204<span>ROOM</span></a>
+<a class="room-item busy" data-room="205" href="https://line.me/ti/g2/-iIOpFDLnPY5PcRKJj0jYw2V0-pWYVRScHZE5w" target="_blank">205<span>ROOM</span></a>
+<a class="room-item" data-room="206" href="https://line.me/ti/g2/a7wG0W_ZUg1Lu1ADbrTlA0p1BdsPJs4J5Q8BQg" target="_blank">206<span>ROOM</span></a>
+<a class="room-item" data-room="207" href="https://line.me/ti/g2/JNCL2JNdFD8OHUXNpYvybo25hwnAcugJkce6Q" target="_blank">207<span>ROOM</span></a>
+<a class="room-item" data-room="208" href="https://line.me/ti/g2/GfUp7qx4DO6do_S8TZUgTwdpmwht0djXYIfbKg" target="_blank">208<span>ROOM</span></a>
+<a class="room-item busy" data-room="209" href="https://line.me/ti/g2/m1uOuZNgJA07iCzdvy4POGc9ZZpgKjJ2i0zq8Q" target="_blank">209<span>ROOM</span></a>
+<a class="room-item" data-room="210" href="https://line.me/ti/g2/3eeJF2Og-tHV1T6Zq6c0RaiEbnrJgkt_Ms48nA" target="_blank">210<span>ROOM</span></a>
+</div>
+</div>
+<div class="card-box">
+<div class="card-header">🔮 Live Chat ｜ 線上即時互動對談</div>
+<div class="talk-list">
+<a class="talk-item" data-talk="1" href="https://line.me/R/meeting/e542693b760742ee86658f38d8e03508" target="_blank">
+<span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
+<span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 1</span>
+<span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
+</a>
+<a class="talk-item" data-talk="2" href="https://line.me/R/meeting/21671530b37848ca81deaa9364d3c56a" target="_blank">
+<span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
+<span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 2</span>
+<span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
+</a>
+<a class="talk-item" data-talk="3" href="https://line.me/R/meeting/25f77373437b479d96a6fb1d0fbcfad1" target="_blank">
+<span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
+<span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 3</span>
+<span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
+</a>
+<a class="talk-item" data-talk="4" href="https://line.me/R/meeting/658f31b379fb4cd69edf43bb0d08dbd0" target="_blank">
+<span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
+<span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 4</span>
+<span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
+</a>
+<a class="talk-item" data-talk="5" href="https://line.me/R/meeting/fed096a8acd5409bb79688119c1ac43b" target="_blank">
+<span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
+<span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 5</span>
+<span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
+</a>
+<a class="talk-item" data-talk="6" href="https://line.me/R/meeting/4f094712f1e04dae915f5b8f9e6b6c0a" target="_blank">
+<span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
+<span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 6</span>
+<span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
+</a>
+</div>
+</div>
+</div>
+<!-- 分頁 3：【主要公告】 -->
+<div class="tab-panel" id="panel-notice">
+<div class="card-box policy-content">
+<div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
+<div class="sub-tab-navigation">
+<button class="sub-tab-btn active" onclick="switchSubTab('sub-finance')">金流與拆帳</button>
+<button class="sub-tab-btn" onclick="switchSubTab('sub-trust')">誠信與互選</button>
+<button class="sub-tab-btn" onclick="switchSubTab('sub-privacy')">分流與隱私</button>
+</div>
+<!-- 🔥 智慧公告容器：在沒有 Issue 時會自動退回這段預設條文 -->
+<div id="auto-notices">
+<div class="sub-tab-panel active" id="sub-panel-sub-finance">
+<div class="card-box sub-notice-box">
+<div class="policy-list">
+<div class="policy-item notice-cyan">
+<div class="policy-item-title">💳 官方信託商家金流帳戶性質</div>
+<div class="policy-item-desc">目前平台串接之街口支付及多項申請中的第三方金流，均是由平台官方正式申請的「特約商家專屬金流」，絕非個人私人帳戶。尋茶人付款時，資金直接進入信託平台（由金流商與合作銀行全程託管），並於次月 15 號統一合規撥款給各位時光分享者，健全交易安全保障防線。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 分頁 4：交付及退費政策 -->
+<div class="tab-panel" id="panel-policy">
+<div class="card-box policy-content">
+<div class="policy-section">
+<div class="policy-section-title">一、 服務預約與建立服務之 SOP</div>
+<ul class="policy-list">
+<li class="policy-item"><div class="policy-item-title"><span>1.</span> 尋茶人線上預約</div><div class="policy-item-desc">尋茶人透過官方管道諮詢，並選擇所需的生活陪伴項目（如：探店飯友、遊戲陪玩、語意傾聽）。</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer">© 2026 閒人案內所 ｜ 頂級生活陪伴體驗</div>
+</div>
 <script>
     let isUnlocked = false;
     function switchTab(tabId) {
