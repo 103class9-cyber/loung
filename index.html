@@ -1,395 +1,67 @@
 <!DOCTYPE html>
-
 <html lang="zh-TW">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>閒人案內所 ｜ 官方傳送門</title>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>閒人案內所 ｜ 官方傳送門</title>
+    <style>
         :root {
             --bg-dark: #050308;
             --neon-gold: #ffb020;
             --neon-purple: #b366ff;
-            --neon-orange: #ff7324;
-            --neon-blue: #00f0ff;
             --neon-pink: #ff2a6d;
-            --neon-cyan: #00f3ff;
             --text-light: #ffffff;
             --text-gray: #9c97aa;
             --card-glass: rgba(16, 12, 30, 0.72);
             --border-glow: rgba(179, 102, 255, 0.18);
-            --ease-premium: cubic-bezier(0.23, 1, 0.32, 1);
-            --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0; padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            background-image: 
-                radial-gradient(circle at 50% 0%, rgba(179, 102, 255, 0.24) 0%, transparent 55%),
-                radial-gradient(circle at 100% 20%, rgba(255, 115, 36, 0.1) 0%, transparent 45%),
-                radial-gradient(circle at 0% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 50%);
-            color: var(--text-light);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 40px 12px;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(255, 255, 255, 0.008) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255, 255, 255, 0.008) 1px, transparent 1px);
-            background-size: 30px 30px; z-index: 0; pointer-events: none;
-        }
-
-        .container { width: 100%; max-width: 460px; text-align: center; position: relative; z-index: 1; }
-        .header { margin-bottom: 25px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, sans-serif; -webkit-tap-highlight-color: transparent; }
+        body { background-color: var(--bg-dark); color: var(--text-light); min-height: 100vh; padding: 40px 12px; }
+        .container { width: 100%; max-width: 460px; margin: 0 auto; text-align: center; }
         .logo-container { position: relative; width: 96px; height: 96px; margin: 0 auto 20px; }
-        .logo-pulse { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); animation: pulseGlow 3s infinite alternate var(--ease-premium); filter: blur(14px); opacity: 0.85; }
-        .logo-inner { position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px; background: #0c061a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; border: 1px solid rgba(255, 255, 255, 0.14); box-shadow: inset 0 0 25px rgba(179, 102, 255, 0.4); }
-        .title { font-size: 30px; font-weight: 900; letter-spacing: 5px; margin-bottom: 8px; background: linear-gradient(90deg, #ffffff 10%, var(--neon-gold), var(--neon-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 15px rgba(255, 115, 36, 0.35)); }
-        .subtitle { font-size: 11px; color: var(--text-gray); letter-spacing: 5px; text-transform: uppercase; opacity: 0.75; font-weight: 500; }
-
-        .live-counter-bar {
-            background: linear-gradient(90deg, rgba(255, 42, 109, 0.15), rgba(0, 240, 255, 0.15));
-            border: 1px solid rgba(255, 42, 109, 0.3);
-            border-radius: 14px;
-            padding: 10px 14px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #ffffff;
-            margin-bottom: 25px;
-            text-shadow: 0 0 8px rgba(255, 42, 109, 0.6);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-            animation: pulseBorder 2s infinite alternate;
-        }
-        .counter-num { color: var(--neon-cyan); font-size: 15px; font-weight: 900; margin: 0 4px; text-shadow: 0 0 10px var(--neon-cyan); }
-
-        .tab-navigation {
-            display: flex; background: rgba(8, 5, 18, 0.75); border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 20px; padding: 5px; margin-bottom: 30px; backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); gap: 3px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.03);
-        }
-
-        .tab-btn { flex: 1; padding: 12px 2px; background: none; border: none; color: var(--text-gray); font-size: 11.5px; font-weight: 700; border-radius: 14px; cursor: pointer; transition: var(--transition-smooth); white-space: nowrap; letter-spacing: 0.3px; }
-        .tab-btn.active { color: #ffffff; background: linear-gradient(135deg, rgba(179, 102, 255, 0.38) 0%, rgba(0, 240, 255, 0.18) 100%); border: 1px solid rgba(179, 102, 255, 0.4); box-shadow: 0 0 15px rgba(179, 102, 255, 0.25); text-shadow: 0 0 6px rgba(255, 255, 255, 0.6); transform: scale(1.02); }
-        .sub-tab-navigation { display: flex; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 14px; padding: 4px; margin-bottom: 25px; gap: 4px; }
-        .sub-tab-btn { flex: 1; padding: 10px 2px; background: none; border: none; color: var(--text-gray); font-size: 11.5px; font-weight: 700; border-radius: 10px; cursor: pointer; transition: var(--transition-smooth); white-space: nowrap; }
-        .sub-tab-btn.active { color: #ffffff; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.12); text-shadow: 0 0 4px rgba(255, 255, 255, 0.5); }
-
-        .card-box { background: var(--card-glass); border: 1px solid var(--border-glow); border-radius: 30px; padding: 28px 22px; margin-bottom: 28px; backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.03); text-align: left; }
-        .card-box.phone-box { border-color: rgba(0, 240, 255, 0.32); box-shadow: 0 0 35px rgba(0, 240, 255, 0.15), 0 20px 50px rgba(0, 0, 0, 0.65); }
-        .card-box.sub-notice-box { background: rgba(10, 7, 22, 0.5); border-color: rgba(255,255,255,0.02); box-shadow: none; padding: 10px 5px; }
-
-        .card-header { font-size: 14px; font-weight: 800; color: var(--neon-gold); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(255, 176, 32, 0.45); }
-        .card-header.blue-header { color: var(--neon-blue); text-shadow: 0 0 12px rgba(0, 240, 255, 0.45); }
-        .card-header::after { content: ''; flex-grow: 1; height: 1px; background: linear-gradient(to right, rgba(255, 176, 32, 0.35), transparent); }
-        .card-header.blue-header::after { background: linear-gradient(to right, rgba(0, 240, 255, 0.35), transparent); }
-
-        .link-card { display: flex; align-items: center; padding: 24px 26px; background: rgba(255, 255, 255, 0.005); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 24px; text-decoration: none; color: #ffffff; margin-bottom: 20px; transition: var(--ease-premium) 0.45s; position: relative; overflow: hidden; backdrop-filter: blur(10px); }
-        .link-card::before { content: ''; position: absolute; top: 0; left: -150%; width: 100%; height: 100%; background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.1), transparent); transition: 0.6s var(--ease-premium); }
-        .link-card:hover::before, .link-card:active::before { left: 150%; }
-
-        .link-card.match-card { border: 1.5px solid rgba(255, 115, 36, 0.32); background: linear-gradient(90deg, rgba(255, 115, 36, 0.06) 0%, rgba(16, 12, 30, 0.4) 100%); }
-        .link-card.match-card:hover, .link-card.match-card:active { border-color: var(--neon-orange); transform: translateY(-5px) scale(1.015); box-shadow: 0 12px 35px rgba(255, 115, 36, 0.3); }
-        .link-card.chat-card { border: 1.5px solid rgba(179, 102, 255, 0.32); background: linear-gradient(90deg, rgba(179, 102, 255, 0.06) 0%, rgba(16, 12, 30, 0.4) 100%); }
-        .link-card.chat-card:hover, .link-card.chat-card:active { border-color: var(--neon-purple); transform: translateY(-5px) scale(1.015); box-shadow: 0 12px 35px rgba(179, 102, 255, 0.3); }
-        .link-card.room-card { border: 1px solid rgba(255, 255, 255, 0.05); background: rgba(255, 255, 255, 0.003); }
-        .link-card.room-card:hover, .link-card.room-card:active { border-color: rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.02); transform: translateY(-3px); }
-
-        .link-icon { font-size: 30px; margin-right: 22px; width: 40px; display: flex; align-items: center; justify-content: center; }
-        .match-card .link-icon { filter: drop-shadow(0 0 10px var(--neon-orange)); }
-        .chat-card .link-icon { filter: drop-shadow(0 0 10px var(--neon-purple)); }
-        .link-content { text-align: left; flex-grow: 1; }
-        .link-title { font-size: 16.5px; font-weight: 800; margin-bottom: 5px; letter-spacing: 0.5px; }
-        .link-desc { font-size: 12.5px; color: #aaa2b5; opacity: 0.85; }
-        .badge { font-size: 10px; padding: 4px 11px; border-radius: 20px; font-weight: 700; margin-left: 10px; background-color: rgba(255, 115, 36, 0.16); color: #ff9a6e; border: 1px solid rgba(255, 115, 36, 0.28); letter-spacing: 0.5px; }
-
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .contact-card { display: flex; flex-direction: column; align-items: center; padding: 28px 14px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.002) 100%); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 26px; text-decoration: none; color: #ffffff; transition: var(--ease-premium) 0.45s; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
-        .contact-card:hover, .contact-card:active { background: rgba(255, 255, 255, 0.035); border-color: var(--neon-gold); transform: translateY(-6px); box-shadow: 0 15px 35px rgba(255, 176, 32, 0.16); }
-        .contact-avatar { width: 56px; height: 56px; border-radius: 50%; background: #140d24; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 14px; border: 1px solid rgba(255, 176, 32, 0.22); box-shadow: 0 0 15px rgba(255, 176, 32, 0.12); transition: 0.4s var(--ease-premium); }
-        .contact-card:hover .contact-avatar { transform: scale(1.1) rotate(5deg); border-color: var(--neon-gold); box-shadow: 0 0 22px rgba(255, 176, 32, 0.4); }
-        .contact-name { font-weight: 800; font-size: 14px; letter-spacing: 1px; color: #fcf4b6; text-shadow: 0 0 6px rgba(255, 176, 32, 0.2); }
-
-        .primary-card { display: flex; align-items: center; padding: 24px; background: linear-gradient(90deg, rgba(0, 240, 255, 0.12) 0%, rgba(13, 8, 24, 0.5) 100%); border: 1.5px solid var(--neon-blue); border-radius: 24px; color: #ffffff; text-decoration: none; transition: var(--ease-premium) 0.45s; box-shadow: 0 0 25px rgba(0, 240, 255, 0.15); margin-bottom: 8px; }
-        .primary-card:hover, .primary-card:active { background: linear-gradient(90deg, rgba(0, 240, 255, 0.22) 0%, rgba(179, 102, 255, 0.05) 100%); border-color: #ffffff; transform: translateY(-5px); box-shadow: 0 0 35px rgba(0, 240, 255, 0.45); }
-        .primary-icon { font-size: 30px; margin-right: 20px; filter: drop-shadow(0 0 8px var(--neon-blue)); }
+        .logo-pulse { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--neon-purple), #00f0ff); filter: blur(14px); opacity: 0.85; }
+        .logo-inner { position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px; background: #0c061a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; border: 1px solid rgba(255, 255, 255, 0.14); }
+        .title { font-size: 30px; font-weight: 900; letter-spacing: 5px; margin-bottom: 20px; color: #fff; }
+        .tab-navigation { display: flex; background: rgba(8, 5, 18, 0.75); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 20px; padding: 5px; margin-bottom: 30px; gap: 3px; }
+        .tab-btn { flex: 1; padding: 12px; background: none; border: none; color: var(--text-gray); font-weight: 700; border-radius: 14px; cursor: pointer; }
+        .tab-btn.active { color: #fff; background: rgba(179, 102, 255, 0.38); }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+        .card-box { background: var(--card-glass); border: 1px solid var(--border-glow); border-radius: 30px; padding: 28px 22px; margin-bottom: 28px; }
+        .room-item, .talk-item { padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 18px; margin-bottom: 12px; display: block; text-decoration: none; color: white; font-weight: 700; }
         
-        .grid-rooms { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-        .room-item { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 60px; background: rgba(255, 255, 255, 0.012); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; color: #dfd8eb; text-decoration: none; font-size: 14.5px; font-weight: 700; transition: 0.3s var(--ease-premium); }
-        .room-item span { font-size: 8px; color: #726682; font-weight: 600; margin-top: 3px; letter-spacing: 0.5px; }
-        .room-item:hover, .room-item:active { background: linear-gradient(135deg, rgba(179, 102, 255, 0.3) 0%, rgba(255, 115, 36, 0.2) 100%); border-color: var(--neon-orange); color: #ffffff; transform: translateY(-5px) scale(1.06); box-shadow: 0 6px 20px rgba(255, 115, 36, 0.35); }
-        .room-item:hover span { color: #ffd2ba; }
-
-        .room-item.busy {
-            border-color: var(--neon-pink) !important;
-            background: linear-gradient(135deg, rgba(255, 42, 109, 0.15) 0%, rgba(12, 6, 20, 0.8) 100%) !important;
-            box-shadow: 0 0 15px rgba(255, 42, 109, 0.25) !important; position: relative; pointer-events: none; opacity: 0.75;
-        }
-        .room-item.busy::after {
-            content: '● BUSY'; position: absolute; top: 4px; right: 6px; font-size: 7px; font-weight: 900;
-            color: var(--neon-pink); text-shadow: 0 0 5px var(--neon-pink); letter-spacing: 0.5px; animation: flashGlow 1.5s infinite alternate;
-        }
-
-        .talk-list { display: flex; flex-direction: column; gap: 14px; }
-        .talk-item { display: flex; align-items: center; padding: 20px 24px; background: linear-gradient(90deg, rgba(179, 102, 255, 0.02) 0%, rgba(255, 255, 255, 0.003) 100%); border: 1px solid rgba(179, 102, 255, 0.1); border-left: 3px solid rgba(179, 102, 255, 0.32); border-radius: 18px; color: #ffffff; text-decoration: none; transition: var(--ease-premium) 0.4s; }
-        .talk-item:hover, .talk-item:active { border-color: var(--neon-purple); border-left-color: var(--neon-cyan); background: linear-gradient(90deg, rgba(179, 102, 255, 0.16) 0%, rgba(0, 240, 255, 0.04) 100%); transform: translateX(6px); box-shadow: 0 5px 20px rgba(179, 102, 255, 0.22); }
-
-        .talk-item.busy {
-            border-color: var(--neon-pink) !important; border-left-color: var(--neon-pink) !important;
-            background: linear-gradient(90deg, rgba(255, 42, 109, 0.15) 0%, rgba(12, 6, 20, 0.8) 100%) !important;
-            box-shadow: 0 0 15px rgba(255, 42, 109, 0.25) !important; position: relative; pointer-events: none; opacity: 0.75;
-        }
-        .talk-item.busy::after {
-            content: '● BUSY'; font-size: 10px; font-weight: 900; color: var(--neon-pink); text-shadow: 0 0 5px var(--neon-pink);
-            letter-spacing: 0.5px; animation: flashGlow 1.5s infinite alternate; margin-left: auto;
-        }
-        .talk-item.busy .talk-arrow { display: none !important; }
-
-        .policy-content { line-height: 1.85; font-size: 14.5px; color: #e2daf0; }
-        .policy-section { margin-bottom: 32px; }
-        .policy-section-title { font-size: 16px; font-weight: 800; color: var(--neon-gold); margin-bottom: 16px; border-left: 3.5px solid var(--neon-gold); padding-left: 14px; text-shadow: 0 0 12px rgba(255, 176, 32, 0.35); letter-spacing: 0.5px; }
-        .policy-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-        .policy-item { background: rgba(255, 255, 255, 0.005); border: 1px solid rgba(255, 255, 255, 0.02); border-radius: 18px; padding: 20px 22px; box-shadow: inset 0 1px 15px rgba(0,0,0,0.35); position: relative; overflow: hidden; }
-        
-        .policy-item.notice-cyan { border-left: 3.5px solid var(--neon-cyan); }
-        .policy-item.notice-pink { border-left: 3.5px solid var(--neon-pink); }
-        .policy-item.notice-blue { border-left: 3.5px solid var(--neon-blue); }
-
-        .policy-item-title { font-weight: 800; color: #ffffff; margin-bottom: 6px; font-size: 15.5px; letter-spacing: 0.5px; }
-        .policy-item-title span { color: var(--neon-purple); margin-right: 6px; }
-        .policy-item-desc { color: #aca4ba; font-size: 13.5px; line-height: 1.7; }
-        
-        .highlight-text { color: var(--neon-pink); font-weight: 700; text-shadow: 0 0 10px rgba(255, 42, 109, 0.35); }
-        .highlight-blue { color: var(--neon-cyan); font-weight: 700; text-shadow: 0 0 10px rgba(0, 243, 255, 0.35); }
-        .highlight-gold { color: var(--neon-gold); font-weight: 700; text-shadow: 0 0 10px rgba(255, 176, 32, 0.35); }
-
-        .footer { margin-top: 50px; font-size: 11px; color: #554e63; letter-spacing: 2px; opacity: 0.65; }
-        
-        .tab-panel, .sub-tab-panel { display: none; }
-        .tab-panel.active { display: block; animation: fadeIn 0.5s var(--ease-premium) forwards; }
-        .sub-tab-panel.active { display: block; animation: fadeInSub 0.4s var(--ease-premium) forwards; }
-
-        @keyframes pulseGlow { 0% { transform: scale(0.96); box-shadow: 0 0 15px rgba(179, 102, 255, 0.35); } 100% { transform: scale(1.04); box-shadow: 0 0 35px rgba(0, 240, 255, 0.55); } }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInSub { from { opacity: 0; transform: scale(0.99); } to { opacity: 1; transform: scale(1); } }
-        @keyframes flashGlow { 0% { opacity: 0.3; } 100% { opacity: 1; } }
-        @keyframes pulseBorder { 0% { border-color: rgba(255, 42, 109, 0.3); } 100% { border-color: rgba(0, 240, 255, 0.6); } }
+        /* 滿房樣式 */
+        .busy { border-color: var(--neon-pink) !important; background: rgba(255, 42, 109, 0.15) !important; position: relative; pointer-events: none; opacity: 0.75; }
+        .busy::after { content: '● BUSY'; position: absolute; top: 10px; right: 15px; font-size: 10px; color: var(--neon-pink); }
     </style>
 </head>
 <body>
-<div class="container">
-<div class="header">
-<div class="logo-container">
-<div class="logo-pulse"></div>
-<div class="logo-inner">👻</div>
-</div>
-<h1 class="title">閒人案內所</h1>
-<p class="subtitle">VIP Lounge Portal</p>
-</div>
-<!-- 🔥 動態計數看板 -->
-<div class="live-counter-bar" id="live-counter">
-        ⚡ VIP Lounge 當前在線：<span class="counter-num">8</span>組尊榮相處正實時交換中
+    <div class="container">
+        <div class="header">
+            <div class="logo-container"><div class="logo-pulse"></div><div class="logo-inner">👻</div></div>
+            <h1 class="title">閒人案內所</h1>
+        </div>
+        <div class="tab-navigation">
+            <button class="tab-btn active" onclick="switchTab('home')">主頁</button>
+            <button class="tab-btn" onclick="switchTab('rooms')">VIP 招待所</button>
+        </div>
+        <div id="panel-home" class="tab-panel active">
+            <div class="card-box">歡迎來到案內所，請選擇您的服務。</div>
+        </div>
+        <div id="panel-rooms" class="tab-panel">
+            <div class="card-box">
+                <a href="#" class="room-item" data-room="101">101 ROOM</a>
+                <a href="#" class="talk-item" data-talk="1">尊榮線上對談 1</a>
+            </div>
+        </div>
     </div>
-<div class="tab-navigation">
-<button class="tab-btn active" onclick="switchTab('home')">主頁</button>
-<button class="tab-btn" onclick="switchTab('rooms')">VIP 招待所</button>
-<button class="tab-btn" onclick="switchTab('notice')">主要公告</button>
-<button class="tab-btn" onclick="switchTab('policy')">交付及退費</button>
-</div>
-<!-- 分頁 1：【主頁】 -->
-<div class="tab-panel active" id="panel-home">
-<div class="card-box">
-<div class="card-header">🏢 核心功能社群</div>
-<a class="link-card match-card" href="https://line.me/ti/g2/HjSXyaP1srrEd-vHV9h9uxaHtc4Q-NC4Z3VsXg?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
-<div class="link-icon">🤝</div>
-<div class="link-content">
-<div class="link-title">求租．出租媒合</div>
-<div class="link-desc">尋找陪伴服務，或上架出租您的時間</div>
-</div>
-</a>
-<a class="link-card chat-card" href="https://line.me/ti/g2/neX2NWHUb5KNngE6IKt7qj_1jlHjYuUON-k85w?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
-<div class="link-icon">💬</div>
-<div class="link-content">
-<div class="link-title">閒人聊天室 👻</div>
-<div class="link-desc">日常閒聊、交流與找尋同好的溫馨角落</div>
-</div>
-</a>
-<a class="link-card room-card" href="https://line.me/ti/g2/NHXeqbaUztcj7Hs_c8aXZWObCMAvAZoB2kAACQ?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
-<div class="link-icon">💼</div>
-<div class="link-content" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-<div>
-<div class="link-title">會議室</div>
-<div class="link-desc">內部行政討論與通知專區</div>
-</div>
-<span class="badge">限時光分享者</span>
-</div>
-</a>
-</div>
-<div class="card-box">
-<div class="card-header">👤 一對一 專人聯絡</div>
-<div class="contact-grid">
-<a class="contact-card" href="https://line.me/ti/p/mR19KggePp" target="_blank">
-<div class="contact-avatar">👨‍💼</div>
-<div class="contact-name">聯絡所長</div>
-</a>
-<a class="contact-card" href="https://line.me/ti/p/L1iM3COUPl" target="_blank">
-<div class="contact-avatar">👩‍💼</div>
-<div class="contact-name">聯絡管管</div>
-</a>
-</div>
-</div>
-</div>
-<!-- 分頁 2：VIP 招待所 (全二十間房間已 100% 補回防線) -->
-<div class="tab-panel" id="panel-rooms">
-<div class="card-box phone-box">
-<div class="card-header blue-header">📞 HOTLINE ｜ 即時語音諮詢</div>
-<a class="primary-card" href="https://line.me/ti/g2/wxs8HU9a3dQJKFlBm1k-2qEYB3hPhIGrlFi6Ig?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
-<div class="primary-icon">📞</div>
-<div style="text-align: left;">
-<div style="font-size: 16px; font-weight: 800;">招待所 ➔ 電話專用頻道</div>
-<div style="font-size: 12px; color: #b2ced4;">點擊立刻進入語音聯絡，享受專人即時接待</div>
-</div>
-</a>
-</div>
-<div class="card-box">
-<div class="card-header">⚡ VIP Lounge ｜ 101 - 110（社群會員限定）</div>
-<div class="grid-rooms">
-<a class="room-item busy" data-room="101" href="https://line.me/ti/g2/_pozcfjocgAIcl5oXuMb0s1RJ0uKrlmKp8L84g" target="_blank">101<span>ROOM</span></a>
-<a class="room-item" data-room="102" href="https://line.me/ti/g2/m4OF-0zcsdEALTD3QE4lpSkwfU8uZjZ3rsTqSQ" target="_blank">102<span>ROOM</span></a>
-<a class="room-item busy" data-room="103" href="https://line.me/ti/g2/k2lIL7GMrhOquBmdFLw6r7Wpu-K0a_QM_p6MHA" target="_blank">103<span>ROOM</span></a>
-<a class="room-item" data-room="104" href="https://line.me/ti/g2/hlx3ehotkyYz307eerHCDhezkqlkIo9XXyH9Dg" target="_blank">104<span>ROOM</span></a>
-<a class="room-item busy" data-room="105" href="https://line.me/ti/g2/5HBoo3LVf3zmvU49X_1AmrnUAlO949XHltnrvA" target="_blank">105<span>ROOM</span></a>
-<a class="room-item" data-room="106" href="https://line.me/ti/g2/TmjoaxprqX5LMZIOEhQ9Dmp5hlirHKwyDr3CnQ" target="_blank">106<span>ROOM</span></a>
-<a class="room-item" data-room="107" href="https://line.me/ti/g2/jU7YjqDh3ndA94BMpP6QKwnPfEth0dxT5q3dkg" target="_blank">107<span>ROOM</span></a>
-<a class="room-item" data-room="108" href="https://line.me/ti/g2/AwxKpQUhZf4HA2AS6HxMGG861ZnNxGDPVO8tTg" target="_blank">108<span>ROOM</span></a>
-<a class="room-item busy" data-room="109" href="https://line.me/ti/g2/AYcDvBN5lkxjPEyGR4QStfEdduJAVKSir9n7JA" target="_blank">109<span>ROOM</span></a>
-<a class="room-item busy" data-room="110" href="https://line.me/ti/g2/o_uIRGp-rTHkarNc0H9D5n5KMtUSl_FC9PlvvQ" target="_blank">110<span>ROOM</span></a>
-</div>
-</div>
-<div class="card-box">
-<div class="card-header">⚡ VIP Lounge ｜ 201 - 210（社群會員限定）</div>
-<div class="grid-rooms">
-<a class="room-item busy" data-room="201" href="https://line.me/ti/g2/fTDW_9l2FN74IF-163pWhH3nfgzPCWKcv0GaXQ" target="_blank">201<span>ROOM</span></a>
-<a class="room-item" data-room="202" href="https://line.me/ti/g2/G82ouWUBpRvx1TWV6WbHKdh4fp3rNLJx10cicw" target="_blank">202<span>ROOM</span></a>
-<a class="room-item" data-room="203" href="https://line.me/ti/g2/yYxAF4LPd4n4gxZAGpmRUIyoHl06unOuOPsJGg" target="_blank">203<span>ROOM</span></a>
-<a class="room-item" data-room="204" href="https://line.me/ti/g2/ZEvB1tJOkQRXysiLR15gIwtJb2IRNZI0ZTUyvA" target="_blank">204<span>ROOM</span></a>
-<a class="room-item busy" data-room="205" href="https://line.me/ti/g2/-iIOpFDLnPY5PcRKJj0jYw2V0-pWYVRScHZE5w" target="_blank">205<span>ROOM</span></a>
-<a class="room-item" data-room="206" href="https://line.me/ti/g2/a7wG0W_ZUg1Lu1ADbrTlA0p1BdsPJs4J5Q8BQg" target="_blank">206<span>ROOM</span></a>
-<a class="room-item" data-room="207" href="https://line.me/ti/g2/JNCL2JNdFD8OHUqXNpYvybo25hwnAcugJkce6Q" target="_blank">207<span>ROOM</span></a>
-<a class="room-item" data-room="208" href="https://line.me/ti/g2/GfUp7qx4DO6do_S8TZUgTwdpmwht0djXYIfbKg" target="_blank">208<span>ROOM</span></a>
-<a class="room-item busy" data-room="209" href="https://line.me/ti/g2/m1uOuZNgJA07iCzdvy4POGc9ZZpgKjJ2i0zq8Q" target="_blank">209<span>ROOM</span></a>
-<a class="room-item" data-room="210" href="https://line.me/ti/g2/3eeJF2Og-tHV1T6Zq6c0RaiEbnrJgkt_Ms48nA" target="_blank">210<span>ROOM</span></a>
-</div>
-</div>
-<div class="card-box">
-<div class="card-header">🔮 Live Chat ｜ 線上即時互動對談</div>
-<div class="talk-list">
-<a class="talk-item" data-talk="1" href="https://line.me/R/meeting/e542693b760742ee86658f38d8e03508" target="_blank">
-<span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
-<span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 1</span>
-<span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
-</a>
-<a class="talk-item" data-talk="2" href="https://line.me/R/meeting/21671530b37848ca81deaa9364d3c56a" target="_blank">
-<span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
-<span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 2</span>
-<span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
-</a>
-<a class="talk-item" data-talk="3" href="https://line.me/R/meeting/25f77373437b479d96a6fb1d0fbcfad1" target="_blank">
-<span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
-<span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 3</span>
-<span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
-</a>
-<a class="talk-item" data-talk="4" href="https://line.me/R/meeting/658f31b379fb4cd69edf43bb0d08dbd0" target="_blank">
-<span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
-<span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 4</span>
-<span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
-</a>
-<a class="talk-item" data-talk="5" href="https://line.me/R/meeting/fed096a8acd5409bb79688119c1ac43b" target="_blank">
-<span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
-<span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 5</span>
-<span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
-</a>
-<a class="talk-item" data-talk="6" href="https://line.me/R/meeting/4f094712f1e04dae915f5b8f9e6b6c0a" target="_blank">
-<span style="font-size: 14px; margin-right: 12px; color: var(--neon-cyan);">💠</span>
-<span style="flex-grow: 1; font-size: 15px; font-weight: 700; color: #f1e9ff;">尊榮線上對談 6</span>
-<span class="talk-arrow" style="font-size: 12px; color: #5d546c;">➔</span>
-</a>
-</div>
-</div>
-</div>
-<!-- 分頁 3：【主要公告】 -->
-<div class="tab-panel" id="panel-notice">
-<div class="card-box policy-content">
-<div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
-<div class="sub-tab-navigation">
-<button class="sub-tab-btn active" onclick="switchSubTab('sub-finance')">金流與拆帳</button>
-<button class="sub-tab-btn" onclick="switchSubTab('sub-trust')">誠信與互選</button>
-<button class="sub-tab-btn" onclick="switchSubTab('sub-privacy')">分流與隱私</button>
-</div>
-<div id="auto-notices">
-<div class="sub-tab-panel active" id="sub-panel-sub-finance">
-<div class="card-box sub-notice-box">
-<div class="policy-list">
-<div class="policy-item notice-cyan">
-<div class="policy-item-title">💳 官方信託商家金流帳戶性質</div>
-<div class="policy-item-desc">目前平台串接之街口支付及多項申請中的第三方金流，均是由平台官方正式申請的「特約商家專屬金流」，絕非個人私人帳戶。尋茶人付款時，資金直接進入信託平台（由金流商與合作銀行全程託管），並於次月 15 號統一合規撥款給各位時光分享者，健全交易安全保障防線。</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- 分頁 4：交付及退費政策 -->
-<div class="tab-panel" id="panel-policy">
-<div class="card-box policy-content">
-<div class="policy-section">
-<div class="policy-section-title">一、 服務預約與建立服務之 SOP</div>
-<ul class="policy-list">
-<li class="policy-item"><div class="policy-item-title"><span>1.</span> 尋茶人線上預約</div><div class="policy-item-desc">尋茶人透過官方管道諮詢，並選擇所需的生活陪伴項目（如：探店飯友、遊戲陪玩、語意傾聽）。</div></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="footer">© 2026 閒人案內所 ｜ 頂級生活陪伴體驗</div>
-</div>
-<script>
-    let isUnlocked = false;
-    function switchTab(tabId) {
-        if (tabId === 'rooms' && !isUnlocked) {
-            let password = prompt("🔒 此頁面為【社群會員限定】\n請輸入專屬通關密碼：");
-            if (password === "0126") { alert("🔓 密碼正確！已為您導引至 VIP 招待所。"); isUnlocked = true; } 
-            else { alert("❌ 密碼錯誤或取消輸入！無法進入管制專區。"); return; }
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+            document.querySelector(`.tab-btn[onclick*="${tabId}"]`).classList.add('active');
+            document.getElementById('panel-' + tabId).classList.add('active');
         }
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
-        const targetBtn = document.querySelector(`.tab-btn[onclick*="${tabId}"]`);
-        if (targetBtn) targetBtn.classList.add('active');
-        const targetPanel = document.getElementById('panel-' + tabId);
-        if (targetPanel) targetPanel.add('active');
-    }
-
-    function switchSubTab(subTabId) {
-        document.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
-        document.querySelectorAll('.sub-tab-panel').forEach(panel => panel.classList.remove('active'));
-        const targetSubBtn = document.querySelector(`.sub-tab-btn[onclick*="${subTabId}"]`);
-        if (targetSubBtn) targetSubBtn.classList.add('active');
-        const targetSubPanel = document.getElementById('sub-panel-' + subTabId);
-        if (targetSubPanel) targetSubPanel.classList.add('active');
-    }
-</script>
+    </script>
 </body>
 </html>
