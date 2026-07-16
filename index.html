@@ -12,6 +12,7 @@
             --neon-orange: #ff7324;
             --neon-blue: #00f0ff;
             --neon-pink: #ff2a6d;
+            --neon-cyan: #00f3ff;
             --text-light: #ffffff;
             --text-gray: #9c97aa;
             --card-glass: rgba(16, 12, 30, 0.72);
@@ -39,7 +40,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 40px 15px;
+            padding: 40px 12px;
             overflow-x: hidden;
             position: relative;
         }
@@ -65,101 +66,81 @@
         }
 
         /* 奢華動態標頭 */
-        .header {
-            margin-bottom: 35px;
-        }
+        .header { margin-bottom: 30px; }
+        .logo-container { position: relative; width: 96px; height: 96px; margin: 0 auto 20px; }
+        .logo-pulse { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); animation: pulseGlow 3s infinite alternate var(--ease-premium); filter: blur(14px); opacity: 0.85; }
+        .logo-inner { position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px; background: #0c061a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; border: 1px solid rgba(255, 255, 255, 0.14); box-shadow: inset 0 0 25px rgba(179, 102, 255, 0.4); }
+        .title { font-size: 30px; font-weight: 900; letter-spacing: 5px; margin-bottom: 8px; background: linear-gradient(90deg, #ffffff 10%, var(--neon-gold), var(--neon-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 15px rgba(255, 115, 36, 0.35)); }
+        .subtitle { font-size: 11px; color: var(--text-gray); letter-spacing: 5px; text-transform: uppercase; opacity: 0.75; font-weight: 500; }
 
-        .logo-container {
-            position: relative;
-            width: 96px;
-            height: 96px;
-            margin: 0 auto 22px;
-        }
-
-        .logo-pulse {
-            position: absolute;
-            width: 100%; height: 100%;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
-            animation: pulseGlow 3s infinite alternate var(--ease-premium);
-            filter: blur(14px);
-            opacity: 0.85;
-        }
-
-        .logo-inner {
-            position: absolute;
-            top: 2px; left: 2px; right: 2px; bottom: 2px;
-            background: #0c061a;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 44px;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            box-shadow: inset 0 0 25px rgba(179, 102, 255, 0.4);
-        }
-
-        .title {
-            font-size: 31px;
-            font-weight: 900;
-            letter-spacing: 6px;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #ffffff 10%, var(--neon-gold), var(--neon-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 15px rgba(255, 115, 36, 0.35));
-        }
-
-        .subtitle {
-            font-size: 11px;
-            color: var(--text-gray);
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            opacity: 0.75;
-            font-weight: 500;
-        }
-
-        /* 頂級懸浮膠囊式導航條 */
+        /* 一級導航條（主菜單） */
         .tab-navigation {
             display: flex;
             background: rgba(8, 5, 18, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 22px;
-            padding: 6px;
-            margin-bottom: 35px;
+            border-radius: 20px;
+            padding: 5px;
+            margin-bottom: 30px;
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            gap: 4px;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), inset 0 1px 2px rgba(255, 255, 255, 0.03);
+            gap: 3px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.04);
         }
 
         .tab-btn {
             flex: 1;
-            padding: 13px 2px;
+            padding: 12px 2px;
             background: none;
             border: none;
             color: var(--text-gray);
-            font-size: 12.5px;
+            font-size: 11.5px;
             font-weight: 700;
-            border-radius: 16px;
+            border-radius: 14px;
             cursor: pointer;
             transition: var(--transition-smooth);
             white-space: nowrap;
-            letter-spacing: 0.5px;
-        }
-
-        .tab-btn:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.02);
+            letter-spacing: 0.3px;
         }
 
         .tab-btn.active {
             color: #ffffff;
             background: linear-gradient(135deg, rgba(179, 102, 255, 0.38) 0%, rgba(0, 240, 255, 0.18) 100%);
             border: 1px solid rgba(179, 102, 255, 0.4);
-            box-shadow: 0 0 20px rgba(179, 102, 255, 0.25);
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 15px rgba(179, 102, 255, 0.25);
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
             transform: scale(1.02);
+        }
+
+        /* 二級內嵌導航條（主要公告專用） */
+        .sub-tab-navigation {
+            display: flex;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 4px;
+            margin-bottom: 25px;
+            gap: 4px;
+        }
+
+        .sub-tab-btn {
+            flex: 1;
+            padding: 10px 2px;
+            background: none;
+            border: none;
+            color: var(--text-gray);
+            font-size: 11.5px;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            white-space: nowrap;
+        }
+
+        .sub-tab-btn.active {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
         }
 
         /* 深邃光澤流體卡片盒 */
@@ -168,399 +149,94 @@
             border: 1px solid var(--border-glow);
             border-radius: 30px;
             padding: 28px 22px;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
             backdrop-filter: blur(40px);
             -webkit-backdrop-filter: blur(40px);
-            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.03);
             text-align: left;
         }
 
-        .card-box.phone-box {
-            border-color: rgba(0, 240, 255, 0.32);
-            box-shadow: 0 0 35px rgba(0, 240, 255, 0.15), 0 25px 55px rgba(0, 0, 0, 0.7);
-        }
+        .card-box.phone-box { border-color: rgba(0, 240, 255, 0.32); box-shadow: 0 0 35px rgba(0, 240, 255, 0.15), 0 20px 50px rgba(0, 0, 0, 0.65); }
+        .card-box.sub-notice-box { background: rgba(10, 7, 22, 0.5); border-color: rgba(255,255,255,0.02); box-shadow: none; padding: 10px 5px; }
 
-        .card-header {
-            font-size: 14px;
-            font-weight: 800;
-            color: var(--neon-gold);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 12px rgba(255, 176, 32, 0.45);
-        }
+        .card-header { font-size: 14px; font-weight: 800; color: var(--neon-gold); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(255, 176, 32, 0.45); }
+        .card-header.blue-header { color: var(--neon-blue); text-shadow: 0 0 12px rgba(0, 240, 255, 0.45); }
+        .card-header::after { content: ''; flex-grow: 1; height: 1px; background: linear-gradient(to right, rgba(255, 176, 32, 0.35), transparent); }
+        .card-header.blue-header::after { background: linear-gradient(to right, rgba(0, 240, 255, 0.35), transparent); }
 
-        .card-header.blue-header {
-            color: var(--neon-blue);
-            text-shadow: 0 0 12px rgba(0, 240, 255, 0.45);
-        }
+        /* 大按鈕與連結樣式 */
+        .link-card { display: flex; align-items: center; padding: 24px 26px; background: rgba(255, 255, 255, 0.005); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 24px; text-decoration: none; color: #ffffff; margin-bottom: 20px; transition: var(--ease-premium) 0.45s; position: relative; overflow: hidden; backdrop-filter: blur(10px); }
+        .link-card::before { content: ''; position: absolute; top: 0; left: -150%; width: 100%; height: 100%; background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.1), transparent); transition: 0.6s var(--ease-premium); }
+        .link-card:hover::before, .link-card:active::before { left: 150%; }
 
-        .card-header::after {
-            content: '';
-            flex-grow: 1;
-            height: 1px;
-            background: linear-gradient(to right, rgba(255, 176, 32, 0.35), transparent);
-        }
+        .link-card.match-card { border: 1.5px solid rgba(255, 115, 36, 0.32); background: linear-gradient(90deg, rgba(255, 115, 36, 0.06) 0%, rgba(16, 12, 30, 0.4) 100%); }
+        .link-card.match-card:hover, .link-card.match-card:active { border-color: var(--neon-orange); transform: translateY(-5px) scale(1.015); box-shadow: 0 12px 35px rgba(255, 115, 36, 0.3); }
+        .link-card.chat-card { border: 1.5px solid rgba(179, 102, 255, 0.32); background: linear-gradient(90deg, rgba(179, 102, 255, 0.06) 0%, rgba(16, 12, 30, 0.4) 100%); }
+        .link-card.chat-card:hover, .link-card.chat-card:active { border-color: var(--neon-purple); transform: translateY(-5px) scale(1.015); box-shadow: 0 12px 35px rgba(179, 102, 255, 0.3); }
+        .link-card.room-card { border: 1px solid rgba(255, 255, 255, 0.05); background: rgba(255, 255, 255, 0.003); }
+        .link-card.room-card:hover, .link-card.room-card:active { border-color: rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.02); transform: translateY(-3px); }
 
-        .card-header.blue-header::after {
-            background: linear-gradient(to right, rgba(0, 240, 255, 0.35), transparent);
-        }
-
-        /* 輕奢感光流線大按鈕 */
-        .link-card {
-            display: flex;
-            align-items: center;
-            padding: 24px 26px;
-            background: rgba(255, 255, 255, 0.005);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 24px;
-            text-decoration: none;
-            color: #ffffff;
-            margin-bottom: 20px;
-            transition: var(--ease-premium) 0.45s;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        /* 高級液態折射流光 */
-        .link-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -150%;
-            width: 100%; height: 100%;
-            background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: 0.6s var(--ease-premium);
-        }
-
-        .link-card:hover::before, .link-card:active::before {
-            left: 150%;
-        }
-
-        /* 求租出租：日落暖橘 */
-        .link-card.match-card {
-            border: 1.5px solid rgba(255, 115, 36, 0.32);
-            background: linear-gradient(90deg, rgba(255, 115, 36, 0.06) 0%, rgba(16, 12, 30, 0.4) 100%);
-        }
-        .link-card.match-card:hover, .link-card.match-card:active {
-            border-color: var(--neon-orange);
-            transform: translateY(-5px) scale(1.015);
-            box-shadow: 0 12px 35px rgba(255, 115, 36, 0.3);
-        }
-
-        /* 聊天室：神祕魔紫 */
-        .link-card.chat-card {
-            border: 1.5px solid rgba(179, 102, 255, 0.32);
-            background: linear-gradient(90deg, rgba(179, 102, 255, 0.06) 0%, rgba(16, 12, 30, 0.4) 100%);
-        }
-        .link-card.chat-card:hover, .link-card.chat-card:active {
-            border-color: var(--neon-purple);
-            transform: translateY(-5px) scale(1.015);
-            box-shadow: 0 12px 35px rgba(179, 102, 255, 0.3);
-        }
-
-        /* 會議室：高級灰 */
-        .link-card.room-card {
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(255, 255, 255, 0.003);
-        }
-        .link-card.room-card:hover, .link-card.room-card:active {
-            border-color: rgba(255, 255, 255, 0.22);
-            background: rgba(255, 255, 255, 0.02);
-            transform: translateY(-3px);
-        }
-
-        .link-icon {
-            font-size: 30px;
-            margin-right: 22px;
-            width: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
+        .link-icon { font-size: 30px; margin-right: 22px; width: 40px; display: flex; align-items: center; justify-content: center; }
         .match-card .link-icon { filter: drop-shadow(0 0 10px var(--neon-orange)); }
         .chat-card .link-icon { filter: drop-shadow(0 0 10px var(--neon-purple)); }
+        .link-content { text-align: left; flex-grow: 1; }
+        .link-title { font-size: 16.5px; font-weight: 800; margin-bottom: 5px; letter-spacing: 0.5px; }
+        .link-desc { font-size: 12.5px; color: #aaa2b5; opacity: 0.85; }
+        .badge { font-size: 10px; padding: 4px 11px; border-radius: 20px; font-weight: 700; margin-left: 10px; background-color: rgba(255, 115, 36, 0.16); color: #ff9a6e; border: 1px solid rgba(255, 115, 36, 0.28); letter-spacing: 0.5px; }
 
-        .link-content {
-            text-align: left;
-            flex-grow: 1;
-        }
+        /* 專人聯絡名片 */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .contact-card { display: flex; flex-direction: column; align-items: center; padding: 28px 14px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.002) 100%); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 26px; text-decoration: none; color: #ffffff; transition: var(--ease-premium) 0.45s; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+        .contact-card:hover, .contact-card:active { background: rgba(255, 255, 255, 0.035); border-color: var(--neon-gold); transform: translateY(-6px); box-shadow: 0 15px 35px rgba(255, 176, 32, 0.16); }
+        .contact-avatar { width: 56px; height: 56px; border-radius: 50%; background: #140d24; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 14px; border: 1px solid rgba(255, 176, 32, 0.22); box-shadow: 0 0 15px rgba(255, 176, 32, 0.12); transition: 0.4s var(--ease-premium); }
+        .contact-card:hover .contact-avatar { transform: scale(1.1) rotate(5deg); border-color: var(--neon-gold); box-shadow: 0 0 22px rgba(255, 176, 32, 0.4); }
+        .contact-name { font-weight: 800; font-size: 14px; letter-spacing: 1px; color: #fcf4b6; text-shadow: 0 0 6px rgba(255, 176, 32, 0.2); }
 
-        .link-title {
-            font-size: 16.5px;
-            font-weight: 800;
-            margin-bottom: 5px;
-            letter-spacing: 0.5px;
-        }
+        /* 招待所房號按鈕 */
+        .primary-card { display: flex; align-items: center; padding: 24px; background: linear-gradient(90deg, rgba(0, 240, 255, 0.12) 0%, rgba(13, 8, 24, 0.5) 100%); border: 1.5px solid var(--neon-blue); border-radius: 24px; color: #ffffff; text-decoration: none; transition: var(--ease-premium) 0.45s; box-shadow: 0 0 25px rgba(0, 240, 255, 0.15); margin-bottom: 8px; }
+        .primary-card:hover, .primary-card:active { background: linear-gradient(90deg, rgba(0, 240, 255, 0.22) 0%, rgba(179, 102, 255, 0.05) 100%); border-color: #ffffff; transform: translateY(-5px); box-shadow: 0 0 35px rgba(0, 240, 255, 0.45); }
+        .primary-icon { font-size: 30px; margin-right: 20px; filter: drop-shadow(0 0 8px var(--neon-blue)); }
+        .grid-rooms { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+        .room-item { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 60px; background: rgba(255, 255, 255, 0.012); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; color: #dfd8eb; text-decoration: none; font-size: 14.5px; font-weight: 700; transition: 0.3s var(--ease-premium); }
+        .room-item span { font-size: 8px; color: #726682; font-weight: 600; margin-top: 3px; letter-spacing: 0.5px; }
+        .room-item:hover, .room-item:active { background: linear-gradient(135deg, rgba(179, 102, 255, 0.3) 0%, rgba(255, 115, 36, 0.2) 100%); border-color: var(--neon-orange); color: #ffffff; transform: translateY(-5px) scale(1.06); box-shadow: 0 6px 20px rgba(255, 115, 36, 0.35); }
+        .room-item:hover span { color: #ffd2ba; }
+        .talk-list { display: flex; flex-direction: column; gap: 14px; }
+        .talk-item { display: flex; align-items: center; padding: 20px 24px; background: linear-gradient(90deg, rgba(179, 102, 255, 0.02) 0%, rgba(255, 255, 255, 0.003) 100%); border: 1px solid rgba(179, 102, 255, 0.1); border-left: 3px solid rgba(179, 102, 255, 0.32); border-radius: 18px; color: #ffffff; text-decoration: none; transition: var(--ease-premium) 0.4s; }
+        .talk-item:hover, .talk-item:active { border-color: var(--neon-purple); border-left-color: var(--neon-cyan); background: linear-gradient(90deg, rgba(179, 102, 255, 0.16) 0%, rgba(0, 240, 255, 0.04) 100%); transform: translateX(6px); box-shadow: 0 5px 20px rgba(179, 102, 255, 0.22); }
 
-        .link-desc {
-            font-size: 12.5px;
-            color: #aaa2b5;
-            opacity: 0.85;
-        }
-
-        .badge {
-            font-size: 10px;
-            padding: 4px 11px;
-            border-radius: 20px;
-            font-weight: 700;
-            margin-left: 10px;
-            background-color: rgba(255, 115, 36, 0.16);
-            color: #ff9a6e;
-            border: 1px solid rgba(255, 115, 36, 0.28);
-            letter-spacing: 0.5px;
-        }
-
-        /* 奢華拉絲金屬霧面名片 */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .contact-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 28px 14px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.002) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 26px;
-            text-decoration: none;
-            color: #ffffff;
-            transition: var(--ease-premium) 0.45s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-
-        .contact-card:hover, .contact-card:active {
-            background: rgba(255, 255, 255, 0.035);
-            border-color: var(--neon-gold);
-            transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(255, 176, 32, 0.16);
-        }
-
-        .contact-avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: #140d24;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 14px;
-            border: 1px solid rgba(255, 176, 32, 0.22);
-            box-shadow: 0 0 15px rgba(255, 176, 32, 0.12);
-            transition: 0.4s var(--ease-premium);
-        }
-
-        .contact-card:hover .contact-avatar {
-            transform: scale(1.1) rotate(5deg);
-            border-color: var(--neon-gold);
-            box-shadow: 0 0 22px rgba(255, 176, 32, 0.4);
-        }
-
-        .contact-name {
-            font-weight: 800;
-            font-size: 14px;
-            letter-spacing: 1px;
-            color: #fcf4b6;
-            text-shadow: 0 0 6px rgba(255, 176, 32, 0.2);
-        }
-
-        /* 招待所大頻道按鈕 */
-        .primary-card {
-            display: flex;
-            align-items: center;
-            padding: 24px;
-            background: linear-gradient(90deg, rgba(0, 240, 255, 0.12) 0%, rgba(13, 8, 24, 0.5) 100%);
-            border: 1.5px solid var(--neon-blue);
-            border-radius: 24px;
-            color: #ffffff;
-            text-decoration: none;
-            transition: var(--ease-premium) 0.45s;
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
-            margin-bottom: 8px;
-        }
-
-        .primary-card:hover, .primary-card:active {
-            background: linear-gradient(90deg, rgba(0, 240, 255, 0.22) 0%, rgba(179, 102, 255, 0.05) 100%);
-            border-color: #ffffff;
-            transform: translateY(-5px);
-            box-shadow: 0 0 35px rgba(0, 240, 255, 0.45);
-        }
-
-        .primary-icon {
-            font-size: 30px;
-            margin-right: 20px;
-            filter: drop-shadow(0 0 8px var(--neon-blue));
-        }
-
-        /* 5欄網格房號按鈕 */
-        .grid-rooms {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-        }
-
-        .room-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.012);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            color: #dfd8eb;
-            text-decoration: none;
-            font-size: 14.5px;
-            font-weight: 700;
-            transition: 0.3s var(--ease-premium);
-        }
-
-        .room-item span {
-            font-size: 8px;
-            color: #726682;
-            font-weight: 600;
-            margin-top: 3px;
-            letter-spacing: 0.5px;
-        }
-
-        .room-item:hover, .room-item:active {
-            background: linear-gradient(135deg, rgba(179, 102, 255, 0.3) 0%, rgba(255, 115, 36, 0.2) 100%);
-            border-color: var(--neon-orange);
-            color: #ffffff;
-            transform: translateY(-5px) scale(1.06);
-            box-shadow: 0 6px 20px rgba(255, 115, 36, 0.35);
-        }
-
-        .room-item:hover span {
-            color: #ffd2ba;
-        }
-
-        /* 語音對談光纖導光條 */
-        .talk-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .talk-item {
-            display: flex;
-            align-items: center;
-            padding: 20px 24px;
-            background: linear-gradient(90deg, rgba(179, 102, 255, 0.02) 0%, rgba(255, 255, 255, 0.003) 100%);
-            border: 1px solid rgba(179, 102, 255, 0.1);
-            border-left: 3px solid rgba(179, 102, 255, 0.32);
-            border-radius: 18px;
-            color: #ffffff;
-            text-decoration: none;
-            transition: var(--ease-premium) 0.4s;
-        }
-
-        .talk-item:hover, .talk-item:active {
-            border-color: var(--neon-purple);
-            border-left-color: var(--neon-cyan);
-            background: linear-gradient(90deg, rgba(179, 102, 255, 0.16) 0%, rgba(0, 240, 255, 0.04) 100%);
-            transform: translateX(6px);
-            box-shadow: 0 5px 20px rgba(179, 102, 255, 0.22);
-        }
-
-        /* 政策與公告樣式 */
-        .policy-content {
-            line-height: 1.85;
-            font-size: 14.5px;
-            color: #e2daf0;
-        }
-
-        .policy-section {
-            margin-bottom: 32px;
-        }
-
-        .policy-section-title {
-            font-size: 16px;
-            font-weight: 800;
-            color: var(--neon-gold);
-            margin-bottom: 16px;
-            border-left: 3.5px solid var(--neon-gold);
-            padding-left: 14px;
-            text-shadow: 0 0 12px rgba(255, 176, 32, 0.35);
-            letter-spacing: 0.5px;
-        }
-
-        .policy-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .policy-item {
-            background: rgba(255, 255, 255, 0.005);
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            border-radius: 18px;
-            padding: 20px 22px;
-            box-shadow: inset 0 1px 15px rgba(0,0,0,0.35);
-            position: relative;
-            overflow: hidden;
-        }
+        /* 公告、政策與條文卡片 */
+        .policy-content { line-height: 1.85; font-size: 14.5px; color: #e2daf0; }
+        .policy-section { margin-bottom: 32px; }
+        .policy-section-title { font-size: 16px; font-weight: 800; color: var(--neon-gold); margin-bottom: 16px; border-left: 3.5px solid var(--neon-gold); padding-left: 14px; text-shadow: 0 0 12px rgba(255, 176, 32, 0.35); letter-spacing: 0.5px; }
+        .policy-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+        .policy-item { background: rgba(255, 255, 255, 0.005); border: 1px solid rgba(255, 255, 255, 0.02); border-radius: 18px; padding: 20px 22px; box-shadow: inset 0 1px 15px rgba(0,0,0,0.35); position: relative; overflow: hidden; }
         
         .policy-item.notice-cyan { border-left: 3.5px solid var(--neon-cyan); }
         .policy-item.notice-pink { border-left: 3.5px solid var(--neon-pink); }
         .policy-item.notice-blue { border-left: 3.5px solid var(--neon-blue); }
 
-        .policy-item-title {
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 6px;
-            font-size: 15.5px;
-            letter-spacing: 0.5px;
-        }
-
-        .policy-item-title span {
-            color: var(--neon-purple);
-            margin-right: 6px;
-        }
-
-        .policy-item-desc {
-            color: #aca4ba;
-            font-size: 13.5px;
-        }
+        .policy-item-title { font-weight: 800; color: #ffffff; margin-bottom: 6px; font-size: 15.5px; letter-spacing: 0.5px; }
+        .policy-item-title span { color: var(--neon-purple); margin-right: 6px; }
+        .policy-item-desc { color: #aca4ba; font-size: 13.5px; line-height: 1.7; }
         
         .highlight-text { color: var(--neon-pink); font-weight: 700; text-shadow: 0 0 10px rgba(255, 42, 109, 0.35); }
         .highlight-blue { color: var(--neon-cyan); font-weight: 700; text-shadow: 0 0 10px rgba(0, 243, 255, 0.35); }
         .highlight-gold { color: var(--neon-gold); font-weight: 700; text-shadow: 0 0 10px rgba(255, 176, 32, 0.35); }
 
-        .footer {
-            margin-top: 50px;
-            font-size: 11px;
-            color: #554e63;
-            letter-spacing: 2px;
-            opacity: 0.65;
-        }
-
-        .tab-panel {
-            display: none;
-            animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .tab-panel.active {
-            display: block;
-        }
+        .footer { margin-top: 50px; font-size: 11px; color: #554e63; letter-spacing: 2px; opacity: 0.65; }
+        
+        /* 智慧面板隱藏切換機制 */
+        .tab-panel, .sub-tab-panel { display: none; }
+        .tab-panel.active { display: block; animation: fadeIn 0.5s var(--ease-premium) forwards; }
+        .sub-tab-panel.active { display: block; animation: fadeInSub 0.4s var(--ease-premium) forwards; }
 
         @keyframes pulseGlow {
             0% { transform: scale(0.96); box-shadow: 0 0 15px rgba(179, 102, 255, 0.35); }
             100% { transform: scale(1.04); box-shadow: 0 0 35px rgba(0, 240, 255, 0.55); }
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInSub { from { opacity: 0; transform: scale(0.99); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
 <body>
@@ -577,15 +253,15 @@
         <p class="subtitle">VIP Lounge Portal</p>
     </div>
 
-    <!-- 高級懸浮四分頁導航條（已將 Lounge 導引 ➔ 正名為【主頁】） -->
+    <!-- 一級主導航條 -->
     <div class="tab-navigation">
         <button class="tab-btn active" onclick="switchTab('home')">主頁</button>
         <button class="tab-btn" onclick="switchTab('rooms')">VIP 招待所</button>
-        <button class="tab-btn" onclick="switchTab('notice')">營運公告</button>
+        <button class="tab-btn" onclick="switchTab('notice')">主要公告</button>
         <button class="tab-btn" onclick="switchTab('policy')">交付及退費</button>
     </div>
 
-    <!-- 分頁 1：【主頁】（原 Lounge 導引門，已重新優化質感比例） -->
+    <!-- 分頁 1：【主頁】 -->
     <div id="panel-home" class="tab-panel active">
         <div class="card-box">
             <div class="card-header">🏢 核心功能社群</div>
@@ -613,7 +289,7 @@
                         <div class="link-title">會議室</div>
                         <div class="link-desc">內部行政討論與通知專區</div>
                     </div>
-                    <span class="badge">限出租者</span>
+                    <span class="badge">限時光分享者</span>
                 </div>
             </a>
         </div>
@@ -715,42 +391,92 @@
         </div>
     </div>
 
-    <!-- 分頁 3：平台營運重要公告 -->
+    <!-- 分頁 3：【主要公告】（全新重構：內嵌二級動態分頁系統） -->
     <div id="panel-notice" class="tab-panel">
         <div class="card-box policy-content">
-            <div class="card-header">📢 NOTICE ｜ 營運調整重要公告</div>
+            <div class="card-header">📢 NOTICE ｜ 平台營運重要公告</div>
             
-            <div style="background: rgba(255,255,255,0.015); padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.04); margin-bottom: 22px; color: #ded7eb; font-size: 14px;">
-                各位夥伴辛苦了！跟大家分享一個好消息：我們的第三方線上金流已經正式申請成功！🎉 <br><br>
-                接下來客戶預約付款將更方便、更安全，這對大家未來接單和推廣都會有極大的幫助。為了維護更穩定的系統營運與法律合規，平台自 <span class="highlight-blue">8 月 1 日</span>起將進行以下調整：
+            <!-- 二級內嵌導航條 (Sub-Tabs) -->
+            <div class="sub-tab-navigation">
+                <button class="sub-tab-btn active" onclick="switchSubTab('sub-finance')">金流與拆帳</button>
+                <button class="sub-tab-btn" onclick="switchSubTab('sub-trust')">誠信與互選</button>
+                <button class="sub-tab-btn" onclick="switchSubTab('sub-privacy')">分流與隱私</button>
             </div>
 
-            <div class="policy-list">
-                <div class="policy-item notice-pink">
-                    <div class="policy-item-title">💰 媒合費調整（利潤優化）</div>
-                    <div class="policy-item-desc">
-                        平台抽成（媒合費）將調整為 <span class="highlight-text">20%</span>。大家可以根據自身狀況，<span class="highlight-gold">適度微調自己的服務定價</span>，確保自己的利潤空間。
-                    </div>
-                </div>
-
-                <div class="policy-item notice-cyan">
-                    <div class="policy-item-title">💎 服務品質升級（建立品牌）</div>
-                    <div class="policy-item-desc">
-                        隨著平台正規化，也請大家共同維護並提升服務品質，給客戶更棒的陪伴體驗，建立好口碑、帶進源源不絕的單。
-                    </div>
-                </div>
-
-                <div class="policy-item notice-blue">
-                    <div class="policy-item-title">📅 統一撥款時間（財務合規）</div>
-                    <div class="policy-item-desc">
-                        為了財務流程合規與對帳安全，自 8 月起，平台將固定於 <span class="highlight-blue">次月 15 號</span> 統一撥款給各位夥伴。
+            <!-- 子卡片盒：金流與拆帳細則 -->
+            <div id="sub-panel-sub-finance" class="sub-tab-panel active">
+                <div class="card-box sub-notice-box">
+                    <div class="policy-list">
+                        <div class="policy-item notice-cyan">
+                            <div class="policy-item-title">💳 官方信託商家金流帳戶性質</div>
+                            <div class="policy-item-desc">
+                                目前平台串接之街口支付及多項申請中的第三方金流，均是由平台官方正式申請的「特約商家專屬金流」，絕非個人私人帳戶。尋茶人付款時，資金直接進入信託平台（由金流商與合作銀行全程託管），並於 <span class="highlight-blue">次月 15 號</span> 統一合規撥款給各位時光分享者，健全交易安全保障防線。
+                            </div>
+                        </div>
+                        <div class="policy-item notice-pink">
+                            <div class="policy-item-title">📈 媒合服務費配置說明（20%）</div>
+                            <div class="policy-item-desc" style="margin-bottom: 6px;">
+                                平台抽成（媒合費）固定為訂單總金額之 <span class="highlight-text">20%</span>，核心目的旨在「把餅做大」引進更多高質量客源。款項用途配置透明化如下：
+                            </div>
+                            <div class="policy-item-desc" style="padding-left: 10px; opacity: 0.9;">
+                                • <strong style="color:var(--neon-gold);">10% 基礎營運維護成本：</strong> 用於後台客服、Chiu 與管理員的排班媒合、時間協調、尋茶人諮詢及消費纠紛官方調解。<br>
+                                • <strong style="color:var(--neon-gold);">10% 升級服務資源投放：</strong> 全額吸收刷卡/街口/超商每筆 2.5%~3.5% 之外部金流手續費；固定撥資於 Threads、IG 投放爆款廣告導流；用於 VIP 傳送門網址與語音伺服器硬體高昂優化。夥伴可適度微調定價，確保利潤空間。
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 25px; font-weight: 800; color: #faf3b3; letter-spacing: 1px; text-shadow: 0 0 10px rgba(255,176,32,0.25);">
-                感謝大家跟著案內所一起成長，引進流量，大家一起賺滿荷包！💪
+            <!-- 子卡片盒：雙向誠信與互選 -->
+            <div id="sub-panel-sub-trust" class="sub-tab-panel">
+                <div class="card-box sub-notice-box">
+                    <div class="policy-list">
+                        <div class="policy-item notice-blue">
+                            <div class="policy-item-title">🛡️ 7月17日起全新 ➔ 雙向誠信保障新制</div>
+                            <div class="policy-item-desc">
+                                為了全面落實雙向誠信，向高消費客群展現平台特約夥伴的極致出勤率：自 <span class="highlight-blue">7 月 17 日</span> 起，訂單確認成立後，時光分享者預存該筆訂單金額之 <span class="highlight-blue">30%</span> 作為「特約個體戶誠信履約保證金」，行程完成結案後，系統將 <span class="highlight-blue">立即全額退還</span>。本制度與尋茶人的「放鳥扣款制」相互對稱，時光分享者仍保有 100% 自由決定是否接單之絕對自主權。
+                            </div>
+                        </div>
+                        <div class="policy-item notice-pink">
+                            <div class="policy-item-title">❌ 尋茶人一個禮拜（7天）內主動取消拆帳法</div>
+                            <div class="policy-item-desc">
+                                若尋茶人因個人因素於一個禮拜（7天）內臨時取消訂單或放鳥，平台將扣除尋茶人訂單總金額之 **30%** 作為法定違約金。*此筆違約金中，固定將訂單總金額之 10% 全額撥付補償予時光分享者夥伴，平台官方則留存總金額之 20% 作為基礎客服開銷*，雙向對等風控。
+                            </div>
+                        </div>
+                        <div class="policy-item notice-cyan">
+                            <div class="policy-item-title">⚖️ 尋茶人期待條件與雙向互選天平</div>
+                            <div class="policy-item-desc" style="margin-bottom: 6px;">
+                                陪伴是雙向平等的藝術，客人有「期待權」，夥伴有「決定權」：
+                            </div>
+                            <div class="policy-item-desc" style="padding-left: 10px; opacity: 0.9;">
+                                • <strong style="color:var(--neon-cyan);">尋茶人期待權（提高媒合率）：</strong> 客人填寫相處期待旨在提高媒合成功率，若完全禁止表達將嚴重打擊其再次消費意願，進而衝擊全體夥伴的單量利潤。因此，只要單子內容「不涉及言語人身攻擊」且「無不禮貌的外表身材挑三揀四或硬性服裝服裝硬性穿著限制」，平台皆尊重客人的自主期待權，官方不予干涉。<br>
+                                • <strong style="color:var(--neon-purple);">時光分享者決定權（不強迫接單）：</strong> 平台秉持雙向平等，若審閱希望條件後認為頻率或期待與自身不合，夥伴 **隨時保有 100% 委認拒接、不予接單之絕對自主權**。
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- 子卡片盒：分流與隱私防線 -->
+            <div id="sub-panel-sub-privacy" class="sub-tab-panel">
+                <div class="card-box sub-notice-box">
+                    <div class="policy-list">
+                        <div class="policy-item notice-pink">
+                            <div class="policy-item-title">🚨 語音繁忙期「會議室分流」與隱私安全</div>
+                            <div class="policy-item-desc">
+                                當即時語音諮詢（電話頻道）流量過大、管理端在高峰期暫時無法顧及所有人時，平台將會彈性開啟「會議室」供夥伴與尋茶人進房聊天與分流接待。進房前夥伴們 **請務必確認已先關閉手機/電腦的鏡頭**，確保畫面隱私安全。
+                            </div>
+                        </div>
+                        <div class="policy-item notice-blue">
+                            <div class="policy-item-title">⚠️ 真實個資防線警告（防線提示）</div>
+                            <div class="policy-item-desc">
+                                請特別注意：由於 LINE 系統會議室的原生機制限制，*點擊連結進入會議室將會透露您「真實的 LINE 個人帳號（含頭像與名稱）」*（而非匿名社群分身）。請夥伴們務必知悉此機制，在房內互動時注意個人安全界線。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -761,30 +487,30 @@
                 <div class="policy-section-title">一、 服務預約與建立服務之 SOP</div>
                 <ul class="policy-list">
                     <li class="policy-item">
-                        <div class="policy-item-title"><span>1.</span> 客戶線上預約</div>
-                        <div class="policy-item-desc">客戶透過官方管道諮詢，並選擇所需的生活陪伴項目（如：探店飯友、遊戲陪玩、語意傾聽）。</div>
+                        <div class="policy-item-title"><span>1.</span> 尋茶人線上預約</div>
+                        <div class="policy-item-desc">尋茶人透過官方管道諮詢，並選擇所需的生活陪伴項目（如：探店飯友、遊戲陪玩、語意傾聽）。</div>
                     </li>
                     <li class="policy-item">
                         <div class="policy-item-title"><span>2.</span> 雙方合意與守則確認</div>
-                        <div class="policy-item-desc">平台提供詳細價目表與《服務守則》（內含：<span class="highlight-text">嚴禁肢體接觸</span>、車內禁菸、違規將立即終止服務等規範）。客戶確認同意後，方可進入付款程序。</div>
+                        <div class="policy-item-desc">平台提供詳細價目表與《時光交換星級公約》（內含：<span class="highlight-text">嚴禁肢體接觸</span>、車內禁菸、違規將立即終止服務等規範）。尋茶人確認同意後，方可進入付款程序。</div>
                     </li>
                     <li class="policy-item">
-                        <div class="policy-item-title"><span>3.</span> 金流支付（訂金/全額）</div>
-                        <div class="policy-item-desc">客戶透過金流系統支付服務費用（或支付 30% 訂金+車資）。付款完成後，系統正式建立訂單並鎖定夥伴出勤時間。</div>
+                        <div class="policy-item-title"><span>3.</span> 信託金流支付（全額預付）</div>
+                        <div class="policy-item-desc">尋茶人透過官方信託金流系統支付全額服務費用。付款完成後，系統正式建立訂單並鎖定夥伴出勤時間。</div>
                     </li>
                     <li class="policy-item">
                         <div class="policy-item-title"><span>4.</span> 平台指派與服務履行</div>
-                        <div class="policy-item-desc">平台指派陪伴夥伴依約前往指定公共場所（如餐廳、咖啡廳）履行實體陪伴服務，或於線上進行陪玩與語音互動.</div>
+                        <div class="policy-item-desc">時光分享者依約前往指定公共場所（如餐廳、咖啡廳等明亮陽光領域）履行實體陪伴服務，或於線上進行陪玩與語音互動。</div>
                     </li>
                     <li class="policy-item">
                         <div class="policy-item-title"><span>5.</span> 服務確認與結案</div>
-                        <div class="policy-item-desc">服務完成後，夥伴與客戶互相回報.平台於後台對帳系統標記「服務完成」，案件結案。</div>
+                        <div class="policy-item-desc">服務完成後，時光分享者與尋茶人互相回報。平台於後台對帳系統標記「服務完成」，案件結案。</div>
                     </li>
                 </ul>
             </div>
 
             <div class="policy-section">
-                <div class="policy-section-title">二、 最長預付期</div>
+                <div class="policy-section-title">二、 最長預付期控管</div>
                 <ul class="policy-list">
                     <li class="policy-item">
                         <div class="policy-item-title"><span>•</span> 最長預付期限</div>
@@ -792,7 +518,7 @@
                     </li>
                     <li class="policy-item">
                         <div class="policy-item-title"><span>•</span> 控管機制</div>
-                        <div class="policy-item-desc">客戶下單預約之時間，僅能選擇自付款日起算 30 天內之檔期，不接受超過 30 天以上之遠期預約，以降低預收款項之延遲交付風險。</div>
+                        <div class="policy-item-desc">尋茶人下單預約之時間，僅能選擇自付款日起算 30 天內之檔期，不接受超過 30 天以上之遠期預約，以降低預收款項之延遲交付風險。</div>
                     </li>
                 </ul>
             </div>
@@ -803,7 +529,7 @@
                     <li class="policy-item">
                         <div class="policy-item-title"><span>1.</span> 服務履行確認（完成交付）</div>
                         <div class="policy-item-desc" style="margin-bottom: 8px;">
-                            <strong style="color:var(--neon-gold);">線下陪同（探店/飯友）：</strong><br>服務當日由出勤夥伴與客戶於約地地點會合。服務完成時，夥伴於系統回報。服務結束後 <span class="highlight-blue">24 小時內</span>無任何爭議回報，即視為「服務已完整交付」。
+                            <strong style="color:var(--neon-gold);">線下陪同（探店/飯友）：</strong><br>服務當日由出勤夥伴與尋茶人於約定地點會合。服務完成時，夥伴於系統回報。服務結束後 <span class="highlight-blue">24 小時內</span>無任何爭議回報，即視為「服務已完整交付」。
                         </div>
                         <div class="policy-item-desc">
                             <strong style="color:var(--neon-gold);">線上服務（陪玩/掛睡）：</strong><br>於約定之線上時段完成陪伴後，<span class="highlight-blue">24 小時內</span>無爭議回報即視為完成交付。
@@ -812,23 +538,23 @@
 
                     <li class="policy-item">
                         <div class="policy-item-title"><span>2.</span> 退費與改期規範（特殊情況）</div>
-                        <div class="policy-item-desc">
+                        <div class="policy-item-desc" style="margin-bottom: 8px;">
                             <strong style="color:var(--neon-gold);">非可歸責於客戶之取消（如天災、夥伴缺席）：</strong><br>平台將協助安排改期，若客戶不願改期，平台將於 <span class="highlight-blue">3 個工作天內</span>主動辦理全額退費。
                         </div>
-                        <div class="policy-item-desc" style="margin-top: 8px;">
-                            <strong style="color:var(--neon-gold);">客戶主動取消：</strong><br>
+                        <div class="policy-item-desc">
+                            <strong style="color:var(--neon-gold);">尋茶人主動取消：</strong><br>
                             • 約定服務時間 <span class="highlight-text">一個禮拜（7天）前</span>取消：退還餘額（扣除必要之金流手續費）。<br>
-                            • 約定服務時間 <span class="highlight-text">一個禮拜（7天）內</span>取消 : <span class="highlight-text">沒收訂金/服務費用</span>（用以補償出勤夥伴已付出之排班與交通預備成本）。
+                            • 約定服務時間 <span class="highlight-text">一個禮拜（7天）內</span>取消：沒收訂單總金額之 <span class="highlight-text">30% 作為違約金</span>（其中 20% 固定作為平台媒合與行政費用，其餘 10% 全額撥付補償予時光分享者夥伴）。
                         </div>
                     </li>
 
                     <li class="policy-item">
                         <div class="policy-item-title"><span>3.</span> 交易糾紛與申訴管道</div>
                         <div class="policy-item-desc" style="margin-bottom: 8px;">
-                            本平台設有專屬客戶服務管道（LINE官方帳號客服）。若有任何服務不符之處，請於服務結束後 <span class="highlight-blue">24 小時內</span>提出申訴。
+                            本平台設有專屬客戶服務管道（LINE官方帳號客服）。若有任何服務不符之處，或尋茶人有違反公約紅線之客觀違規事實（如違反肢體接觸禁令、言語羞辱、騷擾行為等），時光分享者有權立即中止行程，費用 100% 沒收。
                         </div>
                         <div class="policy-item-desc">
-                            平台客服將於收到申訴後 <span class="highlight-blue">48 小時內</span>完成事實釐清。若確認夥伴違約（遲到、早退、態度惡劣），將依比例或全額退款（退刷至原支付信用卡或帳戶）。
+                            請於服務結束後 <span class="highlight-blue">24 小時內</span>提出爭議申訴。平台客服將於收到申訴後 <span class="highlight-blue">48 小時內</span>完成事實釐清。若確認夥伴違約（遲到、早退、態度惡劣），將依比例或全額退款。
                         </div>
                     </li>
                 </ul>
@@ -843,10 +569,11 @@
 
 </div>
 
-<!-- 智慧動態辨識分頁切換 + 密碼鎖 JavaScript -->
+<!-- 智慧雙層分頁切換控制系統 JS -->
 <script>
     let isUnlocked = false;
 
+    // 一級主分頁切換
     function switchTab(tabId) {
         if (tabId === 'rooms' && !isUnlocked) {
             let password = prompt("🔒 此頁面為【社群會員限定】\n請輸入專屬通關密碼：");
@@ -868,6 +595,18 @@
         
         const targetPanel = document.getElementById(`panel-${tabId}`);
         if (targetPanel) targetPanel.classList.add('active');
+    }
+
+    // 二級內嵌公告分頁切換
+    function switchSubTab(subTabId) {
+        document.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.sub-tab-panel').forEach(panel => panel.classList.remove('active'));
+
+        const targetSubBtn = document.querySelector(`.sub-tab-btn[onclick*="${subTabId}"]`);
+        if (targetSubBtn) targetSubBtn.classList.add('active');
+
+        const targetSubPanel = document.getElementById(`sub-panel-${subTabId}`);
+        if (targetSubPanel) targetPanel = targetSubPanel.classList.add('active');
     }
 </script>
 </body>
