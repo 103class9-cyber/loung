@@ -2,9 +2,9 @@ name: Auto Update Room Status
 
 on:
   schedule:
-    # 每 15 分鐘全自動在背景跑一次爬蟲數人頭
-    - cron: '*/15 * * * *'
-  workflow_dispatch: # 允許在 Actions 頁面手動點擊按鈕刷新
+    # 🔥 每 5 分鐘全自動在背景跑一次爬蟲數人頭（地表最快安全極限速度）
+    - cron: '*/5 * * * *'
+  workflow_dispatch: # 允許在 Actions 頁面手動點擊按鈕隨時強制刷新
 
 permissions:
   contents: write 
@@ -21,7 +21,6 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
-        # 💡 已移除造成錯誤的 cache 這一行，讓機器人順利通關！
 
     - name: 3. 安裝爬蟲必備核心套件
       run: |
