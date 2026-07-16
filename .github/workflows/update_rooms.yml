@@ -1,0 +1,46 @@
+name: Auto Update Room Status
+
+on:
+  schedule:
+    # 每 15 分鐘全自動在背景跑一次爬蟲數人頭
+    - cron: '*/15 * * * *'
+  workflow_dispatch: # 允許在 Actions 頁面手動點擊按鈕刷新
+
+permissions:
+  contents: write 
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 1. 檢出專案程式碼
+      uses: actions/checkout@v4
+
+    - name: 2. 初始化 Python 環境
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+
+    - name: 3. 安裝爬蟲必備核心套件
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4
+
+    - name: 4. 執行自動化人頭數數腳本
+      run: python update_rooms.py
+
+    - name: 5. 自動識別變更並強勢推回儲存庫
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Bot"
+        git add index.html
+        
+        if ! git diff --cached --exit-code; then
+          git commit -m "chore: 系統自動更新房間即時使用狀態 [skip ci]"
+          git push
+          echo "🎉 網頁已成功推回更新並同步至 Pages 上線！"
+        else
+          echo "☕ 沒有檢測到任何房間狀態改變，跳過本次推送。"
+        fi
