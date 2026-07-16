@@ -59,7 +59,6 @@
         .title { font-size: 30px; font-weight: 900; letter-spacing: 5px; margin-bottom: 8px; background: linear-gradient(90deg, #ffffff 10%, var(--neon-gold), var(--neon-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 15px rgba(255, 115, 36, 0.35)); }
         .subtitle { font-size: 11px; color: var(--text-gray); letter-spacing: 5px; text-transform: uppercase; opacity: 0.75; font-weight: 500; }
 
-        /* 🔥 動態計數看板流光條 CSS */
         .live-counter-bar {
             background: linear-gradient(90deg, rgba(255, 42, 109, 0.15), rgba(0, 240, 255, 0.15));
             border: 1px solid rgba(255, 42, 109, 0.3);
@@ -202,7 +201,7 @@
         <p class="subtitle">VIP Lounge Portal</p>
     </div>
 
-    <!-- 🔥 動態計數看板：此處是機器人專屬修改點 -->
+    <!-- 🔥 動態計數看板 -->
     <div id="live-counter" class="live-counter-bar">
         ⚡ VIP Lounge 當前在線：<span class="counter-num">0</span>組尊榮相處正實時交換中
     </div>
@@ -297,7 +296,7 @@
                 <a href="https://line.me/ti/g2/ZEvB1tJOkQRXysiLR15gIwtJb2IRNZI0ZTUyvA" class="room-item" data-room="204" target="_blank">204<span>ROOM</span></a>
                 <a href="https://line.me/ti/g2/-iIOpFDLnPY5PcRKJj0jYw2V0-pWYVRScHZE5w" class="room-item" data-room="205" target="_blank">205<span>ROOM</span></a>
                 <a href="https://line.me/ti/g2/a7wG0W_ZUg1Lu1ADbrTlA0p1BdsPJs4J5Q8BQg" class="room-item" data-room="206" target="_blank">206<span>ROOM</span></a>
-                <a href="https://line.me/ti/g2/JNCL2JNdFD8OHUqXNpYvybo25hwnAcugJkce6Q" class="room-item" data-room="207" target="_blank">207<span>ROOM</span></a>
+                <a href="https://line.me/ti/g2/JNCL2JNdFD8OHUXNpYvybo25hwnAcugJkce6Q" class="room-item" data-room="207" target="_blank">207<span>ROOM</span></a>
                 <a href="https://line.me/ti/g2/GfUp7qx4DO6do_S8TZUgTwdpmwht0djXYIfbKg" class="room-item" data-room="208" target="_blank">208<span>ROOM</span></a>
                 <a href="https://line.me/ti/g2/m1uOuZNgJA07iCzdvy4POGc9ZZpgKjJ2i0zq8Q" class="room-item" data-room="209" target="_blank">209<span>ROOM</span></a>
                 <a href="https://line.me/ti/g2/3eeJF2Og-tHV1T6Zq6c0RaiEbnrJgkt_Ms48nA" class="room-item" data-room="210" target="_blank">210<span>ROOM</span></a>
@@ -351,7 +350,7 @@
                 <button class="sub-tab-btn" onclick="switchSubTab('sub-privacy')">分流與隱私</button>
             </div>
 
-            <!-- 🔥 核心錨點：此處會由 Python 腳本全自動同步 GitHub Issues 最新公告 -->
+            <!-- 🔥 智慧公告容器：在沒有 Issue 時會自動退回這段預設條文 -->
             <div id="auto-notices">
                 <div id="sub-panel-sub-finance" class="sub-tab-panel active">
                     <div class="card-box sub-notice-box">
