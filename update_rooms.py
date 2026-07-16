@@ -20,14 +20,21 @@ with open(html_path, "r", encoding="utf-8") as f:
 
 soup = BeautifulSoup(html_content, "html.parser")
 
-# 💡 升級：自動獲取 GitHub 虛擬機內建的官方通行證，防止被 API 限制阻擋
+# 💡 安全性修正：採用 LINE 專用偽裝型高階連線機制
+session = requests.Session()
+session.headers.update({
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7"
+})
+
+# 💡 漏洞防禦：加入官方 API 通行證以避免限流阻擋
 github_token = os.environ.get("GITHUB_TOKEN")
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+api_headers = {
+    "User-Agent": "Mozilla/5.0",
     "Accept": "application/vnd.github.v3+json"
 }
 if github_token:
-    headers["Authorization"] = f"token {github_token}"
+    api_headers["Authorization"] = f"token {github_token}"
 
 has_changed = False
 total_busy_count = 0
@@ -42,7 +49,7 @@ for link in room_links:
     room_id = link["data-room"]
     line_url = link["href"]
     try:
-        response = requests.get(line_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+        response = session.get(line_url, timeout=15)
         if response.status_code == 200:
             member_match = re.search(r'"memberCount"\s*:\s*(\d+)', response.text)
             if not member_match:
@@ -84,7 +91,7 @@ for link in talk_links:
     if "/R/meeting/" in line_url:
         continue
     try:
-        response = requests.get(line_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+        response = session.get(line_url, timeout=15)
         if response.status_code == 200:
             member_match = re.search(r"成員\s*[:：]?\s*([\d,]+)", response.text)
             if member_match:
@@ -107,7 +114,7 @@ for link in talk_links:
         print(f"💥 對談室 {talk_id} 連線異常: {e}")
 
 # -------------------------------------------------------------
-# 3. 智慧同步：計算「時光交換中」計計數器
+# 3. 智慧同步：計算「時光交換中」計數器
 # -------------------------------------------------------------
 counter_span = soup.find("span", class_="counter-num")
 if counter_span and counter_span.string != str(total_busy_count):
@@ -121,11 +128,13 @@ if counter_span and counter_span.string != str(total_busy_count):
 print("\n📝 開始撈取 GitHub Issues 同步公告條文...")
 issues_url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/issues?state=open"
 try:
-    res = requests.get(issues_url, headers=headers, timeout=10)
+    res = requests.get(issues_url, headers=api_headers, timeout=10)
     if res.status_code == 200:
         issues_list = res.json()
         notice_container = soup.find(id="auto-notices")
-        if notice_container and issues_list:
+        
+        # 💡 漏洞防護：只有當真的有找到開著的 Issues 公告貼文時，才清空並覆寫公告欄
+        if notice_container and isinstance(issues_list, list) and len(issues_list) > 0:
             new_html = ""
             for idx, issue in enumerate(issues_list):
                 active_class = "active" if idx == 0 else ""
@@ -143,10 +152,15 @@ try:
                     </div>
                 </div>
                 """
-            notice_container.clear()
-            notice_container.append(BeautifulSoup(new_html, "html.parser"))
-            has_changed = True
-            print("✅ 成功：最新公告文字已順利與 GitHub Issues 同步！")
+            
+            # 💡 漏洞防禦：先檢查新產生的 HTML 是否與舊有的不同，有變更才寫入
+            if str(notice_container) != f'<div id="auto-notices">{new_html}</div>':
+                notice_container.clear()
+                notice_container.append(BeautifulSoup(new_html, "html.parser"))
+                has_changed = True
+                print("✅ 成功：最新公告文字已順利與 GitHub Issues 同步！")
+        else:
+            print("☕ 提示：目前 GitHub 上沒有開著的公告貼文，保留前台預設精品公告結構。")
 except Exception as e:
     print(f"⚠️ 公告同步失敗（保持預設公告）：{e}")
 
