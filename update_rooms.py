@@ -94,8 +94,8 @@ for link in talk_links:
                         link["class"] = current_classes if current_classes else None
                         has_changed = True
                         print(f" ➔ 🟢 對談室 {talk_id} 釋出空閒")
-        except Exception as e:
-            print(f"💥 對談室 {talk_id} 連線異常: {e}")
+    except Exception as e:
+        print(f"💥 對談室 {talk_id} 連線異常: {e}")
 
 # -------------------------------------------------------------
 # 3. 智慧同步：計算「時光交換中」計數器
