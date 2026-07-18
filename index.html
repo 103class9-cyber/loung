@@ -384,85 +384,103 @@
 </div>
 </div>
 <!-- 分頁 3：【主要公告】 -->
+<!-- 分頁 3：【主要公告】 -->
 <div class="tab-panel" id="panel-notice">
-<div class="card-box policy-content">
-<div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
-<div class="sub-tab-navigation">
-<button class="sub-tab-btn active" onclick="switchSubTab('sub-finance')">金流與拆帳</button>
-<button class="sub-tab-btn" onclick="switchSubTab('sub-trust')">誠信與互選</button>
-<button class="sub-tab-btn" onclick="switchSubTab('sub-privacy')">分流與隱私</button>
-</div>
-<!-- 子卡片：金流與拆帳細則 -->
-<div class="sub-tab-panel active" id="sub-panel-sub-finance">
-<div class="card-box sub-notice-box">
-<div class="policy-list">
-<div class="policy-item notice-cyan">
-<div class="policy-item-title">💳 官方信託商家金流帳戶性質</div>
-<div class="policy-item-desc">目前平台串接之街口支付及多項申請中的第三方金流，均是由平台官方正式申請的「特約商家專屬金流」，絕非個人私人帳戶。尋茶人付款時，資金直接進入信託平台（由金流商與合作銀行全程託管），並於次月 15 號統一合規撥款給各位時光分享者，健全交易安全保障防線。</div>
-</div>
-<div class="policy-item notice-pink">
-<div class="policy-item-title">📈 媒合服務費配置說明（20%）</div>
-<div class="policy-item-desc" style="margin-bottom: 6px;">平台抽成（媒合費）固定為訂單總金額之 20%，核心目的旨在「把餅做大」引進更多高質量客源。款項用途配置透明化如下：</div>
-<div class="policy-item-desc" style="padding-left: 10px; opacity: 0.9;">
-                                • 10% 基礎營運維護成本： 用於管管、Chiu 與管理端的排班媒合、時間協調、尋茶人諮詢及消費糾紛官方調解。<br/>
-                                • 10% 升級服務資源投放： 全額吸收刷卡/街口/超商外部金流手續費；固定撥資於 Threads、IG 投放廣告導流；用於 VIP 傳送門網址與語音伺服器維護與優化。夥伴可適度微調定價，確保利潤空間。
-                            </div>
-</div>
-</div>
-</div>
-</div>
-<!-- 子卡片：雙向誠信與互選 -->
-<div class="sub-tab-panel" id="sub-panel-sub-trust">
-<div class="card-box sub-notice-box">
-<div class="policy-list">
-<div class="policy-item notice-blue">
-<div class="policy-item-title">🛡️ 8月1日起全新 ➔ 雙向誠信保障新制</div>
-<div class="policy-item-desc">為了落實雙向誠信，我們提供更彈性的保障制度。自 8 月 1 日起，尋茶人可自主選擇是否啟用「雙向誠信保障」。若尋茶人選擇啟用該保障，訂單確認後，時光分享者需預存該筆訂單金額之 30% 作為「特約個體戶誠信履約保證金」。行程順利結案後，保證金將會同次月撥款時一併歸還予夥伴。此制度與尋茶人的「放鳥扣款制」相對應，時光分享者仍擁有 100% 接單自主權。</div>
-</div>
-<div class="policy-item notice-pink">
-<div class="policy-item-title">❌ 尋茶人主動取消拆帳法</div>
-<div class="policy-item-desc">若尋茶人因個人因素於一個禮拜（7天）內臨時取消訂單或放鳥，平台將扣除尋茶人訂單總金額之 30% 作為法定違約金。此筆違約金中，固定將訂單總金額之 10% 全額撥付補償予時光分享者夥伴，平台官方則留存總金額之 20% 作為基礎管管行政與營運成本，雙向對等風控。</div>
-</div>
-<div class="policy-item notice-cyan">
-<div class="policy-item-title">⚖️ 尋茶人期待條件與雙向互選天平</div>
-<div class="policy-item-desc" style="margin-bottom: 6px;">陪伴是雙向平等的藝術，客人有「期待權」，夥伴有「決定權」：</div>
-<div class="policy-item-desc" style="padding-left: 10px; opacity: 0.9;">
-                                • 尋茶人期待權（提高媒合率）： 客人填寫相處期待旨在提高媒合成功率，若完全禁止表達將嚴重打擊其再次消費意願，進而衝擊全體夥伴的單量利潤。因此，只要單子內容「不涉及言語人身攻擊」且「無不禮貌的外表身材挑三揀四或硬性穿著限制」，平台皆尊重客人的自主期待權，官方不予干涉。<br/>
-                                • 時光分享者決定權（不強迫接單）： 平台官方不予干涉，若審閱希望條件後認為頻率或期待與自身不合，夥伴隨時保有 100% 委認拒接、不予接單之絕對自主權。
-                            </div>
-</div>
-</div>
-</div>
-</div>
-<!-- 子卡片：分流與隱私防線 -->
-<div class="sub-tab-panel" id="sub-panel-sub-privacy">
-<div class="card-box sub-notice-box">
-<div class="policy-list">
-<div class="policy-item notice-pink">
-<div class="policy-item-title">🚨 語音繁忙期「會議室分流」與隱私安全</div>
-<div class="policy-item-desc">當即時語音諮詢流量過大、管理端在高峰期暫時無法顧及所有人時，平台將會彈性開啟「會議室']供夥伴與尋茶人進房聊天與分流接待。進房前夥伴們請務必確認已先關閉手機/電腦的鏡頭，確保畫面隱私安全。</div>
-</div>
-<div class="policy-item notice-blue">
-<div class="policy-item-title">⚠️ 真實個資防線警告（防線提示）</div>
-<div class="policy-item-desc">請特別注意：由於 LINE 系統會議室的原生機制限制，點擊連結進入會議室將會透露您「真實的 LINE 個人帳號（含頭像與名稱）」（而非匿名社群分身）。請夥伴們務必知悉此機制，在房內互動時注意個人安全界線。</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+    <div class="card-box">
+        <div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
+        
+        <!-- 子分頁導航 -->
+        <div class="sub-tab-navigation">
+            <button class="sub-tab-btn active" onclick="switchSubTab('sub-terms')">📋 法律免責</button>
+            <button class="sub-tab-btn" onclick="switchSubTab('sub-client')">👤 求租人</button>
+            <button class="sub-tab-btn" onclick="switchSubTab('sub-partner')">👥 出租人</button>
+        </div>
+
+        <!-- 1. 法律免責 -->
+        <div class="sub-tab-panel active" id="sub-panel-sub-terms">
+            <div class="policy-list">
+                <div class="policy-item notice-cyan">
+                    <div class="policy-item-title">⚠️ 服務條款免責聲明</div>
+                    <div class="policy-item-desc">本平台僅為資訊媒合性質。若因使用第三方工具（如 LINE）導致之個資外露或個人行為損害，平台僅負媒合責任，概不承擔賠償。</div>
+                </div>
+                <div class="policy-item notice-blue">
+                    <div class="policy-item-title">🛡️ 爭議審核機制</div>
+                    <div class="policy-item-desc">遇服務糾紛，本平台將依據客觀事證（如截圖、回報回條）進行事實釐清，平台保有最終決定權。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. 求租人（客戶）權益 -->
+        <div class="sub-tab-panel" id="sub-panel-sub-client">
+            <div class="policy-list">
+                <div class="policy-item notice-blue">
+                    <div class="policy-item-title">💳 付款規範</div>
+                    <div class="policy-item-desc">• 線上委託：全額預付。<br>• 線下委託：預訂後先付 30% 定金，餘款 70% 現場付現。</div>
+                </div>
+                <div class="policy-item notice-pink">
+                    <div class="policy-item-title">❌ 取消與放鳥懲罰</div>
+                    <div class="policy-item-desc">7 天內臨退/放鳥，扣總額 30% 為違約金（10% 補償夥伴，20% 平台行政費）。</div>
+                </div>
+                <div class="policy-item notice-cyan">
+                    <div class="policy-item-title">🔥 爽約保障方案</div>
+                    <div class="policy-item-desc">若夥伴惡意爽約，平台全額退定金，並額外撥發 $500 失約補償金給您。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. 出租人（夥伴）規則 -->
+        <div class="sub-tab-panel" id="sub-panel-sub-partner">
+            <div class="policy-list">
+                <div class="policy-item notice-cyan">
+                    <div class="policy-item-title">💰 誠信保證金制</div>
+                    <div class="policy-item-desc">接單須維持 $1,000 保證金。惡意違約（放鳥）沒收 $1,000 保證金（$500 賠客、$500 補平台），違約者永久停權。</div>
+                </div>
+                <div class="policy-item notice-blue">
+                    <div class="policy-item-title">📈 拆帳與收款 SOP</div>
+                    <div class="policy-item-desc">
+                        1. <strong>強制確認：</strong> 訂單成立時，須確認「管管預約成功通知」及「求租人轉帳紀錄」。<br>
+                        2. <strong>截圖備查：</strong> 出租人務必將雙方對話紀錄截圖，此為該單是否成立之唯一憑證。<br>
+                        3. <strong>範例 ($1,000)：</strong> 定金 $300 -> 平台扣抽成 $200 -> 退夥伴 $100 -> 現場收現金 $700。
+                    </div>
+                </div>
+                <div class="policy-item notice-pink">
+                    <div class="policy-item-title">🛡️ 欠款與取消補償</div>
+                    <div class="policy-item-desc">• 欠款從轉退款中優先扣除。<br>• 客戶 7 天內放鳥，無違規前提下，可獲定金總額 10% 作為時間補償。</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- 分頁 4：交付及退費政策 -->
 <div class="tab-panel" id="panel-policy">
 <div class="card-box policy-content">
 <div class="policy-section">
-<div class="policy-section-title">一、 服務預約與建立服務之 SOP</div>
-<ul class="policy-list">
-<li class="policy-item"><div class="policy-item-title"><span>1.</span> 尋茶人線上預約</div><div class="policy-item-desc">尋茶人透過官方管道諮詢，並選擇所需的生活陪伴項目（如：探店飯友、遊戲陪玩、語意傾聽）。</div></li>
-<li class="policy-item"><div class="policy-item-title"><span>2.</span> 雙方合意與守則確認</div><div class="policy-item-desc">平台提供詳細價目表與《時光交換星級公約》（內含：嚴禁肢體接觸、車內禁菸、違規將立即終止服務等規範）。尋茶人確認同意後，方可進入付款程序。</div></li>
-<li class="policy-item"><div class="policy-item-title"><span>3.</span> 信託金流支付（全額預付）</div><div class="policy-item-desc">尋茶人透過官方信託金流系統支付全額服務費用。付款完成後，系統正式建立訂單並鎖定夥伴出勤時間。</div></li>
-<li class="policy-item"><div class="policy-item-title"><span>4.</span> 平台指派與服務履行</div><div class="policy-item-desc">時光分享者依約前往指定公共場所（如餐廳、咖啡廳等明亮陽光領域）履行實體陪伴服務，或於線上進行陪玩與語音互動。</div></li>
-<li class="policy-item"><div class="policy-item-title"><span>5.</span> 服務確認與結案</div><div class="policy-item-desc">服務完成後，時光分享者與尋茶人互相回報。平台於後台對帳系統標記「服務完成」，案件結案。</div></li>
-</ul>
+    <div class="policy-section-title">一、 服務預約與履約確認 SOP</div>
+    <ul class="policy-list">
+        <li class="policy-item">
+            <div class="policy-item-title"><span>1.</span> 尋茶人預約與確認</div>
+            <div class="policy-item-desc">
+                尋茶人諮詢並選擇項目後，需提供<strong>「轉帳成功紀錄」</strong>。經管理員核實金額與資格後，由官方發布「預約成功通知」。<br>
+                <span class="highlight-gold">※ 出租人務必確認官方預約成功訊息，並保留尋茶人轉帳紀錄截圖，此為該單是否成立之唯一憑證。</span>
+            </div>
+        </li>
+        <li class="policy-item">
+            <div class="policy-item-title"><span>2.</span> 雙方合意與守則確認</div>
+            <div class="policy-item-desc">尋茶人確認遵守《時光交換星級公約》（嚴禁肢體接觸、車內禁菸等），雙方依約定完成預約。</div>
+        </li>
+        <li class="policy-item">
+            <div class="policy-item-title"><span>3.</span> 信託金流支付</div>
+            <div class="policy-item-desc">尋茶人完成預付，系統鎖定檔期。</div>
+        </li>
+        <li class="policy-item">
+            <div class="policy-item-title"><span>4.</span> 服務履行</div>
+            <div class="policy-item-desc">出租人依約前往公共領域履行服務。</div>
+        </li>
+        <li class="policy-item">
+            <div class="policy-item-title"><span>5.</span> 服務回報與結案</div>
+            <div class="policy-item-desc">完成服務後，出租人於系統回報。服務結束 24 小時內無爭議，視為交付完成。</div>
+        </li>
+    </ul>
 </div>
 <div class="policy-section">
 <div class="policy-section-title">二、 最長預付期控管</div>
