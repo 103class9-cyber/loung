@@ -266,14 +266,14 @@
 <div class="tab-panel active" id="panel-home">
 <div class="card-box">
 <div class="card-header">🏢 核心功能社群</div>
-<a class="link-card match-card" href="https://line.me/ti/g2/AyLxcfZMsmv-vg788A1BGUDK3RQ1wvcVawmzEw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">
+<a class="link-card match-card" href="https://line.me/ti/g2/AyLxcfZMsmv-vg788A1BGUDK3RQ1wvcVawmzEw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
 <div class="link-icon">🤝</div>
 <div class="link-content">
 <div class="link-title">求租．出租媒合</div>
 <div class="link-desc">尋找陪伴服務，或上架出租您的時間</div>
 </div>
 </a>
-<a class="link-card chat-card" href="https://line.me/ti/g2/JIUgW13brpN501l2QVB1UKXjBqwzwfJXePUJfQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">
+<a class="link-card chat-card" href="https://line.me/ti/g2/JIUgW13brpN501l2QVB1UKXjBqwzwfJXePUJfQ?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
 <div class="link-icon">💬</div>
 <div class="link-content">
 <div class="link-title">閒人聊天室 👻</div>
@@ -344,7 +344,7 @@
 <a class="room-item" data-room="207" href="https://line.me/ti/g2/JNCL2JNdFD8OHUqXNpYvybo25hwnAcugJkce6Q" target="_blank">207<span>ROOM</span></a>
 <a class="room-item" data-room="208" href="https://line.me/ti/g2/GfUp7qx4DO6do_S8TZUgTwdpmwht0djXYIfbKg" target="_blank">208<span>ROOM</span></a>
 <a class="room-item" data-room="209" href="https://line.me/ti/g2/m1uOuZNgJA07iCzdvy4POGc9ZZpgKjJ2i0zq8Q" target="_blank">209<span>ROOM</span></a>
-<a class="room-item" data-room="210" href="https://line.me/ti/g2/3eeJF2Og-tHV1T6Zq6c0RaiEbnrJgkt_Ms48nA" target="_blank">210<span>ROOM</span></a>
+<a class="room-item busy" data-room="210" href="https://line.me/ti/g2/3eeJF2Og-tHV1T6Zq6c0RaiEbnrJgkt_Ms48nA" target="_blank">210<span>ROOM</span></a>
 </div>
 </div>
 <div class="card-box">
@@ -386,101 +386,97 @@
 <!-- 分頁 3：【主要公告】 -->
 <!-- 分頁 3：【主要公告】 -->
 <div class="tab-panel" id="panel-notice">
-    <div class="card-box">
-        <div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
-        
-        <!-- 子分頁導航 -->
-        <div class="sub-tab-navigation">
-            <button class="sub-tab-btn active" onclick="switchSubTab('sub-terms')">📋 法律免責</button>
-            <button class="sub-tab-btn" onclick="switchSubTab('sub-client')">👤 求租人</button>
-            <button class="sub-tab-btn" onclick="switchSubTab('sub-partner')">👥 出租人</button>
-        </div>
-
-        <!-- 1. 法律免責 -->
-        <div class="sub-tab-panel active" id="sub-panel-sub-terms">
-            <div class="policy-list">
-                <div class="policy-item notice-cyan">
-                    <div class="policy-item-title">⚠️ 服務條款免責聲明</div>
-                    <div class="policy-item-desc">本平台僅為資訊媒合性質。若因使用第三方工具（如 LINE）導致之個資外露或個人行為損害，平台僅負媒合責任，概不承擔賠償。</div>
-                </div>
-                <div class="policy-item notice-blue">
-                    <div class="policy-item-title">🛡️ 爭議審核機制</div>
-                    <div class="policy-item-desc">遇服務糾紛，本平台將依據客觀事證（如截圖、回報回條）進行事實釐清，平台保有最終決定權。</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2. 求租人（客戶）權益 -->
-        <div class="sub-tab-panel" id="sub-panel-sub-client">
-            <div class="policy-list">
-                <div class="policy-item notice-blue">
-                    <div class="policy-item-title">💳 付款規範</div>
-                    <div class="policy-item-desc">• 線上委託：全額預付。<br>• 線下委託：預訂後先付 30% 定金，餘款 70% 現場付現。</div>
-                </div>
-                <div class="policy-item notice-pink">
-                    <div class="policy-item-title">❌ 取消與放鳥懲罰</div>
-                    <div class="policy-item-desc">7 天內臨退/放鳥，扣總額 30% 為違約金（10% 補償夥伴，20% 平台行政費）。</div>
-                </div>
-                <div class="policy-item notice-cyan">
-                    <div class="policy-item-title">🔥 爽約保障方案</div>
-                    <div class="policy-item-desc">若夥伴惡意爽約，平台會直接把出租人黑名單。</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3. 出租人（夥伴）規則 -->
-        <div class="sub-tab-panel" id="sub-panel-sub-partner">
-            <div class="policy-list">
-                <div class="policy-item notice-cyan">
-                    <div class="policy-item-title">💰 爽約懲罰方案</div>
-                    <div class="policy-item-desc">若夥伴惡意爽約，平台會直接把出租人黑名單。</div>
-                </div>
-                <div class="policy-item notice-blue">
-                    <div class="policy-item-title">📈 拆帳與收款 SOP</div>
-                    <div class="policy-item-desc">
-                        1. <strong>強制確認：</strong> 訂單成立時，須確認「管管預約成功通知」及「求租人轉帳紀錄」。<br>
-                        2. <strong>截圖備查：</strong> 出租人務必將雙方對話紀錄截圖，此為該單是否成立之唯一憑證。<br>
-                        3. <strong>範例 ($1,000)：</strong> 定金 $300 -> 平台扣抽成 $200 -> 退夥伴 $100 -> 現場收現金 $700。
+<div class="card-box">
+<div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
+<!-- 子分頁導航 -->
+<div class="sub-tab-navigation">
+<button class="sub-tab-btn active" onclick="switchSubTab('sub-terms')">📋 法律免責</button>
+<button class="sub-tab-btn" onclick="switchSubTab('sub-client')">👤 求租人</button>
+<button class="sub-tab-btn" onclick="switchSubTab('sub-partner')">👥 出租人</button>
+</div>
+<!-- 1. 法律免責 -->
+<div class="sub-tab-panel active" id="sub-panel-sub-terms">
+<div class="policy-list">
+<div class="policy-item notice-cyan">
+<div class="policy-item-title">⚠️ 服務條款免責聲明</div>
+<div class="policy-item-desc">本平台僅為資訊媒合性質。若因使用第三方工具（如 LINE）導致之個資外露或個人行為損害，平台僅負媒合責任，概不承擔賠償。</div>
+</div>
+<div class="policy-item notice-blue">
+<div class="policy-item-title">🛡️ 爭議審核機制</div>
+<div class="policy-item-desc">遇服務糾紛，本平台將依據客觀事證（如截圖、回報回條）進行事實釐清，平台保有最終決定權。</div>
+</div>
+</div>
+</div>
+<!-- 2. 求租人（客戶）權益 -->
+<div class="sub-tab-panel" id="sub-panel-sub-client">
+<div class="policy-list">
+<div class="policy-item notice-blue">
+<div class="policy-item-title">💳 付款規範</div>
+<div class="policy-item-desc">• 線上委託：全額預付。<br/>• 線下委託：預訂後先付 30% 定金，餘款 70% 現場付現。</div>
+</div>
+<div class="policy-item notice-pink">
+<div class="policy-item-title">❌ 取消與放鳥懲罰</div>
+<div class="policy-item-desc">7 天內臨退/放鳥，扣總額 30% 為違約金（10% 補償夥伴，20% 平台行政費）。</div>
+</div>
+<div class="policy-item notice-cyan">
+<div class="policy-item-title">🔥 爽約保障方案</div>
+<div class="policy-item-desc">若夥伴惡意爽約，平台會直接把出租人黑名單。</div>
+</div>
+</div>
+</div>
+<!-- 3. 出租人（夥伴）規則 -->
+<div class="sub-tab-panel" id="sub-panel-sub-partner">
+<div class="policy-list">
+<div class="policy-item notice-cyan">
+<div class="policy-item-title">💰 爽約懲罰方案</div>
+<div class="policy-item-desc">若夥伴惡意爽約，平台會直接把出租人黑名單。</div>
+</div>
+<div class="policy-item notice-blue">
+<div class="policy-item-title">📈 拆帳與收款 SOP</div>
+<div class="policy-item-desc">
+                        1. <strong>強制確認：</strong> 訂單成立時，須確認「管管預約成功通知」及「求租人轉帳紀錄」。<br/>
+                        2. <strong>截圖備查：</strong> 出租人務必將雙方對話紀錄截圖，此為該單是否成立之唯一憑證。<br/>
+                        3. <strong>範例 ($1,000)：</strong> 定金 $300 -&gt; 平台扣抽成 $200 -&gt; 退夥伴 $100 -&gt; 現場收現金 $700。
                     </div>
-                </div>
-                <div class="policy-item notice-pink">
-                    <div class="policy-item-title">🛡️ 欠款與取消補償</div>
-                    <div class="policy-item-desc">• 欠款從轉退款中優先扣除。<br>• 客戶 7 天內放鳥，無違規前提下，可獲定金總額 10% 作為時間補償。</div>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+<div class="policy-item notice-pink">
+<div class="policy-item-title">🛡️ 欠款與取消補償</div>
+<div class="policy-item-desc">• 欠款從轉退款中優先扣除。<br/>• 客戶 7 天內放鳥，無違規前提下，可獲定金總額 10% 作為時間補償。</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <!-- 分頁 4：交付及退費政策 -->
 <div class="tab-panel" id="panel-policy">
 <div class="card-box policy-content">
 <div class="policy-section">
-    <div class="policy-section-title">一、 服務預約與履約確認 SOP</div>
-    <ul class="policy-list">
-        <li class="policy-item">
-            <div class="policy-item-title"><span>1.</span> 拾光人預約與確認</div>
-            <div class="policy-item-desc">
-                拾光人諮詢並選擇項目後，需提供<strong>「轉帳成功紀錄」</strong>。經管理員核實金額與資格後，由官方發布「預約成功通知」。<br>
-                <span class="highlight-gold">※ 出租人務必確認官方預約成功訊息，並保留拾光人轉帳紀錄截圖，此為該單是否成立之唯一憑證。</span>
-            </div>
-        </li>
-        <li class="policy-item">
-            <div class="policy-item-title"><span>2.</span> 雙方合意與守則確認</div>
-            <div class="policy-item-desc">拾光人確認遵守《時光交換星級公約》（嚴禁肢體接觸、車內禁菸等），雙方依約定完成預約。</div>
-        </li>
-        <li class="policy-item">
-            <div class="policy-item-title"><span>3.</span> 信託金流支付</div>
-            <div class="policy-item-desc">拾光人完成預付，系統鎖定檔期。</div>
-        </li>
-        <li class="policy-item">
-            <div class="policy-item-title"><span>4.</span> 服務履行</div>
-            <div class="policy-item-desc">出租人依約前往公共領域履行服務。</div>
-        </li>
-        <li class="policy-item">
-            <div class="policy-item-title"><span>5.</span> 服務回報與結案</div>
-            <div class="policy-item-desc">完成服務後，出租人於系統回報。服務結束 24 小時內無爭議，視為交付完成。</div>
-        </li>
-    </ul>
+<div class="policy-section-title">一、 服務預約與履約確認 SOP</div>
+<ul class="policy-list">
+<li class="policy-item">
+<div class="policy-item-title"><span>1.</span> 拾光人預約與確認</div>
+<div class="policy-item-desc">
+                拾光人諮詢並選擇項目後，需提供<strong>「轉帳成功紀錄」</strong>。經管理員核實金額與資格後，由官方發布「預約成功通知」。<br/>
+<span class="highlight-gold">※ 出租人務必確認官方預約成功訊息，並保留拾光人轉帳紀錄截圖，此為該單是否成立之唯一憑證。</span>
+</div>
+</li>
+<li class="policy-item">
+<div class="policy-item-title"><span>2.</span> 雙方合意與守則確認</div>
+<div class="policy-item-desc">拾光人確認遵守《時光交換星級公約》（嚴禁肢體接觸、車內禁菸等），雙方依約定完成預約。</div>
+</li>
+<li class="policy-item">
+<div class="policy-item-title"><span>3.</span> 信託金流支付</div>
+<div class="policy-item-desc">拾光人完成預付，系統鎖定檔期。</div>
+</li>
+<li class="policy-item">
+<div class="policy-item-title"><span>4.</span> 服務履行</div>
+<div class="policy-item-desc">出租人依約前往公共領域履行服務。</div>
+</li>
+<li class="policy-item">
+<div class="policy-item-title"><span>5.</span> 服務回報與結案</div>
+<div class="policy-item-desc">完成服務後，出租人於系統回報。服務結束 24 小時內無爭議，視為交付完成。</div>
+</li>
+</ul>
 </div>
 <div class="policy-section">
 <div class="policy-section-title">二、 最長預付期控管</div>
