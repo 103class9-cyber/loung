@@ -216,7 +216,7 @@
     .tab-panel.active { display: block; animation: fadeIn 0.5s var(--ease-premium) forwards; }
     .sub-tab-panel.active { display: block; animation: fadeInSub 0.4s var(--ease-premium) forwards; }
 
-    /* AI 客服專用優化樣式 */
+    /* AI 智能風控總監 UI 優化區塊 */
     #ai-float-btn {
         position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px;
         background: linear-gradient(135deg, #b366ff, #00f0ff); border-radius: 50%;
@@ -238,22 +238,35 @@
     #ai-chat-box.active { display: flex; animation: fadeInUp 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
     
     .ai-chat-header {
-        padding: 16px 20px; background: linear-gradient(90deg, rgba(179, 102, 255, 0.15), rgba(0, 240, 255, 0.05));
+        padding: 14px 18px; background: linear-gradient(90deg, rgba(179, 102, 255, 0.15), rgba(0, 240, 255, 0.05));
         border-bottom: 1px solid rgba(255, 255, 255, 0.06); display: flex; justify-content: space-between;
-        align-items: center; color: #ffb020; font-weight: 800; font-size: 14px; letter-spacing: 1px;
+        align-items: center; color: #ffb020; font-weight: 800; font-size: 13.5px; letter-spacing: 1px;
     }
-    .ai-close-btn { background: none; border: none; color: #9c97aa; font-size: 18px; cursor: pointer; }
-    .ai-close-btn:hover { color: #fff; }
-    
+    .header-actions { display: flex; gap: 8px; align-items: center; }
+    .ai-action-btn { background: none; border: none; color: #9c97aa; font-size: 14px; cursor: pointer; transition: 0.2s; }
+    .ai-action-btn:hover { color: #fff; }
+
     .ai-chat-messages {
         flex-grow: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column;
         gap: 12px; font-size: 13px; color: #e2daf0; line-height: 1.6; text-align: left;
     }
-    .ai-msg { padding: 10px 14px; border-radius: 14px; max-width: 85%; word-break: break-word; white-space: pre-wrap; }
+    .ai-msg { padding: 10px 14px; border-radius: 14px; max-width: 88%; word-break: break-word; white-space: pre-wrap; }
     .ai-msg.bot { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.06); align-self: flex-start; color: #b2ced4; }
     .ai-msg.user { background: linear-gradient(135deg, rgba(179, 102, 255, 0.3), rgba(0, 240, 255, 0.2)); border: 1px solid rgba(179, 102, 255, 0.4); align-self: flex-end; color: #ffffff; }
     
-    /* 🌟 新增：常見問答快捷按鈕 CSS */
+    /* 點擊式按鈕卡片與連結樣式 */
+    .chat-link-btn {
+        display: inline-block; margin-top: 6px; padding: 6px 12px; background: rgba(0, 240, 255, 0.15);
+        border: 1px solid #00f0ff; color: #00f0ff; border-radius: 10px; text-decoration: none;
+        font-weight: bold; font-size: 12px; transition: 0.3s;
+    }
+    .chat-link-btn:hover { background: #00f0ff; color: #000; box-shadow: 0 0 10px #00f0ff; }
+
+    .copy-code-btn {
+        display: inline-block; margin-top: 6px; padding: 4px 10px; background: rgba(255, 176, 32, 0.15);
+        border: 1px solid #ffb020; color: #ffb020; border-radius: 8px; cursor: pointer; font-size: 11px;
+    }
+
     .ai-quick-chips {
         display: flex; gap: 6px; padding: 8px 12px; background: rgba(8, 5, 18, 0.95);
         overflow-x: auto; border-top: 1px solid rgba(255, 255, 255, 0.04);
@@ -553,19 +566,22 @@
 <div class="footer">© 2026 閒人案內所 ｜ 頂級生活陪伴體驗</div>
 </div>
 
-<!-- 🌟 閒人案內所｜AI 智能客服懸浮視窗 HTML -->
+<!-- 🌟 AI 智能風控總監 HTML 懸浮視窗 -->
 <div id="ai-float-btn">👻</div>
 
 <div id="ai-chat-box">
     <div class="ai-chat-header">
         <span>🤖 閒人案內所 ｜ 智能風控總監</span>
-        <button class="ai-close-btn" id="ai-close-btn">✕</button>
+        <div class="header-actions">
+            <button class="ai-action-btn" onclick="clearChatHistory()" title="清空對話">🧹</button>
+            <button class="ai-action-btn" id="ai-close-btn" title="關閉">✕</button>
+        </div>
     </div>
     <div class="ai-chat-messages" id="ai-messages">
         <div class="ai-msg bot">您好，我是閒人案內所的數位風控與客服總監。請問有關於預約媒合、發文格式或平台規則的問題想諮詢嗎？✨</div>
     </div>
     
-    <!-- 🌟 常見問答快捷標籤區塊 -->
+    <!-- 常見問答快捷標籤區塊 -->
     <div class="ai-quick-chips">
         <button onclick="sendQuickQuestion('請問求租或出租的發文格式？')">📋 發文格式</button>
         <button onclick="sendQuickQuestion('取消預約與違約金如何計算？')">💰 退費違約金</button>
@@ -578,11 +594,10 @@
     </div>
 </div>
 
-<!-- 🌟 核心 JavaScript 腳本 -->
+<!-- 🌟 核心腳本整合 -->
 <script>
     let isUnlocked = false;
 
-    // 分頁切換
     function switchTab(tabId) {
         if (tabId === 'rooms' && !isUnlocked) {
             let password = prompt("🔒 此頁面為【社群會員限定】\n請輸入專屬通關密碼：");
@@ -616,7 +631,6 @@
         if (box) box.classList.toggle('active');
     }
 
-    // 快捷按鈕發送
     function sendQuickQuestion(qText) {
         const input = document.getElementById('ai-user-input');
         if (input) {
@@ -625,12 +639,45 @@
         }
     }
 
-    // 🌟 AI 系統 Prompt 與對話記憶歷史
+    function clearChatHistory() {
+        const container = document.getElementById('ai-messages');
+        if (container) {
+            container.innerHTML = `<div class="ai-msg bot">對話紀錄已清空。請問還有什麼可以協助您的嗎？✨</div>`;
+        }
+        chatHistory = [{ role: "system", content: systemPrompt }];
+    }
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert("📋 已複製發文格式到剪貼簿！");
+        }).catch(() => {
+            prompt("請手動複製以下格式：", text);
+        });
+    }
+
+    // 🌟 AI 系統 Prompt 設定
     const systemPrompt = "你現在是「閒人案內所」的最高數位風控官兼首席智能客服總監。你的任務是：絕對捍衛品牌格調、嚴守法律紅線、保護合作夥伴與求租人權益、維護社群秩序、完美過濾一切惡意攻擊、引導新手正確使用格式與守則。語氣保持神祕霓虹美學、冷靜專業，適當使用符號（如 👻、🔮）。核心規則：嚴禁色情與擦邊交易、預付期最長2個月、7天內放鳥扣30%違約金、發文格式需符合 [求租/地區/性別] 名字。";
     
-    let chatHistory = [
-        { role: "system", content: systemPrompt }
-    ];
+    let chatHistory = [{ role: "system", content: systemPrompt }];
+
+    // ⚡ 本地智能預判引擎 (高頻 FAQ 秒回，省等待時間)
+    function getLocalSmartResponse(userText) {
+        const text = userText.toLowerCase();
+        
+        if (text.includes("格式") || text.includes("發文")) {
+            return `發文格式請務必符合規範：\n\`[求租/地區/性別] 名字\`\n\n範例：\`[求租/台北/女] 小雅\`\n\n<button class="copy-code-btn" onclick="copyToClipboard('[求租/地區/性別] 名字')">📋 一鍵複製範本</button>`;
+        }
+        if (text.includes("退費") || text.includes("取消") || text.includes("放鳥") || text.includes("違約金")) {
+            return `根據《閒人案內所交付及退費政策》：\n• 約定時間 **7天前** 取消：退還餘額（扣除金流手續費）。\n• 約定時間 **7天內** 臨退/放鳥：沒收總金額 **30% 作為違約金**（10% 撥付夥伴補償，20% 為平台行政費）。👻`;
+        }
+        if (text.includes("管管") || text.includes("真人") || text.includes("客服") || text.includes("申訴") || text.includes("所長")) {
+            return `專人服務請直接點擊以下連結一對一私訊：\n<a class="chat-link-btn" href="https://line.me/ti/p/L1iM3COUPl" target="_blank">👩‍💼 點此私訊【聯絡管管】</a>\n<a class="chat-link-btn" href="https://line.me/ti/p/mR19KggePp" target="_blank">👨‍💼 點此私訊【聯絡所長】</a>`;
+        }
+        if (text.includes("你好") || text.includes("嗨") || text.includes("hi") || text.includes("hello")) {
+            return `您好！我是閒人案內所的數位風控與客服總監。請問今天有關於預約媒合、發文格式或平台規則的問題想諮詢嗎？✨`;
+        }
+        return null; // 無匹配時走線上 AI
+    }
 
     async function sendAIMessage() {
         const input = document.getElementById('ai-user-input');
@@ -645,63 +692,50 @@
         input.value = '';
         container.scrollTop = container.scrollHeight;
 
-        // 記錄到歷史記憶
-        chatHistory.push({ role: "user", content: text });
+        // 2. 優先檢查是否命中「毫秒級預判引擎」
+        const quickReply = getLocalSmartResponse(text);
+        if (quickReply) {
+            container.innerHTML += `<div class="ai-msg bot">${quickReply}</div>`;
+            container.scrollTop = container.scrollHeight;
+            return;
+        }
 
-        // 2. 顯示載入動畫
+        // 3. 未命中時，向線上 AI 請求
+        chatHistory.push({ role: "user", content: text });
         const loadingId = 'loading-' + Date.now();
         container.innerHTML += `<div id="${loadingId}" class="ai-msg bot" style="color: #ffb020;">總監正在解析規則中... 🔮</div>`;
         container.scrollTop = container.scrollHeight;
 
         try {
             const apiUrl = `https://text.pollinations.ai/${encodeURIComponent(text)}?system=${encodeURIComponent(systemPrompt)}`;
-            
             const response = await fetch(apiUrl);
             const rawText = await response.text();
 
-            // 🔍 嚴格攔截：檢查是否回傳了 JSON 格式的錯誤訊息 (如 402 Payment Required)
+            // 攔截 JSON 錯誤訊息
             if (rawText.trim().startsWith('{')) {
                 try {
                     const jsonRes = JSON.parse(rawText);
                     if (jsonRes.error || jsonRes.status === 402 || jsonRes.code === "PAYMENT_REQUIRED") {
-                        throw new Error("API 報錯攔截");
+                        throw new Error("API Error");
                     }
                 } catch (e) {
-                    if (e.message.includes("報錯")) throw e;
+                    if (e.message.includes("Error")) throw e;
                 }
             }
 
             const loadingEl = document.getElementById(loadingId);
             if (loadingEl) loadingEl.remove();
 
-            // 記錄 AI 回覆並保持記憶長度在最新 10 輪內
             chatHistory.push({ role: "assistant", content: rawText });
-            if (chatHistory.length > 21) {
-                chatHistory = [chatHistory[0], ...chatHistory.slice(-20)];
-            }
             
-            container.innerHTML += `<div class="ai-msg bot">${escapeHtml(rawText)}</div>`;
+            container.innerHTML += `<div class="ai-msg bot">${formatMarkdown(rawText)}</div>`;
             container.scrollTop = container.scrollHeight;
 
         } catch (error) {
             const loadingEl = document.getElementById(loadingId);
             if (loadingEl) loadingEl.remove();
 
-            // 🛡️ 智能備援系統：遇到連線問題時根據關鍵字精準回應
-            let fallbackReply = "您好！目前風控系統連線較為忙碌。如果是詢問【發文格式】，請符合 `[求租/地區/性別] 名字`；若詢問【違約金】，7天內臨退將扣30%違約金。有緊急需求請聯繫真人管管 👻";
-            
-            const lowerText = text.toLowerCase();
-            if (lowerText.includes("你好") || lowerText.includes("嗨") || lowerText.includes("hi")) {
-                fallbackReply = "您好！我是閒人案內所的數位風控與客服總監。請問今天有關於預約媒合、發文格式或平台規則的問題想諮詢嗎？✨";
-            } else if (lowerText.includes("格式") || lowerText.includes("發文")) {
-                fallbackReply = "發文格式請務必符合規範：\n`[求租/地區/性別] 名字`\n（範例：`[求租/台北/女] 小雅`）\n違規文章將會被系統直接移除喔！🔮";
-            } else if (lowerText.includes("退費") || lowerText.includes("取消") || lowerText.includes("放鳥") || lowerText.includes("違約金")) {
-                fallbackReply = "根據平台規範：約定時間 7 天內臨退/放鳥，扣除總額 30% 作為違約金（10% 補償夥伴，20% 平台行政費）。👻";
-            } else if (lowerText.includes("管管") || lowerText.includes("真人") || lowerText.includes("客服") || lowerText.includes("所長")) {
-                fallbackReply = "需要真人服務嗎？請至主頁點擊【聯絡管管】或【聯絡所長】進行一對一處理。🛡️";
-            }
-
-            container.innerHTML += `<div class="ai-msg bot">${escapeHtml(fallbackReply)}</div>`;
+            container.innerHTML += `<div class="ai-msg bot">您好！目前風控系統連線較為忙碌。若有緊急爭議申訴或轉帳對帳，請至主頁點擊【聯絡管管】進行真人處理 👻</div>`;
             container.scrollTop = container.scrollHeight;
         }
     }
@@ -710,7 +744,14 @@
         return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); 
     }
 
-    // 網頁載入完成後綁定事件
+    // 輕量化 Markdown 渲染器 (將粗體與代碼轉為 HTML)
+    function formatMarkdown(str) {
+        let text = escapeHtml(str);
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/`([^`]+)`/g, '<code style="color:#00f0ff; background:rgba(0,240,255,0.1); padding:2px 5px; border-radius:4px;">$1</code>');
+        return text;
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         const floatBtn = document.getElementById('ai-float-btn');
         const closeBtn = document.getElementById('ai-close-btn');
