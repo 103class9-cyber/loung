@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="zh-TW">
 <head>
 <meta charset="utf-8"/>
@@ -312,14 +313,12 @@
 <h1 class="title">閒人案內所</h1>
 <p class="subtitle">VIP Lounge Portal</p>
 </div>
-
 <div class="tab-navigation">
 <button class="tab-btn active" onclick="switchTab('home')">主頁</button>
 <button class="tab-btn" onclick="switchTab('rooms')">VIP 招待所</button>
 <button class="tab-btn" onclick="switchTab('notice')">主要公告</button>
 <button class="tab-btn" onclick="switchTab('policy')">交付及退費</button>
 </div>
-
 <!-- 分頁 1：【主頁】 -->
 <div class="tab-panel active" id="panel-home">
 <div class="card-box">
@@ -363,7 +362,6 @@
 </div>
 </div>
 </div>
-
 <!-- 分頁 2：VIP 招待所 -->
 <div class="tab-panel" id="panel-rooms">
 <div class="card-box phone-box">
@@ -380,14 +378,14 @@
 <div class="card-header">⚡ VIP Lounge ｜ 101 - 110（社群會員限定）</div>
 <div class="grid-rooms">
 <a class="room-item busy" data-room="101" href="https://line.me/ti/g2/_pozcfjocgAIcl5oXuMb0s1RJ0uKrlmKp8L84g" target="_blank">101<span>ROOM</span></a>
-<a class="room-item" data-room="102" href="https://line.me/ti/g2/m4OF-0zcsdEALTD3QE4lpSkwfU8uZjZ3rsTqSQ" target="_blank">102<span>ROOM</span></a>
+<a class="room-item busy" data-room="102" href="https://line.me/ti/g2/m4OF-0zcsdEALTD3QE4lpSkwfU8uZjZ3rsTqSQ" target="_blank">102<span>ROOM</span></a>
 <a class="room-item busy" data-room="103" href="https://line.me/ti/g2/k2lIL7GMrhOquBmdFLw6r7Wpu-K0a_QM_p6MHA" target="_blank">103<span>ROOM</span></a>
 <a class="room-item" data-room="104" href="https://line.me/ti/g2/hlx3ehotkyYz307eerHCDhezkqlkIo9XXyH9Dg" target="_blank">104<span>ROOM</span></a>
 <a class="room-item busy" data-room="105" href="https://line.me/ti/g2/5HBoo3LVf3zmvU49X_1AmrnUAlO949XHltnrvA" target="_blank">105<span>ROOM</span></a>
 <a class="room-item" data-room="106" href="https://line.me/ti/g2/TmjoaxprqX5LMZIOEhQ9Dmp5hlirHKwyDr3CnQ" target="_blank">106<span>ROOM</span></a>
 <a class="room-item" data-room="107" href="https://line.me/ti/g2/jU7YjqDh3ndA94BMpP6QKwnPfEth0dxT5q3dkg" target="_blank">107<span>ROOM</span></a>
 <a class="room-item" data-room="108" href="https://line.me/ti/g2/AwxKpQUhZf4HA2AS6HxMGG861ZnNxGDPVO8tTg" target="_blank">108<span>ROOM</span></a>
-<a class="room-item busy" data-room="109" href="https://line.me/ti/g2/AYcDvBN5lkxjPEyGR4QStfEdduJAVKSir9n7JA" target="_blank">109<span>ROOM</span></a>
+<a class="room-item" data-room="109" href="https://line.me/ti/g2/AYcDvBN5lkxjPEyGR4QStfEdduJAVKSir9n7JA" target="_blank">109<span>ROOM</span></a>
 <a class="room-item busy" data-room="110" href="https://line.me/ti/g2/o_uIRGp-rTHkarNc0H9D5n5KMtUSl_FC9PlvvQ" target="_blank">110<span>ROOM</span></a>
 </div>
 </div>
@@ -442,7 +440,6 @@
 </div>
 </div>
 </div>
-
 <!-- 分頁 3：【主要公告】 -->
 <div class="tab-panel" id="panel-notice">
 <div class="card-box">
@@ -502,7 +499,6 @@
 </div>
 </div>
 </div>
-
 <!-- 分頁 4：交付及退費政策 -->
 <div class="tab-panel" id="panel-policy">
 <div class="card-box policy-content">
@@ -565,35 +561,30 @@
 </div>
 <div class="footer">© 2026 閒人案內所 ｜ 頂級生活陪伴體驗</div>
 </div>
-
 <!-- 🌟 AI 智能風控總監 HTML 懸浮視窗 -->
 <div id="ai-float-btn">👻</div>
-
 <div id="ai-chat-box">
-    <div class="ai-chat-header">
-        <span>🤖 閒人案內所 ｜ 智能風控總監</span>
-        <div class="header-actions">
-            <button class="ai-action-btn" onclick="clearChatHistory()" title="清空對話">🧹</button>
-            <button class="ai-action-btn" id="ai-close-btn" title="關閉">✕</button>
-        </div>
-    </div>
-    <div class="ai-chat-messages" id="ai-messages">
-        <div class="ai-msg bot">您好，我是閒人案內所的數位風控與客服總監。請問有關於預約媒合、發文格式或平台規則的問題想諮詢嗎？✨</div>
-    </div>
-    
-    <!-- 常見問答快捷標籤區塊 -->
-    <div class="ai-quick-chips">
-        <button onclick="sendQuickQuestion('請問求租或出租的發文格式？')">📋 發文格式</button>
-        <button onclick="sendQuickQuestion('取消預約與違約金如何計算？')">💰 退費違約金</button>
-        <button onclick="sendQuickQuestion('如何聯繫真人管管或申訴？')">👤 專人客服</button>
-    </div>
-
-    <div class="ai-chat-input-area">
-        <input type="text" id="ai-user-input" placeholder="輸入你想詢問的問題...">
-        <button id="ai-send-btn">發送</button>
-    </div>
+<div class="ai-chat-header">
+<span>🤖 閒人案內所 ｜ 智能風控總監</span>
+<div class="header-actions">
+<button class="ai-action-btn" onclick="clearChatHistory()" title="清空對話">🧹</button>
+<button class="ai-action-btn" id="ai-close-btn" title="關閉">✕</button>
 </div>
-
+</div>
+<div class="ai-chat-messages" id="ai-messages">
+<div class="ai-msg bot">您好，我是閒人案內所的數位風控與客服總監。請問有關於預約媒合、發文格式或平台規則的問題想諮詢嗎？✨</div>
+</div>
+<!-- 常見問答快捷標籤區塊 -->
+<div class="ai-quick-chips">
+<button onclick="sendQuickQuestion('請問求租或出租的發文格式？')">📋 發文格式</button>
+<button onclick="sendQuickQuestion('取消預約與違約金如何計算？')">💰 退費違約金</button>
+<button onclick="sendQuickQuestion('如何聯繫真人管管或申訴？')">👤 專人客服</button>
+</div>
+<div class="ai-chat-input-area">
+<input id="ai-user-input" placeholder="輸入你想詢問的問題..." type="text"/>
+<button id="ai-send-btn">發送</button>
+</div>
+</div>
 <!-- 🌟 核心腳本整合 -->
 <script>
     let isUnlocked = false;
