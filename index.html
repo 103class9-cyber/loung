@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="zh-TW">
 <head>
 <meta charset="utf-8"/>
@@ -126,7 +125,6 @@
     }
 
     .card-box.phone-box { border-color: rgba(0, 240, 255, 0.32); box-shadow: 0 0 35px rgba(0, 240, 255, 0.15), 0 20px 50px rgba(0, 0, 0, 0.65); }
-    .card-box.sub-notice-box { background: rgba(10, 7, 22, 0.5); border-color: rgba(255,255,255,0.02); box-shadow: none; padding: 10px 5px; }
 
     .card-header { font-size: 14px; font-weight: 800; color: var(--neon-gold); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(255, 176, 32, 0.45); }
     .card-header.blue-header { color: var(--neon-blue); text-shadow: 0 0 12px rgba(0, 240, 255, 0.45); }
@@ -194,28 +192,6 @@
     .talk-item { display: flex; align-items: center; padding: 20px 24px; background: linear-gradient(90deg, rgba(179, 102, 255, 0.02) 0%, rgba(255, 255, 255, 0.003) 100%); border: 1px solid rgba(179, 102, 255, 0.1); border-left: 3px solid rgba(179, 102, 255, 0.32); border-radius: 18px; color: #ffffff; text-decoration: none; transition: var(--ease-premium) 0.4s; }
     .talk-item:hover, .talk-item:active { border-color: var(--neon-purple); border-left-color: var(--neon-cyan); background: linear-gradient(90deg, rgba(179, 102, 255, 0.16) 0%, rgba(0, 240, 255, 0.04) 100%); transform: translateX(6px); box-shadow: 0 5px 20px rgba(179, 102, 255, 0.22); }
 
-    .talk-item.busy {
-        border-color: var(--neon-pink) !important;
-        border-left-color: var(--neon-pink) !important;
-        background: linear-gradient(90deg, rgba(255, 42, 109, 0.15) 0%, rgba(12, 6, 20, 0.8) 100%) !important;
-        box-shadow: 0 0 15px rgba(255, 42, 109, 0.25) !important;
-        position: relative;
-        opacity: 1;
-        pointer-events: auto !important;
-    }
-    .talk-item.busy::after {
-        content: '● BUSY';
-        font-size: 10px;
-        font-weight: 900;
-        color: var(--neon-pink);
-        text-shadow: 0 0 5px var(--neon-pink);
-        letter-spacing: 0.5px;
-        animation: flashGlow 1.5s infinite alternate;
-        margin-left: auto;
-        pointer-events: none;
-    }
-    .talk-item.busy .talk-arrow { display: none !important; }
-
     .policy-content { line-height: 1.85; font-size: 14.5px; color: #e2daf0; }
     .policy-section { margin-bottom: 32px; }
     .policy-section-title { font-size: 16px; font-weight: 800; color: var(--neon-gold); margin-bottom: 16px; border-left: 3.5px solid var(--neon-gold); padding-left: 14px; text-shadow: 0 0 12px rgba(255, 176, 32, 0.35); letter-spacing: 0.5px; }
@@ -240,10 +216,77 @@
     .tab-panel.active { display: block; animation: fadeIn 0.5s var(--ease-premium) forwards; }
     .sub-tab-panel.active { display: block; animation: fadeInSub 0.4s var(--ease-premium) forwards; }
 
+    /* AI 客服專用優化樣式 */
+    #ai-float-btn {
+        position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px;
+        background: linear-gradient(135deg, #b366ff, #00f0ff); border-radius: 50%;
+        display: flex; align-items: center; justify-content: center; font-size: 28px;
+        box-shadow: 0 0 25px rgba(0, 240, 255, 0.4); cursor: pointer; z-index: 9999;
+        transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1); border: 1.5px solid rgba(255, 255, 255, 0.3);
+        pointer-events: auto !important;
+    }
+    #ai-float-btn:hover { transform: scale(1.1) rotate(5deg); }
+    
+    #ai-chat-box {
+        position: fixed; bottom: 96px; right: 24px; width: 350px; height: 500px;
+        background: rgba(16, 12, 30, 0.94); border: 1px solid rgba(179, 102, 255, 0.35);
+        border-radius: 24px; backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8); z-index: 9998; display: none;
+        flex-direction: column; overflow: hidden; font-family: inherit;
+        pointer-events: auto !important;
+    }
+    #ai-chat-box.active { display: flex; animation: fadeInUp 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+    
+    .ai-chat-header {
+        padding: 16px 20px; background: linear-gradient(90deg, rgba(179, 102, 255, 0.15), rgba(0, 240, 255, 0.05));
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06); display: flex; justify-content: space-between;
+        align-items: center; color: #ffb020; font-weight: 800; font-size: 14px; letter-spacing: 1px;
+    }
+    .ai-close-btn { background: none; border: none; color: #9c97aa; font-size: 18px; cursor: pointer; }
+    .ai-close-btn:hover { color: #fff; }
+    
+    .ai-chat-messages {
+        flex-grow: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column;
+        gap: 12px; font-size: 13px; color: #e2daf0; line-height: 1.6; text-align: left;
+    }
+    .ai-msg { padding: 10px 14px; border-radius: 14px; max-width: 85%; word-break: break-word; white-space: pre-wrap; }
+    .ai-msg.bot { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.06); align-self: flex-start; color: #b2ced4; }
+    .ai-msg.user { background: linear-gradient(135deg, rgba(179, 102, 255, 0.3), rgba(0, 240, 255, 0.2)); border: 1px solid rgba(179, 102, 255, 0.4); align-self: flex-end; color: #ffffff; }
+    
+    /* 🌟 新增：常見問答快捷按鈕 CSS */
+    .ai-quick-chips {
+        display: flex; gap: 6px; padding: 8px 12px; background: rgba(8, 5, 18, 0.95);
+        overflow-x: auto; border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .ai-quick-chips::-webkit-scrollbar { display: none; }
+    .ai-quick-chips button {
+        background: rgba(179, 102, 255, 0.12); border: 1px solid rgba(179, 102, 255, 0.3);
+        color: #dfd8eb; border-radius: 12px; padding: 5px 10px; font-size: 11px; font-weight: 600;
+        white-space: nowrap; cursor: pointer; transition: all 0.3s ease;
+    }
+    .ai-quick-chips button:hover {
+        background: rgba(0, 240, 255, 0.2); border-color: #00f0ff; color: #fff;
+        box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+    }
+
+    .ai-chat-input-area {
+        padding: 12px; background: rgba(8, 5, 18, 0.9); border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; gap: 8px;
+    }
+    .ai-chat-input-area input {
+        flex-grow: 1; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px; padding: 10px 14px; color: #fff; font-size: 13px; outline: none;
+    }
+    .ai-chat-input-area input:focus { border-color: #00f0ff; box-shadow: 0 0 10px rgba(0, 240, 255, 0.2); }
+    .ai-chat-input-area button {
+        background: linear-gradient(135deg, #b366ff, #00f0ff); border: none; border-radius: 12px;
+        padding: 0 16px; color: #fff; font-weight: bold; cursor: pointer; font-size: 13px;
+    }
+
     @keyframes pulseGlow { 0% { transform: scale(0.96); box-shadow: 0 0 15px rgba(179, 102, 255, 0.35); } 100% { transform: scale(1.04); box-shadow: 0 0 35px rgba(0, 240, 255, 0.55); } }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeInSub { from { opacity: 0; transform: scale(0.99); } to { opacity: 1; transform: scale(1); } }
     @keyframes flashGlow { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
 </style>
 </head>
 <body>
@@ -256,31 +299,33 @@
 <h1 class="title">閒人案內所</h1>
 <p class="subtitle">VIP Lounge Portal</p>
 </div>
+
 <div class="tab-navigation">
 <button class="tab-btn active" onclick="switchTab('home')">主頁</button>
 <button class="tab-btn" onclick="switchTab('rooms')">VIP 招待所</button>
 <button class="tab-btn" onclick="switchTab('notice')">主要公告</button>
 <button class="tab-btn" onclick="switchTab('policy')">交付及退費</button>
 </div>
+
 <!-- 分頁 1：【主頁】 -->
 <div class="tab-panel active" id="panel-home">
 <div class="card-box">
 <div class="card-header">🏢 核心功能社群</div>
-<a class="link-card match-card" href="https://line.me/ti/g2/AyLxcfZMsmv-vg788A1BGUDK3RQ1wvcVawmzEw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
+<a class="link-card match-card" href="https://line.me/ti/g2/HjSXyaP1srrEd-vHV9h9uxaHtc4Q-NC4Z3VsXg?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
 <div class="link-icon">🤝</div>
 <div class="link-content">
 <div class="link-title">求租．出租媒合</div>
 <div class="link-desc">尋找陪伴服務，或上架出租您的時間</div>
 </div>
 </a>
-<a class="link-card chat-card" href="https://line.me/ti/g2/e6dpmauumRi3WjFxnmdOvXQJrDAGCRfEN4YxSw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
+<a class="link-card chat-card" href="https://line.me/ti/g2/neX2NWHUb5KNngE6IKt7qj_1jlHjYuUON-k85w?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
 <div class="link-icon">💬</div>
 <div class="link-content">
 <div class="link-title">閒人聊天室 👻</div>
 <div class="link-desc">日常閒聊、交流與找尋同好的溫馨角落</div>
 </div>
 </a>
-<a class="link-card room-card" href="https://line.me/ti/g2/yTUYTMHUoV1Dbs6UFvddBsYXef7qJTfHASS1jw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
+<a class="link-card room-card" href="https://line.me/ti/g2/NHXeqbaUztcj7Hs_c8aXZWObCMAvAZoB2kAACQ?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
 <div class="link-icon">💼</div>
 <div class="link-content" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
 <div>
@@ -305,11 +350,12 @@
 </div>
 </div>
 </div>
+
 <!-- 分頁 2：VIP 招待所 -->
 <div class="tab-panel" id="panel-rooms">
 <div class="card-box phone-box">
 <div class="card-header blue-header">📞 HOTLINE ｜ 即時語音諮詢</div>
-<a class="primary-card" href="https://line.me/ti/g2/7i-EpK7NYFvugpd3_rO9CPDdsIrOaplFHhxRBg?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
+<a class="primary-card" href="https://line.me/ti/g2/wxs8HU9a3dQJKFlBm1k-2qEYB3hPhIGrlFi6Ig?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
 <div class="primary-icon">📞</div>
 <div style="text-align: left;">
 <div style="font-size: 16px; font-weight: 800;">招待所 ➔ 電話專用頻道</div>
@@ -335,7 +381,7 @@
 <div class="card-box">
 <div class="card-header">⚡ VIP Lounge ｜ 201 - 210（社群會員限定）</div>
 <div class="grid-rooms">
-<a class="room-item" data-room="201" href="https://line.me/ti/g2/-OR5NdJlXu9cA4TIVepqCtqVW1IIhdMTTRFfrA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">201<span>ROOM</span></a>
+<a class="room-item busy" data-room="201" href="https://line.me/ti/g2/fTDW_9l2FN74IF-163pWhH3nfgzPCWKcv0GaXQ" target="_blank">201<span>ROOM</span></a>
 <a class="room-item" data-room="202" href="https://line.me/ti/g2/G82ouWUBpRvx1TWV6WbHKdh4fp3rNLJx10cicw" target="_blank">202<span>ROOM</span></a>
 <a class="room-item" data-room="203" href="https://line.me/ti/g2/yYxAF4LPd4n4gxZAGpmRUIyoHl06unOuOPsJGg" target="_blank">203<span>ROOM</span></a>
 <a class="room-item" data-room="204" href="https://line.me/ti/g2/ZEvB1tJOkQRXysiLR15gIwtJb2IRNZI0ZTUyvA" target="_blank">204<span>ROOM</span></a>
@@ -383,18 +429,16 @@
 </div>
 </div>
 </div>
-<!-- 分頁 3：【主要公告】 -->
+
 <!-- 分頁 3：【主要公告】 -->
 <div class="tab-panel" id="panel-notice">
 <div class="card-box">
 <div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
-<!-- 子分頁導航 -->
 <div class="sub-tab-navigation">
 <button class="sub-tab-btn active" onclick="switchSubTab('sub-terms')">📋 法律免責</button>
 <button class="sub-tab-btn" onclick="switchSubTab('sub-client')">👤 求租人</button>
 <button class="sub-tab-btn" onclick="switchSubTab('sub-partner')">👥 出租人</button>
 </div>
-<!-- 1. 法律免責 -->
 <div class="sub-tab-panel active" id="sub-panel-sub-terms">
 <div class="policy-list">
 <div class="policy-item notice-cyan">
@@ -407,7 +451,6 @@
 </div>
 </div>
 </div>
-<!-- 2. 求租人（客戶）權益 -->
 <div class="sub-tab-panel" id="sub-panel-sub-client">
 <div class="policy-list">
 <div class="policy-item notice-blue">
@@ -424,7 +467,6 @@
 </div>
 </div>
 </div>
-<!-- 3. 出租人（夥伴）規則 -->
 <div class="sub-tab-panel" id="sub-panel-sub-partner">
 <div class="policy-list">
 <div class="policy-item notice-cyan">
@@ -434,10 +476,10 @@
 <div class="policy-item notice-blue">
 <div class="policy-item-title">📈 拆帳與收款 SOP</div>
 <div class="policy-item-desc">
-                        1. <strong>強制確認：</strong> 訂單成立時，須確認「管管預約成功通知」及「求租人轉帳紀錄」。<br/>
-                        2. <strong>截圖備查：</strong> 出租人務必將雙方對話紀錄截圖，此為該單是否成立之唯一憑證。<br/>
-                        3. <strong>範例 ($1,000)：</strong> 定金 $300 -&gt; 平台扣抽成 $200 -&gt; 退夥伴 $100 -&gt; 現場收現金 $700。
-                    </div>
+    1. <strong>強制確認：</strong> 訂單成立時，須確認「管管預約成功通知」及「求租人轉帳紀錄」。<br/>
+    2. <strong>截圖備查：</strong> 出租人務必將雙方對話紀錄截圖，此為該單是否成立之唯一憑證。<br/>
+    3. <strong>範例 ($1,000)：</strong> 定金 $300 -&gt; 平台扣抽成 $200 -&gt; 退夥伴 $100 -&gt; 現場收現金 $700。
+</div>
 </div>
 <div class="policy-item notice-pink">
 <div class="policy-item-title">🛡️ 欠款與取消補償</div>
@@ -447,6 +489,7 @@
 </div>
 </div>
 </div>
+
 <!-- 分頁 4：交付及退費政策 -->
 <div class="tab-panel" id="panel-policy">
 <div class="card-box policy-content">
@@ -456,7 +499,7 @@
 <li class="policy-item">
 <div class="policy-item-title"><span>1.</span> 拾光人預約與確認</div>
 <div class="policy-item-desc">
-                拾光人諮詢並選擇項目後，需提供<strong>「轉帳成功紀錄」</strong>。經管理員核實金額與資格後，由官方發布「預約成功通知」。<br/>
+    拾光人諮詢並選擇項目後，需提供<strong>「轉帳成功紀錄」</strong>。經管理員核實金額與資格後，由官方發布「預約成功通知」。<br/>
 <span class="highlight-gold">※ 出租人務必確認官方預約成功訊息，並保留拾光人轉帳紀錄截圖，此為該單是否成立之唯一憑證。</span>
 </div>
 </li>
@@ -509,13 +552,47 @@
 </div>
 <div class="footer">© 2026 閒人案內所 ｜ 頂級生活陪伴體驗</div>
 </div>
+
+<!-- 🌟 閒人案內所｜AI 智能客服懸浮視窗 HTML -->
+<div id="ai-float-btn">👻</div>
+
+<div id="ai-chat-box">
+    <div class="ai-chat-header">
+        <span>🤖 閒人案內所 ｜ 智能風控總監</span>
+        <button class="ai-close-btn" id="ai-close-btn">✕</button>
+    </div>
+    <div class="ai-chat-messages" id="ai-messages">
+        <div class="ai-msg bot">您好，我是閒人案內所的數位風控與客服總監。請問有關於預約媒合、發文格式或平台規則的問題想諮詢嗎？✨</div>
+    </div>
+    
+    <!-- 🌟 常見問答快捷標籤區塊 -->
+    <div class="ai-quick-chips">
+        <button onclick="sendQuickQuestion('請問求租或出租的發文格式？')">📋 發文格式</button>
+        <button onclick="sendQuickQuestion('取消預約與違約金如何計算？')">💰 退費違約金</button>
+        <button onclick="sendQuickQuestion('如何聯繫真人管管或申訴？')">👤 專人客服</button>
+    </div>
+
+    <div class="ai-chat-input-area">
+        <input type="text" id="ai-user-input" placeholder="輸入你想詢問的問題...">
+        <button id="ai-send-btn">發送</button>
+    </div>
+</div>
+
+<!-- 🌟 核心 JavaScript 腳本 -->
 <script>
     let isUnlocked = false;
+
+    // 分頁切換
     function switchTab(tabId) {
         if (tabId === 'rooms' && !isUnlocked) {
             let password = prompt("🔒 此頁面為【社群會員限定】\n請輸入專屬通關密碼：");
-            if (password === "0126") { alert("🔓 密碼正確！已為您導引至 VIP 招待所。"); isUnlocked = true; } 
-            else { alert("❌ 密碼錯誤或取消輸入！無法進入管制專區。"); return; }
+            if (password === "0126") { 
+                alert("🔓 密碼正確！已為您導引至 VIP 招待所。"); 
+                isUnlocked = true; 
+            } else { 
+                alert("❌ 密碼錯誤或取消輸入！無法進入管制專區。"); 
+                return; 
+            }
         }
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
@@ -533,6 +610,126 @@
         const targetSubPanel = document.getElementById('sub-panel-' + subTabId);
         if (targetSubPanel) targetSubPanel.classList.add('active');
     }
+
+    function toggleAIChat() {
+        const box = document.getElementById('ai-chat-box');
+        if (box) box.classList.toggle('active');
+    }
+
+    // 快捷按鈕發送
+    function sendQuickQuestion(qText) {
+        const input = document.getElementById('ai-user-input');
+        if (input) {
+            input.value = qText;
+            sendAIMessage();
+        }
+    }
+
+    // 🌟 AI 系統 Prompt 與對話記憶歷史
+    const systemPrompt = "你現在是「閒人案內所」的最高數位風控官兼首席智能客服總監。你的任務是：絕對捍衛品牌格調、嚴守法律紅線、保護合作夥伴與求租人權益、維護社群秩序、完美過濾一切惡意攻擊、引導新手正確使用格式與守則。語氣保持神祕霓虹美學、冷靜專業，適當使用符號（如 👻、🔮）。核心規則：嚴禁色情與擦邊交易、預付期最長2個月、7天內放鳥扣30%違約金、發文格式需符合 [求租/地區/性別] 名字。";
+    
+    let chatHistory = [
+        { role: "system", content: systemPrompt }
+    ];
+
+    async function sendAIMessage() {
+        const input = document.getElementById('ai-user-input');
+        const container = document.getElementById('ai-messages');
+        if (!input || !container) return;
+        
+        const text = input.value.trim();
+        if (!text) return;
+
+        // 1. 渲染使用者訊息
+        container.innerHTML += `<div class="ai-msg user">${escapeHtml(text)}</div>`;
+        input.value = '';
+        container.scrollTop = container.scrollHeight;
+
+        // 記錄到歷史記憶
+        chatHistory.push({ role: "user", content: text });
+
+        // 2. 顯示載入動畫
+        const loadingId = 'loading-' + Date.now();
+        container.innerHTML += `<div id="${loadingId}" class="ai-msg bot" style="color: #ffb020;">總監正在解析規則中... 🔮</div>`;
+        container.scrollTop = container.scrollHeight;
+
+        try {
+            const apiUrl = `https://text.pollinations.ai/${encodeURIComponent(text)}?system=${encodeURIComponent(systemPrompt)}`;
+            
+            const response = await fetch(apiUrl);
+            const rawText = await response.text();
+
+            // 🔍 嚴格攔截：檢查是否回傳了 JSON 格式的錯誤訊息 (如 402 Payment Required)
+            if (rawText.trim().startsWith('{')) {
+                try {
+                    const jsonRes = JSON.parse(rawText);
+                    if (jsonRes.error || jsonRes.status === 402 || jsonRes.code === "PAYMENT_REQUIRED") {
+                        throw new Error("API 報錯攔截");
+                    }
+                } catch (e) {
+                    if (e.message.includes("報錯")) throw e;
+                }
+            }
+
+            const loadingEl = document.getElementById(loadingId);
+            if (loadingEl) loadingEl.remove();
+
+            // 記錄 AI 回覆並保持記憶長度在最新 10 輪內
+            chatHistory.push({ role: "assistant", content: rawText });
+            if (chatHistory.length > 21) {
+                chatHistory = [chatHistory[0], ...chatHistory.slice(-20)];
+            }
+            
+            container.innerHTML += `<div class="ai-msg bot">${escapeHtml(rawText)}</div>`;
+            container.scrollTop = container.scrollHeight;
+
+        } catch (error) {
+            const loadingEl = document.getElementById(loadingId);
+            if (loadingEl) loadingEl.remove();
+
+            // 🛡️ 智能備援系統：遇到連線問題時根據關鍵字精準回應
+            let fallbackReply = "您好！目前風控系統連線較為忙碌。如果是詢問【發文格式】，請符合 `[求租/地區/性別] 名字`；若詢問【違約金】，7天內臨退將扣30%違約金。有緊急需求請聯繫真人管管 👻";
+            
+            const lowerText = text.toLowerCase();
+            if (lowerText.includes("你好") || lowerText.includes("嗨") || lowerText.includes("hi")) {
+                fallbackReply = "您好！我是閒人案內所的數位風控與客服總監。請問今天有關於預約媒合、發文格式或平台規則的問題想諮詢嗎？✨";
+            } else if (lowerText.includes("格式") || lowerText.includes("發文")) {
+                fallbackReply = "發文格式請務必符合規範：\n`[求租/地區/性別] 名字`\n（範例：`[求租/台北/女] 小雅`）\n違規文章將會被系統直接移除喔！🔮";
+            } else if (lowerText.includes("退費") || lowerText.includes("取消") || lowerText.includes("放鳥") || lowerText.includes("違約金")) {
+                fallbackReply = "根據平台規範：約定時間 7 天內臨退/放鳥，扣除總額 30% 作為違約金（10% 補償夥伴，20% 平台行政費）。👻";
+            } else if (lowerText.includes("管管") || lowerText.includes("真人") || lowerText.includes("客服") || lowerText.includes("所長")) {
+                fallbackReply = "需要真人服務嗎？請至主頁點擊【聯絡管管】或【聯絡所長】進行一對一處理。🛡️";
+            }
+
+            container.innerHTML += `<div class="ai-msg bot">${escapeHtml(fallbackReply)}</div>`;
+            container.scrollTop = container.scrollHeight;
+        }
+    }
+
+    function escapeHtml(str) { 
+        return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); 
+    }
+
+    // 網頁載入完成後綁定事件
+    document.addEventListener('DOMContentLoaded', () => {
+        const floatBtn = document.getElementById('ai-float-btn');
+        const closeBtn = document.getElementById('ai-close-btn');
+        const sendBtn = document.getElementById('ai-send-btn');
+        const userInput = document.getElementById('ai-user-input');
+
+        if (floatBtn) floatBtn.addEventListener('click', toggleAIChat);
+        if (closeBtn) closeBtn.addEventListener('click', toggleAIChat);
+        if (sendBtn) sendBtn.addEventListener('click', sendAIMessage);
+
+        if (userInput) {
+            userInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    sendAIMessage();
+                }
+            });
+        }
+    });
 </script>
 </body>
 </html>
