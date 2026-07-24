@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="zh-TW">
 <head>
 <meta charset="utf-8"/>
@@ -333,7 +334,6 @@
 <h1 class="title">閒人案內所</h1>
 <p class="subtitle">VIP Lounge Portal</p>
 </div>
-
 <!-- 主分頁導航：獨立「時光夥伴」頁籤 -->
 <div class="tab-navigation">
 <button class="tab-btn active" onclick="switchTab('home')">主頁</button>
@@ -341,26 +341,25 @@
 <button class="tab-btn" onclick="switchTab('rooms')">VIP 招待所</button>
 <button class="tab-btn" onclick="switchTab('notice')">主要公告</button>
 </div>
-
 <!-- 分頁 1：【主頁】 -->
 <div class="tab-panel active" id="panel-home">
 <div class="card-box">
 <div class="card-header">🏢 核心功能社群</div>
-<a class="link-card match-card" href="https://line.me/ti/g2/AyLxcfZMsmv-vg788A1BGUDK3RQ1wvcVawmzEw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">
+<a class="link-card match-card" href="https://line.me/ti/g2/AyLxcfZMsmv-vg788A1BGUDK3RQ1wvcVawmzEw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
 <div class="link-icon">🤝</div>
 <div class="link-content">
 <div class="link-title">求租．出租媒合</div>
 <div class="link-desc">尋找陪伴服務，或上架出租您的時間</div>
 </div>
 </a>
-<a class="link-card chat-card" href="https://line.me/ti/g2/e6dpmauumRi3WjFxnmdOvXQJrDAGCRfEN4YxSw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">
+<a class="link-card chat-card" href="https://line.me/ti/g2/e6dpmauumRi3WjFxnmdOvXQJrDAGCRfEN4YxSw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
 <div class="link-icon">💬</div>
 <div class="link-content">
 <div class="link-title">閒人聊天室 👻</div>
 <div class="link-desc">日常閒聊、交流與找尋同好的溫馨角落</div>
 </div>
 </a>
-<a class="link-card room-card" href="https://line.me/ti/g2/yTUYTMHUoV1Dbs6UFvddBsYXef7qJTfHASS1jw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">
+<a class="link-card room-card" href="https://line.me/ti/g2/yTUYTMHUoV1Dbs6UFvddBsYXef7qJTfHASS1jw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
 <div class="link-icon">💼</div>
 <div class="link-content" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
 <div>
@@ -385,42 +384,38 @@
 </div>
 </div>
 </div>
-
 <!-- 分頁 2：【時光夥伴】 -->
 <div class="tab-panel" id="panel-partners">
 <div class="card-box">
 <div class="card-header">👥 時光夥伴 ｜ 出租人名單</div>
-
 <!-- 3階連動選單 -->
 <div class="filter-box">
-    <div class="filter-item">
-        <label>1. 性別</label>
-        <select id="filter-gender" onchange="onGenderChange()">
-            <option value="">請選擇性別</option>
-        </select>
-    </div>
-    <div class="filter-item">
-        <label>2. 地區</label>
-        <select id="filter-region" onchange="onRegionChange()">
-            <option value="">請選擇地區</option>
-        </select>
-    </div>
-    <div class="filter-item">
-        <label>3. 名稱</label>
-        <select id="filter-name" onchange="applyFilters()">
-            <option value="">請選擇名稱</option>
-        </select>
-    </div>
+<div class="filter-item">
+<label>1. 性別</label>
+<select id="filter-gender" onchange="onGenderChange()">
+<option value="">請選擇性別</option>
+</select>
 </div>
-
+<div class="filter-item">
+<label>2. 地區</label>
+<select id="filter-region" onchange="onRegionChange()">
+<option value="">請選擇地區</option>
+</select>
+</div>
+<div class="filter-item">
+<label>3. 名稱</label>
+<select id="filter-name" onchange="applyFilters()">
+<option value="">請選擇名稱</option>
+</select>
+</div>
+</div>
 <div class="partner-grid" id="partner-list-container">
-    <div style="text-align:center; color: var(--text-gray); font-size:12.5px; padding:25px 10px;">
+<div style="text-align:center; color: var(--text-gray); font-size:12.5px; padding:25px 10px;">
         請選擇上方選單（性別 / 地區 / 名稱）進行查詢 🔮
     </div>
 </div>
 </div>
 </div>
-
 <!-- 分頁 3：VIP 招待所 -->
 <div class="tab-panel" id="panel-rooms">
 <div class="card-box phone-box">
@@ -437,11 +432,11 @@
 <div class="card-header">⚡ VIP Lounge ｜ 101 - 110（社群會員限定）</div>
 <div class="grid-rooms">
 <a class="room-item busy" data-room="101" href="https://line.me/ti/g2/_pozcfjocgAIcl5oXuMb0s1RJ0uKrlmKp8L84g" target="_blank">101<span>ROOM</span></a>
-<a class="room-item" data-room="102" href="https://line.me/ti/g2/m4OF-0zcsdEALTD3QE4lpSkwfU8uZjZ3rsTqSQ" target="_blank">102<span>ROOM</span></a>
+<a class="room-item busy" data-room="102" href="https://line.me/ti/g2/m4OF-0zcsdEALTD3QE4lpSkwfU8uZjZ3rsTqSQ" target="_blank">102<span>ROOM</span></a>
 <a class="room-item busy" data-room="103" href="https://line.me/ti/g2/k2lIL7GMrhOquBmdFLw6r7Wpu-K0a_QM_p6MHA" target="_blank">103<span>ROOM</span></a>
 <a class="room-item" data-room="104" href="https://line.me/ti/g2/hlx3ehotkyYz307eerHCDhezkqlkIo9XXyH9Dg" target="_blank">104<span>ROOM</span></a>
 <a class="room-item busy" data-room="105" href="https://line.me/ti/g2/5HBoo3LVf3zmvU49X_1AmrnUAlO949XHltnrvA" target="_blank">105<span>ROOM</span></a>
-<a class="room-item" data-room="106" href="https://line.me/ti/g2/TmjoaxprqX5LMZIOEhQ9Dmp5hlirHKwyDr3CnQ" target="_blank">106<span>ROOM</span></a>
+<a class="room-item busy" data-room="106" href="https://line.me/ti/g2/TmjoaxprqX5LMZIOEhQ9Dmp5hlirHKwyDr3CnQ" target="_blank">106<span>ROOM</span></a>
 <a class="room-item" data-room="107" href="https://line.me/ti/g2/jU7YjqDh3ndA94BMpP6QKwnPfEth0dxT5q3dkg" target="_blank">107<span>ROOM</span></a>
 <a class="room-item" data-room="108" href="https://line.me/ti/g2/AwxKpQUhZf4HA2AS6HxMGG861ZnNxGDPVO8tTg" target="_blank">108<span>ROOM</span></a>
 <a class="room-item busy" data-room="109" href="https://line.me/ti/g2/AYcDvBN5lkxjPEyGR4QStfEdduJAVKSir9n7JA" target="_blank">109<span>ROOM</span></a>
@@ -451,7 +446,7 @@
 <div class="card-box">
 <div class="card-header">⚡ VIP Lounge ｜ 201 - 210（社群會員限定）</div>
 <div class="grid-rooms">
-<a class="room-item busy" data-room="201" href="https://line.me/ti/g2/-OR5NdJlXu9cA4TIVepqCtqVW1IIhdMTTRFfrA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">201<span>ROOM</span></a>
+<a class="room-item" data-room="201" href="https://line.me/ti/g2/-OR5NdJlXu9cA4TIVepqCtqVW1IIhdMTTRFfrA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">201<span>ROOM</span></a>
 <a class="room-item" data-room="202" href="https://line.me/ti/g2/G82ouWUBpRvx1TWV6WbHKdh4fp3rNLJx10cicw" target="_blank">202<span>ROOM</span></a>
 <a class="room-item" data-room="203" href="https://line.me/ti/g2/yYxAF4LPd4n4gxZAGpmRUIyoHl06unOuOPsJGg" target="_blank">203<span>ROOM</span></a>
 <a class="room-item" data-room="204" href="https://line.me/ti/g2/ZEvB1tJOkQRXysiLR15gIwtJb2IRNZI0ZTUyvA" target="_blank">204<span>ROOM</span></a>
@@ -499,7 +494,6 @@
 </div>
 </div>
 </div>
-
 <!-- 分頁 4：【主要公告】 -->
 <div class="tab-panel" id="panel-notice">
 <div class="card-box">
@@ -510,7 +504,6 @@
 <button class="sub-tab-btn" onclick="switchSubTab('sub-partner')">👥 出租人</button>
 <button class="sub-tab-btn" onclick="switchSubTab('sub-policy')">💳 交付及退費</button>
 </div>
-
 <!-- 1. 法律免責 -->
 <div class="sub-tab-panel active" id="sub-panel-sub-terms">
 <div class="policy-list">
@@ -524,7 +517,6 @@
 </div>
 </div>
 </div>
-
 <!-- 2. 求租人 -->
 <div class="sub-tab-panel" id="sub-panel-sub-client">
 <div class="policy-list">
@@ -542,7 +534,6 @@
 </div>
 </div>
 </div>
-
 <!-- 3. 出租人 -->
 <div class="sub-tab-panel" id="sub-panel-sub-partner">
 <div class="policy-list">
@@ -564,7 +555,6 @@
 </div>
 </div>
 </div>
-
 <!-- 4. 交付及退費 -->
 <div class="sub-tab-panel" id="sub-panel-sub-policy">
 <div class="policy-content">
@@ -624,42 +614,35 @@
 </div>
 </div>
 </div>
-
 </div>
 </div>
-
 <div class="footer">© 2026 閒人案內所 ｜ 頂級生活陪伴體驗</div>
 </div>
-
 <!-- 🌟 AI 智能風控總監 HTML 懸浮視窗 -->
 <div id="ai-float-btn">👻</div>
-
 <div id="ai-chat-box">
-    <div class="ai-chat-header">
-        <span>🤖 閒人案內所 ｜ 智能風控總監</span>
-        <div class="header-actions">
-            <button class="ai-action-btn" onclick="clearChatHistory()" title="清空對話">🧹</button>
-            <button class="ai-action-btn" id="ai-close-btn" title="關閉">✕</button>
-        </div>
-    </div>
-    <div class="ai-chat-messages" id="ai-messages">
-        <div class="ai-msg bot">您好，我是閒人案內所的數位風控與客服總監。請問有關於預約媒合、發文格式（線下/線上委託）或平台規則的問題想諮詢嗎？✨</div>
-    </div>
-    
-    <div class="ai-quick-chips">
-        <button onclick="sendQuickQuestion('請問求租或出租的發文格式？')">📋 發文格式</button>
-        <button onclick="sendQuickQuestion('線下委託格式是什麼？')">💳 線下定金格式</button>
-        <button onclick="sendQuickQuestion('線上委託格式是什麼？')">🌐 線上預付格式</button>
-        <button onclick="sendQuickQuestion('取消預約與違約金如何計算？')">💰 退費違約金</button>
-        <button onclick="sendQuickQuestion('如何聯繫真人管管或申訴？')">👤 專人客服</button>
-    </div>
-
-    <div class="ai-chat-input-area">
-        <input type="text" id="ai-user-input" placeholder="輸入你想詢問的問題...">
-        <button id="ai-send-btn">發送</button>
-    </div>
+<div class="ai-chat-header">
+<span>🤖 閒人案內所 ｜ 智能風控總監</span>
+<div class="header-actions">
+<button class="ai-action-btn" onclick="clearChatHistory()" title="清空對話">🧹</button>
+<button class="ai-action-btn" id="ai-close-btn" title="關閉">✕</button>
 </div>
-
+</div>
+<div class="ai-chat-messages" id="ai-messages">
+<div class="ai-msg bot">您好，我是閒人案內所的數位風控與客服總監。請問有關於預約媒合、發文格式（線下/線上委託）或平台規則的問題想諮詢嗎？✨</div>
+</div>
+<div class="ai-quick-chips">
+<button onclick="sendQuickQuestion('請問求租或出租的發文格式？')">📋 發文格式</button>
+<button onclick="sendQuickQuestion('線下委託格式是什麼？')">💳 線下定金格式</button>
+<button onclick="sendQuickQuestion('線上委託格式是什麼？')">🌐 線上預付格式</button>
+<button onclick="sendQuickQuestion('取消預約與違約金如何計算？')">💰 退費違約金</button>
+<button onclick="sendQuickQuestion('如何聯繫真人管管或申訴？')">👤 專人客服</button>
+</div>
+<div class="ai-chat-input-area">
+<input id="ai-user-input" placeholder="輸入你想詢問的問題..." type="text"/>
+<button id="ai-send-btn">發送</button>
+</div>
+</div>
 <!-- 🌟 核心腳本整合（支援多地區自動拆分與 Google 試算表即時連動） -->
 <script>
     let isUnlocked = false;
