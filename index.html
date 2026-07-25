@@ -504,7 +504,7 @@
 <div class="container">
 <div class="system-badge"><span></span> 系統運行中 ｜ 24H 智慧媒合 (PWA已啟動)</div>
 <div class="marquee-box">
-    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 全平台評價資料庫與 Google 試算表連動成功！✨</div>
+    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 全平台評價與留言功能已完美開通！✨</div>
 </div>
 
 <div class="header">
@@ -924,7 +924,7 @@
             <div style="font-size: 11.5px; color: var(--neon-cyan); font-weight: 800; margin-bottom: 8px;">⭐ 給予夥伴評分與留言：</div>
             <div id="rating-action-area" style="display: flex; gap: 6px; margin-bottom: 8px;"></div>
             <textarea id="rating-comment-input" class="tool-input" placeholder="寫下您對該夥伴的服務心得或留言（選填）..." style="margin-top:0; margin-bottom:8px; height:60px; font-size:11.5px; resize:none;"></textarea>
-            <button class="tool-btn" id="submit-review-btn" style="margin-top:0; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue)); color: #030205; font-weight: 900; font-size: 12px;">💌 送出評分與留言</button>
+            <button class="tool-btn" id="submit-review-btn" style="margin-top:0; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue)); color: #030205; font-weight: 900; font-size: 12px;" onclick="submitRatingWithComment()">💌 送出評分與留言</button>
         </div>
 
         <div style="margin-bottom: 16px; text-align: left;">
@@ -956,7 +956,6 @@
 <div id="toast-notification">✨ 動作已完成</div>
 <button id="back-to-top-btn" onclick="scrollToTop()" title="回到頂部">↑</button>
 
-<!-- 快速聯絡與 AI 客服抽屜 -->
 <div id="quick-action-drawer">
     <div id="drawer-menu">
         <div class="drawer-item" onclick="triggerHaptic(15); toggleAIChat(); toggleDrawerMenu();">🤖 AI 智慧客服</div>
@@ -1176,6 +1175,43 @@
         }
     }
 
+    // 🌟 修復後的點擊送出評分函數
+    function submitRatingWithComment() {
+        if (currentSelectedScore === 0) {
+            showToast("❌ 請先點擊上方選擇星級（1至5星）！");
+            return;
+        }
+        const name = currentActivePartnerName;
+        triggerHaptic(25);
+        const now = Date.now();
+        
+        const commentInput = document.getElementById('rating-comment-input');
+        const commentText = commentInput ? commentInput.value.trim() : '';
+
+        // 送出至 Google Apps Script
+        fetch(googleSheetApiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+                action: 'submitReview',
+                partner: name,
+                score: currentSelectedScore,
+                comment: commentText,
+                timestamp: now
+            })
+        }).then(() => {
+            showToast("⭐ 評分與留言已成功寫入試算表！");
+            setTimeout(fetchPartners, 1200); // 1.2秒後自動重新拉取全網最新評分
+        }).catch(err => {
+            console.error("送出評分失敗:", err);
+            showToast("⚠️ 送出失敗，請檢查網路連線");
+        });
+
+        if (commentInput) commentInput.value = '';
+        currentSelectedScore = 0;
+        closePartnerDetail();
+    }
+
     function renderFeaturedSection() {
         const container = document.getElementById('featured-grid-container');
         if (!container) return;
@@ -1342,10 +1378,6 @@
             starsHtml += `<button id="star-btn-${i}" onclick="selectStar(${i})" style="flex:1; background: rgba(255,176,32,0.18); border: 1px solid rgba(255,176,32,0.45); color: #ffb020; padding: 7px 4px; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 11.5px; transition: 0.2s; text-align:center;">⭐ ${i}星</button>`;
         }
         ratingActionArea.innerHTML = starsHtml;
-
-        document.getElementById('submit-review-btn').onclick = () => {
-            submitRatingWithComment();
-        };
 
         const commentsListContainer = document.getElementById('sheet-comments-list');
         if (record.comments && record.comments.length > 0) {
