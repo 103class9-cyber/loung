@@ -185,7 +185,7 @@
     .card-header::after { content: ''; flex-grow: 1; height: 1px; background: linear-gradient(to right, rgba(255, 176, 32, 0.35), transparent); }
     .card-header.blue-header::after { background: linear-gradient(to right, rgba(0, 240, 255, 0.35), transparent); }
 
-    /* 🌟 修正後的專用卡片樣式：強制左右橫向排列，無底線 */
+    /* 🌟 專用卡片樣式：強制左右橫向排列，無底線 */
     .primary-card {
         display: flex !important;
         align-items: center !important;
@@ -200,9 +200,7 @@
         box-shadow: 0 0 22px rgba(0, 240, 255, 0.16) !important;
         margin-bottom: 12px !important;
     }
-    .primary-card * {
-        text-decoration: none !important;
-    }
+    .primary-card * { text-decoration: none !important; }
     .primary-card:hover {
         background: linear-gradient(90deg, rgba(0, 240, 255, 0.28) 0%, rgba(179, 102, 255, 0.16) 100%) !important;
         border-color: #ffffff !important;
@@ -241,7 +239,7 @@
     }
     .search-input:focus { border-color: var(--neon-cyan); box-shadow: 0 0 18px rgba(0, 240, 255, 0.4), inset 0 2px 6px rgba(0,0,0,0.5); }
 
-    /* 🌟 2x2 舒適篩選面板 (含排序功能) */
+    /* 🌟 2x2 舒適篩選面板 */
     .filter-box {
         display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 22px;
         background: rgba(8, 5, 18, 0.6); padding: 14px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.06);
@@ -511,7 +509,7 @@
 <div class="container">
 <div class="system-badge"><span></span> 系統運行中 ｜ 24H 智慧媒合 (PWA已啟動)</div>
 <div class="marquee-box">
-    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 智能排序與完整服務選單全面升級！✨</div>
+    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 法律免責、合規場所與防騷擾條款完整更新！✨</div>
 </div>
 
 <div class="header">
@@ -720,7 +718,7 @@
 <a class="primary-card" href="https://line.me/ti/g2/wxs8HU9a3dQJKFlBm1k-2qEYB3hPhIGrlFi6Ig?utm_source=invitation&amp;utm_medium=link_copy&utm_campaign=default" target="_blank" onclick="triggerHaptic(15)">
 <div class="primary-icon">📞</div>
 <div style="text-align: left;">
-<div style="font-size: 14.5px; font-weight: 800;">招待所 ➔ 電話專用頻道</div>
+<div style="font-size: 14.5px; font-weight: 800; color: #fff;">招待所 ➔ 電話專用頻道</div>
 <div style="font-size: 11.5px; color: #b2ced4;">點擊立刻進入語音聯絡，享受專人即時接待</div>
 </div>
 </a>
@@ -763,7 +761,7 @@
 <div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
 
 <div class="search-box-wrapper" style="margin-bottom: 20px;">
-    <input type="text" id="notice-search-input" class="search-input" placeholder="🔍 搜尋公告條款（例如：定金、退費、SOP...）" oninput="filterNotice(this.value)">
+    <input type="text" id="notice-search-input" class="search-input" placeholder="🔍 搜尋公告條款（例如：免責、場所、黑名單、SOP...）" oninput="filterNotice(this.value)">
 </div>
 
 <div style="font-size: 13px; font-weight: 800; color: var(--neon-gold); margin-bottom: 14px; letter-spacing: 0.5px;">📊 預約媒合標準作業流程 (SOP)</div>
@@ -776,21 +774,38 @@
 </div>
 
 <div class="sub-tab-navigation">
-<button class="sub-tab-btn active" onclick="triggerHaptic(10); switchSubTab('sub-terms');">📋 法律</button>
+<button class="sub-tab-btn active" onclick="triggerHaptic(10); switchSubTab('sub-terms');">📋 法律免責</button>
 <button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-client');">👤 求租</button>
 <button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-partner');">👥 出租</button>
 <button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-faq');">❓ 常見FAQ</button>
 </div>
 
+<!-- 1. 🌟 優化後的法律免責條款區塊 -->
 <div class="sub-tab-panel active" id="sub-panel-sub-terms">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title">⚠️ 服務條款免責聲明</div>
-        <div class="policy-item-desc">本平台僅提供純粹之<strong>資訊媒合與交流服務</strong>。若因使用第三方工具（如 LINE 群組/私人對話）導致之個資外洩或個人行為損害，平台僅負基本媒合義務，<strong>概不承擔實質民刑事賠償責任</strong>。</div>
+        <div class="policy-item-title">⚖️ 平台定位與免責聲明</div>
+        <div class="policy-item-desc">
+            本平台（閒人案內所）僅提供<strong>「純粹資訊媒合與交流平台服務」</strong>，非履約方亦非雙方之雇主或代理人。<br/>
+            用戶（包含求租人與出租人）於平台外或私下衍生之任何行為、口頭承諾、金錢往來或爭議，本平台<strong>概不負任何實質民事、刑事或行政法律責任</strong>。<br/>
+            雙方若因服務發生糾紛、騷擾、侵權或違法行為，應由當事雙方自行依法律途徑解決，本平台不承擔任何連帶賠償或擔保責任。
+        </div>
     </div>
     <div class="policy-item notice-blue">
-        <div class="policy-item-title">🛡️ 爭議審核與信用評級機制</div>
-        <div class="policy-item-desc">若遇服務糾紛，平台將依據客觀事證（如 PAYUNi 交易紀錄、轉帳明細、官方截圖）進行公正事實釐清，並連動信用評級系統，管理團隊保有<strong>最終裁決權</strong>。</div>
+        <div class="policy-item-title">🛡️ 人身安全與合規場所規範</div>
+        <div class="policy-item-desc">
+            本平台<strong>嚴格禁止</strong>任何涉及色情、猥褻、暴力、毒品、詐欺或違反中華民國法律之行為。<br/>
+            • <strong>公開場所限制：</strong>所有陪伴行程僅限於公開合法之公共場所（如開放式咖啡廳、展覽館、商圈等），<strong>嚴禁預約隱私或封閉空間</strong>。<br/>
+            • <strong>緊急安全處置：</strong>任何用戶若有言語騷擾、肢體接觸脅迫或不當要求，受害方應立即終止行程並向警方報案。本平台將全力配合警方調閱相關紀錄，但本平台本身不負損害賠償之責。
+        </div>
+    </div>
+    <div class="policy-item notice-pink">
+        <div class="policy-item-title">🚫 平台服務終止與黑名單權限</div>
+        <div class="policy-item-desc">
+            為維護社群秩序與營運環境：<br/>
+            • <strong>惡意行為處置：</strong>若用戶對本平台、管理團隊或任何第三方進行惡意洗版、言語辱罵、威脅、騷擾或名譽毀損，本平台有權立即終止服務、刪除帳號、踢出社群並<strong>列入永久黑名單</strong>。<br/>
+            • <strong>法律追訴權：</strong>對於惡意騷擾或毀損本平台名譽者，本平台將保留所有對話截圖與電磁紀錄，並依法訴追民刑事責任，絕不寬貸。
+        </div>
     </div>
 </div>
 </div>
@@ -855,7 +870,7 @@
     </div>
     <div class="policy-item notice-pink" onclick="toggleFaq(this)" style="cursor: pointer;">
         <div class="policy-item-title">❓ Q3: 成就徽章與零負評代表是怎麼來的？ <span class="faq-arrow" style="transition: transform 0.3s ease; display: inline-block;">▼</span></div>
-        <div class="policy-item-desc faq-content" style="display: none; margin-top: 8px;">徽章會根據用戶給予的真實評價單數與平均評分動態解鎖。平均達 4.5 分以上即可獲得<span>🎯 零負評代表</span>標章！</div>
+        <div class="policy-item-desc faq-content" style="display: none; margin-top: 8px;">徽章會根據用戶給予的真實評價單數與平均評分動態解鎖。平均達 4.5 分以上即可獲得「🎯 零負評代表」標章！</div>
     </div>
     <div class="policy-item notice-cyan" onclick="toggleFaq(this)" style="cursor: pointer;">
         <div class="policy-item-title">❓ Q4: 財務拆帳與夥伴實際拿多少？ <span class="faq-arrow" style="transition: transform 0.3s ease; display: inline-block;">▼</span></div>
@@ -1634,7 +1649,6 @@
             });
         }
 
-        // ⭐ 動態排序邏輯
         result.sort((a, b) => {
             const recordA = userRatings[a[0]] || { scores: [] };
             const recordB = userRatings[b[0]] || { scores: [] };
