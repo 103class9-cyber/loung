@@ -123,7 +123,6 @@
     .title { font-size: 30px; font-weight: 900; letter-spacing: 5px; margin-bottom: 8px; background: linear-gradient(90deg, #ffffff 10%, var(--neon-gold), var(--neon-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 15px rgba(255, 115, 36, 0.35)); }
     .subtitle { font-size: 11px; color: var(--text-gray); letter-spacing: 5px; text-transform: uppercase; opacity: 0.75; font-weight: 500; }
 
-    /* 🌟 6格導航（雙行網格） */
     .tab-navigation {
         display: grid; 
         grid-template-columns: repeat(3, 1fr); 
@@ -185,7 +184,6 @@
     .card-header::after { content: ''; flex-grow: 1; height: 1px; background: linear-gradient(to right, rgba(255, 176, 32, 0.35), transparent); }
     .card-header.blue-header::after { background: linear-gradient(to right, rgba(0, 240, 255, 0.35), transparent); }
 
-    /* 🌟 專用卡片樣式：強制左右橫向排列，無底線 */
     .primary-card {
         display: flex !important;
         align-items: center !important;
@@ -239,7 +237,6 @@
     }
     .search-input:focus { border-color: var(--neon-cyan); box-shadow: 0 0 18px rgba(0, 240, 255, 0.4), inset 0 2px 6px rgba(0,0,0,0.5); }
 
-    /* 🌟 2x2 舒適篩選面板 */
     .filter-box {
         display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 22px;
         background: rgba(8, 5, 18, 0.6); padding: 14px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.06);
@@ -254,7 +251,6 @@
     }
     .filter-item select:focus { border-color: var(--neon-cyan); box-shadow: 0 0 16px rgba(0, 240, 255, 0.3); }
 
-    /* ⭐ 頂級華麗風格：上中下直式高分推薦 (TOP 3) */
     .featured-section { margin-bottom: 24px; }
     .featured-title { 
         font-size: 13px; font-weight: 900; color: var(--neon-gold); margin-bottom: 12px; 
@@ -450,7 +446,6 @@
     .tab-panel.active { display: block; animation: fadeIn 0.45s var(--ease-premium) forwards; }
     .sub-tab-panel.active { display: block; animation: fadeInSub 0.35s var(--ease-premium) forwards; }
 
-    /* 🌟 多管道快速聯繫浮動抽屜與 AI 視窗設定 */
     #quick-action-drawer { position: fixed; bottom: 24px; right: 24px; z-index: 9999; }
     #drawer-main-btn { width: 60px; height: 60px; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 0 30px rgba(0, 240, 255, 0.6); cursor: pointer; border: 1.5px solid rgba(255,255,255,0.5); transition: var(--transition-smooth); }
     #drawer-main-btn:hover { transform: scale(1.12) rotate(6deg); box-shadow: 0 0 40px rgba(0, 240, 255, 0.8); }
@@ -509,7 +504,7 @@
 <div class="container">
 <div class="system-badge"><span></span> 系統運行中 ｜ 24H 智慧媒合 (PWA已啟動)</div>
 <div class="marquee-box">
-    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 法律免責、合規場所與防騷擾條款完整更新！✨</div>
+    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 全平台評價資料庫與 Google 試算表連動成功！✨</div>
 </div>
 
 <div class="header">
@@ -522,7 +517,6 @@
     <p class="subtitle">VIP Lounge Portal</p>
 </div>
 
-<!-- 🌟 6格寬敞雙行網格導航選單 -->
 <div class="tab-navigation">
 <button class="tab-btn active" onclick="triggerHaptic(15); switchTab('home');">🏠 主頁</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('partners');">👥 夥伴</button>
@@ -780,7 +774,6 @@
 <button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-faq');">❓ 常見FAQ</button>
 </div>
 
-<!-- 1. 🌟 優化後的法律免責條款區塊 -->
 <div class="sub-tab-panel active" id="sub-panel-sub-terms">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
@@ -1008,7 +1001,7 @@
     let currentSelectedScore = 0;
     let currentActivePartnerName = '';
     let favorites = JSON.parse(localStorage.getItem('renjian_favorites') || '[]');
-    let userRatings = JSON.parse(localStorage.getItem('renjian_user_ratings') || '{}'); 
+    let userRatings = {}; 
 
     let allPartnersData = [
         ["Chiu", "女", "全台", "個性隨和、健談且富有同理心，想要認真傾聽都可以找我", "", ["遊戲陪玩", "聊天解悶"]],
@@ -1181,53 +1174,6 @@
                 }
             }
         }
-    }
-
-    function submitRatingWithComment() {
-        if (currentSelectedScore === 0) {
-            showToast("❌ 請先點擊上方選擇星級（1至5星）！");
-            return;
-        }
-        const name = currentActivePartnerName;
-        triggerHaptic(25);
-        const now = Date.now();
-        const partnerRecord = userRatings[name] || { lastRated: 0, scores: [], comments: [] };
-        
-        const cooldownDays = 14;
-        const cooldownTime = cooldownDays * 24 * 60 * 60 * 1000;
-        if (partnerRecord.lastRated && (now - partnerRecord.lastRated < cooldownTime)) {
-            const daysLeft = Math.ceil((cooldownTime - (now - partnerRecord.lastRated)) / (24 * 60 * 60 * 1000));
-            showRatingPopup(`⏳ 距離上次給予評分未滿 14 天（還需等待 ${daysLeft} 天）。\n為維護社群信譽與評分真實性，同一夥伴暫時無法再次評分喔！`);
-            return;
-        }
-
-        const commentInput = document.getElementById('rating-comment-input');
-        const commentText = commentInput ? commentInput.value.trim() : '';
-
-        partnerRecord.scores.push(currentSelectedScore);
-        if (commentText) {
-            partnerRecord.comments.push(commentText);
-        }
-        partnerRecord.lastRated = now;
-        userRatings[name] = partnerRecord;
-        localStorage.setItem('renjian_user_ratings', JSON.stringify(userRatings));
-
-        if (commentInput) commentInput.value = '';
-        currentSelectedScore = 0;
-
-        showRatingPopup(`⭐ 成功給予 ${name} 評價與留言！\n感謝您的真誠回饋。為保障社群公正性，14 天內暫時無法再次評分。`);
-        
-        try {
-            fetch(googleSheetApiUrl, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'submitReview', partner: name, score: currentSelectedScore, comment: commentText, timestamp: now })
-            }).catch(() => {});
-        } catch(e) {}
-
-        renderFeaturedSection();
-        openPartnerDetail(name);
     }
 
     function renderFeaturedSection() {
@@ -1554,19 +1500,26 @@
 
     async function fetchPartners() {
         try {
-            const response = await fetch(googleSheetApiUrl);
+            const response = await fetch(googleSheetApiUrl + '?t=' + Date.now());
             if (!response.ok) throw new Error("API Network response was not ok");
             const data = await response.json();
 
-            if (data && Array.isArray(data) && data.length > 0) {
-                const filtered = data.filter((row) => {
-                    if (!row || !row[0]) return false;
-                    const nameStr = String(row[0]).trim();
-                    if (nameStr === "名字" || nameStr.toLowerCase() === "name") return false;
-                    return true;
-                });
-                if (filtered.length > 0) {
-                    allPartnersData = filtered;
+            if (data && typeof data === 'object') {
+                if (data.ratings) {
+                    userRatings = data.ratings;
+                }
+                
+                const partnersArr = Array.isArray(data) ? data : data.partners;
+                if (partnersArr && Array.isArray(partnersArr) && partnersArr.length > 0) {
+                    const filtered = partnersArr.filter((row) => {
+                        if (!row || !row[0]) return false;
+                        const nameStr = String(row[0]).trim();
+                        if (nameStr === "名字" || nameStr.toLowerCase() === "name") return false;
+                        return true;
+                    });
+                    if (filtered.length > 0) {
+                        allPartnersData = filtered;
+                    }
                 }
             }
         } catch (error) {
@@ -1767,7 +1720,7 @@
         }
         if (text.includes("線上") || text.includes("全額") || text.includes("預付")) {
             const formatTwo = `🌐 格式二：【線上委託｜全額預付制】\n預約日期：\n預約時間：\n委託金額 (全額)：`;
-            return `${formatTwo}\n\n<button class="copy-code-btn" onclick="copyToClipboard(${JSON.stringify(formatTwo)})">📋 一鍵複製線上委託格式</button>`;
+            return `${formatTwo}\n\n<button class="copy-code-btn" onclick="copyToClipboard(${JSON.stringify(formatTwo)})">📋 一鍵複製線上預付格式</button>`;
         }
         if (text.includes("退費") || text.includes("取消") || text.includes("放鳥") || text.includes("違約金")) {
             return `根據《閒人案內所交付及退費政策》：\n• 約定時間 **7天前** 取消：退還餘額（扣除金流手續費）。\n• 約定時間 **7天內** 臨退/放鳥：沒收總金額 **30% 作為違約金**（10% 撥付夥伴補償，20% 為平台行政費）。👻`;
@@ -1776,7 +1729,7 @@
             return `專人服務請直接點擊以下連結一對一私訊：\n<a class="chat-link-btn" href="https://line.me/ti/p/L1iM3COUPl" target="_blank">👩‍💼 點此私訊【聯絡管管】</a>\n<a class="chat-link-btn" href="https://line.me/ti/p/mR19KggePp" target="_blank">👨‍💼 點此私訊【聯絡所長】</a>`;
         }
         if (text.includes("你好") || text.includes("嗨") || text.includes("hi") || text.includes("hello")) {
-            return `您好！我是閒人案內所的數位風控與客服總監。請問今天有關於預約媒合、發文格式或平台規則的問題想諮詢嗎？✨`;
+            return `您好！我是閒人案內所的數位風控與客服總監。請問還有關於預約媒合、發文格式或平台規則的問題想諮詢嗎？✨`;
         }
         return null;
     }
