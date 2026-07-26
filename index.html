@@ -163,7 +163,7 @@
     }
 
     .sub-tab-navigation { display: flex; background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 18px; padding: 6px; margin-bottom: 22px; gap: 6px; flex-wrap: wrap; }
-    .sub-tab-btn { flex: 1 1 22%; min-width: 68px; padding: 11px 2px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); color: var(--text-gray); font-size: 11.5px; font-weight: 700; border-radius: 14px; cursor: pointer; transition: var(--transition-smooth); text-align: center; }
+    .sub-tab-btn { flex: 1 1 18%; min-width: 60px; padding: 11px 2px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); color: var(--text-gray); font-size: 11px; font-weight: 700; border-radius: 14px; cursor: pointer; transition: var(--transition-smooth); text-align: center; }
     .sub-tab-btn.active { color: #ffffff; background: rgba(255, 255, 255, 0.18); border: 1px solid rgba(255, 255, 255, 0.35); text-shadow: 0 0 8px rgba(255,255,255,0.6); box-shadow: 0 0 15px rgba(255,255,255,0.1); }
 
     .card-box {
@@ -446,27 +446,17 @@
     .tab-panel.active { display: block; animation: fadeIn 0.45s var(--ease-premium) forwards; }
     .sub-tab-panel.active { display: block; animation: fadeInSub 0.35s var(--ease-premium) forwards; }
 
-    #quick-action-drawer { position: fixed; bottom: 24px; right: 24px; z-index: 9999; }
-    #drawer-main-btn { width: 60px; height: 60px; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 0 30px rgba(0, 240, 255, 0.6); cursor: pointer; border: 1.5px solid rgba(255,255,255,0.5); transition: var(--transition-smooth); }
-    #drawer-main-btn:hover { transform: scale(1.12) rotate(6deg); box-shadow: 0 0 40px rgba(0, 240, 255, 0.8); }
-    #drawer-menu { position: absolute; bottom: 72px; right: 0; background: rgba(16, 12, 30, 0.99); border: 1.5px solid rgba(179, 102, 255, 0.6); border-radius: 22px; padding: 12px; display: none; flex-direction: column; gap: 8px; width: 180px; backdrop-filter: blur(35px); box-shadow: 0 20px 50px rgba(0,0,0,0.9); }
-    #drawer-menu.active { display: flex; animation: fadeInUp 0.35s var(--ease-premium) forwards; }
-    .drawer-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #fff; padding: 10px 12px; border-radius: 14px; font-size: 12px; font-weight: 700; text-align: left; cursor: pointer; text-decoration: none; transition: 0.2s; display: flex; align-items: center; gap: 8px; }
-    .drawer-item:hover { background: rgba(0, 240, 255, 0.25); border-color: var(--neon-cyan); color: var(--neon-cyan); }
-
-    #back-to-top-btn {
-        position: fixed; bottom: 94px; right: 24px; width: 44px; height: 44px;
-        background: rgba(16, 12, 30, 0.92); border: 1.5px solid var(--neon-cyan);
-        border-radius: 50%; display: flex; align-items: center; justify-content: center;
-        color: var(--neon-cyan); font-size: 18px; font-weight: 900; cursor: pointer; z-index: 998;
-        opacity: 0; visibility: hidden; transition: var(--transition-smooth);
-        box-shadow: 0 0 20px rgba(0, 240, 255, 0.35); backdrop-filter: blur(10px);
+    #ai-float-btn {
+        position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px;
+        background: linear-gradient(135deg, #b366ff, #00f0ff); border-radius: 50%;
+        display: flex; align-items: center; justify-content: center; font-size: 28px;
+        box-shadow: 0 0 25px rgba(0, 240, 255, 0.4); cursor: pointer; z-index: 9999;
+        transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1); border: 1.5px solid rgba(255, 255, 255, 0.3);
     }
-    #back-to-top-btn.show { opacity: 1; visibility: visible; }
-    #back-to-top-btn:hover { background: var(--neon-cyan); color: #030205; transform: translateY(-3px); box-shadow: 0 0 25px rgba(0, 240, 255, 0.6); }
+    #ai-float-btn:hover { transform: scale(1.1) rotate(5deg); }
 
     #ai-chat-box {
-        position: fixed; bottom: 96px; right: 24px; width: 350px; height: 480px;
+        position: fixed; bottom: 96px; right: 24px; width: 350px; height: 500px;
         background: rgba(16, 12, 30, 0.96); border: 1.5px solid rgba(179, 102, 255, 0.6);
         border-radius: 26px; backdrop-filter: blur(40px); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.92);
         z-index: 9998; display: none; flex-direction: column; overflow: hidden;
@@ -493,7 +483,18 @@
     .ai-chat-input-area { padding: 14px; background: rgba(8, 5, 18, 0.97); border-top: 1px solid rgba(255, 255, 255, 0.12); display: flex; gap: 10px; }
     .ai-chat-input-area input { flex-grow: 1; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; padding: 11px 16px; color: #fff; font-size: 13px; outline: none; transition: var(--transition-smooth); }
     .ai-chat-input-area input:focus { border-color: var(--neon-blue); box-shadow: 0 0 16px rgba(0,240,255,0.4); }
-    .ai-chat-input-area button { background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); border: none; border-radius: 14px; padding: 0 18px; color: #fff; font-weight: 800; cursor: pointer; font-size: 13px; box-shadow: 0 0 16px rgba(179,102,255,0.5); }
+    .ai-chat-input-area button { background: linear-gradient(135deg, #b366ff, #00f0ff); border: none; border-radius: 14px; padding: 0 18px; color: #fff; font-weight: 800; cursor: pointer; font-size: 13px; box-shadow: 0 0 16px rgba(179,102,255,0.5); }
+
+    #back-to-top-btn {
+        position: fixed; bottom: 94px; right: 24px; width: 44px; height: 44px;
+        background: rgba(16, 12, 30, 0.92); border: 1.5px solid var(--neon-cyan);
+        border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        color: var(--neon-cyan); font-size: 18px; font-weight: 900; cursor: pointer; z-index: 998;
+        opacity: 0; visibility: hidden; transition: var(--transition-smooth);
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.35); backdrop-filter: blur(10px);
+    }
+    #back-to-top-btn.show { opacity: 1; visibility: visible; }
+    #back-to-top-btn:hover { background: var(--neon-cyan); color: #030205; transform: translateY(-3px); box-shadow: 0 0 25px rgba(0, 240, 255, 0.6); }
 
     @keyframes pulseGlow { 0% { transform: scale(0.94); box-shadow: 0 0 10px rgba(0, 240, 255, 0.25); } 100% { transform: scale(1.06); box-shadow: 0 0 25px rgba(0, 240, 255, 0.55); } }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
@@ -504,7 +505,7 @@
 <div class="container">
 <div class="system-badge"><span></span> 系統運行中 ｜ 24H 智慧媒合 (PWA已啟動)</div>
 <div class="marquee-box">
-    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 租賃規範與人工對帳流程全面更新！✨</div>
+    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 嚴謹交退費規範與 AI 智慧風控總監全天候守護！✨</div>
 </div>
 
 <div class="header">
@@ -755,7 +756,7 @@
 <div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
 
 <div class="search-box-wrapper" style="margin-bottom: 20px;">
-    <input type="text" id="notice-search-input" class="search-input" placeholder="🔍 搜尋公告條款（例如：定金、退費、人工對帳...）" oninput="filterNotice(this.value)">
+    <input type="text" id="notice-search-input" class="search-input" placeholder="🔍 搜尋公告條款（例如：免責、退費、最長預付期...）" oninput="filterNotice(this.value)">
 </div>
 
 <div style="font-size: 13px; font-weight: 800; color: var(--neon-gold); margin-bottom: 14px; letter-spacing: 0.5px;">📊 預約媒合標準作業流程 (SOP)</div>
@@ -771,9 +772,11 @@
 <button class="sub-tab-btn active" onclick="triggerHaptic(10); switchSubTab('sub-terms');">📋 法律免責</button>
 <button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-client');">👤 求租</button>
 <button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-partner');">👥 出租</button>
+<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-policy');">💳 交退付政策</button>
 <button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-faq');">❓ 常見FAQ</button>
 </div>
 
+<!-- 1. 法律免責 -->
 <div class="sub-tab-panel active" id="sub-panel-sub-terms">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
@@ -803,55 +806,82 @@
 </div>
 </div>
 
+<!-- 2. 求租人 -->
 <div class="sub-tab-panel" id="sub-panel-sub-client">
 <div class="policy-list">
     <div class="policy-item notice-blue">
-        <div class="policy-item-title">💳 委託付款規範 (TWQR / 街口)</div>
-        <div class="policy-item-desc">
-            • <strong>線上委託：</strong>須於約定日前完成全額預付。<br/>
-            • <strong>線下委託：</strong>預訂行程後須先透過 TWQR 支付 <strong>30% 定金</strong>，其餘 70% 尾款於見面現場直接付現給出租人。
-        </div>
+        <div class="policy-item-title">💳 付款規範</div>
+        <div class="policy-item-desc">• 線上委託：全額預付。<br/>• 線下委託：預訂後先付 30% 定金，餘款 70% 現場付現。</div>
     </div>
     <div class="policy-item notice-pink">
-        <div class="policy-item-title">❌ 取消與防放鳥懲罰條款</div>
-        <div class="policy-item-desc">
-            若於約定服務時間 <strong>7 天內臨退或惡意放鳥</strong>：<br/>
-            • 系統將扣除總金額之 <strong>30% 作為違約金</strong>。<br/>
-            • 同時會影響求租人之<strong>信用評級標章</strong>。
-        </div>
+        <div class="policy-item-title">❌ 取消與放鳥懲罰</div>
+        <div class="policy-item-desc">7 天內臨退/放鳥，扣總額 30% 為違約金（其中 10% 補償夥伴，20% 平台行政費）。</div>
     </div>
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title">🔥 夥伴爽約保障方案</div>
-        <div class="policy-item-desc">若時光夥伴發生無故惡意爽約之行為，平台將立即啟動保障機制，<strong>直接將該出租人永久列入黑名單</strong>。</div>
+        <div class="policy-item-title">🔥 爽約保障方案</div>
+        <div class="policy-item-desc">若夥伴惡意爽約，平台會直接將出租人列入黑名單。</div>
     </div>
 </div>
 </div>
 
-<!-- 🌟 已將出租人公告中的自動對帳拿掉，改為人工對帳與雙方確認 -->
+<!-- 3. 出租人 -->
 <div class="sub-tab-panel" id="sub-panel-sub-partner">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title">💰 出租人爽約懲罰方案</div>
-        <div class="policy-item-desc">時光夥伴若發生未依約出席或惡意爽約，經查證屬實將<strong>直接終止合作關係並永久黑名單</strong>。</div>
+        <div class="policy-item-title">💰 爽約懲罰方案</div>
+        <div class="policy-item-desc">若夥伴惡意爽約，平台會直接將出租人列入黑名單。</div>
     </div>
     <div class="policy-item notice-blue">
-        <div class="policy-item-title">📈 報酬拆帳與人工對帳流程</div>
+        <div class="policy-item-title">📈 拆帳與人工對帳 SOP</div>
         <div class="policy-item-desc">
-            1. <strong>人工對帳：</strong>訂單成立與定金轉帳後，請雙方保留明細截圖，由管理團隊進行人工對帳確認。<br/>
-            2. <strong>營業紀錄：</strong>夥伴可透過個人後台檢視本月接單與收益。<br/>
-            3. <strong>早鳥優惠：</strong>夥伴可於非離峰時段設定動態早鳥折扣吸引預約。
+            1. <strong>確認入帳：</strong>訂單成立時，須確認轉帳紀錄與定金。<br/>
+            2. <strong>截圖備查：</strong>雙方對話與明細為憑證。<br/>
+            3. <strong>範例 ($1,000)：</strong>定金 $300 -&gt; 平台扣行政費 $200 -&gt; 退夥伴 $100 -&gt; 現場收現金 $700。
         </div>
     </div>
     <div class="policy-item notice-pink">
-        <div class="policy-item-title">🛡️ 欠款扣除與取消補償</div>
+        <div class="policy-item-title">🛡️ 欠款與取消補償</div>
+        <div class="policy-item-desc">• 欠款從退款中優先扣除。<br/>• 客戶 7 天內放鳥，無違規前提下，可獲定金總額 10% 作為時間補償。</div>
+    </div>
+</div>
+</div>
+
+<!-- 4. 🌟 滴水不漏的精美交退付政策（佈局與其他公告完全一致） -->
+<div class="sub-tab-panel" id="sub-panel-sub-policy">
+<div class="policy-list">
+    <div class="policy-item notice-cyan">
+        <div class="policy-item-title">📑 一、 服務預約與履約確認 SOP</div>
         <div class="policy-item-desc">
-            • 帳務欠款將從後續款項中優先扣除。<br/>
-            • 若客戶在 7 天內無故放鳥，在出租人完全無違規之前提下，可獲得定金總額之 <strong>10% 作為時間補償金</strong>。
+            1. <strong>預約與確認：</strong>用戶諮詢並選擇項目後，提供轉帳成功紀錄。經管理員核實後發布預約成功通知。<br/>
+            2. <strong>守則確認：</strong>雙方確認遵守《時光交換星級公約》（嚴禁肢體接觸、車內禁菸等）。<br/>
+            3. <strong>服務交付與結案：</strong>完成服務後 24 小時內無任何爭議回報，即視為「服務已完整交付」。
+        </div>
+    </div>
+    <div class="policy-item notice-pink">
+        <div class="policy-item-title">⏳ 二、 最長預付期控管</div>
+        <div class="policy-item-desc">
+            為保障雙方金流安全與合規性，本平台之所有服務預約，最長預付期限嚴格控管以 <strong style="color:var(--neon-gold)">「2個月（60天）」</strong> 為限，超期預付恕不受理。
+        </div>
+    </div>
+    <div class="policy-item notice-blue">
+        <div class="policy-item-title">💳 三、 退費與改期規範</div>
+        <div class="policy-item-desc">
+            • <strong>非可歸責於客戶之取消：</strong>如遇政府公告之天然災害或夥伴缺席，平台將優先協助辦理改期；若不願改期，將於次月 15 號統一辦理全額退費。<br/>
+            • <strong>客戶主動取消：</strong><br/>
+             - 於服務約定時間 <strong>7 天前</strong> 取消：全額退還餘額（僅扣除必要金流手續費）。<br/>
+             - 於服務約定時間 <strong>7 天內</strong> 臨退或放鳥：系統將沒收總金額之 <strong>30% 作為違約金</strong>（其中 20% 為平台行政手續費，10% 作為時間補償撥付予夥伴）。
+        </div>
+    </div>
+    <div class="policy-item notice-pink">
+        <div class="policy-item-title">⚠️ 四、 私下交易與外部行為免責</div>
+        <div class="policy-item-desc">
+            雙方若繞過本平台官方管道進行私下金錢交易、私約或私下聯繫，所衍生之財物損失、詐騙、個資外洩或安全爭議，<strong>本平台不負任何調查、協調或賠償之法律責任</strong>。
         </div>
     </div>
 </div>
 </div>
 
+<!-- 5. 常見 FAQ -->
 <div class="sub-tab-panel" id="sub-panel-sub-faq">
 <div class="policy-list">
     <div class="policy-item notice-cyan" onclick="toggleFaq(this)" style="cursor: pointer;">
@@ -865,10 +895,6 @@
     <div class="policy-item notice-pink" onclick="toggleFaq(this)" style="cursor: pointer;">
         <div class="policy-item-title">❓ Q3: 成就徽章與零負評代表是怎麼來的？ <span class="faq-arrow" style="transition: transform 0.3s ease; display: inline-block;">▼</span></div>
         <div class="policy-item-desc faq-content" style="display: none; margin-top: 8px;">徽章會根據用戶給予的真實評價單數與平均評分動態解鎖。平均達 4.5 分以上即可獲得「🎯 零負評代表」標章！</div>
-    </div>
-    <div class="policy-item notice-cyan" onclick="toggleFaq(this)" style="cursor: pointer;">
-        <div class="policy-item-title">❓ Q4: 財務拆帳與夥伴實際拿多少？ <span class="faq-arrow" style="transition: transform 0.3s ease; display: inline-block;">▼</span></div>
-        <div class="policy-item-desc faq-content" style="display: none; margin-top: 8px;">平台僅收取 20% 行政手續費，其餘 80% 收益皆歸夥伴所有。您可至「工具」頁籤使用試算器驗證！</div>
     </div>
 </div>
 </div>
@@ -957,16 +983,8 @@
 <div id="toast-notification">✨ 動作已完成</div>
 <button id="back-to-top-btn" onclick="scrollToTop()" title="回到頂部">↑</button>
 
-<div id="quick-action-drawer">
-    <div id="drawer-menu">
-        <div class="drawer-item" onclick="triggerHaptic(15); toggleAIChat(); toggleDrawerMenu();">🤖 AI 智慧客服</div>
-        <a class="drawer-item" href="https://line.me/ti/p/L1iM3COUPl" target="_blank" onclick="triggerHaptic(15)">👩‍💼 聯繫管管</a>
-        <a class="drawer-item" href="https://line.me/ti/p/mR19KggePp" target="_blank" onclick="triggerHaptic(15)">👨‍💼 聯繫所長</a>
-        <a class="drawer-item" href="https://line.me/ti/p/L1iM3COUPl" target="_blank" onclick="triggerHaptic(15)">🚨 SOS 緊急通報</a>
-    </div>
-    <div id="drawer-main-btn" onclick="triggerHaptic(20); toggleDrawerMenu();">👻</div>
-</div>
-
+<!-- AI 機器人懸浮按鈕與對話視窗 -->
+<div id="ai-float-btn" onclick="triggerHaptic(15); toggleAIChat();">👻</div>
 <div id="ai-chat-box">
     <div class="ai-chat-header">
         <span>🤖 閒人案內所 ｜ 智能風控總監</span>
@@ -1030,7 +1048,7 @@
         if (intro.includes('遊戲') || intro.includes('陪玩') || intro.includes('打字')) tags.push('🎮 遊戲神隊友', '🎧 語音暢聊');
         if (intro.includes('聊天') || intro.includes('傾聽') || intro.includes('同理心')) tags.push('💬 溫柔傾聽', '🌙 深夜談心');
         if (intro.includes('逛街') || intro.includes('穿搭') || intro.includes('改頭換面')) tags.push('🛍️ 逛街神隊友', '👗 品味穿搭');
-        if (intro.includes('寵物') || intro.includes('保姆')) tags.push('🐾 萌寵好夥伴');
+        if (intro.includes('寵物') || intro.includes('保姆')) tags.push('🐾 寵物好夥伴');
         if (intro.includes('戶外') || intro.includes('走走') || intro.includes('景點') || intro.includes('外向')) tags.push('🌿 戶外踏青', '☀️ 陽光活力');
         if (tags.length === 0) tags = ['✨ 隨性交流', '🤝 真誠陪伴'];
         return [...new Set(tags)].slice(0, 3);
@@ -1747,8 +1765,22 @@
         if (subPanel) subPanel.classList.add('active');
     }
 
-    const systemPrompt = "你現在是「閒人案內所」的最高數位風控官兼首席智能客服總監。你的任務是：絕對捍衛品牌格調、嚴守法律紅線、保護合作夥伴與求租人權益、維護社群秩序、完美過濾一切惡意攻擊、引導新手正確使用格式與守則。語氣保持神祕霓虹美學、冷靜專業，適當使用符號（如 👻、🔮）。核心規則：嚴禁色情與擦邊交易、預付期最長2個月、7天內放鳥扣30%違約金、發文格式需符合 [求租/地區/性別] 名字。";
+    // AI 機器人互動腳本
+    const systemPrompt = "你現在是專屬的「閒人案內所」頂級數位風控官兼首席智能客服總監。你的任務是：捍衛品牌格調、保護夥伴與求租人權益、解答所有關於交退費政策（如30%定金、最長預付期2個月、7天內退費規範等）以及發文格式的問題。語氣保持神祕霓虹美學、冷靜專業，適當使用符號（如 👻、🔮）。";
     let chatHistory = [{ role: "system", content: systemPrompt }];
+
+    function toggleAIChat() {
+        const box = document.getElementById('ai-chat-box');
+        if (box) box.classList.toggle('active');
+    }
+
+    function sendQuickQuestion(qText) {
+        const input = document.getElementById('ai-user-input');
+        if (input) {
+            input.value = qText;
+            sendAIMessage();
+        }
+    }
 
     function getLocalSmartResponse(userText) {
         const text = userText.toLowerCase();
@@ -1764,14 +1796,14 @@
             const formatTwo = `🌐 格式二：【線上委託｜全額預付制】\n預約日期：\n預約時間：\n委託金額 (全額)：`;
             return `${formatTwo}\n\n<button class="copy-code-btn" onclick="copyToClipboard(${JSON.stringify(formatTwo)})">📋 一鍵複製線上預付格式</button>`;
         }
-        if (text.includes("退費") || text.includes("取消") || text.includes("放鳥") || text.includes("違約金")) {
-            return `根據《閒人案內所交付及退費政策》：\n• 約定時間 **7天前** 取消：退還餘額（扣除金流手續費）。\n• 約定時間 **7天內** 臨退/放鳥：沒收總金額 **30% 作為違約金**（10% 撥付夥伴補償，20% 為平台行政費）。👻`;
+        if (text.includes("退費") || text.includes("取消") || text.includes("放鳥") || text.includes("違約金") || text.includes("政策")) {
+            return `根據《閒人案內所交退付政策》：\n• 預付期最長以 2 個月為限。\n• 7 天前取消：退還餘額（扣除手續費）。\n• 7 天內臨退/放鳥：沒收總金額 30% 作為違約金（20% 平台行政費，10% 夥伴補償）。👻`;
         }
         if (text.includes("管管") || text.includes("真人") || text.includes("客服") || text.includes("申訴") || text.includes("所長")) {
             return `專人服務請直接點擊以下連結一對一私訊：\n<a class="chat-link-btn" href="https://line.me/ti/p/L1iM3COUPl" target="_blank">👩‍💼 點此私訊【聯絡管管】</a>\n<a class="chat-link-btn" href="https://line.me/ti/p/mR19KggePp" target="_blank">👨‍💼 點此私訊【聯絡所長】</a>`;
         }
         if (text.includes("你好") || text.includes("嗨") || text.includes("hi") || text.includes("hello")) {
-            return `您好！我是閒人案內所的數位風控與客服總監。請問還有關於預約媒合、發文格式或平台規則的問題想諮詢嗎？✨`;
+            return `您好！我是閒人案內所的數位風控與客服總監。請問今天有關於預約媒合、發文格式或交退費政策的問題想諮詢嗎？✨`;
         }
         return null;
     }
