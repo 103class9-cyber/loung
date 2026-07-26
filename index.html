@@ -1185,10 +1185,21 @@
         triggerHaptic(25);
         const now = Date.now();
         
+        // 🛡️ 嚴格防禦：檢查這台裝置對這位夥伴今天是否已經評過分 (24小時冷卻)
+        const lastVoteKey = 'voted_' + name;
+        const lastVoteTime = parseInt(localStorage.getItem(lastVoteKey) || '0');
+        const oneDayMs = 24 * 60 * 60 * 1000;
+
+        if (now - lastVoteTime < oneDayMs) {
+            const hoursLeft = Math.ceil((oneDayMs - (now - lastVoteTime)) / (60 * 60 * 1000));
+            showRatingPopup(`⏳ 防洗分機制啟動：\n您在 24 小時內已經對【${name}】評過分囉！\n請於 ${hoursLeft} 小時後再試。維護社群信譽，人人有責 ✨`);
+            return;
+        }
+
         const commentInput = document.getElementById('rating-comment-input');
         const commentText = commentInput ? commentInput.value.trim() : '';
 
-        // 送出至 Google Apps Script
+        // 送出至 Google Apps Script 後端
         fetch(googleSheetApiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -1200,8 +1211,10 @@
                 timestamp: now
             })
         }).then(() => {
-            showToast("⭐ 評分與留言已成功寫入試算表！");
-            setTimeout(fetchPartners, 1200); // 1.2秒後自動重新拉取全網最新評分
+            // 成功後將投票時間鎖入這台裝置的 LocalStorage
+            localStorage.setItem(lastVoteKey, String(now));
+            showToast("⭐ 評分與留言已成功寫入平台！");
+            setTimeout(fetchPartners, 1200); 
         }).catch(err => {
             console.error("送出評分失敗:", err);
             showToast("⚠️ 送出失敗，請檢查網路連線");
