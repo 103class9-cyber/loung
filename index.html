@@ -504,7 +504,7 @@
 <div class="container">
 <div class="system-badge"><span></span> 系統運行中 ｜ 24H 智慧媒合 (PWA已啟動)</div>
 <div class="marquee-box">
-    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 全平台評價與留言功能已完美開通！✨</div>
+    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 租賃規範與人工對帳流程全面更新！✨</div>
 </div>
 
 <div class="header">
@@ -755,7 +755,7 @@
 <div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
 
 <div class="search-box-wrapper" style="margin-bottom: 20px;">
-    <input type="text" id="notice-search-input" class="search-input" placeholder="🔍 搜尋公告條款（例如：免責、場所、黑名單、SOP...）" oninput="filterNotice(this.value)">
+    <input type="text" id="notice-search-input" class="search-input" placeholder="🔍 搜尋公告條款（例如：定金、退費、人工對帳...）" oninput="filterNotice(this.value)">
 </div>
 
 <div style="font-size: 13px; font-weight: 800; color: var(--neon-gold); margin-bottom: 14px; letter-spacing: 0.5px;">📊 預約媒合標準作業流程 (SOP)</div>
@@ -827,6 +827,7 @@
 </div>
 </div>
 
+<!-- 🌟 已將出租人公告中的自動對帳拿掉，改為人工對帳與雙方確認 -->
 <div class="sub-tab-panel" id="sub-panel-sub-partner">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
@@ -834,17 +835,17 @@
         <div class="policy-item-desc">時光夥伴若發生未依約出席或惡意爽約，經查證屬實將<strong>直接終止合作關係並永久黑名單</strong>。</div>
     </div>
     <div class="policy-item notice-blue">
-        <div class="policy-item-title">📈 拆帳與自動對帳標準 SOP</div>
+        <div class="policy-item-title">📈 報酬拆帳與人工對帳流程</div>
         <div class="policy-item-desc">
-            1. <strong>自動對帳：</strong>透過 PAYUNi / JKO Pay 自動捕捉交易成功訊號。<br/>
-            2. <strong>營業儀表板：</strong>夥伴可透過個人營業後台檢視本月接單與收益。<br/>
+            1. <strong>人工對帳：</strong>訂單成立與定金轉帳後，請雙方保留明細截圖，由管理團隊進行人工對帳確認。<br/>
+            2. <strong>營業紀錄：</strong>夥伴可透過個人後台檢視本月接單與收益。<br/>
             3. <strong>早鳥優惠：</strong>夥伴可於非離峰時段設定動態早鳥折扣吸引預約。
         </div>
     </div>
     <div class="policy-item notice-pink">
         <div class="policy-item-title">🛡️ 欠款扣除與取消補償</div>
         <div class="policy-item-desc">
-            • 帳務欠款將從後續退款中優先扣除。<br/>
+            • 帳務欠款將從後續款項中優先扣除。<br/>
             • 若客戶在 7 天內無故放鳥，在出租人完全無違規之前提下，可獲得定金總額之 <strong>10% 作為時間補償金</strong>。
         </div>
     </div>
@@ -1006,7 +1007,7 @@
         ["Chiu", "女", "全台", "個性隨和、健談且富有同理心，想要認真傾聽都可以找我", "", ["遊戲陪玩", "聊天解悶"]],
         ["R融", "男", "全台", "出租長", "", ["活動陪伴", "諮詢交流"]],
         ["塔塔", "女", "高雄", "穿搭小幫手 想要改頭換面可以找我～", "", ["逛街購物", "穿搭改造"]],
-        ["卡洛琳", "女", "台中", "線上陪伴、陪玩遊戲、聊天", "", ["線上陪玩", "語音聊天"]],
+        ["卡洛琳", "女", "台中", "線上陪伴, 陪玩遊戲, 聊天", "", ["線上陪玩", "語音聊天"]],
         ["謝小念", "女", "高雄", "喝酒後，小女子開心會唱歌唷～", "", ["聚餐陪伴", "唱歌炒氣氛"]],
         ["大嬸是素顏吃貨", "女", "雙北", "愛吃好吃 看大嬸吃飯你會覺得特別好吃～", "", ["探店飯友", "美食品嚐"]],
         ["翹臀是隻貓", "女", "桃園", "無時無刻都可以犯睏 想要找人聊天陪伴～", "", ["深夜聊天", "掛睡陪伴"]],
@@ -1175,7 +1176,6 @@
         }
     }
 
-    // 🌟 修復後的點擊送出評分函數
     function submitRatingWithComment() {
         if (currentSelectedScore === 0) {
             showToast("❌ 請先點擊上方選擇星級（1至5星）！");
@@ -1185,21 +1185,19 @@
         triggerHaptic(25);
         const now = Date.now();
         
-        // 🛡️ 嚴格防禦：檢查這台裝置對這位夥伴今天是否已經評過分 (24小時冷卻)
         const lastVoteKey = 'voted_' + name;
         const lastVoteTime = parseInt(localStorage.getItem(lastVoteKey) || '0');
         const oneDayMs = 24 * 60 * 60 * 1000;
 
         if (now - lastVoteTime < oneDayMs) {
             const hoursLeft = Math.ceil((oneDayMs - (now - lastVoteTime)) / (60 * 60 * 1000));
-            showRatingPopup(`⏳ 防洗分機制啟動：\n您在 24 小時內已經對【${name}】評過分囉！\n請於 ${hoursLeft} 小時後再試。維護社群信譽，人人有責 ✨`);
+            showRatingPopup(`⏳ 防洗分機制啟動：\n您在 24 小時內已經對【${name}】評過分囉！\n請於 ${hoursLeft} 小時後再試。`);
             return;
         }
 
         const commentInput = document.getElementById('rating-comment-input');
         const commentText = commentInput ? commentInput.value.trim() : '';
 
-        // 送出至 Google Apps Script 後端
         fetch(googleSheetApiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -1211,7 +1209,6 @@
                 timestamp: now
             })
         }).then(() => {
-            // 成功後將投票時間鎖入這台裝置的 LocalStorage
             localStorage.setItem(lastVoteKey, String(now));
             showToast("⭐ 評分與留言已成功寫入平台！");
             setTimeout(fetchPartners, 1200); 
