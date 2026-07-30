@@ -505,7 +505,7 @@
 <div class="container">
 <div class="system-badge"><span></span> 系統運行中 ｜ 24H 智慧媒合 (PWA已啟動)</div>
 <div class="marquee-box">
-    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 嚴謹交退費規範與 AI 智慧風控總監全天候守護！✨</div>
+    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 嚴謹交退費規範與次月 15 號統一撥款機制全面上線！✨</div>
 </div>
 
 <div class="header">
@@ -674,7 +674,7 @@
     <div class="tool-box">
         <div class="tool-title" style="color: var(--neon-cyan);">🧮 智慧預約金額與拆帳試算器</div>
         <input type="number" id="calc-input" class="tool-input" placeholder="輸入預約總金額（例如：1000）" oninput="calculateDeposit()">
-        <div id="calc-output" class="tool-result">請輸入金額以計算 30% 定金、平台手續費與夥伴實拿總額。</div>
+        <div id="calc-output" class="tool-result">請輸入金額以計算 30% 定金、平台手續費與夥伴實拿總額（80%）。</div>
     </div>
 
     <div class="tool-box">
@@ -756,7 +756,7 @@
 <div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
 
 <div class="search-box-wrapper" style="margin-bottom: 20px;">
-    <input type="text" id="notice-search-input" class="search-input" placeholder="🔍 搜尋公告條款（例如：免責、退費、最長預付期...）" oninput="filterNotice(this.value)">
+    <input type="text" id="notice-search-input" class="search-input" placeholder="🔍 搜尋公告條款（例如：免責、撥款、80%、拆帳...）" oninput="filterNotice(this.value)">
 </div>
 
 <div style="font-size: 13px; font-weight: 800; color: var(--neon-gold); margin-bottom: 14px; letter-spacing: 0.5px;">📊 預約媒合標準作業流程 (SOP)</div>
@@ -799,7 +799,7 @@
         <div class="policy-item-title">🚫 平台服務終止與黑名單權限</div>
         <div class="policy-item-desc">
             為維護社群秩序與營運環境：<br/>
-            • <strong>惡意行為處置：</strong>若用戶對本平台、管理團隊或任何第三方進行惡意洗版、言語辱罵、威脅、騷擾或名譽毀損，本平台有權立即終止服務、刪除帳號、踢出社群並<strong>列入永久黑名單</strong>。<br/>
+            • <strong>惡意行為處置：</strong>若用戶對本平台, 管理團隊或任何第三方進行惡意洗版、言語辱罵、威脅、騷擾或名譽毀損，本平台有權立即終止服務、刪除帳號、踢出社群並<strong>列入永久黑名單</strong>。<br/>
             • <strong>法律追訴權：</strong>對於惡意騷擾或毀損本平台名譽者，本平台將保留所有對話截圖與電磁紀錄，並依法訴追民刑事責任，絕不寬貸。
         </div>
     </div>
@@ -824,29 +824,29 @@
 </div>
 </div>
 
-<!-- 3. 出租人 -->
+<!-- 3. 出租人（已加入 80% 實拿與次月 15 號撥款規範） -->
 <div class="sub-tab-panel" id="sub-panel-sub-partner">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title">💰 爽約懲罰方案</div>
-        <div class="policy-item-desc">若夥伴惡意爽約，平台會直接將出租人列入黑名單。</div>
+        <div class="policy-item-title">💰 出租人爽約懲罰方案</div>
+        <div class="policy-item-desc">若時光夥伴發生未依約出席或惡意爽約，經查證屬實將<strong>直接終止合作關係並永久黑名單</strong>。</div>
     </div>
     <div class="policy-item notice-blue">
-        <div class="policy-item-title">📈 拆帳與人工對帳 SOP</div>
+        <div class="policy-item-title">📈 報酬拆帳（80%）與次月 15 號撥款機制</div>
         <div class="policy-item-desc">
-            1. <strong>確認入帳：</strong>訂單成立時，須確認轉帳紀錄與定金。<br/>
-            2. <strong>截圖備查：</strong>雙方對話與明細為憑證。<br/>
-            3. <strong>範例 ($1,000)：</strong>定金 $300 -&gt; 平台扣行政費 $200 -&gt; 退夥伴 $100 -&gt; 現場收現金 $700。
+            1. <strong>收益拆帳：</strong>平台僅收取 20% 行政與媒合服務費，時光夥伴最終可獲得總收益之 <strong style="color:var(--neon-gold)">80% 報酬</strong>。<br/>
+            2. <strong>統一撥款日：</strong>平台將於每月結算後，統一於<strong>次月 15 號</strong>將款項撥付給出租人。<br/>
+            3. <strong>人工對帳備查：</strong>訂單成立與定金轉帳後，請雙方保留明細截圖以供查核。
         </div>
     </div>
     <div class="policy-item notice-pink">
         <div class="policy-item-title">🛡️ 欠款與取消補償</div>
-        <div class="policy-item-desc">• 欠款從退款中優先扣除。<br/>• 客戶 7 天內放鳥，無違規前提下，可獲定金總額 10% 作為時間補償。</div>
+        <div class="policy-item-desc">• 帳務欠款將從後續款項中優先扣除。<br/>• 若客戶在 7 天內無故放鳥，在出租人完全無違規之前提下，可獲得定金總額之 <strong>10% 作為時間補償金</strong>。</div>
     </div>
 </div>
 </div>
 
-<!-- 4. 🌟 滴水不漏的精美交退付政策（佈局與其他公告完全一致） -->
+<!-- 4. 交退付政策 -->
 <div class="sub-tab-panel" id="sub-panel-sub-policy">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
@@ -1489,8 +1489,8 @@
         if (isNaN(val) || val <= 0) { out.innerHTML = "請輸入有效的預約總金額。"; return; }
         const deposit = Math.round(val * 0.3);       
         const platformFee = Math.round(val * 0.2);  
-        const partnerEarn = val - platformFee;      
-        out.innerHTML = `💡 <b>智慧財務拆帳試算 ($${val})：</b><br>• 應收定金 (30%)：<strong>$${deposit}</strong><br>• 平台行政費 (20%)：$${platformFee}<br>• 夥伴實拿總額：<strong>$${partnerEarn}</strong>`;
+        const partnerEarn = Math.round(val * 0.8);      
+        out.innerHTML = `💡 <b>智慧財務拆帳試算 ($${val})：</b><br>• 應收定金 (30%)：<strong>$${deposit}</strong><br>• 平台行政費 (20%)：$${platformFee}<br>• 夥伴實拿總額 (80%)：<strong>$${partnerEarn}</strong>`;
     }
 
     function calculateOvertime() {
