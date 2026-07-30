@@ -7,7 +7,7 @@
 <title>閒人案內所 ｜ 官方傳送門</title>
 <style>
     :root {
-        --bg-dark: #050308;
+        --bg-dark: #040206;
         --neon-gold: #ffb020;
         --neon-purple: #b366ff;
         --neon-orange: #ff7324;
@@ -15,11 +15,11 @@
         --neon-pink: #ff2a6d;
         --neon-cyan: #00f3ff;
         --text-light: #ffffff;
-        --text-gray: #9c97aa;
-        --card-glass: rgba(16, 12, 30, 0.72);
-        --border-glow: rgba(179, 102, 255, 0.18);
+        --text-gray: #b5b0c4;
+        --card-glass: rgba(16, 12, 30, 0.85);
+        --border-glow: rgba(179, 102, 255, 0.25);
         --ease-premium: cubic-bezier(0.23, 1, 0.32, 1);
-        --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        --transition-smooth: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     body.theme-amber {
@@ -29,8 +29,8 @@
         --neon-orange: #e85d04;
         --neon-blue: #ffd166;
         --neon-cyan: #ffb703;
-        --card-glass: rgba(26, 16, 10, 0.82);
-        --border-glow: rgba(255, 183, 3, 0.32);
+        --card-glass: rgba(26, 16, 10, 0.88);
+        --border-glow: rgba(255, 183, 3, 0.38);
     }
     body.theme-cyan {
         --bg-dark: #02070a;
@@ -39,8 +39,8 @@
         --neon-orange: #48bfe3;
         --neon-blue: #7209b7;
         --neon-cyan: #00f2fe;
-        --card-glass: rgba(8, 18, 30, 0.82);
-        --border-glow: rgba(0, 242, 254, 0.32);
+        --card-glass: rgba(8, 20, 35, 0.88);
+        --border-glow: rgba(0, 242, 254, 0.38);
     }
     body.theme-pink {
         --bg-dark: #080205;
@@ -49,8 +49,8 @@
         --neon-orange: #7209b7;
         --neon-blue: #4cc9f0;
         --neon-cyan: #f72585;
-        --card-glass: rgba(24, 10, 20, 0.82);
-        --border-glow: rgba(247, 37, 133, 0.32);
+        --card-glass: rgba(24, 10, 22, 0.88);
+        --border-glow: rgba(247, 37, 133, 0.38);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif; -webkit-tap-highlight-color: transparent; }
@@ -58,35 +58,24 @@
     body {
         background-color: var(--bg-dark);
         background-image: 
-            radial-gradient(circle at 50% 0%, rgba(179, 102, 255, 0.24) 0%, transparent 55%),
-            radial-gradient(circle at 100% 20%, rgba(255, 115, 36, 0.1) 0%, transparent 45%),
-            radial-gradient(circle at 0% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 50%);
+            radial-gradient(circle at 50% 0%, rgba(179, 102, 255, 0.28) 0%, transparent 60%),
+            radial-gradient(circle at 100% 20%, rgba(255, 115, 36, 0.12) 0%, transparent 50%),
+            radial-gradient(circle at 0% 80%, rgba(0, 240, 255, 0.12) 0%, transparent 50%);
         color: var(--text-light);
         min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        padding: 40px 12px;
+        padding: 40px 14px;
         overflow-x: hidden;
         position: relative;
-    }
-
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(rgba(255, 255, 255, 0.008) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 255, 255, 0.008) 1px, transparent 1px);
-        background-size: 30px 30px;
-        z-index: 0;
-        pointer-events: none;
     }
 
     .container { width: 100%; max-width: 460px; text-align: center; position: relative; z-index: 1; }
 
     .system-badge {
         display: inline-flex; align-items: center; gap: 8px;
-        background: rgba(0, 240, 255, 0.07); border: 1px solid rgba(0, 240, 255, 0.3);
+        background: rgba(0, 240, 255, 0.08); border: 1px solid rgba(0, 240, 255, 0.35);
         padding: 7px 16px; border-radius: 24px; font-size: 11.5px; font-weight: 700;
         color: var(--neon-cyan); margin-bottom: 20px; box-shadow: 0 0 20px rgba(0, 240, 255, 0.12);
         letter-spacing: 0.6px; backdrop-filter: blur(10px);
@@ -94,15 +83,15 @@
     .system-badge span { width: 6px; height: 6px; background: var(--neon-cyan); border-radius: 50%; box-shadow: 0 0 10px var(--neon-cyan); animation: pulseGlow 1.8s infinite alternate; }
 
     .marquee-box {
-        background: rgba(255, 176, 32, 0.05); border: 1px solid rgba(255, 176, 32, 0.25);
+        background: rgba(255, 176, 32, 0.06); border: 1px solid rgba(255, 176, 32, 0.28);
         border-radius: 16px; padding: 11px 16px; font-size: 11.5px; color: var(--neon-gold);
         margin-bottom: 26px; overflow: hidden; white-space: nowrap; position: relative;
-        box-shadow: inset 0 1px 3px rgba(255,255,255,0.08); backdrop-filter: blur(10px);
+        box-shadow: inset 0 1px 3px rgba(255,255,255,0.08); backdrop-filter: blur(10px); font-weight: 600;
     }
     .marquee-content {
         display: inline-block;
         padding-left: 100%;
-        animation: marqueeScroll 24s linear infinite;
+        animation: marqueeScroll 26s linear infinite;
     }
     @keyframes marqueeScroll {
         0% { transform: translateX(0); }
@@ -111,60 +100,87 @@
 
     .header { margin-bottom: 24px; position: relative; }
     .theme-toggle-btn {
-        position: absolute; top: 0; right: 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+        position: absolute; top: 0; right: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
         color: #fff; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
         cursor: pointer; font-size: 15px; transition: var(--transition-smooth); backdrop-filter: blur(16px);
     }
-    .theme-toggle-btn:hover { transform: scale(1.1) rotate(15deg); border-color: var(--neon-gold); background: rgba(255,255,255,0.12); }
+    .theme-toggle-btn:hover { transform: scale(1.1) rotate(15deg); border-color: var(--neon-gold); background: rgba(255,255,255,0.15); }
 
-    .logo-container { position: relative; width: 96px; height: 96px; margin: 0 auto 20px; }
+    .logo-container { position: relative; width: 92px; height: 92px; margin: 0 auto 16px; }
     .logo-pulse { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); animation: pulseGlow 3s infinite alternate var(--ease-premium); filter: blur(14px); opacity: 0.85; }
-    .logo-inner { position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px; background: #0c061a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; border: 1px solid rgba(255, 255, 255, 0.14); box-shadow: inset 0 0 25px rgba(179, 102, 255, 0.4); }
-    .title { font-size: 30px; font-weight: 900; letter-spacing: 5px; margin-bottom: 8px; background: linear-gradient(90deg, #ffffff 10%, var(--neon-gold), var(--neon-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 15px rgba(255, 115, 36, 0.35)); }
-    .subtitle { font-size: 11px; color: var(--text-gray); letter-spacing: 5px; text-transform: uppercase; opacity: 0.75; font-weight: 500; }
+    .logo-inner { position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px; background: #0c061a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 42px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: inset 0 0 25px rgba(179, 102, 255, 0.45); }
+    .title { font-size: 28px; font-weight: 900; letter-spacing: 5px; margin-bottom: 6px; background: linear-gradient(90deg, #ffffff 10%, var(--neon-gold), var(--neon-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 15px rgba(255, 115, 36, 0.35)); }
+    .subtitle { font-size: 11px; color: var(--text-gray); letter-spacing: 5px; text-transform: uppercase; opacity: 0.8; font-weight: 600; }
 
     .tab-navigation {
         display: grid; 
-        grid-template-columns: repeat(3, 1fr); 
-        gap: 8px;
-        background: rgba(8, 5, 18, 0.85); 
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 22px; 
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 6px;
+        background: rgba(8, 5, 18, 0.9); 
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px; 
         padding: 8px; 
-        margin-bottom: 28px; 
+        margin-bottom: 26px; 
         backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.03);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.04);
     }
     .tab-btn {
-        padding: 12px 6px; 
+        padding: 11px 4px; 
         background: rgba(255, 255, 255, 0.02); 
-        border: 1px solid rgba(255, 255, 255, 0.05); 
+        border: 1px solid rgba(255, 255, 255, 0.06); 
         color: var(--text-gray);
-        font-size: 12px; 
+        font-size: 11.5px; 
         font-weight: 800; 
-        border-radius: 14px; 
+        border-radius: 16px; 
         cursor: pointer; 
         transition: var(--transition-smooth);
         text-align: center; 
-        letter-spacing: 0.5px;
+        white-space: nowrap;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 6px;
+        gap: 4px;
     }
     .tab-btn.active {
         color: #ffffff;
-        background: linear-gradient(135deg, rgba(179, 102, 255, 0.45) 0%, rgba(0, 240, 255, 0.22) 100%);
-        border: 1px solid rgba(179, 102, 255, 0.7);
-        box-shadow: 0 0 20px rgba(179, 102, 255, 0.35);
-        text-shadow: 0 0 8px rgba(255,255,255,0.65);
+        background: linear-gradient(135deg, rgba(179, 102, 255, 0.5) 0%, rgba(0, 240, 255, 0.25) 100%);
+        border: 1px solid rgba(179, 102, 255, 0.75);
+        box-shadow: 0 0 22px rgba(179, 102, 255, 0.4);
+        text-shadow: 0 0 8px rgba(255,255,255,0.7);
         transform: translateY(-2px);
     }
 
-    .sub-tab-navigation { display: flex; background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 18px; padding: 6px; margin-bottom: 22px; gap: 6px; flex-wrap: wrap; }
-    .sub-tab-btn { flex: 1 1 18%; min-width: 60px; padding: 11px 2px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); color: var(--text-gray); font-size: 11px; font-weight: 700; border-radius: 14px; cursor: pointer; transition: var(--transition-smooth); text-align: center; }
-    .sub-tab-btn.active { color: #ffffff; background: rgba(255, 255, 255, 0.18); border: 1px solid rgba(255, 255, 255, 0.35); text-shadow: 0 0 8px rgba(255,255,255,0.6); box-shadow: 0 0 15px rgba(255,255,255,0.1); }
+    .sub-tab-navigation { 
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+        background: rgba(0, 0, 0, 0.5); 
+        border: 1px solid rgba(255, 255, 255, 0.1); 
+        border-radius: 18px; 
+        padding: 6px; 
+        margin-bottom: 22px; 
+    }
+    .sub-tab-btn { 
+        width: 100%;
+        padding: 10px 2px; 
+        background: rgba(255,255,255,0.03); 
+        border: 1px solid rgba(255,255,255,0.07); 
+        color: var(--text-gray); 
+        font-size: 11px; 
+        font-weight: 700; 
+        border-radius: 12px; 
+        cursor: pointer; 
+        transition: var(--transition-smooth); 
+        text-align: center; 
+        white-space: nowrap;
+    }
+    .sub-tab-btn.active { 
+        color: #ffffff; 
+        background: rgba(255, 255, 255, 0.2); 
+        border: 1px solid rgba(255, 255, 255, 0.4); 
+        text-shadow: 0 0 8px rgba(255,255,255,0.6); 
+        box-shadow: 0 0 14px rgba(255,255,255,0.15); 
+    }
 
     .card-box {
         background: var(--card-glass);
@@ -174,12 +190,12 @@
         margin-bottom: 28px;
         backdrop-filter: blur(40px);
         -webkit-backdrop-filter: blur(40px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.03);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.05);
         text-align: left;
     }
-    .card-box.phone-box { border-color: rgba(0, 240, 255, 0.32); box-shadow: 0 0 35px rgba(0, 240, 255, 0.15), 0 20px 50px rgba(0, 0, 0, 0.65); }
+    .card-box.phone-box { border-color: rgba(0, 240, 255, 0.35); box-shadow: 0 0 38px rgba(0, 240, 255, 0.16), 0 20px 50px rgba(0, 0, 0, 0.65); }
 
-    .card-header { font-size: 14px; font-weight: 800; color: var(--neon-gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(255, 176, 32, 0.45); }
+    .card-header { font-size: 14.5px; font-weight: 800; color: var(--neon-gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(255, 176, 32, 0.45); }
     .card-header.blue-header { color: var(--neon-blue); text-shadow: 0 0 12px rgba(0, 240, 255, 0.45); }
     .card-header::after { content: ''; flex-grow: 1; height: 1px; background: linear-gradient(to right, rgba(255, 176, 32, 0.35), transparent); }
     .card-header.blue-header::after { background: linear-gradient(to right, rgba(0, 240, 255, 0.35), transparent); }
@@ -189,20 +205,20 @@
         align-items: center !important;
         flex-direction: row !important;
         padding: 18px 20px !important;
-        background: linear-gradient(90deg, rgba(0, 240, 255, 0.15) 0%, rgba(18, 12, 35, 0.8) 100%) !important;
+        background: linear-gradient(90deg, rgba(0, 240, 255, 0.16) 0%, rgba(18, 12, 35, 0.82) 100%) !important;
         border: 1px solid var(--neon-blue) !important;
         border-radius: 20px !important;
         color: #ffffff !important;
         text-decoration: none !important;
         transition: var(--transition-smooth) !important;
-        box-shadow: 0 0 22px rgba(0, 240, 255, 0.16) !important;
+        box-shadow: 0 0 24px rgba(0, 240, 255, 0.16) !important;
         margin-bottom: 12px !important;
     }
     .primary-card * { text-decoration: none !important; }
     .primary-card:hover {
         background: linear-gradient(90deg, rgba(0, 240, 255, 0.28) 0%, rgba(179, 102, 255, 0.16) 100%) !important;
         border-color: #ffffff !important;
-        transform: translateY(-3px) !important;
+        transform: translateY(-2px) !important;
         box-shadow: 0 0 35px rgba(0, 240, 255, 0.45) !important;
     }
     .primary-icon {
@@ -231,29 +247,29 @@
 
     .search-box-wrapper { margin-bottom: 16px; }
     .search-input {
-        width: 100%; background: rgba(16, 12, 30, 0.9); border: 1px solid rgba(0, 240, 255, 0.48);
-        border-radius: 16px; color: #fff; padding: 12px 16px; font-size: 12.5px; font-weight: 600; outline: none;
-        transition: var(--transition-smooth); box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
+        width: 100%; background: rgba(16, 12, 30, 0.92); border: 1px solid rgba(0, 240, 255, 0.5);
+        border-radius: 16px; color: #fff; padding: 13px 18px; font-size: 13px; font-weight: 600; outline: none;
+        transition: var(--transition-smooth); box-shadow: inset 0 2px 6px rgba(0,0,0,0.45);
     }
-    .search-input:focus { border-color: var(--neon-cyan); box-shadow: 0 0 18px rgba(0, 240, 255, 0.4), inset 0 2px 6px rgba(0,0,0,0.5); }
+    .search-input:focus { border-color: var(--neon-cyan); box-shadow: 0 0 20px rgba(0, 240, 255, 0.45), inset 0 2px 6px rgba(0,0,0,0.45); }
 
     .filter-box {
-        display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 22px;
-        background: rgba(8, 5, 18, 0.6); padding: 14px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.06);
+        display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px;
+        background: rgba(8, 5, 18, 0.7); padding: 16px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .filter-item { display: flex; flex-direction: column; gap: 6px; text-align: left; }
-    .filter-item label { font-size: 11px; font-weight: 800; color: var(--neon-gold); letter-spacing: 0.5px; }
+    .filter-item label { font-size: 11.5px; font-weight: 800; color: var(--neon-gold); letter-spacing: 0.5px; }
     .filter-item select {
-        background: rgba(16, 12, 30, 0.9); border: 1px solid rgba(179, 102, 255, 0.35);
-        border-radius: 14px; color: #ffffff; padding: 10px 8px; font-size: 12px; font-weight: 700; outline: none; cursor: pointer;
+        background: rgba(16, 12, 30, 0.92); border: 1px solid rgba(179, 102, 255, 0.4);
+        border-radius: 14px; color: #ffffff; padding: 11px 10px; font-size: 12.5px; font-weight: 700; outline: none; cursor: pointer;
         appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg fill='%2300f0ff' height='10' viewBox='0 0 24 24' width='10' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-        background-repeat: no-repeat; background-position: right 8px center; padding-right: 18px; transition: var(--transition-smooth);
+        background-repeat: no-repeat; background-position: right 10px center; padding-right: 20px; transition: var(--transition-smooth);
     }
-    .filter-item select:focus { border-color: var(--neon-cyan); box-shadow: 0 0 16px rgba(0, 240, 255, 0.3); }
+    .filter-item select:focus { border-color: var(--neon-cyan); box-shadow: 0 0 18px rgba(0, 240, 255, 0.35); }
 
-    .featured-section { margin-bottom: 24px; }
+    .featured-section { margin-bottom: 26px; }
     .featured-title { 
-        font-size: 13px; font-weight: 900; color: var(--neon-gold); margin-bottom: 12px; 
+        font-size: 13.5px; font-weight: 900; color: var(--neon-gold); margin-bottom: 12px; 
         display: flex; align-items: center; gap: 8px; letter-spacing: 1.2px; 
         text-shadow: 0 0 12px rgba(255,176,32,0.45); 
     }
@@ -267,109 +283,111 @@
     }
     
     .featured-chip-vertical.rank-1 {
-        background: linear-gradient(135deg, rgba(255, 176, 32, 0.22) 0%, rgba(16, 12, 30, 0.96) 100%);
-        border: 1.5px solid rgba(255, 176, 32, 0.65);
-        box-shadow: 0 0 28px rgba(255, 176, 32, 0.3), inset 0 0 18px rgba(255, 176, 32, 0.12);
+        background: linear-gradient(135deg, rgba(255, 176, 32, 0.25) 0%, rgba(16, 12, 30, 0.98) 100%);
+        border: 1.5px solid rgba(255, 176, 32, 0.7);
+        box-shadow: 0 0 30px rgba(255, 176, 32, 0.35), inset 0 0 18px rgba(255, 176, 32, 0.15);
     }
-    .featured-chip-vertical.rank-1::before {
-        content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
-        background: var(--neon-gold); box-shadow: 0 0 12px var(--neon-gold);
-    }
+    .featured-chip-vertical.rank-1::before { content: ''; position: absolute; top: 0; left: 0; width: 4.5px; height: 100%; background: var(--neon-gold); box-shadow: 0 0 14px var(--neon-gold); }
 
     .featured-chip-vertical.rank-2 {
-        background: linear-gradient(135deg, rgba(0, 240, 255, 0.18) 0%, rgba(16, 12, 30, 0.96) 100%);
-        border: 1.5px solid rgba(0, 240, 255, 0.55);
-        box-shadow: 0 0 24px rgba(0, 240, 255, 0.22), inset 0 0 15px rgba(0, 240, 255, 0.1);
+        background: linear-gradient(135deg, rgba(0, 240, 255, 0.2) 0%, rgba(16, 12, 30, 0.98) 100%);
+        border: 1.5px solid rgba(0, 240, 255, 0.6);
+        box-shadow: 0 0 26px rgba(0, 240, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.12);
     }
-    .featured-chip-vertical.rank-2::before {
-        content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
-        background: var(--neon-cyan); box-shadow: 0 0 12px var(--neon-cyan);
-    }
+    .featured-chip-vertical.rank-2::before { content: ''; position: absolute; top: 0; left: 0; width: 4.5px; height: 100%; background: var(--neon-cyan); box-shadow: 0 0 14px var(--neon-cyan); }
 
     .featured-chip-vertical.rank-3 {
-        background: linear-gradient(135deg, rgba(179, 102, 255, 0.22) 0%, rgba(16, 12, 30, 0.96) 100%);
-        border: 1.5px solid rgba(179, 102, 255, 0.55);
-        box-shadow: 0 0 24px rgba(179, 102, 255, 0.22), inset 0 0 15px rgba(179, 102, 255, 0.1);
+        background: linear-gradient(135deg, rgba(179, 102, 255, 0.25) 0%, rgba(16, 12, 30, 0.98) 100%);
+        border: 1.5px solid rgba(179, 102, 255, 0.6);
+        box-shadow: 0 0 26px rgba(179, 102, 255, 0.25), inset 0 0 15px rgba(179, 102, 255, 0.12);
     }
-    .featured-chip-vertical.rank-3::before {
-        content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
-        background: var(--neon-purple); box-shadow: 0 0 12px var(--neon-purple);
-    }
+    .featured-chip-vertical.rank-3::before { content: ''; position: absolute; top: 0; left: 0; width: 4.5px; height: 100%; background: var(--neon-purple); box-shadow: 0 0 14px var(--neon-purple); }
 
-    .featured-chip-vertical:hover {
-        transform: translateY(-3px) scale(1.015);
-        filter: brightness(1.15);
-    }
-    .featured-chip-vertical.rank-1:hover { box-shadow: 0 0 35px rgba(255, 176, 32, 0.45); }
-    .featured-chip-vertical.rank-2:hover { box-shadow: 0 0 30px rgba(0, 240, 255, 0.35); }
-    .featured-chip-vertical.rank-3:hover { box-shadow: 0 0 30px rgba(179, 102, 255, 0.35); }
+    .featured-chip-vertical:hover { transform: translateY(-2px) scale(1.015); filter: brightness(1.18); }
 
     .partner-grid { display: flex; flex-direction: column; gap: 16px; }
     .partner-card {
-        background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 22px; padding: 18px 20px;
+        background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 24px; padding: 20px 22px;
         transition: var(--transition-smooth); cursor: pointer; position: relative; overflow: hidden;
-        box-shadow: 0 12px 35px rgba(0,0,0,0.55);
+        box-shadow: 0 14px 38px rgba(0,0,0,0.6);
     }
-    .partner-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3.5px; height: 100%; background: var(--neon-purple); opacity: 0; transition: var(--transition-smooth); }
-    .partner-card:hover { border-color: rgba(179, 102, 255, 0.75); background: rgba(179, 102, 255, 0.08); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(179, 102, 255, 0.25); }
+    .partner-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--neon-purple); opacity: 0; transition: var(--transition-smooth); }
+    .partner-card:hover { border-color: rgba(179, 102, 255, 0.8); background: rgba(179, 102, 255, 0.09); transform: translateY(-2px); box-shadow: 0 18px 45px rgba(179, 102, 255, 0.3); }
     .partner-card:hover::before { opacity: 1; }
     .partner-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-    .partner-name { font-size: 15px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
-    .partner-rating { font-size: 11.5px; color: var(--neon-gold); font-weight: 700; background: rgba(255, 176, 32, 0.16); padding: 3px 10px; border-radius: 12px; border: 1px solid rgba(255, 176, 32, 0.42); }
+    .partner-name { font-size: 16px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .partner-rating { font-size: 12px; color: var(--neon-gold); font-weight: 700; background: rgba(255, 176, 32, 0.18); padding: 3px 11px; border-radius: 14px; border: 1px solid rgba(255, 176, 32, 0.45); }
     .partner-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
-    .partner-tag { font-size: 10px; padding: 4px 10px; border-radius: 10px; font-weight: 700; }
-    .tag-gender { background: rgba(0, 240, 255, 0.22); color: var(--neon-cyan); border: 1px solid rgba(0, 240, 255, 0.48); }
-    .tag-region { background: rgba(255, 176, 32, 0.22); color: var(--neon-gold); border: 1px solid rgba(255, 176, 32, 0.48); }
-    .tag-ai { background: rgba(179, 102, 255, 0.22); color: #edd6ff; border: 1px solid rgba(179, 102, 255, 0.48); }
+    .partner-tag { font-size: 10.5px; padding: 4px 10px; border-radius: 10px; font-weight: 700; }
+    .tag-gender { background: rgba(0, 240, 255, 0.25); color: var(--neon-cyan); border: 1px solid rgba(0, 240, 255, 0.5); }
+    .tag-region { background: rgba(255, 176, 32, 0.25); color: var(--neon-gold); border: 1px solid rgba(255, 176, 32, 0.5); }
+    .tag-ai { background: rgba(179, 102, 255, 0.25); color: #edd6ff; border: 1px solid rgba(179, 102, 255, 0.5); }
     .tag-badge { background: linear-gradient(135deg, rgba(255,176,32,0.28), rgba(255,115,36,0.28)); color: var(--neon-gold); border: 1px solid rgba(255,176,32,0.55); }
-    .partner-intro { font-size: 12.5px; color: var(--text-gray); line-height: 1.7; margin-bottom: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .partner-intro { font-size: 13px; color: var(--text-gray); line-height: 1.75; margin-bottom: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-    .card-action-bar { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 12px; }
-    .card-btn-group { display: flex; gap: 10px; }
+    .card-action-bar { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.09); padding-top: 13px; }
+    .card-btn-group { display: flex; gap: 9px; }
     .card-fav-btn {
-        background: rgba(255, 42, 109, 0.16); border: 1px solid rgba(255, 42, 109, 0.48);
-        color: var(--neon-pink); font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 14px; cursor: pointer; transition: var(--transition-smooth);
+        background: rgba(255, 42, 109, 0.18); border: 1px solid rgba(255, 42, 109, 0.5);
+        color: var(--neon-pink); font-size: 11.5px; font-weight: 700; padding: 6px 13px; border-radius: 14px; cursor: pointer; transition: var(--transition-smooth);
     }
-    .card-fav-btn:hover { background: var(--neon-pink); color: #fff; box-shadow: 0 0 14px var(--neon-pink); }
+    .card-fav-btn:hover { background: var(--neon-pink); color: #fff; box-shadow: 0 0 16px var(--neon-pink); }
     .card-copy-btn {
-        background: rgba(0, 240, 255, 0.16); border: 1px solid rgba(0, 240, 255, 0.48);
-        color: var(--neon-cyan); font-size: 11.5px; font-weight: 700; padding: 6px 14px; border-radius: 14px; cursor: pointer; transition: var(--transition-smooth);
+        background: rgba(0, 240, 255, 0.18); border: 1px solid rgba(0, 240, 255, 0.5);
+        color: var(--neon-cyan); font-size: 12px; font-weight: 700; padding: 6px 15px; border-radius: 14px; cursor: pointer; transition: var(--transition-smooth);
     }
-    .card-copy-btn:hover { background: var(--neon-cyan); color: #030205; box-shadow: 0 0 16px rgba(0, 240, 255, 0.55); }
+    .card-copy-btn:hover { background: var(--neon-cyan); color: #030205; box-shadow: 0 0 18px rgba(0, 240, 255, 0.6); }
 
     .safety-card {
-        background: linear-gradient(135deg, rgba(255, 42, 109, 0.18) 0%, rgba(16, 12, 30, 0.85) 100%);
-        border: 1.5px solid rgba(255, 42, 109, 0.6); border-radius: 26px; padding: 24px; margin-bottom: 24px; text-align: left;
-        box-shadow: 0 0 40px rgba(255, 42, 109, 0.18);
+        background: linear-gradient(135deg, rgba(255, 42, 109, 0.2) 0%, rgba(16, 12, 30, 0.9) 100%);
+        border: 1.5px solid rgba(255, 42, 109, 0.65); border-radius: 28px; padding: 26px; margin-bottom: 26px; text-align: left;
+        box-shadow: 0 0 45px rgba(255, 42, 109, 0.2);
     }
-    .safety-title { font-size: 14.5px; font-weight: 800; color: var(--neon-pink); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; text-shadow: 0 0 14px rgba(255,42,109,0.45); }
-    .safety-desc { font-size: 12.5px; color: #f4effc; line-height: 1.75; margin-bottom: 16px; }
+    .safety-title { font-size: 15px; font-weight: 800; color: var(--neon-pink); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; text-shadow: 0 0 14px rgba(255,42,109,0.5); }
+    .safety-desc { font-size: 13px; color: #f4effc; line-height: 1.8; margin-bottom: 18px; }
     .safety-btn {
         display: inline-flex; align-items: center; justify-content: center; width: 100%;
-        background: rgba(255, 42, 109, 0.28); border: 1px solid var(--neon-pink); color: #ffffff;
-        padding: 12px; border-radius: 18px; font-size: 13px; font-weight: 800; text-decoration: none; transition: var(--transition-smooth);
-        box-shadow: 0 0 20px rgba(255,42,109,0.35);
+        background: rgba(255, 42, 109, 0.3); border: 1px solid var(--neon-pink); color: #ffffff;
+        padding: 13px; border-radius: 18px; font-size: 13.5px; font-weight: 800; text-decoration: none; transition: var(--transition-smooth);
+        box-shadow: 0 0 22px rgba(255,42,109,0.4);
     }
-    .safety-btn:hover { background: var(--neon-pink); color: #fff; box-shadow: 0 0 35px var(--neon-pink); transform: translateY(-2px); }
+    .safety-btn:hover { background: var(--neon-pink); color: #fff; box-shadow: 0 0 38px var(--neon-pink); transform: translateY(-2px); }
 
-    .tool-box { background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 22px; padding: 20px; margin-bottom: 20px; text-align: left; box-shadow: inset 0 1px 4px rgba(255,255,255,0.06); }
-    .tool-title { font-size: 13.5px; font-weight: 800; color: var(--neon-gold); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-    .tool-input { width: 100%; background: rgba(16, 12, 30, 0.9); border: 1px solid rgba(255, 176, 32, 0.48); border-radius: 14px; color: #fff; padding: 12px 16px; font-size: 12.5px; outline: none; margin-bottom: 12px; transition: var(--transition-smooth); }
-    .tool-input:focus { border-color: var(--neon-gold); box-shadow: 0 0 16px rgba(255,176,32,0.4); }
-    .tool-result { font-size: 12px; color: #d6f2f1; line-height: 1.75; background: rgba(0,0,0,0.55); padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.07); }
-    .tool-btn { background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); border: none; color: #fff; font-size: 12px; font-weight: 800; padding: 12px 18px; border-radius: 14px; cursor: pointer; width: 100%; margin-top: 10px; transition: var(--transition-smooth); box-shadow: 0 10px 25px rgba(179,102,255,0.45); }
-    .tool-btn:hover { opacity: 0.95; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(179,102,255,0.6); }
+    .tool-box { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 24px; padding: 22px; margin-bottom: 22px; text-align: left; box-shadow: inset 0 1px 4px rgba(255,255,255,0.07); }
+    .tool-title { font-size: 14px; font-weight: 800; color: var(--neon-gold); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .tool-input { width: 100%; background: rgba(16, 12, 30, 0.92); border: 1px solid rgba(255, 176, 32, 0.5); border-radius: 16px; color: #fff; padding: 13px 18px; font-size: 13px; outline: none; margin-bottom: 12px; transition: var(--transition-smooth); }
+    .tool-input:focus { border-color: var(--neon-gold); box-shadow: 0 0 18px rgba(255,176,32,0.45); }
+    .tool-result { font-size: 12.5px; color: #d6f2f1; line-height: 1.8; background: rgba(0,0,0,0.6); padding: 15px 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
+    .tool-btn { background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); border: none; color: #fff; font-size: 12.5px; font-weight: 800; padding: 13px 20px; border-radius: 16px; cursor: pointer; width: 100%; margin-top: 10px; transition: var(--transition-smooth); box-shadow: 0 10px 28px rgba(179,102,255,0.5); }
+    .tool-btn:hover { opacity: 0.95; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(179,102,255,0.65); }
+
+    .policy-list { display: flex; flex-direction: column; gap: 16px; }
+    .policy-item {
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 22px;
+        padding: 22px 24px;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.06);
+        transition: var(--transition-smooth);
+        text-align: left;
+    }
+    .policy-item:hover { border-color: rgba(255, 255, 255, 0.25); transform: translateY(-2px); }
+    .policy-item.notice-cyan { border-left: 5px solid var(--neon-cyan); background: linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, rgba(16, 12, 30, 0.88) 100%); box-shadow: 0 12px 35px rgba(0, 240, 255, 0.15); }
+    .policy-item.notice-blue { border-left: 5px solid var(--neon-blue); background: linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, rgba(16, 12, 30, 0.88) 100%); box-shadow: 0 12px 35px rgba(0, 240, 255, 0.15); }
+    .policy-item.notice-pink { border-left: 5px solid var(--neon-pink); background: linear-gradient(135deg, rgba(255, 42, 109, 0.1) 0%, rgba(16, 12, 30, 0.88) 100%); box-shadow: 0 12px 35px rgba(255, 42, 109, 0.15); }
+    .policy-item-title { font-weight: 800; color: #ffffff; margin-bottom: 10px; font-size: 14.5px; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .policy-item-desc { color: var(--text-gray); font-size: 13px; line-height: 1.85; }
 
     #booking-modal {
         position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 3, 8, 0.92);
         backdrop-filter: blur(18px); z-index: 10000; display: none; align-items: center; justify-content: center; padding: 18px;
     }
     .modal-content {
-        background: #0c061a; border: 1.5px solid var(--neon-cyan); border-radius: 30px; width: 100%; max-width: 390px;
-        padding: 30px; text-align: left; box-shadow: 0 0 60px rgba(0, 240, 255, 0.4); animation: fadeInUp 0.35s var(--ease-premium) forwards; max-height: 90vh; overflow-y: auto;
+        background: #0c061a; border: 1.5px solid var(--neon-cyan); border-radius: 32px; width: 100%; max-width: 400px;
+        padding: 32px; text-align: left; box-shadow: 0 0 65px rgba(0, 240, 255, 0.45); animation: fadeInUp 0.35s var(--ease-premium) forwards; max-height: 90vh; overflow-y: auto;
     }
-    .modal-title { font-size: 15.5px; font-weight: 800; color: var(--neon-cyan); margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; text-shadow: 0 0 14px rgba(0,240,255,0.45); }
-    .modal-close { background: none; border: none; color: var(--text-gray); font-size: 18px; cursor: pointer; transition: 0.2s; }
+    .modal-title { font-size: 16px; font-weight: 800; color: var(--neon-cyan); margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; text-shadow: 0 0 14px rgba(0,240,255,0.45); }
+    .modal-close { background: none; border: none; color: var(--text-gray); font-size: 20px; cursor: pointer; transition: 0.2s; }
     .modal-close:hover { color: #fff; }
 
     #partner-detail-modal {
@@ -377,28 +395,28 @@
         backdrop-filter: blur(18px); z-index: 10002; display: none; align-items: flex-end; justify-content: center; padding: 0;
     }
     .partner-sheet {
-        background: #0c061a; border-top: 1.5px solid var(--neon-purple); border-radius: 32px 32px 0 0; width: 100%; max-width: 460px;
-        padding: 32px 24px 48px; text-align: left; box-shadow: 0 -20px 60px rgba(179,102,255,0.4); animation: slideUpSheet 0.35s var(--ease-premium) forwards; max-height: 90vh; overflow-y: auto;
+        background: #0c061a; border-top: 1.5px solid var(--neon-purple); border-radius: 36px 36px 0 0; width: 100%; max-width: 480px;
+        padding: 34px 26px 52px; text-align: left; box-shadow: 0 -22px 65px rgba(179,102,255,0.45); animation: slideUpSheet 0.35s var(--ease-premium) forwards; max-height: 90vh; overflow-y: auto;
     }
     @keyframes slideUpSheet { from { transform: translateY(100%); } to { transform: translateY(0); } }
 
     #toast-notification {
         position: fixed; bottom: 35px; left: 50%; transform: translateX(-50%) translateY(140px);
         background: rgba(16, 12, 30, 0.99); border: 1px solid var(--neon-cyan); color: #fff;
-        padding: 13px 26px; border-radius: 30px; font-size: 12.5px; font-weight: 700;
-        box-shadow: 0 0 32px rgba(0, 240, 255, 0.5); z-index: 20000; transition: transform 0.35s var(--ease-premium);
+        padding: 14px 28px; border-radius: 30px; font-size: 13px; font-weight: 700;
+        box-shadow: 0 0 35px rgba(0, 240, 255, 0.5); z-index: 20000; transition: transform 0.35s var(--ease-premium);
         pointer-events: none; white-space: nowrap; backdrop-filter: blur(16px);
     }
     #toast-notification.show { transform: translateX(-50%) translateY(0); }
 
-    .link-card { display: flex; align-items: center; padding: 20px 22px; background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 22px; text-decoration: none; color: #ffffff; margin-bottom: 16px; transition: var(--transition-smooth); position: relative; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
+    .link-card { display: flex; align-items: center; padding: 20px 22px; background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 22px; text-decoration: none; color: #ffffff; margin-bottom: 14px; transition: var(--transition-smooth); position: relative; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
     .link-card.match-card { border: 1.5px solid rgba(255, 115, 36, 0.55); background: linear-gradient(90deg, rgba(255, 115, 36, 0.14) 0%, rgba(16, 12, 30, 0.65) 100%); }
     .link-card.chat-card { border: 1.5px solid rgba(179, 102, 255, 0.55); background: linear-gradient(90deg, rgba(179, 102, 255, 0.14) 0%, rgba(16, 12, 30, 0.65) 100%); }
-    .link-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.7); }
+    .link-card:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.7); }
     .link-card.match-card:hover { border-color: var(--neon-orange); box-shadow: 0 16px 40px rgba(255,115,36,0.35); }
     .link-card.chat-card:hover { border-color: var(--neon-purple); box-shadow: 0 16px 40px rgba(179,102,255,0.35); }
 
-    .link-icon { font-size: 28px; margin-right: 20px; width: 36px; display: flex; align-items: center; justify-content: center; }
+    .link-icon { font-size: 28px; margin-right: 18px; width: 36px; display: flex; align-items: center; justify-content: center; }
     .link-content { text-align: left; flex-grow: 1; }
     .link-title { font-size: 15px; font-weight: 800; margin-bottom: 4px; letter-spacing: 0.3px; }
     .link-desc { font-size: 12px; color: var(--text-gray); }
@@ -406,40 +424,23 @@
 
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .contact-card { display: flex; flex-direction: column; align-items: center; padding: 22px 16px; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1); border-radius: 22px; text-decoration: none; color: #fff; transition: var(--transition-smooth); box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
-    .contact-card:hover { border-color: var(--neon-gold); transform: translateY(-3px); background: rgba(255,176,32,0.07); box-shadow: 0 16px 40px rgba(255,176,32,0.25); }
-    .contact-avatar { width: 52px; height: 52px; border-radius: 50%; background: #0c061a; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 12px; border: 1px solid rgba(255, 176, 32, 0.5); box-shadow: 0 0 18px rgba(255,176,32,0.25); }
+    .contact-card:hover { border-color: var(--neon-gold); transform: translateY(-2px); background: rgba(255,176,32,0.07); box-shadow: 0 16px 40px rgba(255,176,32,0.25); }
+    .contact-avatar { width: 52px; height: 52px; border-radius: 50%; background: #0c061a; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 10px; border: 1px solid rgba(255, 176, 32, 0.5); box-shadow: 0 0 18px rgba(255,176,32,0.25); }
     .contact-name { font-weight: 800; font-size: 13.5px; color: #fff2ab; }
 
     .grid-rooms { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
     .room-item { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 54px; background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; color: #f4effc; text-decoration: none; font-size: 12.5px; font-weight: 700; transition: var(--transition-smooth); box-shadow: 0 8px 18px rgba(0,0,0,0.35); }
     .room-item span { font-size: 7.5px; color: var(--text-gray); margin-top: 2px; font-weight: 600; }
     .room-item:hover { background: rgba(179, 102, 255, 0.28); border-color: var(--neon-orange); color: #fff; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(255,115,36,0.35); }
-    .room-item.busy { border-color: var(--neon-pink) !important; background: rgba(255, 42, 109, 0.22) !important; position: relative; box-shadow: 0 0 18px rgba(255,42,109,0.35); }
-    .room-item.busy::after { content: '●'; position: absolute; top: 4px; right: 6px; font-size: 8px; color: var(--neon-pink); text-shadow: 0 0 6px var(--neon-pink); }
+    .room-item.busy { border-color: var(--neon-pink) !important; background: rgba(255, 42, 109, 0.25) !important; position: relative; box-shadow: 0 0 20px rgba(255,42,109,0.45); }
+    .room-item.busy::after { content: '●'; position: absolute; top: 4px; right: 6px; font-size: 9px; color: var(--neon-pink); text-shadow: 0 0 8px var(--neon-pink); }
 
-    .workflow-steps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
-    .step-item { display: flex; align-items: center; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 12px 16px; gap: 14px; box-shadow: 0 8px 18px rgba(0,0,0,0.35); }
+    .workflow-steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 26px; }
+    .step-item { display: flex; align-items: center; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 13px 16px; gap: 14px; box-shadow: 0 8px 18px rgba(0,0,0,0.35); }
     .step-num { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; color: #fff; flex-shrink: 0; box-shadow: 0 0 14px rgba(179,102,255,0.45); }
     .step-content { text-align: left; }
     .step-title { font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 3px; }
     .step-desc { font-size: 11.5px; color: var(--text-gray); }
-
-    .policy-list { display: flex; flex-direction: column; gap: 14px; }
-    .policy-item {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 20px 22px;
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.06);
-        transition: var(--transition-smooth);
-        text-align: left;
-    }
-    .policy-item:hover { border-color: rgba(255, 255, 255, 0.25); transform: translateY(-2px); }
-    .policy-item.notice-cyan { border-left: 5px solid var(--neon-cyan); background: linear-gradient(135deg, rgba(0, 240, 255, 0.09) 0%, rgba(16, 12, 30, 0.85) 100%); box-shadow: 0 12px 35px rgba(0, 240, 255, 0.12); }
-    .policy-item.notice-blue { border-left: 5px solid var(--neon-blue); background: linear-gradient(135deg, rgba(0, 240, 255, 0.09) 0%, rgba(16, 12, 30, 0.85) 100%); box-shadow: 0 12px 35px rgba(0, 240, 255, 0.12); }
-    .policy-item.notice-pink { border-left: 5px solid var(--neon-pink); background: linear-gradient(135deg, rgba(255, 42, 109, 0.09) 0%, rgba(16, 12, 30, 0.85) 100%); box-shadow: 0 12px 35px rgba(255, 42, 109, 0.12); }
-    .policy-item-title { font-weight: 800; color: #ffffff; margin-bottom: 8px; font-size: 14px; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .policy-item-desc { color: var(--text-gray); font-size: 12.5px; line-height: 1.75; }
 
     .footer { margin-top: 55px; font-size: 11px; color: #9c97aa; letter-spacing: 2.8px; font-weight: 500; opacity: 0.65; }
     .tab-panel, .sub-tab-panel { display: none; }
@@ -453,7 +454,7 @@
         box-shadow: 0 0 25px rgba(0, 240, 255, 0.4); cursor: pointer; z-index: 9999;
         transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1); border: 1.5px solid rgba(255, 255, 255, 0.3);
     }
-    #ai-float-btn:hover { transform: scale(1.1) rotate(5deg); }
+    #ai-float-btn:hover { transform: scale(1.12) rotate(6deg); }
 
     #ai-chat-box {
         position: fixed; bottom: 96px; right: 24px; width: 350px; height: 500px;
@@ -505,7 +506,7 @@
 <div class="container">
 <div class="system-badge"><span></span> 系統運行中 ｜ 24H 智慧媒合 (PWA已啟動)</div>
 <div class="marquee-box">
-    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 嚴謹交退費規範與次月 15 號統一撥款機制全面上線！✨</div>
+    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 雙向評價與金流對帳明細機制全面上線！年滿18歲方可參與✨</div>
 </div>
 
 <div class="header">
@@ -521,6 +522,7 @@
 <div class="tab-navigation">
 <button class="tab-btn active" onclick="triggerHaptic(15); switchTab('home');">🏠 主頁</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('partners');">👥 夥伴</button>
+<button class="tab-btn" onclick="triggerHaptic(15); switchTab('clients');">👤 委託人</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('history');">📂 足跡</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('tools');">🛠️ 工具</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('rooms');">📞 招待</button>
@@ -540,7 +542,7 @@
 <a class="link-card match-card" href="https://line.me/ti/g2/AyLxcfZMsmv-vg788A1BGUDK3RQ1wvcVawmzEw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" onclick="triggerHaptic(15)">
 <div class="link-icon">🤝</div>
 <div class="link-content">
-<div class="link-title">求租．出租媒合</div>
+<div class="link-title">委託．出租媒合</div>
 <div class="link-desc">尋找陪伴服務，或上架出租您的時間</div>
 </div>
 </a>
@@ -583,7 +585,7 @@
 <div class="card-header">👥 時光夥伴 ｜ 出租人名單</div>
 
 <div class="featured-section">
-    <div class="featured-title">👑 本週優質高分推薦 (TOP 3)</div>
+    <div class="featured-title">👑 全平台高分總排行 (TOP 3)</div>
     <div class="featured-grid" id="featured-grid-container"></div>
 </div>
 
@@ -626,8 +628,49 @@
 </div>
 
 <div class="partner-grid" id="partner-list-container">
-    <div class="skeleton-card"></div>
+    <div style="text-align:center; color: var(--text-gray); font-size:12.5px; padding:20px;">載入中...</div>
 </div>
+</div>
+</div>
+
+<!-- 模組 2.2：【委託人專區】 -->
+<div class="tab-panel" id="panel-clients">
+<div class="card-box">
+    <div class="card-header" style="color: var(--neon-cyan);">👤 委託人專區 ｜ 信譽與評價榜</div>
+
+    <div class="featured-section">
+        <div class="featured-title">👑 委託貴賓總排行 (TOP 3)</div>
+        <div class="featured-grid" id="client-featured-grid-container"></div>
+    </div>
+
+    <div class="search-box-wrapper">
+        <input type="text" id="client-filter-keyword" class="search-input" placeholder="🔍 搜尋委託需求（例如：展覽, 遊戲, 外拍...）" oninput="applyClientFilters()">
+    </div>
+
+    <div class="filter-box">
+        <div class="filter-item">
+            <label>1. 性別</label>
+            <select id="client-filter-gender" onchange="onClientGenderChange()"><option value="">請選擇</option></select>
+        </div>
+        <div class="filter-item">
+            <label>2. 地區</label>
+            <select id="client-filter-region" onchange="onClientRegionChange()"><option value="">請選擇</option></select>
+        </div>
+        <div class="filter-item">
+            <label>3. 名稱</label>
+            <select id="client-filter-name" onchange="applyClientFilters()"><option value="">請選擇</option></select>
+        </div>
+        <div class="filter-item">
+            <label>4. 排序方式</label>
+            <select id="client-filter-sort" onchange="applyClientFilters()">
+                <option value="default">綜合推薦排序</option>
+                <option value="rating">⭐ 評分最高優先</option>
+            </select>
+        </div>
+    </div>
+
+    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 18px;">點擊委託人卡片可查看詳細需求並給予真實信用評價：</div>
+    <div class="partner-grid" id="client-list-container"></div>
 </div>
 </div>
 
@@ -635,7 +678,7 @@
 <div class="tab-panel" id="panel-history">
 <div class="card-box">
     <div class="card-header" style="color: var(--neon-cyan);">📂 個人足跡與收藏中心</div>
-    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 18px;">系統自動為您記錄瀏覽過的時光夥伴與口袋收藏名單：</div>
+    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 18px;">系統自動為您記錄瀏覽過的對象與口袋收藏名單：</div>
     
     <div style="font-size: 13px; font-weight: 800; color: var(--neon-gold); margin-bottom: 10px;">⭐ 我的收藏口袋清單</div>
     <div id="history-favorites-container" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px;"></div>
@@ -682,12 +725,6 @@
         <input type="number" id="overtime-rate" class="tool-input" placeholder="輸入每小時費率（例如：500）" oninput="calculateOvertime()">
         <input type="number" id="overtime-mins" class="tool-input" placeholder="輸入延長分鐘數（例如：30）" oninput="calculateOvertime()">
         <div id="overtime-output" class="tool-result">請輸入費率與分鐘數以計算超時加購尾款。</div>
-    </div>
-
-    <div class="tool-box">
-        <div class="tool-title" style="color: var(--neon-cyan);">📊 一鍵匯出對帳與財務報表 (CSV)</div>
-        <div style="font-size: 11.5px; color: var(--text-gray); margin-bottom: 10px;">快速下載當月夥伴評分與預約名單資料表。</div>
-        <button class="tool-btn" onclick="triggerHaptic(20); exportCSVReport();">📥 下載 CSV 對帳報表</button>
     </div>
 
     <div class="tool-box">
@@ -753,148 +790,122 @@
 <!-- 模組 5：【營運公告】 -->
 <div class="tab-panel" id="panel-notice">
 <div class="card-box">
-<div class="card-header">📢 NOTICE ｜ 平台營運主要公告</div>
+<div class="card-header">📢 NOTICE ｜ 平台完整營運與法律合規指南</div>
 
 <div class="search-box-wrapper" style="margin-bottom: 20px;">
-    <input type="text" id="notice-search-input" class="search-input" placeholder="🔍 搜尋公告條款（例如：免責、撥款、80%、拆帳...）" oninput="filterNotice(this.value)">
+    <input type="text" id="notice-search-input" class="search-input" placeholder="🔍 搜尋條款（例如：免責、18歲、截圖、明細、退費...）" oninput="filterNotice(this.value)">
 </div>
 
-<div style="font-size: 13px; font-weight: 800; color: var(--neon-gold); margin-bottom: 14px; letter-spacing: 0.5px;">📊 預約媒合標準作業流程 (SOP)</div>
+<div style="font-size: 13px; font-weight: 800; color: var(--neon-gold); margin-bottom: 14px; letter-spacing: 0.5px;">📊 標準預約媒合作業與對帳 SOP</div>
 <div class="workflow-steps">
-    <div class="step-item"><div class="step-num">1</div><div class="step-content"><div class="step-title">挑選心儀夥伴</div><div class="step-desc">至「夥伴」頁籤尋找合適人選。</div></div></div>
-    <div class="step-item"><div class="step-num">2</div><div class="step-content"><div class="step-title">選擇委託格式</div><div class="step-desc">決定「線下定金」或「線上預付」。</div></div></div>
-    <div class="step-item"><div class="step-num">3</div><div class="step-content"><div class="step-title">掃描 TWQR 付款</div><div class="step-desc">使用街口支付/TWQR 支付 30% 定金。</div></div></div>
-    <div class="step-item"><div class="step-num">4</div><div class="step-content"><div class="step-title">取得預約成功通知</div><div class="step-desc">審核後發布官方通知保留檔期。</div></div></div>
-    <div class="step-item"><div class="step-num">5</div><div class="step-content"><div class="step-title">24H 自動結案歸檔</div><div class="step-desc">服務完成後 24 小時無爭議自動結案。</div></div></div>
+    <div class="step-item"><div class="step-num">1</div><div class="step-content"><div class="step-title">挑選心儀對象</div><div class="step-desc">至「夥伴」或「委託人」專區挑選合適對象，點擊預約按鈕。</div></div></div>
+    <div class="step-item"><div class="step-num">2</div><div class="step-content"><div class="step-title">選擇委託格式</div><div class="step-desc">確認預約日期、時間與總金額，並選擇委託付款方式。</div></div></div>
+    <div class="step-item"><div class="step-num">3</div><div class="step-content"><div class="step-title">支付定金並保留截圖</div><div class="step-desc">透過 TWQR / 街口支付轉帳 30% 定金，<strong>雙方（特別是出租人）必須妥善保留轉帳成功畫面與匯款明細截圖</strong>以供查核。</div></div></div>
+    <div class="step-item"><div class="step-num">4</div><div class="step-content"><div class="step-title">官方審核與檔期保留</div><div class="step-desc">核實明細截圖後，小管家將發布預約成功通知並為雙方保留檔期。</div></div></div>
+    <div class="step-item"><div class="step-num">5</div><div class="step-content"><div class="step-title">24H 自動結案歸檔</div><div class="step-desc">服務完成後 24 小時無重大爭議回報，系統自動結案並開放雙向評分。</div></div></div>
 </div>
 
 <div class="sub-tab-navigation">
-<button class="sub-tab-btn active" onclick="triggerHaptic(10); switchSubTab('sub-terms');">📋 法律免責</button>
-<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-client');">👤 求租</button>
-<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-partner');">👥 出租</button>
-<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-policy');">💳 交退付政策</button>
-<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-faq');">❓ 常見FAQ</button>
+<button class="sub-tab-btn active" onclick="triggerHaptic(10); switchSubTab('sub-terms');">📋 免責聲明</button>
+<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-client');">👤 委託規範</button>
+<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-partner');">👥 出租規範</button>
+<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-policy');">💳 退費政策</button>
 </div>
 
-<!-- 1. 法律免責 -->
+<!-- 1. 法律免責與安全規範 -->
 <div class="sub-tab-panel active" id="sub-panel-sub-terms">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title">⚖️ 平台定位與免責聲明</div>
+        <div class="policy-item-title">⚖️ 平台定位與第三方免責聲明</div>
         <div class="policy-item-desc">
-            本平台（閒人案內所）僅提供<strong>「純粹資訊媒合與交流平台服務」</strong>，非履約方亦非雙方之雇主或代理人。<br/>
-            用戶（包含求租人與出租人）於平台外或私下衍生之任何行為、口頭承諾、金錢往來或爭議，本平台<strong>概不負任何實質民事、刑事或行政法律責任</strong>。<br/>
-            雙方若因服務發生糾紛、騷擾、侵權或違法行為，應由當事雙方自行依法律途徑解決，本平台不承擔任何連帶賠償或擔保責任。
+            本平台（閒人案內所）僅提供<strong>「純粹資訊媒合與交流平台服務」</strong>。本平台並非雙方僱傭或履約合約之當事人，亦不介入雙方於線下互動之實質行為。用戶在平台外或私下所產生之任何口頭承諾、金錢往來、個人行為或安全糾紛，本平台<strong>概不負任何民事、刑事或行政之連帶法律責任</strong>。
         </div>
     </div>
     <div class="policy-item notice-blue">
-        <div class="policy-item-title">🛡️ 人身安全與合規場所規範</div>
+        <div class="policy-item-title">🔞 年齡限制與特許行業禁令</div>
         <div class="policy-item-desc">
-            本平台<strong>嚴格禁止</strong>任何涉及色情、猥褻、暴力、毒品、詐欺或違反中華民國法律之行為。<br/>
-            • <strong>公開場所限制：</strong>所有陪伴行程僅限於公開合法之公共場所（如開放式咖啡廳、展覽館、商圈等），<strong>嚴禁預約隱私或封閉空間</strong>。<br/>
-            • <strong>緊急安全處置：</strong>任何用戶若有言語騷擾、肢體接觸脅迫或不當要求，受害方應立即終止行程並向警方報案。本平台將全力配合警方調閱相關紀錄，但本平台本身不負損害賠償之責。
+            • <strong>嚴格年齡審查：</strong>本服務之所有內容與媒合對象僅限 <strong>18 歲（含）以上</strong>之完全行為能力人使用。若經檢舉或查獲未成年人冒用身分參與，平台將立即永久封鎖帳號並通報相關主管機關。<br/>
+            • <strong>特許行業禁止：</strong>嚴禁提供任何違反中華民國法律之色情、猥褻、暴力、毒品、詐欺，以及醫療診療、心理諮商、專業代駕等需國家特許執照之服務。
         </div>
     </div>
     <div class="policy-item notice-pink">
-        <div class="policy-item-title">🚫 平台服務終止與黑名單權限</div>
+        <div class="policy-item-title">🛡️ 人身安全守護與合規場所限制</div>
         <div class="policy-item-desc">
-            為維護社群秩序與營運環境：<br/>
-            • <strong>惡意行為處置：</strong>若用戶對本平台, 管理團隊或任何第三方進行惡意洗版、言語辱罵、威脅、騷擾或名譽毀損，本平台有權立即終止服務、刪除帳號、踢出社群並<strong>列入永久黑名單</strong>。<br/>
-            • <strong>法律追訴權：</strong>對於惡意騷擾或毀損本平台名譽者，本平台將保留所有對話截圖與電磁紀錄，並依法訴追民刑事責任，絕不寬貸。
+            • <strong>公共場所規範：</strong>所有陪伴行程與約定見面，<strong>一律僅限於公開、合法、明亮之公共場所</strong>（如連鎖咖啡廳、百貨商圈、開放式展覽館等）。<br/>
+            • <strong>絕對禁止：</strong>嚴禁預約、相約或前往汽車旅館、私人住宅、密閉式包廂或任何隱密不公開之私人空間。若遇言語騷擾或肢體威脅，請立即離場並報警。
         </div>
     </div>
 </div>
 </div>
 
-<!-- 2. 求租人 -->
+<!-- 2. 委託規範 -->
 <div class="sub-tab-panel" id="sub-panel-sub-client">
 <div class="policy-list">
     <div class="policy-item notice-blue">
-        <div class="policy-item-title">💳 付款規範</div>
-        <div class="policy-item-desc">• 線上委託：全額預付。<br/>• 線下委託：預訂後先付 30% 定金，餘款 70% 現場付現。</div>
+        <div class="policy-item-title">💳 預約付款與最長預付期控管</div>
+        <div class="policy-item-desc">
+            • <strong>預付期限：</strong>為保障雙方金流安全，所有服務預約之最長預付期嚴格控管以 <strong>2 個月（60天）</strong>為限，超過期限恕不受理。<br/>
+            • <strong>委託支付：</strong>線上委託採全額預付；線下委託則於預約成立後先行支付 30% 定金，剩餘 70% 尾款於現場以現金支付。
+        </div>
     </div>
     <div class="policy-item notice-pink">
-        <div class="policy-item-title">❌ 取消與放鳥懲罰</div>
-        <div class="policy-item-desc">7 天內臨退/放鳥，扣總額 30% 為違約金（其中 10% 補償夥伴，20% 平台行政費）。</div>
+        <div class="policy-item-title">❌ 委託人臨退與放鳥違約罰則</div>
+        <div class="policy-item-desc">
+            委託人若於服務約定時間 <strong>7 天內</strong>無故取消、臨退或放鳥，系統將依法扣除總金額之 <strong>30% 作為違約金</strong>（其中 20% 為平台行政手續費，10% 作為時間補償撥付予受影響之夥伴）。
+        </div>
     </div>
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title">🔥 爽約保障方案</div>
-        <div class="policy-item-desc">若夥伴惡意爽約，平台會直接將出租人列入黑名單。</div>
+        <div class="policy-item-title">🔥 夥伴爽約之消費者權益保障</div>
+        <div class="policy-item-desc">
+            若時光夥伴因故未能依約出席且未提前協調，經查證屬實，委託人將獲得 <strong>100% 定金全額無條件退還</strong>，且該夥伴將直接列入平台永久黑名單。
+        </div>
     </div>
 </div>
 </div>
 
-<!-- 3. 出租人（已加入 80% 實拿與次月 15 號撥款規範） -->
+<!-- 3. 出租規範與匯款明細要求 -->
 <div class="sub-tab-panel" id="sub-panel-sub-partner">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title">💰 出租人爽約懲罰方案</div>
-        <div class="policy-item-desc">若時光夥伴發生未依約出席或惡意爽約，經查證屬實將<strong>直接終止合作關係並永久黑名單</strong>。</div>
+        <div class="policy-item-title">📸 匯款明細與詳細截圖存查規範（重要）</div>
+        <div class="policy-item-desc">
+            • <strong>明細存查：</strong>每筆預約定金或尾款轉帳完成後，<strong>出租人（時光夥伴）必須主動核對入帳金額，並妥善保留完整之「轉帳成功畫面截圖」與「匯款明細記錄」</strong>。<br/>
+            • <strong>對帳備查：</strong>若發生金流爭議、帳務延遲或對帳不明時，雙方須憑官方 LINE 聊天截圖及銀行匯款明細作為唯一查核依據，未提供明細者恕不受理帳務補償。
+        </div>
     </div>
     <div class="policy-item notice-blue">
-        <div class="policy-item-title">📈 報酬拆帳（80%）與次月 15 號撥款機制</div>
+        <div class="policy-item-title">🤝 承攬合作關係與個人稅務宣告</div>
         <div class="policy-item-desc">
-            1. <strong>收益拆帳：</strong>平台僅收取 20% 行政與媒合服務費，時光夥伴最終可獲得總收益之 <strong style="color:var(--neon-gold)">80% 報酬</strong>。<br/>
-            2. <strong>統一撥款日：</strong>平台將於每月結算後，統一於<strong>次月 15 號</strong>將款項撥付給出租人。<br/>
-            3. <strong>人工對帳備查：</strong>訂單成立與定金轉帳後，請雙方保留明細截圖以供查核。
+            • <strong>獨立承攬：</strong>本平台與時光夥伴之間為<strong>「獨立承攬合作關係」</strong>，非本平台之受僱員工或代理人，不適用勞動基準法。<br/>
+            • <strong>稅務申報：</strong>時光夥伴因提供時間陪伴服務所獲之報酬，須依中華民國稅法規定<strong>自行申報個人綜合所得稅</strong>，平台不代為扣繳。
         </div>
     </div>
     <div class="policy-item notice-pink">
-        <div class="policy-item-title">🛡️ 欠款與取消補償</div>
-        <div class="policy-item-desc">• 帳務欠款將從後續款項中優先扣除。<br/>• 若客戶在 7 天內無故放鳥，在出租人完全無違規之前提下，可獲得定金總額之 <strong>10% 作為時間補償金</strong>。</div>
+        <div class="policy-item-title">📈 報酬拆帳比例（80%）與統一撥款日</div>
+        <div class="policy-item-desc">
+            • <strong>拆帳機制：</strong>平台僅收取 20% 之系統維護與行政媒合費，時光夥伴可獲得總收益之 <strong>80% 報酬</strong>。<br/>
+            • <strong>撥款時間：</strong>平台將於每月結算當月完工之訂單後，統一於<strong>次月 15 號</strong>將款項撥付至夥伴指定帳戶。
+        </div>
     </div>
 </div>
 </div>
 
-<!-- 4. 交退付政策 -->
+<!-- 4. 退費政策與其他法律條款 -->
 <div class="sub-tab-panel" id="sub-panel-sub-policy">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title">📑 一、 服務預約與履約確認 SOP</div>
+        <div class="policy-item-title">💳 退費、改期與不可抗力規範</div>
         <div class="policy-item-desc">
-            1. <strong>預約與確認：</strong>用戶諮詢並選擇項目後，提供轉帳成功紀錄。經管理員核實後發布預約成功通知。<br/>
-            2. <strong>守則確認：</strong>雙方確認遵守《時光交換星級公約》（嚴禁肢體接觸、車內禁菸等）。<br/>
-            3. <strong>服務交付與結案：</strong>完成服務後 24 小時內無任何爭議回報，即視為「服務已完整交付」。
+            • <strong>提前取消：</strong>於服務約定時間 <strong>7 天前</strong>提出取消申請者，全額退還已付金額（僅扣除必要之跨行轉帳手續費）。<br/>
+            • <strong>不可抗力：</strong>如遇政府公告之天然災害（如颱風停班課）或法定傳染病管制，平台將優先協助雙方免費改期；若無法配合改期，則於次月 15 號辦理全額退費。
         </div>
     </div>
     <div class="policy-item notice-pink">
-        <div class="policy-item-title">⏳ 二、 最長預付期控管</div>
+        <div class="policy-item-title">🔐 個人資料保護、言論規範與管轄法院</div>
         <div class="policy-item-desc">
-            為保障雙方金流安全與合規性，本平台之所有服務預約，最長預付期限嚴格控管以 <strong style="color:var(--neon-gold)">「2個月（60天）」</strong> 為限，超期預付恕不受理。
+            • <strong>個資保護：</strong>本平台依據《個人資料保護法》妥善保護用戶之電話、姓名等隱私數據，絕不外洩給第三方。<br/>
+            • <strong>評價守則：</strong>雙方於評價系統中之留言須客觀真實，嚴禁公然侮辱或惡意毀謗。若衍生任何法律訴訟，雙方合意以台灣<strong>地方法院為第一審管轄法院</strong>。
         </div>
-    </div>
-    <div class="policy-item notice-blue">
-        <div class="policy-item-title">💳 三、 退費與改期規範</div>
-        <div class="policy-item-desc">
-            • <strong>非可歸責於客戶之取消：</strong>如遇政府公告之天然災害或夥伴缺席，平台將優先協助辦理改期；若不願改期，將於次月 15 號統一辦理全額退費。<br/>
-            • <strong>客戶主動取消：</strong><br/>
-             - 於服務約定時間 <strong>7 天前</strong> 取消：全額退還餘額（僅扣除必要金流手續費）。<br/>
-             - 於服務約定時間 <strong>7 天內</strong> 臨退或放鳥：系統將沒收總金額之 <strong>30% 作為違約金</strong>（其中 20% 為平台行政手續費，10% 作為時間補償撥付予夥伴）。
-        </div>
-    </div>
-    <div class="policy-item notice-pink">
-        <div class="policy-item-title">⚠️ 四、 私下交易與外部行為免責</div>
-        <div class="policy-item-desc">
-            雙方若繞過本平台官方管道進行私下金錢交易、私約或私下聯繫，所衍生之財物損失、詐騙、個資外洩或安全爭議，<strong>本平台不負任何調查、協調或賠償之法律責任</strong>。
-        </div>
-    </div>
-</div>
-</div>
-
-<!-- 5. 常見 FAQ -->
-<div class="sub-tab-panel" id="sub-panel-sub-faq">
-<div class="policy-list">
-    <div class="policy-item notice-cyan" onclick="toggleFaq(this)" style="cursor: pointer;">
-        <div class="policy-item-title">❓ Q1: 第一次預約需要注意什麼？ <span class="faq-arrow" style="transition: transform 0.3s ease; display: inline-block;">▼</span></div>
-        <div class="policy-item-desc faq-content" style="display: none; margin-top: 8px;">請先至「夥伴」頁籤挑選心儀人選，點擊「預約此夥伴」填寫表單，並透過 TWQR 支付 30% 定金即可完成預約卡位！</div>
-    </div>
-    <div class="policy-item notice-blue" onclick="toggleFaq(this)" style="cursor: pointer;">
-        <div class="policy-item-title">❓ Q2: 如果遇到臨時取消或放鳥怎麼辦？ <span class="faq-arrow" style="transition: transform 0.3s ease; display: inline-block;">▼</span></div>
-        <div class="policy-item-desc faq-content" style="display: none; margin-top: 8px;">7天前取消可全額退費；若於 7 天內臨退，系統將扣除 30% 定金作為違約金補償。</div>
-    </div>
-    <div class="policy-item notice-pink" onclick="toggleFaq(this)" style="cursor: pointer;">
-        <div class="policy-item-title">❓ Q3: 成就徽章與零負評代表是怎麼來的？ <span class="faq-arrow" style="transition: transform 0.3s ease; display: inline-block;">▼</span></div>
-        <div class="policy-item-desc faq-content" style="display: none; margin-top: 8px;">徽章會根據用戶給予的真實評價單數與平均評分動態解鎖。平均達 4.5 分以上即可獲得「🎯 零負評代表」標章！</div>
     </div>
 </div>
 </div>
@@ -936,7 +947,7 @@
 <div id="partner-detail-modal" onclick="closePartnerDetail()">
     <div class="partner-sheet" onclick="event.stopPropagation()">
         <div class="modal-title">
-            <span id="sheet-name" style="color:var(--neon-gold)">👤 夥伴詳情</span>
+            <span id="sheet-name" style="color:var(--neon-gold)">👤 對象詳情</span>
             <button class="modal-close" onclick="triggerHaptic(10); closePartnerDetail();">✕</button>
         </div>
         <div id="sheet-tags" style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;"></div>
@@ -948,23 +959,23 @@
         </div>
 
         <div style="margin-bottom: 16px; background: rgba(255,255,255,0.03); padding: 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); text-align: left;">
-            <div style="font-size: 11.5px; color: var(--neon-cyan); font-weight: 800; margin-bottom: 8px;">⭐ 給予夥伴評分與留言：</div>
+            <div style="font-size: 11.5px; color: var(--neon-cyan); font-weight: 800; margin-bottom: 8px;" id="rating-section-title">⭐ 給予評價與留言：</div>
             <div id="rating-action-area" style="display: flex; gap: 6px; margin-bottom: 8px;"></div>
-            <textarea id="rating-comment-input" class="tool-input" placeholder="寫下您對該夥伴的服務心得或留言（選填）..." style="margin-top:0; margin-bottom:8px; height:60px; font-size:11.5px; resize:none;"></textarea>
+            <textarea id="rating-comment-input" class="tool-input" placeholder="寫下您的互動心得或留言（選填）..." style="margin-top:0; margin-bottom:8px; height:60px; font-size:11.5px; resize:none;"></textarea>
             <button class="tool-btn" id="submit-review-btn" style="margin-top:0; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue)); color: #030205; font-weight: 900; font-size: 12px;" onclick="submitRatingWithComment()">💌 送出評分與留言</button>
         </div>
 
         <div style="margin-bottom: 16px; text-align: left;">
-            <div style="font-size: 11px; color: var(--text-gray); font-weight: 800; margin-bottom: 6px;">💬 用戶真實評價留言：</div>
+            <div style="font-size: 11px; color: var(--text-gray); font-weight: 800; margin-bottom: 6px;" id="comments-list-title">💬 真實評價留言紀錄：</div>
             <div id="sheet-comments-list" style="display: flex; flex-direction: column; gap: 6px; max-height: 100px; overflow-y: auto;"></div>
         </div>
 
         <div style="font-size:11.5px; color:var(--text-gray); margin-bottom:6px; font-weight:700;">完整介紹：</div>
         <div id="sheet-intro" style="font-size:13px; color:#f4effc; line-height:1.7; background:rgba(0,0,0,0.5); padding:16px; border-radius:16px; margin-bottom:20px; max-height:110px; overflow-y:auto; border:1px solid rgba(255,255,255,0.06);"></div>
         
-        <div style="display:flex; gap:10px;">
+        <div style="display:flex; gap:10px;" id="sheet-action-btns">
             <button class="tool-btn" id="sheet-fav-btn" style="flex:1; background:rgba(255,42,109,0.25); border:1px solid var(--neon-pink); margin-top:0;" onclick="triggerHaptic(15)">❤️ 收藏</button>
-            <button class="tool-btn" id="sheet-book-btn" style="flex:2; margin-top:0;" onclick="triggerHaptic(15)">📋 立即預約</button>
+            <button class="tool-btn" id="sheet-book-btn" style="flex:2; margin-top:0;" onclick="triggerHaptic(15)">📋 聯繫 / 預約</button>
         </div>
     </div>
 </div>
@@ -974,7 +985,7 @@
         <div style="font-size: 36px; margin-bottom: 10px;">✨</div>
         <div class="modal-title" style="justify-content: center; color: var(--neon-gold); margin-bottom: 12px; font-size: 16.5px;">評分狀態通知</div>
         <div id="rating-popup-desc" style="font-size: 13px; color: var(--text-gray); line-height: 1.8; margin-bottom: 22px; white-space: pre-wrap;">
-            感謝您的真實回饋！為維護社群信譽，同一夥伴在短期內暫時無法重複給予評價。
+            感謝您的真實回饋！為維護社群信譽，同一對象在短期內暫時無法重複給予評價。
         </div>
         <button class="tool-btn" onclick="closeRatingPopup()" style="background: linear-gradient(135deg, var(--neon-gold), var(--neon-orange)); color: #030205; font-weight: 900; margin-top:0;">我知道了 👍</button>
     </div>
@@ -994,10 +1005,10 @@
         </div>
     </div>
     <div class="ai-chat-messages" id="ai-messages">
-        <div class="ai-msg bot">您好，我是閒人案內所的數位風控與客服總監。請問有關於預約媒合、發文格式或平台規則的問題想諮詢嗎？✨</div>
+        <div class="ai-msg bot">您好，我是閒人案內所的數位風控與客服總監。請問有關於預約媒合、委託人排行或平台規則的問題想諮詢嗎？✨</div>
     </div>
     <div class="ai-quick-chips">
-        <button onclick="sendQuickQuestion('請問求租或出租的發文格式？')">📋 發文格式</button>
+        <button onclick="sendQuickQuestion('請問委託或出租的發文格式？')">📋 發文格式</button>
         <button onclick="sendQuickQuestion('線下委託格式是什麼？')">💳 線下定金格式</button>
         <button onclick="sendQuickQuestion('線上委託格式是什麼？')">🌐 線上預付格式</button>
         <button onclick="sendQuickQuestion('取消預約與違約金如何計算？')">💰 退費違約金</button>
@@ -1017,9 +1028,19 @@
     let currentBookingPartner = '';
     let currentBookingRegion = '';
     let currentSelectedScore = 0;
-    let currentActivePartnerName = '';
+    let currentActiveTargetName = '';
+    let currentTargetType = 'partner';
     let favorites = JSON.parse(localStorage.getItem('renjian_favorites') || '[]');
+    let clientFavorites = JSON.parse(localStorage.getItem('renjian_client_favorites') || '[]');
     let userRatings = {}; 
+    let clientRatings = {}; 
+
+    let allClientsData = [
+        ["小雅", "女", "台北", "尋找週末一起去看展覽與喝咖啡的溫柔飯友～"],
+        ["阿傑", "男", "台中", "想找遊戲神隊友一起打傳說對決，長期配合！"],
+        ["Mina", "女", "高雄", "徵求拍照技術好的朋朋陪去駁二外拍～"],
+        ["凱文", "男", "雙北", "尋找平日下班一起慢跑與吃宵夜的夥伴。"]
+    ];
 
     let allPartnersData = [
         ["Chiu", "女", "全台", "個性隨和、健談且富有同理心，想要認真傾聽都可以找我", "", ["遊戲陪玩", "聊天解悶"]],
@@ -1055,19 +1076,14 @@
     }
 
     function triggerHaptic(duration = 15) {
-        if (navigator.vibrate) {
-            navigator.vibrate(duration);
-        }
+        if (navigator.vibrate) navigator.vibrate(duration);
     }
 
     window.addEventListener('scroll', () => {
         const backBtn = document.getElementById('back-to-top-btn');
         if (backBtn) {
-            if (window.scrollY > 300) {
-                backBtn.classList.add('show');
-            } else {
-                backBtn.classList.remove('show');
-            }
+            if (window.scrollY > 300) backBtn.classList.add('show');
+            else backBtn.classList.remove('show');
         }
     });
 
@@ -1113,10 +1129,6 @@
         document.getElementById('rating-popup-modal').style.display = 'none';
     }
 
-    function toggleDrawerMenu() {
-        document.getElementById('drawer-menu').classList.toggle('active');
-    }
-
     function toggleFaq(el) {
         triggerHaptic(10);
         const desc = el.querySelector('.faq-content');
@@ -1138,7 +1150,7 @@
 
         let matched = allPartnersData.filter(r => {
             const matchReg = (reg === '全台' || r[2].includes(reg));
-            const matchStyle = (r[3].includes(style) || r[5].some(s => s.includes(style)));
+            const matchStyle = (r[3].includes(style) || r[5]?.some(s => s.includes(style)));
             return matchReg && matchStyle;
         });
 
@@ -1175,6 +1187,22 @@
         renderHistoryTab();
     }
 
+    function toggleClientFavorite(name, event) {
+        if (event) event.stopPropagation();
+        triggerHaptic(15);
+        const idx = clientFavorites.indexOf(name);
+        if (idx > -1) {
+            clientFavorites.splice(idx, 1);
+            showToast(`⭐ 已將委託人 ${name} 移出口袋名單`);
+        } else {
+            clientFavorites.push(name);
+            showToast(`⭐ 已將委託人 ${name} 加入口袋名單！`);
+        }
+        localStorage.setItem('renjian_client_favorites', JSON.stringify(clientFavorites));
+        renderClientsSection();
+        renderHistoryTab();
+    }
+
     function selectStar(score) {
         triggerHaptic(15);
         currentSelectedScore = score;
@@ -1199,11 +1227,10 @@
             showToast("❌ 請先點擊上方選擇星級（1至5星）！");
             return;
         }
-        const name = currentActivePartnerName;
+        const name = currentActiveTargetName;
         triggerHaptic(25);
         const now = Date.now();
-        
-        const lastVoteKey = 'voted_' + name;
+        const lastVoteKey = 'voted_' + currentTargetType + '_' + name;
         const lastVoteTime = parseInt(localStorage.getItem(lastVoteKey) || '0');
         const oneDayMs = 24 * 60 * 60 * 1000;
 
@@ -1215,12 +1242,13 @@
 
         const commentInput = document.getElementById('rating-comment-input');
         const commentText = commentInput ? commentInput.value.trim() : '';
+        const actionName = (currentTargetType === 'client') ? 'submitClientReview' : 'submitReview';
 
         fetch(googleSheetApiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify({
-                action: 'submitReview',
+                action: actionName,
                 partner: name,
                 score: currentSelectedScore,
                 comment: commentText,
@@ -1228,7 +1256,7 @@
             })
         }).then(() => {
             localStorage.setItem(lastVoteKey, String(now));
-            showToast("⭐ 評分與留言已成功寫入平台！");
+            showToast("⭐ 評分與留言已成功寫入雲端試算表！");
             setTimeout(fetchPartners, 1200); 
         }).catch(err => {
             console.error("送出評分失敗:", err);
@@ -1245,17 +1273,13 @@
         if (!container) return;
 
         let scored = allPartnersData.map(r => {
-            const name = r[0];
-            const region = r[2];
-            const record = userRatings[name];
-            let avgScore = 0.0;
-            let count = 0;
+            const name = r[0], region = r[2], record = userRatings[name];
+            let avgScore = 0.0, count = 0;
             if (record && record.scores && record.scores.length > 0) {
                 const sum = record.scores.reduce((a, b) => a + b, 0);
                 avgScore = sum / record.scores.length;
                 count = record.scores.length;
             }
-            
             let scoreBonus = avgScore * 10;
             let favBonus = favorites.includes(name) ? 2.0 : 0;
             let finalScore = (avgScore * 10) + (count * 1.5) + scoreBonus + favBonus;
@@ -1274,7 +1298,7 @@
             const scoreText = p.count > 0 ? `⭐ ${p.avgScore.toFixed(1)} 分 (${p.count} 單)` : `⭐ 0.0 分 (0 單)`;
             
             html += `
-                <div class="featured-chip-vertical ${rankClass}" onclick="triggerHaptic(15); openPartnerDetail('${escapeHtml(String(p.name))}')">
+                <div class="featured-chip-vertical ${rankClass}" onclick="triggerHaptic(15); openTargetDetail('${escapeHtml(String(p.name))}', 'partner')">
                     <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
                         <div style="display: flex; align-items: center; gap: 14px; text-align: left;">
                             <span style="font-size: 13.5px; font-weight: 900; letter-spacing: 0.5px; min-width: 65px; text-shadow: 0 0 10px rgba(255,255,255,0.4);">${medalLabel}</span>
@@ -1293,16 +1317,221 @@
         container.innerHTML = html;
     }
 
+    function renderPartners(dataArray) {
+        const container = document.getElementById('partner-list-container');
+        if (!container) return;
+        let html = '';
+        dataArray.forEach(r => {
+            if (!r || !r[0]) return;
+            const name = r[0] || '', gender = r[1] || '', region = r[2] || '', intro = r[3] || '';
+            const record = userRatings[name];
+            let avg = 0.0, count = 0;
+            if (record && record.scores && record.scores.length > 0) {
+                avg = record.scores.reduce((a, b) => a + b, 0) / record.scores.length;
+                count = record.scores.length;
+            }
+            const rating = count > 0 ? `⭐ ${avg.toFixed(1)} (${count}單)` : `⭐ 0.0 (0單)`;
+            const badgeLabel = count > 0 ? `<span class="partner-tag tag-badge">🏆 口碑認證</span>` : `<span class="partner-tag tag-badge">✨ 新進夥伴</span>`;
+
+            let aiTags = generateAiHumanTags(intro);
+            const regs = getRegionsArray(region);
+            const isFav = favorites.includes(name);
+
+            let tagsHtml = regs.map(reg => `<span class="partner-tag tag-region">${escapeHtml(reg)}</span>`).join(' ');
+            aiTags.slice(0, 2).forEach(srv => { tagsHtml += `<span class="partner-tag tag-ai">${escapeHtml(srv)}</span>`; });
+            tagsHtml += badgeLabel;
+
+            html += `
+                <div class="partner-card" onclick="openTargetDetail('${escapeHtml(String(name))}', 'partner')">
+                    <div class="partner-top">
+                        <div class="partner-name">👤 ${escapeHtml(String(name))} <span class="partner-rating">${rating}</span></div>
+                    </div>
+                    <div class="partner-tags">${gender ? `<span class="partner-tag tag-gender">${escapeHtml(String(gender))}</span>` : ''}${tagsHtml}</div>
+                    <div class="partner-intro">${escapeHtml(String(intro))}</div>
+                    <div class="card-action-bar" onclick="event.stopPropagation()">
+                        <div class="card-btn-group">
+                            <button class="card-fav-btn" onclick="toggleFavorite('${escapeHtml(String(name))}', event)">${isFav ? '❤️ 已收藏' : '🤍 收藏'}</button>
+                            <button class="card-fav-btn" onclick="sharePartner('${escapeHtml(String(name))}', '${escapeHtml(String(region))}', '${escapeHtml(String(intro)).replace(/'/g, "\\'")}', event)">📤 分享</button>
+                        </div>
+                        <button class="card-copy-btn" onclick="openBookingModal('${escapeHtml(String(name))}', '${escapeHtml(String(region))}')">📋 預約此夥伴</button>
+                    </div>
+                </div>
+            `;
+        });
+        container.innerHTML = html || `<div style="text-align:center; color: var(--text-gray); font-size:12.5px; padding:20px;">沒有符合條件的成員</div>`;
+    }
+
+    function renderClientFeaturedSection() {
+        const container = document.getElementById('client-featured-grid-container');
+        if (!container) return;
+
+        let scored = allClientsData.map(c => {
+            const name = c[0], region = c[2], record = clientRatings[name];
+            let avgScore = 0.0, count = 0;
+            if (record && record.scores && record.scores.length > 0) {
+                const sum = record.scores.reduce((a, b) => a + b, 0);
+                avgScore = sum / record.scores.length;
+                count = record.scores.length;
+            }
+            let finalScore = (avgScore * 10) + (count * 1.5);
+            return { name: name, region: region, avgScore: avgScore, count: count, score: finalScore };
+        });
+
+        scored.sort((a, b) => b.score - a.score);
+        const top3 = scored.slice(0, 3);
+
+        let html = '';
+        top3.forEach((c, index) => {
+            const rankClasses = ['rank-1', 'rank-2', 'rank-3'];
+            const rankClass = rankClasses[index];
+            const medals = ['👑 榜首', '🥈 亞軍', '🥉 季軍'];
+            const medalLabel = medals[index];
+            const scoreText = c.count > 0 ? `⭐ ${c.avgScore.toFixed(1)} 分 (${c.count} 評)` : `⭐ 0.0 分 (0 評)`;
+            
+            html += `
+                <div class="featured-chip-vertical ${rankClass}" onclick="triggerHaptic(15); openTargetDetail('${escapeHtml(String(c.name))}', 'client')">
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                        <div style="display: flex; align-items: center; gap: 14px; text-align: left;">
+                            <span style="font-size: 13.5px; font-weight: 900; letter-spacing: 0.5px; min-width: 65px; text-shadow: 0 0 10px rgba(255,255,255,0.4);">${medalLabel}</span>
+                            <div>
+                                <div style="font-size: 14.5px; font-weight: 900; color: #fff; margin-bottom: 3px; letter-spacing: 0.5px;">👤 ${escapeHtml(String(c.name))}</div>
+                                <div style="font-size: 11.5px; color: var(--text-gray); font-weight: 700;">📍 地點：${escapeHtml(String(c.region))}</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 12px; font-weight: 900; color: #fff; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 16px; white-space: nowrap; box-shadow: inset 0 1px 2px rgba(255,255,255,0.1);">
+                            ${scoreText}
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+    }
+
+    function renderClientsList(dataArray) {
+        const container = document.getElementById('client-list-container');
+        if (!container) return;
+        let html = '';
+        dataArray.forEach(c => {
+            const name = c[0], gender = c[1], region = c[2], intro = c[3];
+            const record = clientRatings[name] || { scores: [], comments: [] };
+            let avg = 0.0, count = 0;
+            if (record.scores && record.scores.length > 0) {
+                avg = record.scores.reduce((a, b) => a + b, 0) / record.scores.length;
+                count = record.scores.length;
+            }
+            const rating = count > 0 ? `⭐ ${avg.toFixed(1)} (${count}評)` : `⭐ 0.0 (0評)`;
+            const isFav = clientFavorites.includes(name);
+
+            html += `
+                <div class="partner-card" onclick="openTargetDetail('${escapeHtml(String(name))}', 'client')">
+                    <div class="partner-top">
+                        <div class="partner-name">👤 ${escapeHtml(String(name))} <span class="partner-rating">${rating}</span></div>
+                    </div>
+                    <div class="partner-tags">
+                        <span class="partner-tag tag-gender">${escapeHtml(gender)}</span>
+                        <span class="partner-tag tag-region">${escapeHtml(region)}</span>
+                        <span class="partner-tag tag-badge">👤 委託貴賓</span>
+                    </div>
+                    <div class="partner-intro">${intro}</div>
+                    <div class="card-action-bar" onclick="event.stopPropagation()">
+                        <div class="card-btn-group">
+                            <button class="card-fav-btn" onclick="toggleClientFavorite('${escapeHtml(String(name))}', event)">${isFav ? '❤️ 已收藏' : '🤍 收藏'}</button>
+                        </div>
+                        <button class="card-copy-btn" onclick="openBookingModal('${escapeHtml(String(name))}', '${escapeHtml(String(region))}')">📋 聯繫委託人</button>
+                    </div>
+                </div>
+            `;
+        });
+        container.innerHTML = html || `<div style="text-align:center; color: var(--text-gray); font-size:12.5px; padding:20px;">沒有符合條件的委託人</div>`;
+        renderClientFeaturedSection();
+    }
+
+    function populateClientGenderOptions() {
+        const gSelect = document.getElementById('client-filter-gender');
+        if (!gSelect) return;
+        const genders = [...new Set(allClientsData.map(c => c[1]).filter(Boolean))];
+        gSelect.innerHTML = '<option value="">請選擇</option>' + genders.map(g => `<option value="${escapeHtml(g)}">${escapeHtml(g)}</option>`).join('');
+    }
+
+    function populateClientRegionOptions() {
+        const genderVal = document.getElementById('client-filter-gender')?.value || '';
+        const rSelect = document.getElementById('client-filter-region');
+        if (!rSelect) return;
+        let filtered = genderVal ? allClientsData.filter(c => c[1] === genderVal) : allClientsData;
+        const regions = [...new Set(filtered.map(c => c[2]).filter(Boolean))];
+        rSelect.innerHTML = '<option value="">請選擇</option>' + regions.map(r => `<option value="${escapeHtml(r)}">${escapeHtml(r)}</option>`).join('');
+    }
+
+    function populateClientNameOptions() {
+        const genderVal = document.getElementById('client-filter-gender')?.value || '';
+        const regionVal = document.getElementById('client-filter-region')?.value || '';
+        const nSelect = document.getElementById('client-filter-name');
+        if (!nSelect) return;
+
+        let filtered = allClientsData;
+        if (genderVal) filtered = filtered.filter(c => c[1] === genderVal);
+        if (regionVal) filtered = filtered.filter(c => c[2].includes(regionVal));
+
+        const names = [...new Set(filtered.map(c => c[0]).filter(Boolean))];
+        nSelect.innerHTML = '<option value="">請選擇</option>' + names.map(n => `<option value="${escapeHtml(n)}">${escapeHtml(n)}</option>`).join('');
+    }
+
+    function onClientGenderChange() {
+        populateClientRegionOptions();
+        populateClientNameOptions();
+        applyClientFilters();
+    }
+
+    function onClientRegionChange() {
+        populateClientNameOptions();
+        applyClientFilters();
+    }
+
+    function applyClientFilters() {
+        const genderVal = document.getElementById('client-filter-gender')?.value || '';
+        const regionVal = document.getElementById('client-filter-region')?.value || '';
+        const nameVal = document.getElementById('client-filter-name')?.value || '';
+        const keywordVal = document.getElementById('client-filter-keyword')?.value.toLowerCase().trim() || '';
+        const sortVal = document.getElementById('client-filter-sort')?.value || 'default';
+
+        let result = [...allClientsData];
+        if (genderVal) result = result.filter(c => c[1] === genderVal);
+        if (regionVal) result = result.filter(c => c[2].includes(regionVal));
+        if (nameVal) result = result.filter(c => c[0] === nameVal);
+        if (keywordVal) {
+            result = result.filter(c => [c[0], c[1], c[2], c[3]].join(' ').toLowerCase().includes(keywordVal));
+        }
+
+        result.sort((a, b) => {
+            const recA = clientRatings[a[0]] || { scores: [] };
+            const recB = clientRatings[b[0]] || { scores: [] };
+            let avgA = recA.scores.length > 0 ? recA.scores.reduce((x, y) => x + y, 0) / recA.scores.length : 0;
+            let avgB = recB.scores.length > 0 ? recB.scores.reduce((x, y) => x + y, 0) / recB.scores.length : 0;
+            if (sortVal === 'rating') return avgB - avgA;
+            return 0;
+        });
+
+        renderClientsList(result);
+    }
+
+    function renderClientsSection() {
+        populateClientGenderOptions();
+        populateClientRegionOptions();
+        populateClientNameOptions();
+        applyClientFilters();
+    }
+
     function renderHistoryTab() {
         const favContainer = document.getElementById('history-favorites-container');
         if (favContainer) {
-            if (favorites.length === 0) {
-                favContainer.innerHTML = `<div style="font-size: 11.5px; color: var(--text-gray);">目前尚無收藏的夥伴。</div>`;
+            let combinedFavs = [...favorites, ...clientFavorites.map(c => c + ' (委託)')];
+            if (combinedFavs.length === 0) {
+                favContainer.innerHTML = `<div style="font-size: 11.5px; color: var(--text-gray);">目前尚無收藏的對象。</div>`;
             } else {
-                favContainer.innerHTML = favorites.map(name => `
-                    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 10px 14px; border-radius: 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="openPartnerDetail('${escapeHtml(String(name))}')">
-                        <span style="font-weight: 800; font-size: 13px; color: #fff;">👤 ${escapeHtml(String(name))}</span>
-                        <span style="font-size: 11px; color: var(--neon-pink);">查看詳情 ➔</span>
+                favContainer.innerHTML = combinedFavs.map(name => `
+                    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 10px 14px; border-radius: 14px; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: 800; font-size: 13px; color: #fff;">⭐ ${escapeHtml(String(name))}</span>
                     </div>
                 `).join('');
             }
@@ -1312,12 +1541,11 @@
         if (viewedContainer) {
             let viewed = JSON.parse(localStorage.getItem('renjian_viewed') || '[]');
             if (viewed.length === 0) {
-                viewedContainer.innerHTML = `<div style="font-size: 11.5px; color: var(--text-gray);">尚無瀏覽足跡，快去「夥伴」頁籤逛逛吧！</div>`;
+                viewedContainer.innerHTML = `<div style="font-size: 11.5px; color: var(--text-gray);">尚無瀏覽足跡。</div>`;
             } else {
                 viewedContainer.innerHTML = viewed.map(name => `
-                    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 10px 14px; border-radius: 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="openPartnerDetail('${escapeHtml(String(name))}')">
-                        <span style="font-weight: 800; font-size: 13px; color: #fff;">👤 ${escapeHtml(String(name))}</span>
-                        <span style="font-size: 11px; color: var(--neon-cyan);">再次查看 ➔</span>
+                    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 10px 14px; border-radius: 14px; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: 800; font-size: 13px; color: #fff;">👣 ${escapeHtml(String(name))}</span>
                     </div>
                 `).join('');
             }
@@ -1328,14 +1556,14 @@
         if (event) event.stopPropagation();
         triggerHaptic(15);
         const shareData = {
-            title: '閒人案內所 ｜ 質感夥伴推薦',
-            text: `推薦時光夥伴 👤 ${name} (${region})\n簡介：${intro}`,
+            title: '閒人案內所 ｜ 質感對象推薦',
+            text: `推薦對象 👤 ${name} (${region})\n簡介：${intro}`,
             url: OFFICIAL_WEBSITE_URL
         };
         if (navigator.share) {
             navigator.share(shareData).catch(() => {});
         } else {
-            copyToClipboard(`【夥伴推薦】\n名字：${name}\n地區：${region}\n介紹：${intro}\n網址：${shareData.url}`);
+            copyToClipboard(`【推薦】\n名字：${name}\n地區：${region}\n介紹：${intro}\n網址：${shareData.url}`);
         }
     }
 
@@ -1344,17 +1572,15 @@
         const items = document.querySelectorAll('#panel-notice .policy-item');
         items.forEach(item => {
             const text = item.innerText.toLowerCase();
-            if (!q || text.includes(q)) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
+            if (!q || text.includes(q)) item.style.display = 'block';
+            else item.style.display = 'none';
         });
     }
 
-    function openPartnerDetail(name) {
+    function openTargetDetail(name, type) {
         triggerHaptic(15);
-        currentActivePartnerName = name;
+        currentActiveTargetName = name;
+        currentTargetType = type;
         currentSelectedScore = 0;
 
         let viewed = JSON.parse(localStorage.getItem('renjian_viewed') || '[]');
@@ -1364,42 +1590,37 @@
             localStorage.setItem('renjian_viewed', JSON.stringify(viewed));
         }
 
-        let p = allPartnersData.find(item => item[0] === name);
-        if (!p) return;
-        const gender = p[1], region = p[2], intro = p[3];
+        let targetData = (type === 'partner') ? allPartnersData.find(item => item[0] === name) : allClientsData.find(item => item[0] === name);
+        if (!targetData) return;
 
-        document.getElementById('sheet-name').innerText = `👤 ${name}`;
+        const gender = targetData[1], region = targetData[2], intro = targetData[3];
+
+        document.getElementById('sheet-name').innerText = (type === 'partner') ? `👤 夥伴：${name}` : `👤 委託人：${name}`;
         
-        const record = userRatings[name] || { scores: [], comments: [] };
+        const record = (type === 'partner') ? (userRatings[name] || { scores: [], comments: [] }) : (clientRatings[name] || { scores: [], comments: [] });
         let avg = 0.0, count = 0;
         if (record.scores && record.scores.length > 0) {
             avg = record.scores.reduce((a, b) => a + b, 0) / record.scores.length;
             count = record.scores.length;
         }
-        document.getElementById('sheet-rating').innerText = count > 0 ? `⭐ ${avg.toFixed(1)} (${count}單)` : `⭐ 0.0 (0單)`;
+        document.getElementById('sheet-rating').innerText = count > 0 ? `⭐ ${avg.toFixed(1)} (${count}則)` : `⭐ 0.0 (0則)`;
         document.getElementById('sheet-intro').innerText = intro || '暫無詳細介紹';
         
-        let badgesHtml = `<span style="font-size:10px; background:rgba(255,176,32,0.15); color:var(--neon-gold); border:1px solid rgba(255,176,32,0.4); padding:3px 8px; border-radius:8px;">🌟 時光先鋒</span>`;
-        if (count > 0 && avg >= 4.0) {
-            badgesHtml += `<span style="font-size:10px; background:rgba(0,240,255,0.15); color:var(--neon-cyan); border:1px solid rgba(0,240,255,0.4); padding:3px 8px; border-radius:8px;">💎 口碑認證</span>`;
-        }
+        let badgesHtml = (type === 'partner') ? `<span style="font-size:10px; background:rgba(255,176,32,0.15); color:var(--neon-gold); border:1px solid rgba(255,176,32,0.4); padding:3px 8px; border-radius:8px;">🌟 時光先鋒</span>` : `<span style="font-size:10px; background:rgba(0,240,255,0.15); color:var(--neon-cyan); border:1px solid rgba(0,240,255,0.4); padding:3px 8px; border-radius:8px;">💎 委託貴賓</span>`;
         if (count > 0 && avg >= 4.5) {
             badgesHtml += `<span style="font-size:10px; background:rgba(179,102,255,0.15); color:#d8b4fe; border:1px solid rgba(179,102,255,0.4); padding:3px 8px; border-radius:8px;">🎯 零負評代表</span>`;
-        } else if (count > 0 && avg < 3.0) {
-            badgesHtml += `<span style="font-size:10px; background:rgba(255,42,109,0.15); color:var(--neon-pink); border:1px solid rgba(255,42,109,0.4); padding:3px 8px; border-radius:8px;">⚠️ 需加強服務</span>`;
         }
         document.getElementById('sheet-badges-container').innerHTML = badgesHtml;
         
-        let aiTags = generateAiHumanTags(intro);
         let tagsHtml = gender ? `<span class="partner-tag tag-gender">${escapeHtml(String(gender))}</span>` : '';
         getRegionsArray(region).forEach(reg => {
             tagsHtml += `<span class="partner-tag tag-region">${escapeHtml(reg)}</span>`;
         });
-        aiTags.forEach(t => {
-            tagsHtml += `<span class="partner-tag tag-ai">${escapeHtml(t)}</span>`;
-        });
         document.getElementById('sheet-tags').innerHTML = tagsHtml;
         
+        document.getElementById('rating-section-title').innerText = (type === 'partner') ? "⭐ 給予夥伴評分與留言：" : "⭐ 給予委託人評價與留言：";
+        document.getElementById('comments-list-title').innerText = (type === 'partner') ? "💬 用戶真實評價留言：" : "💬 委託人真實評價紀錄：";
+
         const ratingActionArea = document.getElementById('rating-action-area');
         let starsHtml = '';
         for (let i = 1; i <= 5; i++) {
@@ -1415,15 +1636,16 @@
             });
             commentsListContainer.innerHTML = comHtml;
         } else {
-            commentsListContainer.innerHTML = `<div style="font-size:11px; color:var(--text-gray); padding:4px 0;">尚無用戶留言，快來留下第一筆心得吧！</div>`;
+            commentsListContainer.innerHTML = `<div style="font-size:11px; color:var(--text-gray); padding:4px 0;">尚無真實評分留言記錄。</div>`;
         }
 
-        const isFav = favorites.includes(name);
+        const isFav = (type === 'partner') ? favorites.includes(name) : clientFavorites.includes(name);
         const favBtn = document.getElementById('sheet-fav-btn');
         favBtn.innerText = isFav ? '❤️ 已收藏' : '🤍 收藏';
         favBtn.onclick = () => {
-            toggleFavorite(name);
-            openPartnerDetail(name);
+            if (type === 'partner') toggleFavorite(name);
+            else toggleClientFavorite(name);
+            openTargetDetail(name, type);
         };
 
         document.getElementById('sheet-book-btn').onclick = () => {
@@ -1434,6 +1656,7 @@
         
         document.getElementById('partner-detail-modal').style.display = 'flex';
     }
+
     function closePartnerDetail() {
         document.getElementById('partner-detail-modal').style.display = 'none';
     }
@@ -1451,29 +1674,6 @@
             localStorage.setItem('renjian_theme', 'purple');
         }
         showToast(`🎨 主題已切換：${themeNames[currentThemeIdx]}`);
-    }
-
-    function exportCSVReport() {
-        let csvContent = "data:text/csv;charset=utf-8,夥伴名稱,性別,地區,平均評分,總單數,收藏狀態\n";
-        allPartnersData.forEach(r => {
-            const name = r[0];
-            const record = userRatings[name];
-            let avg = 0.0, count = 0;
-            if (record && record.scores && record.scores.length > 0) {
-                avg = record.scores.reduce((a, b) => a + b, 0) / record.scores.length;
-                count = record.scores.length;
-            }
-            const fav = favorites.includes(name) ? "已收藏" : "未收藏";
-            csvContent += `${name},${r[1]},${r[2]},${avg.toFixed(1)},${count},${fav}\n`;
-        });
-        const encodedUri = encodeURI(csvContent);
-        const link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "閒人案內所_財務與夥伴對帳報表.csv");
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        showToast("📥 CSV 對帳報表已成功下載！");
     }
 
     function generateReminderMessage() {
@@ -1516,7 +1716,7 @@
         triggerHaptic(15);
         currentBookingPartner = name;
         currentBookingRegion = region;
-        document.getElementById('modal-partner-title').innerText = `📋 預約：${name} (${region})`;
+        document.getElementById('modal-partner-title').innerText = `📋 聯繫：${name} (${region})`;
         
         const today = new Date().toISOString().split('T')[0];
         const dateInput = document.getElementById('modal-date');
@@ -1532,13 +1732,11 @@
         const date = document.getElementById('modal-date').value || '未填寫';
         const time = document.getElementById('modal-time').value || '未填寫';
         const amount = document.getElementById('modal-amount').value || '未填寫';
-        const template = `【預約詢問】\n我想預約時光夥伴：${currentBookingPartner}\n活動地區：${currentBookingRegion}\n預約日期：${date}\n預約時間：${time}\n委託總額：$${amount}\n請問目前還有檔期可以安排嗎？✨`;
+        const template = `【預約 / 聯繫詢問】\n我想聯繫/預約對象：${currentBookingPartner}\n活動地區：${currentBookingRegion}\n預約日期：${date}\n預約時間：${time}\n委託總額：$${amount}\n請問目前時間是否方便？✨`;
         
         navigator.clipboard.writeText(template).then(() => {
             showToast("📋 已複製格式並開啟 LINE！");
-            setTimeout(() => {
-                window.location.href = 'https://line.me/ti/p/L1iM3COUPl';
-            }, 800);
+            setTimeout(() => { window.location.href = 'https://line.me/ti/p/L1iM3COUPl'; }, 800);
         }).catch(() => {
             window.location.href = 'https://line.me/ti/p/L1iM3COUPl';
         });
@@ -1565,13 +1763,24 @@
             const data = await response.json();
 
             if (data && typeof data === 'object') {
-                if (data.ratings) {
-                    userRatings = data.ratings;
-                }
+                if (data.ratings) userRatings = data.ratings;
+                if (data.clientRatings) clientRatings = data.clientRatings;
                 
-                const partnersArr = Array.isArray(data) ? data : data.partners;
+                if (data.clients && Array.isArray(data.clients) && data.clients.length > 1) {
+                    const cFiltered = data.clients.filter((row, idx) => {
+                        if (idx === 0) return false; 
+                        if (!row || !row[0]) return false;
+                        return true;
+                    });
+                    if (cFiltered.length > 0) {
+                        allClientsData = cFiltered.map(r => [String(r[0]), String(r[1] || '不拘'), String(r[2] || '全台'), String(r[3] || '尋求專業優質陪伴服務')]);
+                    }
+                }
+
+                const partnersArr = Array.isArray(data.partners) ? data.partners : null;
                 if (partnersArr && Array.isArray(partnersArr) && partnersArr.length > 0) {
-                    const filtered = partnersArr.filter((row) => {
+                    const filtered = partnersArr.filter((row, idx) => {
+                        if (idx === 0) return false; 
                         if (!row || !row[0]) return false;
                         const nameStr = String(row[0]).trim();
                         if (nameStr === "名字" || nameStr.toLowerCase() === "name") return false;
@@ -1583,17 +1792,18 @@
                 }
             }
         } catch (error) {
-            console.error("試算表 API 同步失敗，使用預設名單:", error);
+            console.error("試算表 API 同步失敗，自動啟用本地預設名單:", error);
         }
-        updatePartnersData(allPartnersData);
+        updatePartnersData();
     }
 
-    function updatePartnersData(dataArray) {
+    function updatePartnersData() {
         populateGenderOptions();
         populateRegionOptions();
         populateNameOptions();
         renderFeaturedSection();
-        applyFilters();
+        renderClientsSection();
+        applyFilters(); 
     }
 
     function populateGenderOptions() {
@@ -1665,70 +1875,17 @@
         result.sort((a, b) => {
             const recordA = userRatings[a[0]] || { scores: [] };
             const recordB = userRatings[b[0]] || { scores: [] };
-            
             let avgA = recordA.scores.length > 0 ? recordA.scores.reduce((x, y) => x + y, 0) / recordA.scores.length : 0;
             let avgB = recordB.scores.length > 0 ? recordB.scores.reduce((x, y) => x + y, 0) / recordB.scores.length : 0;
-            
             let countA = recordA.scores.length;
             let countB = recordB.scores.length;
 
-            if (sortVal === 'rating') {
-                return avgB - avgA;
-            } else if (sortVal === 'orders') {
-                return countB - countA;
-            } else {
-                return 0;
-            }
+            if (sortVal === 'rating') return avgB - avgA;
+            if (sortVal === 'orders') return countB - countA;
+            return 0;
         });
 
         renderPartners(result);
-    }
-
-    function renderPartners(dataArray) {
-        const container = document.getElementById('partner-list-container');
-        if (!container) return;
-        let html = '';
-        dataArray.forEach(r => {
-            if (!r || !r[0]) return;
-            const name = r[0] || '', gender = r[1] || '', region = r[2] || '', intro = r[3] || '';
-            
-            const record = userRatings[name];
-            let avg = 0.0, count = 0;
-            if (record && record.scores && record.scores.length > 0) {
-                avg = record.scores.reduce((a, b) => a + b, 0) / record.scores.length;
-                count = record.scores.length;
-            }
-            const rating = count > 0 ? `⭐ ${avg.toFixed(1)} (${count}單)` : `⭐ 0.0 (0單)`;
-            const badgeLabel = count > 0 ? `<span class="partner-tag tag-badge">🏆 口碑認證</span>` : `<span class="partner-tag tag-badge">✨ 新進夥伴</span>`;
-
-            let aiTags = generateAiHumanTags(intro);
-            const regs = getRegionsArray(region);
-            const isFav = favorites.includes(name);
-
-            let tagsHtml = regs.map(reg => `<span class="partner-tag tag-region">${escapeHtml(reg)}</span>`).join(' ');
-            aiTags.slice(0, 2).forEach(srv => {
-                tagsHtml += `<span class="partner-tag tag-ai">${escapeHtml(srv)}</span>`;
-            });
-            tagsHtml += badgeLabel;
-
-            html += `
-                <div class="partner-card" onclick="openPartnerDetail('${escapeHtml(String(name))}')">
-                    <div class="partner-top">
-                        <div class="partner-name">👤 ${escapeHtml(String(name))} <span class="partner-rating">${rating}</span></div>
-                    </div>
-                    <div class="partner-tags">${gender ? `<span class="partner-tag tag-gender">${escapeHtml(String(gender))}</span>` : ''}${tagsHtml}</div>
-                    <div class="partner-intro">${escapeHtml(String(intro))}</div>
-                    <div class="card-action-bar" onclick="event.stopPropagation()">
-                        <div class="card-btn-group">
-                            <button class="card-fav-btn" onclick="toggleFavorite('${escapeHtml(String(name))}', event)">${isFav ? '❤️ 已收藏' : '🤍 收藏'}</button>
-                            <button class="card-fav-btn" onclick="sharePartner('${escapeHtml(String(name))}', '${escapeHtml(String(region))}', '${escapeHtml(String(intro)).replace(/'/g, "\\'")}', event)">📤 分享</button>
-                        </div>
-                        <button class="card-copy-btn" onclick="openBookingModal('${escapeHtml(String(name))}', '${escapeHtml(String(region))}')">📋 預約此夥伴</button>
-                    </div>
-                </div>
-            `;
-        });
-        container.innerHTML = html || `<div style="text-align:center; color: var(--text-gray); font-size:12.5px; padding:20px;">沒有符合條件的成員</div>`;
     }
 
     function switchTab(tabId) {
@@ -1749,10 +1906,7 @@
         const targetPanel = document.getElementById('panel-' + tabId);
         if (targetPanel) targetPanel.classList.add('active');
 
-        if (tabId === 'history') {
-            renderHistoryTab();
-        }
-
+        if (tabId === 'history') renderHistoryTab();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1765,8 +1919,7 @@
         if (subPanel) subPanel.classList.add('active');
     }
 
-    // AI 機器人互動腳本
-    const systemPrompt = "你現在是專屬的「閒人案內所」頂級數位風控官兼首席智能客服總監。你的任務是：捍衛品牌格調、保護夥伴與求租人權益、解答所有關於交退費政策（如30%定金、最長預付期2個月、7天內退費規範等）以及發文格式的問題。語氣保持神祕霓虹美學、冷靜專業，適當使用符號（如 👻、🔮）。";
+    const systemPrompt = "你現在是專屬的「閒人案內所」頂級數位風控官兼首席智能客服總監。";
     let chatHistory = [{ role: "system", content: systemPrompt }];
 
     function toggleAIChat() {
@@ -1776,43 +1929,13 @@
 
     function sendQuickQuestion(qText) {
         const input = document.getElementById('ai-user-input');
-        if (input) {
-            input.value = qText;
-            sendAIMessage();
-        }
-    }
-
-    function getLocalSmartResponse(userText) {
-        const text = userText.toLowerCase();
-        if (text.includes("格式") && (text.includes("求租") || text.includes("出租") || text.includes("發文"))) {
-            const formatText = "[求租/地區/性別] 名字";
-            return `標準發文格式規範：\n\`${formatText}\`\n（例如：\`[求租/台北/女] 小雅\`）\n\n<button class="copy-code-btn" onclick="copyToClipboard('${escapeHtml(formatText)}')">📋 一鍵複製發文格式</button>`;
-        }
-        if (text.includes("線下") || text.includes("定金") || text.includes("30%")) {
-            const formatOne = `💳 格式一：【線下委託｜30% 定金制】\n預約日期：\n預約時間：\n委託總額：\n應付定金 (30%)：\n現場尾款 (70%)：`;
-            return `${formatOne}\n\n<button class="copy-code-btn" onclick="copyToClipboard(${JSON.stringify(formatOne)})">📋 一鍵複製線下委託格式</button>`;
-        }
-        if (text.includes("線上") || text.includes("全額") || text.includes("預付")) {
-            const formatTwo = `🌐 格式二：【線上委託｜全額預付制】\n預約日期：\n預約時間：\n委託金額 (全額)：`;
-            return `${formatTwo}\n\n<button class="copy-code-btn" onclick="copyToClipboard(${JSON.stringify(formatTwo)})">📋 一鍵複製線上預付格式</button>`;
-        }
-        if (text.includes("退費") || text.includes("取消") || text.includes("放鳥") || text.includes("違約金") || text.includes("政策")) {
-            return `根據《閒人案內所交退付政策》：\n• 預付期最長以 2 個月為限。\n• 7 天前取消：退還餘額（扣除手續費）。\n• 7 天內臨退/放鳥：沒收總金額 30% 作為違約金（20% 平台行政費，10% 夥伴補償）。👻`;
-        }
-        if (text.includes("管管") || text.includes("真人") || text.includes("客服") || text.includes("申訴") || text.includes("所長")) {
-            return `專人服務請直接點擊以下連結一對一私訊：\n<a class="chat-link-btn" href="https://line.me/ti/p/L1iM3COUPl" target="_blank">👩‍💼 點此私訊【聯絡管管】</a>\n<a class="chat-link-btn" href="https://line.me/ti/p/mR19KggePp" target="_blank">👨‍💼 點此私訊【聯絡所長】</a>`;
-        }
-        if (text.includes("你好") || text.includes("嗨") || text.includes("hi") || text.includes("hello")) {
-            return `您好！我是閒人案內所的數位風控與客服總監。請問今天有關於預約媒合、發文格式或交退費政策的問題想諮詢嗎？✨`;
-        }
-        return null;
+        if (input) { input.value = qText; sendAIMessage(); }
     }
 
     async function sendAIMessage() {
         const input = document.getElementById('ai-user-input');
         const container = document.getElementById('ai-messages');
         if (!input || !container) return;
-        
         const text = input.value.trim();
         if (!text) return;
 
@@ -1820,41 +1943,21 @@
         input.value = '';
         container.scrollTop = container.scrollHeight;
 
-        const quickReply = getLocalSmartResponse(text);
-        if (quickReply) {
-            container.innerHTML += `<div class="ai-msg bot">${quickReply}</div>`;
-            container.scrollTop = container.scrollHeight;
-            return;
-        }
-
-        const loadingId = 'loading-' + Date.now();
-        container.innerHTML += `<div id="${loadingId}" class="ai-msg bot" style="color: var(--neon-gold);">總監正在解析規則中... 🔮</div>`;
-        container.scrollTop = container.scrollHeight;
-
         try {
             const apiUrl = `https://text.pollinations.ai/${encodeURIComponent(text)}?system=${encodeURIComponent(systemPrompt)}`;
             const response = await fetch(apiUrl);
             const rawText = await response.text();
-
-            const loadingEl = document.getElementById(loadingId);
-            if (loadingEl) loadingEl.remove();
-
             container.innerHTML += `<div class="ai-msg bot">${escapeHtml(rawText)}</div>`;
             container.scrollTop = container.scrollHeight;
         } catch (error) {
-            const loadingEl = document.getElementById(loadingId);
-            if (loadingEl) loadingEl.remove();
-
-            container.innerHTML += `<div class="ai-msg bot">您好！目前系統連線較為忙碌。若有緊急爭議申訴或轉帳對帳，請至主頁點擊【聯絡管管】進行真人處理 👻</div>`;
+            container.innerHTML += `<div class="ai-msg bot">系統忙碌中，請點擊主頁聯絡管管 👻</div>`;
             container.scrollTop = container.scrollHeight;
         }
     }
 
     function clearChatHistory() {
         const container = document.getElementById('ai-messages');
-        if (container) {
-            container.innerHTML = `<div class="ai-msg bot">對話紀錄已清空。請問還有什麼可以協助您的嗎？✨</div>`;
-        }
+        if (container) container.innerHTML = `<div class="ai-msg bot">對話紀錄已清空。✨</div>`;
     }
 
     function escapeHtml(str) { 
@@ -1873,10 +1976,7 @@
         const userInput = document.getElementById('ai-user-input');
         if (userInput) {
             userInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    sendAIMessage();
-                }
+                if (e.key === 'Enter') { e.preventDefault(); sendAIMessage(); }
             });
         }
     });
