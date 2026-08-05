@@ -16,6 +16,8 @@ jobs:
     steps:
     - name: 1. 檢出專案程式碼
       uses: actions/checkout@v4
+      with:
+        persist-credentials: true
 
     - name: 2. 初始化 Python 環境
       uses: actions/setup-python@v5
@@ -38,7 +40,7 @@ jobs:
         
         if ! git diff --cached --exit-code; then
           git commit -m "chore: 系統自動更新房間即時使用狀態 [skip ci]"
-          git push origin HEAD:main
+          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:main
           echo "🎉 網頁已成功推回更新並同步至 Pages 上線！"
         else
           echo "☕ 沒有檢測到任何房間狀態改變，跳過本次推送。"
