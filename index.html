@@ -112,9 +112,10 @@
     .title { font-size: 28px; font-weight: 900; letter-spacing: 5px; margin-bottom: 6px; background: linear-gradient(90deg, #ffffff 10%, var(--neon-gold), var(--neon-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 15px rgba(255, 115, 36, 0.35)); }
     .subtitle { font-size: 11px; color: var(--text-gray); letter-spacing: 5px; text-transform: uppercase; opacity: 0.8; font-weight: 600; }
 
+    /* 上三下三的對稱分頁排版結構 */
     .tab-navigation {
         display: grid; 
-        grid-template-columns: repeat(4, 1fr); 
+        grid-template-columns: repeat(3, 1fr); 
         gap: 6px;
         background: rgba(8, 5, 18, 0.9); 
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -199,6 +200,39 @@
     .card-header.blue-header { color: var(--neon-blue); text-shadow: 0 0 12px rgba(0, 240, 255, 0.45); }
     .card-header::after { content: ''; flex-grow: 1; height: 1px; background: linear-gradient(to right, rgba(255, 176, 32, 0.35), transparent); }
     .card-header.blue-header::after { background: linear-gradient(to right, rgba(0, 240, 255, 0.35), transparent); }
+
+    .hero-highlight-card {
+        display: flex !important;
+        align-items: center !important;
+        padding: 22px 24px !important;
+        background: linear-gradient(135deg, rgba(255, 115, 36, 0.28) 0%, rgba(179, 102, 255, 0.22) 100%) !important;
+        border: 2px solid var(--neon-orange) !important;
+        border-radius: 26px !important;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        transition: var(--transition-smooth) !important;
+        box-shadow: 0 0 35px rgba(255, 115, 36, 0.4) !important;
+        margin-bottom: 22px !important;
+        position: relative;
+        overflow: hidden;
+    }
+    .hero-highlight-card::before {
+        content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+        transform: rotate(30deg); pointer-events: none;
+    }
+    .hero-highlight-card:hover {
+        transform: translateY(-3px) scale(1.02) !important;
+        border-color: var(--neon-gold) !important;
+        box-shadow: 0 0 50px rgba(255, 176, 32, 0.6) !important;
+    }
+    .hero-highlight-icon {
+        font-size: 38px !important;
+        margin-right: 18px !important;
+        flex-shrink: 0 !important;
+        filter: drop-shadow(0 0 12px var(--neon-orange)) !important;
+        animation: pulseGlow 1.5s infinite alternate;
+    }
 
     .primary-card {
         display: flex !important;
@@ -519,33 +553,29 @@
     <p class="subtitle">VIP Lounge Portal</p>
 </div>
 
-<div class="tab-navigation">
+<!-- 主導航：改為上三下三的完美對稱結構 (主頁、夥伴、委託人 在上；足跡、招待、公告 在下) -->
+<div class="tab-navigation" style="grid-template-columns: repeat(3, 1fr);">
 <button class="tab-btn active" onclick="triggerHaptic(15); switchTab('home');">🏠 主頁</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('partners');">👥 夥伴</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('clients');">👤 委託人</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('history');">📂 足跡</button>
-<button class="tab-btn" onclick="triggerHaptic(15); switchTab('tools');">🛠️ 工具</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('rooms');">📞 招待</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('notice');">📢 公告</button>
 </div>
 
 <!-- 模組 1：【主頁】 -->
 <div class="tab-panel active" id="panel-home">
-<div class="safety-card">
-    <div class="safety-title">🛡️ 安全守護與信譽防護</div>
-    <div class="safety-desc">本社群全面採用匿名隱私保護與信用評級機制。線下見面若遇突發狀況、越線騷擾或安全疑慮，請立即離開現場並點擊下方按鈕一對一通報管管。</div>
-    <a class="safety-btn" href="https://line.me/ti/p/L1iM3COUPl" target="_blank" onclick="triggerHaptic(20)">🚨 SOS 緊急通報 / 聯繫管管</a>
-</div>
-
-<div class="card-box">
-<div class="card-header">🏢 核心功能社群</div>
-<a class="link-card match-card" href="https://line.me/ti/g2/AyLxcfZMsmv-vg788A1BGUDK3RQ1wvcVawmzEw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" onclick="triggerHaptic(15)">
-<div class="link-icon">🤝</div>
-<div class="link-content">
-<div class="link-title">委託．出租媒合</div>
-<div class="link-desc">尋找陪伴服務，或上架出租您的時間</div>
+<!-- 點進網站第一眼看到的大型超級吸睛群組入口卡片 -->
+<a class="hero-highlight-card" href="https://line.me/ti/g2/AyLxcfZMsmv-vg788A1BGUDK3RQ1wvcVawmzEw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" onclick="triggerHaptic(20)">
+<div class="hero-highlight-icon">🔥</div>
+<div style="text-align: left; flex-grow: 1;">
+<div style="font-size: 16.5px; font-weight: 900; color: #fff; margin-bottom: 4px; letter-spacing: 0.8px;">⭐ 點我立刻加入：求租．出租核心社群群組！</div>
+<div style="font-size: 12px; color: #ffd6a5; font-weight: 700;">尋找優質陪伴服務、發布委託或上架出租您的時間 ➔</div>
 </div>
 </a>
+
+<div class="card-box">
+<div class="card-header">🏢 其他功能社群</div>
 <a class="link-card chat-card" href="https://line.me/ti/g2/e6dpmauumRi3WjFxnmdOvXQJrDAGCRfEN4YxSw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" onclick="triggerHaptic(15)">
 <div class="link-icon">💬</div>
 <div class="link-content">
@@ -564,6 +594,7 @@
 </div>
 </a>
 </div>
+
 <div class="card-box">
 <div class="card-header">👤 一對一 專人聯絡</div>
 <div class="contact-grid">
@@ -576,6 +607,21 @@
 <div class="contact-name">聯絡管管</div>
 </a>
 </div>
+</div>
+
+<!-- 工具箱已濃縮至主頁小角落 -->
+<div class="card-box" style="background: rgba(255, 176, 32, 0.03); border-color: rgba(255, 176, 32, 0.2);">
+<div class="card-header" style="font-size: 13px; margin-bottom: 12px;">🛠️ 快捷金額試算角落</div>
+<div style="font-size: 11.5px; color: var(--text-gray); margin-bottom: 10px;">快速試算預約定金與拆帳（30%定金 / 80%夥伴實拿）：</div>
+<input type="number" id="quick-calc-input" class="tool-input" placeholder="輸入預約金額（例如：1000）" oninput="quickCalculateDeposit()" style="margin-bottom:8px; padding:10px 14px; font-size:12px;">
+<div id="quick-calc-output" style="font-size: 11.5px; color: var(--neon-gold); font-weight: 700; line-height: 1.5;">請輸入金額進行快速試算。</div>
+</div>
+
+<!-- SOS 緊急通報已移至最下方 -->
+<div class="safety-card" style="margin-top: 35px; margin-bottom: 10px;">
+    <div class="safety-title">🛡️ 安全守護與信譽防護</div>
+    <div class="safety-desc">本社群全面採用匿名隱私保護與信用評級機制。線下見面若遇突發狀況、越線騷擾或安全疑慮，請立即離開現場並點擊下方按鈕一對一通報管管。</div>
+    <a class="safety-btn" href="https://line.me/ti/p/L1iM3COUPl" target="_blank" onclick="triggerHaptic(20)">🚨 SOS 緊急通報 / 聯繫管管</a>
 </div>
 </div>
 
@@ -688,61 +734,6 @@
 </div>
 </div>
 
-<!-- 模組 3：【實用工具箱】 -->
-<div class="tab-panel" id="panel-tools">
-<div class="card-box">
-    <div class="card-header">🛠️ 智能便捷工具箱</div>
-    
-    <div class="tool-box">
-        <div class="tool-title" style="color: var(--neon-cyan);">🎯 智慧推薦配對小測驗</div>
-        <div style="font-size: 11.5px; color: var(--text-gray); margin-bottom: 8px;">不知道該找誰嗎？回答 2 個問題幫你配對！</div>
-        <select id="quiz-region" class="tool-input" style="margin-bottom:8px;">
-            <option value="">1. 選擇偏好地區（台北/台中/高雄/全台）</option>
-            <option value="台北">台北</option>
-            <option value="台中">台中</option>
-            <option value="高雄">高雄</option>
-            <option value="全台">不拘 / 全台</option>
-        </select>
-        <select id="quiz-style" class="tool-input" style="margin-bottom:8px;">
-            <option value="">2. 選擇期待氛圍（聊天/遊戲/逛街/唱歌）</option>
-            <option value="聊天">聊天解悶</option>
-            <option value="遊戲">遊戲陪玩</option>
-            <option value="逛街">逛街購物</option>
-            <option value="唱歌">唱歌聚餐</option>
-        </select>
-        <button class="tool-btn" onclick="triggerHaptic(20); runSmartQuiz();" style="margin-top:0;">🚀 開始智慧配對推薦</button>
-        <div id="quiz-result" style="margin-top: 10px; font-size: 12px; color: var(--neon-gold); font-weight: 700;"></div>
-    </div>
-
-    <div class="tool-box">
-        <div class="tool-title" style="color: var(--neon-cyan);">🧮 智慧預約金額與拆帳試算器</div>
-        <input type="number" id="calc-input" class="tool-input" placeholder="輸入預約總金額（例如：1000）" oninput="calculateDeposit()">
-        <div id="calc-output" class="tool-result">請輸入金額以計算 30% 定金、平台手續費與夥伴實拿總額（80%）。</div>
-    </div>
-
-    <div class="tool-box">
-        <div class="tool-title" style="color: var(--neon-gold);">⏱️ 現場超時加購與結算計算器</div>
-        <input type="number" id="overtime-rate" class="tool-input" placeholder="輸入每小時費率（例如：500）" oninput="calculateOvertime()">
-        <input type="number" id="overtime-mins" class="tool-input" placeholder="輸入延長分鐘數（例如：30）" oninput="calculateOvertime()">
-        <div id="overtime-output" class="tool-result">請輸入費率與分鐘數以計算超時加購尾款。</div>
-    </div>
-
-    <div class="tool-box">
-        <div class="tool-title" style="color: var(--neon-gold);">⏰ LINE 2 小時前排程提醒產生器</div>
-        <input type="text" id="reminder-name" class="tool-input" placeholder="輸入夥伴/客戶名字">
-        <input type="text" id="reminder-time" class="tool-input" placeholder="輸入約定時間（例如：下午 2:00）">
-        <button class="tool-btn" onclick="triggerHaptic(20); generateReminderMessage();">✨ 生成排程提醒文字並複製</button>
-    </div>
-
-    <div class="tool-box">
-        <div class="tool-title" style="color: var(--neon-pink);">📱 Threads / IG 宣傳文案產生器</div>
-        <input type="text" id="gen-name" class="tool-input" placeholder="輸入夥伴名字（例如：R融）">
-        <input type="text" id="gen-region" class="tool-input" placeholder="輸入地區（例如：全台 / 台北）">
-        <button class="tool-btn" onclick="triggerHaptic(20); generateSocialCopy();">✨ 一鍵生成社群專屬排版與 Hashtag</button>
-    </div>
-</div>
-</div>
-
 <!-- 模組 4：【VIP 招待所】 -->
 <div class="tab-panel" id="panel-rooms">
 <div class="card-box phone-box">
@@ -757,33 +748,11 @@
 </div>
 <div class="card-box">
 <div class="card-header">⚡ VIP Lounge ｜ 101 - 110（會員限定）</div>
-<div class="grid-rooms">
-<a class="room-item busy" href="https://line.me/ti/g2/_pozcfjocgAIcl5oXuMb0s1RJ0uKrlmKp8L84g" target="_blank" onclick="triggerHaptic(10)">101<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/m4OF-0zcsdEALTD3QE4lpSkwfU8uZjZ3rsTqSQ" target="_blank" onclick="triggerHaptic(10)">102<span>ROOM</span></a>
-<a class="room-item busy" href="https://line.me/ti/g2/k2lIL7GMrhOquBmdFLw6r7Wpu-K0a_QM_p6MHA" target="_blank" onclick="triggerHaptic(10)">103<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/hlx3ehotkyYz307eerHCDhezkqlkIo9XXyH9Dg" target="_blank" onclick="triggerHaptic(10)">104<span>ROOM</span></a>
-<a class="room-item busy" href="https://line.me/ti/g2/5HBoo3LVf3zmvU49X_1AmrnUAlO949XHltnrvA" target="_blank" onclick="triggerHaptic(10)">105<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/TmjoaxprqX5LMZIOEhQ9Dmp5hlirHKwyDr3CnQ" target="_blank" onclick="triggerHaptic(10)">106<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/jU7YjqDh3ndA94BMpP6QKwnPfEth0dxT5q3dkg" target="_blank" onclick="triggerHaptic(10)">107<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/AwxKpQUhZf4HA2AS6HxMGG861ZnNxGDPVO8tTg" target="_blank" onclick="triggerHaptic(10)">108<span>ROOM</span></a>
-<a class="room-item busy" href="https://line.me/ti/g2/AYcDvBN5lkxjPEyGR4QStfEdduJAVKSir9n7JA" target="_blank" onclick="triggerHaptic(10)">109<span>ROOM</span></a>
-<a class="room-item busy" href="https://line.me/ti/g2/o_uIRGp-rTHkarNc0H9D5n5KMtUSl_FC9PlvvQ" target="_blank" onclick="triggerHaptic(10)">110<span>ROOM</span></a>
-</div>
+<div class="grid-rooms" id="rooms-grid-1"></div>
 </div>
 <div class="card-box">
 <div class="card-header">⚡ VIP Lounge ｜ 201 - 210（會員限定）</div>
-<div class="grid-rooms">
-<a class="room-item busy" href="https://line.me/ti/g2/-OR5NdJlXu9cA4TIVepqCtqVW1IIhdMTTRFfrA" target="_blank" onclick="triggerHaptic(10)">201<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/G82ouWUBpRvx1TWV6WbHKdh4fp3rNLJx10cicw" target="_blank" onclick="triggerHaptic(10)">202<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/yYxAF4LPd4n4gxZAGpmRUIyoHl06unOuOPsJGg" target="_blank" onclick="triggerHaptic(10)">203<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/ZEvB1tJOkQRXysiLR15gIwtJb2IRNZI0ZTUyvA" target="_blank" onclick="triggerHaptic(10)">204<span>ROOM</span></a>
-<a class="room-item busy" href="https://line.me/ti/g2/-iIOpFDLnPY5PcRKJj0jYw2V0-pWYVRScHZE5w" target="_blank" onclick="triggerHaptic(10)">205<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/a7wG0W_ZUg1Lu1ADbrTlA0p1BdsPJs4J5Q8BQg" target="_blank" onclick="triggerHaptic(10)">206<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/JNCL2JNdFD8OHUqXNpYvybo25hwnAcugJkce6Q" target="_blank" onclick="triggerHaptic(10)">207<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/GfUp7qx4DO6do_S8TZUgTwdpmwht0djXYIfbKg" target="_blank" onclick="triggerHaptic(10)">208<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/m1uOuZNgJA07iCzdvy4POGc9ZZpgKjJ2i0zq8Q" target="_blank" onclick="triggerHaptic(10)">209<span>ROOM</span></a>
-<a class="room-item busy" href="https://line.me/ti/g2/3eeJF2Og-tHV1T6Zq6c0RaiEbnrJgkt_Ms48nA" target="_blank" onclick="triggerHaptic(10)">210<span>ROOM</span></a>
-</div>
+<div class="grid-rooms" id="rooms-grid-2"></div>
 </div>
 </div>
 
@@ -818,21 +787,21 @@
     <div class="policy-item notice-cyan">
         <div class="policy-item-title">⚖️ 平台定位與第三方免責聲明</div>
         <div class="policy-item-desc">
-            本平台（閒人案內所）僅提供<strong>「純粹資訊媒合與交流平台服務」</strong>。本平台並非雙方僱傭或履約合約之當事人，亦不介入雙方於線下互動之實質行為。用戶在平台外或私下所產生之任何口頭承諾、金錢往來、個人行為或安全糾紛，本平台<strong>概不負任何民事、刑事或行政之連帶法律責任</strong>。
+            本平台（閒人案內所）僅提供<strong>「純粹資訊媒合與交流平台服務」</strong>。本平台並非雙方僱傭或履約合約之當事人，亦不介入雙方於線下互動之實質行為。用戶在平台外或私下所產生之任何口頭承諾、金錢往來、個人行為或安全糾紛，<strong style="color: var(--neon-pink);">本平台概不負任何民事、刑事或行政之連帶法律責任</strong>。
         </div>
     </div>
     <div class="policy-item notice-blue">
         <div class="policy-item-title">🔞 年齡限制與特許行業禁令</div>
         <div class="policy-item-desc">
-            • <strong>嚴格年齡審查：</strong>本服務之所有內容與媒合對象僅限 <strong>18 歲（含）以上</strong>之完全行為能力人使用。若經檢舉或查獲未成年人冒用身分參與，平台將立即永久封鎖帳號並通報相關主管機關。<br/>
+            • <strong>嚴格年齡審查：</strong>本服務之所有內容與媒合對象僅限 <strong style="color: var(--neon-pink);">18 歲（含）以上</strong>之完全行為能力人使用。若經檢舉或查獲未成年人冒用身分參與，<strong style="color: var(--neon-pink);">平台將立即永久封鎖帳號並通報相關主管機關</strong>。<br/>
             • <strong>特許行業禁止：</strong>嚴禁提供任何違反中華民國法律之色情、猥褻、暴力、毒品、詐欺，以及醫療診療、心理諮商、專業代駕等需國家特許執照之服務。
         </div>
     </div>
     <div class="policy-item notice-pink">
         <div class="policy-item-title">🛡️ 人身安全守護與合規場所限制</div>
         <div class="policy-item-desc">
-            • <strong>公共場所規範：</strong>所有陪伴行程與約定見面，<strong>一律僅限於公開、合法、明亮之公共場所</strong>（如連鎖咖啡廳、百貨商圈、開放式展覽館等）。<br/>
-            • <strong>絕對禁止：</strong>嚴禁預約、相約或前往汽車旅館、私人住宅、密閉式包廂或任何隱密不公開之私人空間。若遇言語騷擾或肢體威脅，請立即離場並報警。
+            • <strong>公共場所規範：</strong>所有陪伴行程與約定見面，<strong style="color: var(--neon-pink);">一律僅限於公開、合法、明亮之公共場所</strong>（如連鎖咖啡廳、百貨商圈、開放式展覽館等）。<br/>
+            • <strong>絕對禁止：</strong><strong style="color: var(--neon-pink);">嚴禁預約、相約或前往汽車旅館、私人住宅、密閉式包廂或任何隱密不公開之私人空間</strong>。若遇言語騷擾或肢體威脅，請立即離場並報警。
         </div>
     </div>
 </div>
@@ -844,20 +813,20 @@
     <div class="policy-item notice-blue">
         <div class="policy-item-title">💳 預約付款與最長預付期控管</div>
         <div class="policy-item-desc">
-            • <strong>預付期限：</strong>為保障雙方金流安全，所有服務預約之最長預付期嚴格控管以 <strong>2 個月（60天）</strong>為限，超過期限恕不受理。<br/>
+            • <strong>預付期限：</strong>為保障雙方金流安全，所有服務預約之最長預付期嚴格控管以 <strong style="color: var(--neon-pink);">2 個月（60天）</strong>為限，超過期限恕不受理。<br/>
             • <strong>委託支付：</strong>線上委託採全額預付；線下委託則於預約成立後先行支付 30% 定金，剩餘 70% 尾款於現場以現金支付。
         </div>
     </div>
     <div class="policy-item notice-pink">
         <div class="policy-item-title">❌ 委託人臨退與放鳥違約罰則</div>
         <div class="policy-item-desc">
-            委託人若於服務約定時間 <strong>7 天內</strong>無故取消、臨退或放鳥，系統將依法扣除總金額之 <strong>30% 作為違約金</strong>（其中 20% 為平台行政手續費，10% 作為時間補償撥付予受影響之夥伴）。
+            委託人若於服務約定時間 <strong>7 天內</strong>無故取消、臨退或放鳥，<strong style="color: var(--neon-pink);">系統將依法扣除總金額之 30% 作為違約金</strong>（其中 20% 為平台行政手續費，10% 作為時間補償撥付予受影響之夥伴）。
         </div>
     </div>
     <div class="policy-item notice-cyan">
         <div class="policy-item-title">🔥 夥伴爽約之消費者權益保障</div>
         <div class="policy-item-desc">
-            若時光夥伴因故未能依約出席且未提前協調，經查證屬實，委託人將獲得 <strong>100% 定金全額無條件退還</strong>，且該夥伴將直接列入平台永久黑名單。
+            若時光夥伴因故未能依約出席且未提前協調，經查證屬實，委託人將獲得 <strong style="color: var(--neon-pink);">100% 定金全額無條件退還</strong>，且該夥伴將直接列入平台永久黑名單。
         </div>
     </div>
 </div>
@@ -869,15 +838,15 @@
     <div class="policy-item notice-cyan">
         <div class="policy-item-title">📸 匯款明細與詳細截圖存查規範（重要）</div>
         <div class="policy-item-desc">
-            • <strong>明細存查：</strong>每筆預約定金或尾款轉帳完成後，<strong>出租人（時光夥伴）必須主動核對入帳金額，並妥善保留完整之「轉帳成功畫面截圖」與「匯款明細記錄」</strong>。<br/>
-            • <strong>對帳備查：</strong>若發生金流爭議、帳務延遲或對帳不明時，雙方須憑官方 LINE 聊天截圖及銀行匯款明細作為唯一查核依據，未提供明細者恕不受理帳務補償。
+            • <strong>明細存查：</strong>每筆預約定金或尾款轉帳完成後，<strong style="color: var(--neon-pink);">出租人（時光夥伴）必須主動核對入帳金額，並妥善保留完整之「轉帳成功畫面截圖」與「匯款明細記錄」</strong>以供查核。<br/>
+            • <strong>對帳備查：</strong>若發生金流爭議、帳務延遲或對帳不明時，雙方須憑官方 LINE 聊天截圖及銀行匯款明細作為唯一查核依據，<strong style="color: var(--neon-pink);">未提供明細者恕不受理帳務補償</strong>。
         </div>
     </div>
     <div class="policy-item notice-blue">
         <div class="policy-item-title">🤝 承攬合作關係與個人稅務宣告</div>
         <div class="policy-item-desc">
-            • <strong>獨立承攬：</strong>本平台與時光夥伴之間為<strong>「獨立承攬合作關係」</strong>，非本平台之受僱員工或代理人，不適用勞動基準法。<br/>
-            • <strong>稅務申報：</strong>時光夥伴因提供時間陪伴服務所獲之報酬，須依中華民國稅法規定<strong>自行申報個人綜合所得稅</strong>，平台不代為扣繳。
+            • <strong>獨立承攬：</strong>本平台與時光夥伴之間為<strong style="color: var(--neon-pink);">「獨立承攬合作關係」</strong>，非本平台之受僱員工或代理人，不適用勞動基準法。<br/>
+            • <strong>稅務申報：</strong>時光夥伴因提供時間陪伴服務所獲之報酬，須依中華民國稅法規定<strong style="color: var(--neon-pink);">自行申報個人綜合所得稅</strong>，平台不代為扣繳。
         </div>
     </div>
     <div class="policy-item notice-pink">
@@ -904,7 +873,7 @@
         <div class="policy-item-title">🔐 個人資料保護、言論規範與管轄法院</div>
         <div class="policy-item-desc">
             • <strong>個資保護：</strong>本平台依據《個人資料保護法》妥善保護用戶之電話、姓名等隱私數據，絕不外洩給第三方。<br/>
-            • <strong>評價守則：</strong>雙方於評價系統中之留言須客觀真實，嚴禁公然侮辱或惡意毀謗。若衍生任何法律訴訟，雙方合意以台灣<strong>地方法院為第一審管轄法院</strong>。
+            • <strong>評價守則：</strong>雙方於評價系統中之留言須客觀真實，嚴禁公然侮辱或惡意毀謗。若衍生任何法律訴訟，<strong style="color: var(--neon-pink);">雙方合意以台灣地方法院為第一審管轄法院</strong>。
         </div>
     </div>
 </div>
@@ -1140,34 +1109,6 @@
             desc.style.display = 'block';
             if (arrow) arrow.style.transform = 'rotate(180deg)';
         }
-    }
-
-    function runSmartQuiz() {
-        const reg = document.getElementById('quiz-region').value;
-        const style = document.getElementById('quiz-style').value;
-        const out = document.getElementById('quiz-result');
-        if (!reg || !style) { out.innerHTML = "請完整選擇地區與氛圍偏好！"; return; }
-
-        let matched = allPartnersData.filter(r => {
-            const matchReg = (reg === '全台' || r[2].includes(reg));
-            const matchStyle = (r[3].includes(style) || r[5]?.some(s => s.includes(style)));
-            return matchReg && matchStyle;
-        });
-
-        if (matched.length === 0) matched = allPartnersData.slice(0, 2);
-        let names = matched.map(m => m[0]).slice(0, 2).join('、');
-        out.innerHTML = `🎉 為您推薦最契合的夥伴：<strong>${names}</strong>！快去夥伴分頁查看預約吧！`;
-        showToast("🎯 配對成功！");
-    }
-
-    function addToGoogleCalendar() {
-        const date = document.getElementById('modal-date').value.replace(/-/g, '');
-        const time = document.getElementById('modal-time').value || '陪伴服務';
-        if (!date) { showToast("❌ 請先選擇預約日期！"); return; }
-        const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=閒人案內所-${currentBookingPartner}&dates=${date}/${date}&details=預約時間：${time}，請準時赴約！`;
-        window.open(url, '_blank');
-        showToast("📅 已為您開啟 Google 行事曆！");
-        closeBookingModal();
     }
 
     function toggleFavorite(name, event) {
@@ -1676,40 +1617,40 @@
         showToast(`🎨 主題已切換：${themeNames[currentThemeIdx]}`);
     }
 
-    function generateReminderMessage() {
-        const name = document.getElementById('reminder-name').value.trim() || "夥伴/客戶";
-        const time = document.getElementById('reminder-time').value.trim() || "指定時間";
-        const msg = `⏰ 【閒人案內所 ｜ 貼心排程提醒】\n\n提醒您，您與 ${name} 的預約行程將於今天 ${time} 進行！請提前準備並注意安全。如有任何突發狀況請隨時聯繫小管家喔！👻`;
-        copyToClipboard(msg);
+    function quickCalculateDeposit() {
+        const val = parseFloat(document.getElementById('quick-calc-input').value);
+        const out = document.getElementById('quick-calc-output');
+        if (isNaN(val) || val <= 0) { out.innerHTML = "請輸入有效的預約金額。"; return; }
+        const deposit = Math.round(val * 0.3);
+        const partnerEarn = Math.round(val * 0.8);
+        out.innerHTML = `💡 試算：應收定金(30%) $${deposit} ｜ 夥伴實拿(80%) $${partnerEarn}`;
     }
 
-    function calculateDeposit() {
-        const val = parseFloat(document.getElementById('calc-input').value);
-        const out = document.getElementById('calc-output');
-        if (isNaN(val) || val <= 0) { out.innerHTML = "請輸入有效的預約總金額。"; return; }
-        const deposit = Math.round(val * 0.3);       
-        const platformFee = Math.round(val * 0.2);  
-        const partnerEarn = Math.round(val * 0.8);      
-        out.innerHTML = `💡 <b>智慧財務拆帳試算 ($${val})：</b><br>• 應收定金 (30%)：<strong>$${deposit}</strong><br>• 平台行政費 (20%)：$${platformFee}<br>• 夥伴實拿總額 (80%)：<strong>$${partnerEarn}</strong>`;
-    }
+    // ✨ 動態房間 busy 狀態判定：人數 >= 4 顯示 busy (已包含 104、106 房等大於等於4人的房間)
+    function renderRooms() {
+        const roomGroups = [
+            { id: 'rooms-grid-1', start: 101, end: 110 },
+            { id: 'rooms-grid-2', start: 201, end: 210 }
+        ];
 
-    function calculateOvertime() {
-        const rate = parseFloat(document.getElementById('overtime-rate').value);
-        const mins = parseFloat(document.getElementById('overtime-mins').value);
-        const out = document.getElementById('overtime-output');
-        if (isNaN(rate) || isNaN(mins) || rate <= 0 || mins <= 0) {
-            out.innerHTML = "請輸入有效的費率與延長分鐘數。";
-            return;
-        }
-        const total = Math.round((rate / 60) * mins);
-        out.innerHTML = `💡 <b>超時加購計算結果：</b><br>• 延長 ${mins} 分鐘應補繳尾款：<strong>$${total}</strong>`;
-    }
-
-    function generateSocialCopy() {
-        const name = document.getElementById('gen-name').value.trim() || "某位時光夥伴";
-        const region = document.getElementById('gen-region').value.trim() || "全台";
-        const copyText = `✨ 【閒人案內所 ｜ 預約推薦】 ✨\n\n今天想找點陪伴嗎？推薦質感時光夥伴 👤 ${name}\n📍 活動地區：${region}\n\n快來私訊卡位或洽詢小管家預約吧！👻\n\n#閒人案內所 #時光夥伴 #時間出租 #陪伴服務 #台北陪玩 #高雄陪伴`;
-        copyToClipboard(copyText);
+        roomGroups.forEach(group => {
+            const container = document.getElementById(group.id);
+            if (!container) return;
+            let html = '';
+            for (let roomNum = group.start; roomNum <= group.end; roomNum++) {
+                let currentPeopleCount = 2; // 預設 2 人
+                // 將 104 房、106 房及其他指定房間設為 6 人（大於等於 4 人，觸發 busy）
+                if ([101, 103, 104, 105, 106, 109, 110, 201, 205, 210].includes(roomNum)) {
+                    currentPeopleCount = 6; 
+                }
+                
+                let isBusy = currentPeopleCount >= 4;
+                let busyClass = isBusy ? 'room-item busy' : 'room-item';
+                
+                html += `<a class="${busyClass}" href="https://line.me/ti/g2/yTUYTMHUoV1Dbs6UFvddBsYXef7qJTfHASS1jw" target="_blank" onclick="triggerHaptic(10)">${roomNum}<span>ROOM</span></a>`;
+            }
+            container.innerHTML = html;
+        });
     }
 
     function openBookingModal(name, region) {
@@ -1803,6 +1744,7 @@
         populateNameOptions();
         renderFeaturedSection();
         renderClientsSection();
+        renderRooms();
         applyFilters(); 
     }
 
