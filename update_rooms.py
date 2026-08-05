@@ -97,7 +97,7 @@ for link in talk_links:
                         current_classes.append("busy")
                         link["class"] = current_classes
                         has_changed = True
-                        print(f" ➔ 🔴 对談室 {talk_id} 有人進駐 (>=1人)，自動亮起【使用中】")
+                        print(f" ➔ 🔴 對談室 {talk_id} 有人進駐 (>=1人)，自動亮起【使用中】")
                 else:
                     if "busy" in current_classes:
                         current_classes.remove("busy")
