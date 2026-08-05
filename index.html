@@ -553,7 +553,7 @@
     <p class="subtitle">VIP Lounge Portal</p>
 </div>
 
-<!-- 主導航：上三下三排版 (主頁、夥伴、委託人 在上；足跡、招待、公告 在下) -->
+<!-- 主導航：上三下三排版 -->
 <div class="tab-navigation">
 <button class="tab-btn active" onclick="triggerHaptic(15); switchTab('home');">🏠 主頁</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('partners');">👥 夥伴</button>
@@ -565,7 +565,6 @@
 
 <!-- 模組 1：【主頁】 -->
 <div class="tab-panel active" id="panel-home">
-<!-- 點進網站第一眼看到的大型超級吸睛群組入口卡片 -->
 <a class="hero-highlight-card" href="https://line.me/ti/g2/AyLxcfZMsmv-vg788A1BGUDK3RQ1wvcVawmzEw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" onclick="triggerHaptic(20)">
 <div class="hero-highlight-icon">🔥</div>
 <div style="text-align: left; flex-grow: 1;">
@@ -609,7 +608,6 @@
 </div>
 </div>
 
-<!-- 工具箱濃縮至主頁小角落 -->
 <div class="card-box" style="background: rgba(255, 176, 32, 0.03); border-color: rgba(255, 176, 32, 0.2);">
 <div class="card-header" style="font-size: 13px; margin-bottom: 12px;">🛠️ 快捷金額試算角落</div>
 <div style="font-size: 11.5px; color: var(--text-gray); margin-bottom: 10px;">快速試算預約定金與拆帳（30%定金 / 80%夥伴實拿）：</div>
@@ -617,7 +615,6 @@
 <div id="quick-calc-output" style="font-size: 11.5px; color: var(--neon-gold); font-weight: 700; line-height: 1.5;">請輸入金額進行快速試算。</div>
 </div>
 
-<!-- SOS 緊急通報已移至最下方 -->
 <div class="safety-card" style="margin-top: 35px; margin-bottom: 10px;">
     <div class="safety-title">🛡️ 安全守護與信譽防護</div>
     <div class="safety-desc">本社群全面採用匿名隱私保護與信用評級機制。線下見面若遇突發狀況、越線騷擾或安全疑慮，請立即離開現場並點擊下方按鈕一對一通報管管。</div>
@@ -629,16 +626,13 @@
 <div class="tab-panel" id="panel-partners">
 <div class="card-box">
 <div class="card-header">👥 時光夥伴 ｜ 出租人名單</div>
-
 <div class="featured-section">
     <div class="featured-title">👑 全平台高分總排行 (TOP 3)</div>
     <div class="featured-grid" id="featured-grid-container"></div>
 </div>
-
 <div class="search-box-wrapper">
     <input type="text" id="filter-keyword" class="search-input" placeholder="🔍 自由關鍵字搜尋（例如：唱歌, 遊戲, 陪玩...）" oninput="applyFilters()">
 </div>
-
 <div class="tag-pill-container" id="tag-pills">
     <div class="tag-pill active" onclick="triggerHaptic(10); selectPill('全部', this)">全部</div>
     <div class="tag-pill" onclick="triggerHaptic(10); selectPill('⭐ 收藏', this)">⭐ 我的收藏</div>
@@ -649,7 +643,6 @@
     <div class="tag-pill" onclick="triggerHaptic(10); selectPill('女', this)">女夥伴</div>
     <div class="tag-pill" onclick="triggerHaptic(10); selectPill('男', this)">男夥伴</div>
 </div>
-
 <div class="filter-box">
     <div class="filter-item">
         <label>1. 性別</label>
@@ -672,7 +665,6 @@
         </select>
     </div>
 </div>
-
 <div class="partner-grid" id="partner-list-container">
     <div style="text-align:center; color: var(--text-gray); font-size:12.5px; padding:20px;">載入中...</div>
 </div>
@@ -683,16 +675,13 @@
 <div class="tab-panel" id="panel-clients">
 <div class="card-box">
     <div class="card-header" style="color: var(--neon-cyan);">👤 委託人專區 ｜ 信譽與評價榜</div>
-
     <div class="featured-section">
         <div class="featured-title">👑 委託貴賓總排行 (TOP 3)</div>
         <div class="featured-grid" id="client-featured-grid-container"></div>
     </div>
-
     <div class="search-box-wrapper">
         <input type="text" id="client-filter-keyword" class="search-input" placeholder="🔍 搜尋委託需求（例如：展覽, 遊戲, 外拍...）" oninput="applyClientFilters()">
     </div>
-
     <div class="filter-box">
         <div class="filter-item">
             <label>1. 性別</label>
@@ -714,7 +703,6 @@
             </select>
         </div>
     </div>
-
     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 18px;">點擊委託人卡片可查看詳細需求並給予真實信用評價：</div>
     <div class="partner-grid" id="client-list-container"></div>
 </div>
@@ -725,10 +713,8 @@
 <div class="card-box">
     <div class="card-header" style="color: var(--neon-cyan);">📂 個人足跡與收藏中心</div>
     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 18px;">系統自動為您記錄瀏覽過的對象與口袋收藏名單：</div>
-    
     <div style="font-size: 13px; font-weight: 800; color: var(--neon-gold); margin-bottom: 10px;">⭐ 我的收藏口袋清單</div>
     <div id="history-favorites-container" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px;"></div>
-    
     <div style="font-size: 13px; font-weight: 800; color: var(--neon-cyan); margin-bottom: 10px;">👣 最近瀏覽足跡 (歷史紀錄)</div>
     <div id="history-viewed-container" style="display: flex; flex-direction: column; gap: 8px;"></div>
 </div>
@@ -760,11 +746,9 @@
 <div class="tab-panel" id="panel-notice">
 <div class="card-box">
 <div class="card-header">📢 NOTICE ｜ 平台完整營運與法律合規指南</div>
-
 <div class="search-box-wrapper" style="margin-bottom: 20px;">
     <input type="text" id="notice-search-input" class="search-input" placeholder="🔍 搜尋條款（例如：免責、18歲、截圖、明細、退費...）" oninput="filterNotice(this.value)">
 </div>
-
 <div style="font-size: 13px; font-weight: 800; color: var(--neon-gold); margin-bottom: 14px; letter-spacing: 0.5px;">📊 標準預約媒合作業與對帳 SOP</div>
 <div class="workflow-steps">
     <div class="step-item"><div class="step-num">1</div><div class="step-content"><div class="step-title">挑選心儀對象</div><div class="step-desc">至「夥伴」或「委託人」專區挑選合適對象，點擊預約按鈕。</div></div></div>
@@ -781,104 +765,68 @@
 <button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-policy');">💳 退費政策</button>
 </div>
 
-<!-- 1. 法律免責與安全規範 -->
 <div class="sub-tab-panel active" id="sub-panel-sub-terms">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
         <div class="policy-item-title">⚖️ 平台定位與第三方免責聲明</div>
-        <div class="policy-item-desc">
-            本平台（閒人案內所）僅提供<strong>「純粹資訊媒合與交流平台服務」</strong>。本平台並非雙方僱傭或履約合約之當事人，亦不介入雙方於線下互動之實質行為。用戶在平台外或私下所產生之任何口頭承諾、金錢往來、個人行為或安全糾紛，<strong style="color: var(--neon-pink);">本平台概不負任何民事、刑事或行政之連帶法律責任</strong>。
-        </div>
+        <div class="policy-item-desc">本平台（閒人案內所）僅提供<strong>「純粹資訊媒合與交流平台服務」</strong>。本平台並非雙方僱傭或履約合約之當事人，亦不介入雙方於線下互動之實質行為。用戶在平台外或私下所產生之任何口頭承諾、金錢往來、個人行為或安全糾紛，<strong style="color: var(--neon-pink);">本平台概不負任何民事、刑事或行政之連帶法律責任</strong>。</div>
     </div>
     <div class="policy-item notice-blue">
         <div class="policy-item-title">🔞 年齡限制與特許行業禁令</div>
-        <div class="policy-item-desc">
-            • <strong>嚴格年齡審查：</strong>本服務之所有內容與媒合對象僅限 <strong style="color: var(--neon-pink);">18 歲（含）以上</strong>之完全行為能力人使用。若經檢舉或查獲未成年人冒用身分參與，<strong style="color: var(--neon-pink);">平台將立即永久封鎖帳號並通報相關主管機關</strong>。<br/>
-            • <strong>特許行業禁止：</strong>嚴禁提供任何違反中華民國法律之色情、猥褻、暴力、毒品、詐欺，以及醫療診療、心理諮商、專業代駕等需國家特許執照之服務。
-        </div>
+        <div class="policy-item-desc">• <strong>嚴格年齡審查：</strong>本服務之所有內容與媒合對象僅限 <strong style="color: var(--neon-pink);">18 歲（含）以上</strong>之完全行為能力人使用。若經檢舉或查獲未成年人冒用身分參與，<strong style="color: var(--neon-pink);">平台將立即永久封鎖帳號並通報相關主管機關</strong>。<br/>• <strong>特許行業禁止：</strong>嚴禁提供任何違反中華民國法律之色情、猥褻、暴力、毒品、詐欺，以及醫療診療、心理諮商、專業代駕等需國家特許執照之服務。</div>
     </div>
     <div class="policy-item notice-pink">
         <div class="policy-item-title">🛡️ 人身安全守護與合規場所限制</div>
-        <div class="policy-item-desc">
-            • <strong>公共場所規範：</strong>所有陪伴行程與約定見面，<strong style="color: var(--neon-pink);">一律僅限於公開、合法、明亮之公共場所</strong>（如連鎖咖啡廳、百貨商圈、開放式展覽館等）。<br/>
-            • <strong>絕對禁止：</strong><strong style="color: var(--neon-pink);">嚴禁預約、相約或前往汽車旅館、私人住宅、密閉式包廂或任何隱密不公開之私人空間</strong>。若遇言語騷擾或肢體威脅，請立即離場並報警。
-        </div>
+        <div class="policy-item-desc">• <strong>公共場所規範：</strong>所有陪伴行程與約定見面，<strong style="color: var(--neon-pink);">一律僅限於公開、合法、明亮之公共場所</strong>（如連鎖咖啡廳、百貨商圈、開放式展覽館等）。<br/>• <strong>絕對禁止：</strong><strong style="color: var(--neon-pink);">嚴禁預約、相約或前往汽車旅館、私人住宅、密閉式包廂或任何隱密不公開之私人空間</strong>。若遇言語騷擾或肢體威脅，請立即離場並報警。</div>
     </div>
 </div>
 </div>
 
-<!-- 2. 委託規範 -->
 <div class="sub-tab-panel" id="sub-panel-sub-client">
 <div class="policy-list">
     <div class="policy-item notice-blue">
         <div class="policy-item-title">💳 預約付款與最長預付期控管</div>
-        <div class="policy-item-desc">
-            • <strong>預付期限：</strong>為保障雙方金流安全，所有服務預約之最長預付期嚴格控管以 <strong style="color: var(--neon-pink);">2 個月（60天）</strong>為限，超過期限恕不受理。<br/>
-            • <strong>委託支付：</strong>線上委託採全額預付；線下委託則於預約成立後先行支付 30% 定金，剩餘 70% 尾款於現場以現金支付。
-        </div>
+        <div class="policy-item-desc">• <strong>預付期限：</strong>為保障雙方金流安全，所有服務預約之最長預付期嚴格控管以 <strong style="color: var(--neon-pink);">2 個月（60天）</strong>為限，超過期限恕不受理。<br/>• <strong>委託支付：</strong>線上委託採全額預付；線下委託則於預約成立後先行支付 30% 定金，剩餘 70% 尾款於現場以現金支付。</div>
     </div>
     <div class="policy-item notice-pink">
         <div class="policy-item-title">❌ 委託人臨退與放鳥違約罰則</div>
-        <div class="policy-item-desc">
-            委託人若於服務約定時間 <strong>7 天內</strong>無故取消、臨退或放鳥，<strong style="color: var(--neon-pink);">系統將依法扣除總金額之 30% 作為違約金</strong>（其中 20% 為平台行政手續費，10% 作為時間補償撥付予受影響之夥伴）。
-        </div>
+        <div class="policy-item-desc">委託人若於服務約定時間 <strong>7 天內</strong>無故取消、臨退或放鳥，<strong style="color: var(--neon-pink);">系統將依法扣除總金額之 30% 作為違約金</strong>（其中 20% 為平台行政手續費，10% 作為時間補償撥付予受影響之夥伴）。</div>
     </div>
     <div class="policy-item notice-cyan">
         <div class="policy-item-title">🔥 夥伴爽約之消費者權益保障</div>
-        <div class="policy-item-desc">
-            若時光夥伴因故未能依約出席且未提前協調，經查證屬實，委託人將獲得 <strong style="color: var(--neon-pink);">100% 定金全額無條件退還</strong>，且該夥伴將直接列入平台永久黑名單。
-        </div>
+        <div class="policy-item-desc">若時光夥伴因故未能依約出席且未提前協調，經查證屬實，委託人將獲得 <strong style="color: var(--neon-pink);">100% 定金全額無條件退還</strong>，且該夥伴將直接列入平台永久黑名單。</div>
     </div>
 </div>
 </div>
 
-<!-- 3. 出租規範與匯款明細要求 -->
 <div class="sub-tab-panel" id="sub-panel-sub-partner">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
         <div class="policy-item-title">📸 匯款明細與詳細截圖存查規範（重要）</div>
-        <div class="policy-item-desc">
-            • <strong>明細存查：</strong>每筆預約定金或尾款轉帳完成後，<strong style="color: var(--neon-pink);">出租人（時光夥伴）必須主動核對入帳金額，並妥善保留完整之「轉帳成功畫面截圖」與「匯款明細記錄」</strong>以供查核。<br/>
-            • <strong>對帳備查：</strong>若發生金流爭議、帳務延遲或對帳不明時，雙方須憑官方 LINE 聊天截圖及銀行匯款明細作為唯一查核依據，<strong style="color: var(--neon-pink);">未提供明細者恕不受理帳務補償</strong>。
-        </div>
+        <div class="policy-item-desc">• <strong>明細存查：</strong>每筆預約定金或尾款轉帳完成後，<strong style="color: var(--neon-pink);">出租人（時光夥伴）必須主動核對入帳金額，並妥善保留完整之「轉帳成功畫面截圖」與「匯款明細記錄」</strong>以供查核。<br/>• <strong>對帳備查：</strong>若發生金流爭議、帳務延遲或對帳不明時，雙方須憑官方 LINE 聊天截圖及銀行匯款明細作為唯一查核依據，<strong style="color: var(--neon-pink);">未提供明細者恕不受理帳務補償</strong>。</div>
     </div>
     <div class="policy-item notice-blue">
         <div class="policy-item-title">🤝 承攬合作關係與個人稅務宣告</div>
-        <div class="policy-item-desc">
-            • <strong>獨立承攬：</strong>本平台與時光夥伴之間為<strong style="color: var(--neon-pink);">「獨立承攬合作關係」</strong>，非本平台之受僱員工或代理人，不適用勞動基準法。<br/>
-            • <strong>稅務申報：</strong>時光夥伴因提供時間陪伴服務所獲之報酬，須依中華民國稅法規定<strong style="color: var(--neon-pink);">自行申報個人綜合所得稅</strong>，平台不代為扣繳。
-        </div>
+        <div class="policy-item-desc">• <strong>獨立承攬：</strong>本平台與時光夥伴之間為<strong style="color: var(--neon-pink);">「獨立承攬合作關係」</strong>，非本平台之受僱員工或代理人，不適用勞動基準法。<br/>• <strong>稅務申報：</strong>時光夥伴因提供時間陪伴服務所獲之報酬，須依中華民國稅法規定<strong style="color: var(--neon-pink);">自行申報個人綜合所得稅</strong>，平台不代為扣繳。</div>
     </div>
     <div class="policy-item notice-pink">
         <div class="policy-item-title">📈 報酬拆帳比例（80%）與統一撥款日</div>
-        <div class="policy-item-desc">
-            • <strong>拆帳機制：</strong>平台僅收取 20% 之系統維護與行政媒合費，時光夥伴可獲得總收益之 <strong>80% 報酬</strong>。<br/>
-            • <strong>撥款時間：</strong>平台將於每月結算當月完工之訂單後，統一於<strong>次月 15 號</strong>將款項撥付至夥伴指定帳戶。
-        </div>
+        <div class="policy-item-desc">• <strong>拆帳機制：</strong>平台僅收取 20% 之系統維護與行政媒合費，時光夥伴可獲得總收益之 <strong>80% 報酬</strong>。<br/>• <strong>撥款時間：</strong>平台將於每月結算當月完工之訂單後，統一於<strong>次月 15 號</strong>將款項撥付至夥伴指定帳戶。</div>
     </div>
 </div>
 </div>
 
-<!-- 4. 退費政策與其他法律條款 -->
 <div class="sub-tab-panel" id="sub-panel-sub-policy">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title">💳 退費、改期與不可抗力規範</div>
-        <div class="policy-item-desc">
-            • <strong>提前取消：</strong>於服務約定時間 <strong>7 天前</strong>提出取消申請者，全額退還已付金額（僅扣除必要之跨行轉帳手續費）。<br/>
-            • <strong>不可抗力：</strong>如遇政府公告之天然災害（如颱風停班課）或法定傳染病管制，平台將優先協助雙方免費改期；若無法配合改期，則於次月 15 號辦理全額退費。
-        </div>
+        <div class="policy-item-title">💳 退費, 改期與不可抗力規範</div>
+        <div class="policy-item-desc">• <strong>提前取消：</strong>於服務約定時間 <strong>7 天前</strong>提出取消申請者，全額退還已付金額（僅扣除必要之跨行轉帳手續費）。<br/>• <strong>不可抗力：</strong>如遇政府公告之天然災害（如颱風停班課）或法定傳染病管制，平台將優先協助雙方免費改期；若無法配合改期，則於次月 15 號辦理全額退費。</div>
     </div>
     <div class="policy-item notice-pink">
         <div class="policy-item-title">🔐 個人資料保護、言論規範與管轄法院</div>
-        <div class="policy-item-desc">
-            • <strong>個資保護：</strong>本平台依據《個人資料保護法》妥善保護用戶之電話、姓名等隱私數據，絕不外洩給第三方。<br/>
-            • <strong>評價守則：</strong>雙方於評價系統中之留言須客觀真實，嚴禁公然侮辱或惡意毀謗。若衍生任何法律訴訟，<strong style="color: var(--neon-pink);">雙方合意以台灣地方法院為第一審管轄法院</strong>。
-        </div>
+        <div class="policy-item-desc">• <strong>個資保護：</strong>本平台依據《個人資料保護法》妥善保護用戶之電話、姓名等隱私數據，絕不外洩給第三方。<br/>• <strong>評價守則：</strong>雙方於評價系統中之留言須客觀真實，嚴禁公然侮辱或惡意毀謗。若衍生任何法律訴訟，<strong style="color: var(--neon-pink);">雙方合意以台灣地方法院為第一審管轄法院</strong>。</div>
     </div>
 </div>
-</div>
-
 </div>
 </div>
 
@@ -893,19 +841,15 @@
             <button class="modal-close" onclick="triggerHaptic(10); closeBookingModal();">✕</button>
         </div>
         <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 14px;">請填寫您的預約細節，系統將自動生成專屬預約格式與行事曆：</div>
-        
         <div style="background: rgba(0,242,254,0.08); border: 1px dashed rgba(0,242,254,0.5); padding: 12px 16px; border-radius: 16px; margin-bottom: 14px; font-size: 11.5px; text-align: left; color: var(--neon-cyan); line-height: 1.6;">
-            💳 <b>閒人出租_社群店 TWQR 定金支付：</b><br>
-            支援街口支付/全支付/台灣Pay等，請掃描上方 QR 碼支付 30% 定金！
+            💳 <b>閒人出租_社群店 TWQR 定金支付：</b><br>支援街口支付/全支付/台灣Pay等，請掃描上方 QR 碼支付 30% 定金！
         </div>
-
         <label style="font-size: 11.5px; font-weight:800; color:var(--neon-gold); display:block; margin-bottom:6px;">預約日期</label>
         <input type="date" id="modal-date" class="tool-input">
         <label style="font-size: 11.5px; font-weight:800; color:var(--neon-gold); display:block; margin-bottom:6px;">預約時間</label>
         <input type="text" id="modal-time" class="tool-input" placeholder="預約時間（例如：下午 2:00）">
         <label style="font-size: 11.5px; font-weight:800; color:var(--neon-gold); display:block; margin-bottom:6px;">委託總金額</label>
         <input type="text" id="modal-amount" class="tool-input" placeholder="委託總金額（例如：1000）">
-        
         <div style="display:flex; gap:8px;">
             <button class="tool-btn" onclick="triggerHaptic(20); submitBookingModal();" style="flex:1;">🚀 複製並傳送 LINE</button>
             <button class="tool-btn" onclick="triggerHaptic(20); addToGoogleCalendar();" style="flex:1; background:rgba(76,201,240,0.2); border:1px solid var(--neon-cyan);">📅 加到行事曆</button>
@@ -921,27 +865,22 @@
         </div>
         <div id="sheet-tags" style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;"></div>
         <div id="sheet-rating" style="margin-bottom:14px; font-size:12px; color:var(--neon-gold); font-weight:700;"></div>
-        
         <div style="margin-bottom: 14px; background: rgba(255,255,255,0.025); padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.07); text-align: left;">
             <div style="font-size: 11px; color: var(--neon-gold); font-weight: 800; margin-bottom: 6px;">🏆 成就徽章解鎖牆：</div>
             <div id="sheet-badges-container" style="display:flex; gap:6px; flex-wrap:wrap;"></div>
         </div>
-
         <div style="margin-bottom: 16px; background: rgba(255,255,255,0.03); padding: 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); text-align: left;">
             <div style="font-size: 11.5px; color: var(--neon-cyan); font-weight: 800; margin-bottom: 8px;" id="rating-section-title">⭐ 給予評價與留言：</div>
             <div id="rating-action-area" style="display: flex; gap: 6px; margin-bottom: 8px;"></div>
             <textarea id="rating-comment-input" class="tool-input" placeholder="寫下您的互動心得或留言（選填）..." style="margin-top:0; margin-bottom:8px; height:60px; font-size:11.5px; resize:none;"></textarea>
             <button class="tool-btn" id="submit-review-btn" style="margin-top:0; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue)); color: #030205; font-weight: 900; font-size: 12px;" onclick="submitRatingWithComment()">💌 送出評分與留言</button>
         </div>
-
         <div style="margin-bottom: 16px; text-align: left;">
             <div style="font-size: 11px; color: var(--text-gray); font-weight: 800; margin-bottom: 6px;" id="comments-list-title">💬 真實評價留言紀錄：</div>
             <div id="sheet-comments-list" style="display: flex; flex-direction: column; gap: 6px; max-height: 100px; overflow-y: auto;"></div>
         </div>
-
         <div style="font-size:11.5px; color:var(--text-gray); margin-bottom:6px; font-weight:700;">完整介紹：</div>
         <div id="sheet-intro" style="font-size:13px; color:#f4effc; line-height:1.7; background:rgba(0,0,0,0.5); padding:16px; border-radius:16px; margin-bottom:20px; max-height:110px; overflow-y:auto; border:1px solid rgba(255,255,255,0.06);"></div>
-        
         <div style="display:flex; gap:10px;" id="sheet-action-btns">
             <button class="tool-btn" id="sheet-fav-btn" style="flex:1; background:rgba(255,42,109,0.25); border:1px solid var(--neon-pink); margin-top:0;" onclick="triggerHaptic(15)">❤️ 收藏</button>
             <button class="tool-btn" id="sheet-book-btn" style="flex:2; margin-top:0;" onclick="triggerHaptic(15)">📋 聯繫 / 預約</button>
@@ -953,9 +892,7 @@
     <div class="modal-content" style="text-align: center; border-color: var(--neon-gold); box-shadow: 0 0 45px rgba(255,176,32,0.35);">
         <div style="font-size: 36px; margin-bottom: 10px;">✨</div>
         <div class="modal-title" style="justify-content: center; color: var(--neon-gold); margin-bottom: 12px; font-size: 16.5px;">評分狀態通知</div>
-        <div id="rating-popup-desc" style="font-size: 13px; color: var(--text-gray); line-height: 1.8; margin-bottom: 22px; white-space: pre-wrap;">
-            感謝您的真實回饋！為維護社群信譽，同一對象在短期內暫時無法重複給予評價。
-        </div>
+        <div id="rating-popup-desc" style="font-size: 13px; color: var(--text-gray); line-height: 1.8; margin-bottom: 22px; white-space: pre-wrap;">感謝您的真實回饋！為維護社群信譽，同一對象在短期內暫時無法重複給予評價。</div>
         <button class="tool-btn" onclick="closeRatingPopup()" style="background: linear-gradient(135deg, var(--neon-gold), var(--neon-orange)); color: #030205; font-weight: 900; margin-top:0;">我知道了 👍</button>
     </div>
 </div>
@@ -963,7 +900,6 @@
 <div id="toast-notification">✨ 動作已完成</div>
 <button id="back-to-top-btn" onclick="scrollToTop()" title="回到頂部">↑</button>
 
-<!-- AI 機器人懸浮按鈕與對話視窗 -->
 <div id="ai-float-btn" onclick="triggerHaptic(15); toggleAIChat();">👻</div>
 <div id="ai-chat-box">
     <div class="ai-chat-header">
@@ -1096,19 +1032,6 @@
     function closeRatingPopup() {
         triggerHaptic(10);
         document.getElementById('rating-popup-modal').style.display = 'none';
-    }
-
-    function toggleFaq(el) {
-        triggerHaptic(10);
-        const desc = el.querySelector('.faq-content');
-        const arrow = el.querySelector('.faq-arrow');
-        if (desc.style.display === 'block') {
-            desc.style.display = 'none';
-            if (arrow) arrow.style.transform = 'rotate(0deg)';
-        } else {
-            desc.style.display = 'block';
-            if (arrow) arrow.style.transform = 'rotate(180deg)';
-        }
     }
 
     function toggleFavorite(name, event) {
@@ -1626,7 +1549,7 @@
         out.innerHTML = `💡 試算：應收定金(30%) $${deposit} ｜ 夥伴實拿(80%) $${partnerEarn}`;
     }
 
-    // 動態房間 busy 狀態判定（人數 >= 4 顯示 busy，包含 104 與 106 房）
+    // 動態房間渲染與 busy 狀態點燈
     function renderRooms() {
         const roomGroups = [
             { id: 'rooms-grid-1', start: 101, end: 110 },
@@ -1638,8 +1561,7 @@
             if (!container) return;
             let html = '';
             for (let roomNum = group.start; roomNum <= group.end; roomNum++) {
-                let currentPeopleCount = 2; // 預設 2 人
-                // 包含 104 房、106 房等超過或等於 4 人的房間
+                let currentPeopleCount = 2; 
                 if ([101, 103, 104, 105, 106, 109, 110, 201, 205, 210].includes(roomNum)) {
                     currentPeopleCount = 6; 
                 }
@@ -1647,7 +1569,7 @@
                 let isBusy = currentPeopleCount >= 4;
                 let busyClass = isBusy ? 'room-item busy' : 'room-item';
                 
-                html += `<a class="${busyClass}" href="https://line.me/ti/g2/yTUYTMHUoV1Dbs6UFvddBsYXef7qJTfHASS1jw" target="_blank" onclick="triggerHaptic(10)">${roomNum}<span>ROOM</span></a>`;
+                html += `<a class="${busyClass}" data-room="${roomNum}" href="https://line.me/ti/g2/yTUYTMHUoV1Dbs6UFvddBsYXef7qJTfHASS1jw" target="_blank" onclick="triggerHaptic(10)">${roomNum}<span>ROOM</span></a>`;
             }
             container.innerHTML = html;
         });
