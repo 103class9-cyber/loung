@@ -112,7 +112,7 @@
     .title { font-size: 28px; font-weight: 900; letter-spacing: 5px; margin-bottom: 6px; background: linear-gradient(90deg, #ffffff 10%, var(--neon-gold), var(--neon-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 15px rgba(255, 115, 36, 0.35)); }
     .subtitle { font-size: 11px; color: var(--text-gray); letter-spacing: 5px; text-transform: uppercase; opacity: 0.8; font-weight: 600; }
 
-    /* 上三下三的對稱分頁排版結構 */
+    /* 上三下三對稱分頁排版結構 */
     .tab-navigation {
         display: grid; 
         grid-template-columns: repeat(3, 1fr); 
@@ -553,8 +553,8 @@
     <p class="subtitle">VIP Lounge Portal</p>
 </div>
 
-<!-- 主導航：改為上三下三的完美對稱結構 (主頁、夥伴、委託人 在上；足跡、招待、公告 在下) -->
-<div class="tab-navigation" style="grid-template-columns: repeat(3, 1fr);">
+<!-- 主導航：上三下三排版 (主頁、夥伴、委託人 在上；足跡、招待、公告 在下) -->
+<div class="tab-navigation">
 <button class="tab-btn active" onclick="triggerHaptic(15); switchTab('home');">🏠 主頁</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('partners');">👥 夥伴</button>
 <button class="tab-btn" onclick="triggerHaptic(15); switchTab('clients');">👤 委託人</button>
@@ -609,7 +609,7 @@
 </div>
 </div>
 
-<!-- 工具箱已濃縮至主頁小角落 -->
+<!-- 工具箱濃縮至主頁小角落 -->
 <div class="card-box" style="background: rgba(255, 176, 32, 0.03); border-color: rgba(255, 176, 32, 0.2);">
 <div class="card-header" style="font-size: 13px; margin-bottom: 12px;">🛠️ 快捷金額試算角落</div>
 <div style="font-size: 11.5px; color: var(--text-gray); margin-bottom: 10px;">快速試算預約定金與拆帳（30%定金 / 80%夥伴實拿）：</div>
@@ -1626,7 +1626,7 @@
         out.innerHTML = `💡 試算：應收定金(30%) $${deposit} ｜ 夥伴實拿(80%) $${partnerEarn}`;
     }
 
-    // ✨ 動態房間 busy 狀態判定：人數 >= 4 顯示 busy (已包含 104、106 房等大於等於4人的房間)
+    // 動態房間 busy 狀態判定（人數 >= 4 顯示 busy，包含 104 與 106 房）
     function renderRooms() {
         const roomGroups = [
             { id: 'rooms-grid-1', start: 101, end: 110 },
@@ -1639,7 +1639,7 @@
             let html = '';
             for (let roomNum = group.start; roomNum <= group.end; roomNum++) {
                 let currentPeopleCount = 2; // 預設 2 人
-                // 將 104 房、106 房及其他指定房間設為 6 人（大於等於 4 人，觸發 busy）
+                // 包含 104 房、106 房等超過或等於 4 人的房間
                 if ([101, 103, 104, 105, 106, 109, 110, 201, 205, 210].includes(roomNum)) {
                     currentPeopleCount = 6; 
                 }
