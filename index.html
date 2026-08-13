@@ -837,7 +837,7 @@
 <div class="policy-list">
     <div class="policy-item notice-cyan">
         <div class="policy-item-title">⚖️ 平台定位與第三方免責聲明</div>
-        <div class="policy-item-desc">本平台（閒人案內所）僅提供<strong>「純粹資訊媒合與交流平台服務」</strong>。本平台並非雙方僱傭或履約合約之當事人，亦不介入雙方於線下互動之實質行為。用戶在平台外或私下所產生之任何口頭承諾、金錢往來、個人行為或安全糾紛，<strong style="color: var(--neon-pink);">本平台概不負任何民事, 刑事或行政之連帶法律責任</strong>。</div>
+        <div class="policy-item-desc">本平台（閒人案內所）僅提供<strong>「純粹資訊媒合與交流平台服務」</strong>。本平台並非雙方僱傭或履約合約之當事人，亦不介入雙方於線下互動之實質行為。用戶在平台外或私下所產生之任何口頭承諾、金錢往來、個人行為或安全糾紛，<strong style="color: var(--neon-pink);">本平台概不負任何民事、刑事或行政之連帶法律責任</strong>。</div>
     </div>
     <div class="policy-item notice-blue">
         <div class="policy-item-title">🔞 年齡限制與特許行業禁令</div>
@@ -978,7 +978,7 @@
         </div>
     </div>
     <div class="ai-chat-messages" id="ai-messages">
-        <div class="ai-msg bot">您好，我是閒人案內所的頂級數位風控官兼首席智能客服總監。請問有關於平台規則、預約定金或是時間出租的問題想諮詢嗎？✨</div>
+        <div class="ai-msg bot">您好呀！我是閒人案內所的首席智慧風控官兼頂級萌系客服總監～✨ 有關於平台規則、預約定金或是時間出租的問題，隨時都可以問我喔！👻💖</div>
     </div>
     <div class="ai-quick-chips">
         <button onclick="sendQuickQuestion('請問委託或出租的發文格式？')">📋 發文格式</button>
@@ -1459,7 +1459,7 @@
     function renderHistoryTab() {
         const favContainer = document.getElementById('history-favorites-container');
         if (favContainer) {
-            let combinedFavs = [...favorites, ...clientFavorites.map(c => c + ' (委託)')];
+            let combinedFavs = [...favorites, ...clientFavorites.map(c => c + ' (委)')];
             if (combinedFavs.length === 0) {
                 favContainer.innerHTML = `<div style="font-size: 11.5px; color: var(--text-gray);">目前尚無收藏的對象。</div>`;
             } else {
@@ -1847,13 +1847,17 @@
         if (subPanel) subPanel.classList.add('active');
     }
 
-    const systemPrompt = `你現在是專屬「閒人案內所」的首席智慧風控官兼頂級客服總監。
-你的任務是協助訪客解答所有關於平台的問題。以下是你的核心知識庫：
-1. 平台定位：純粹資訊媒合與交流平台，年滿18歲方可參與，嚴禁特許違法行業。
-2. 預約與金流：線下委託需先付 30% 定金（透過 TWQR / 街口 / 台灣Pay），尾款 70% 現場付現。出租人/夥伴實拿 80%，平台抽 20%。
-3. 聯絡方式：主頁有「聯絡官方」與備註為吉祥物的「聯絡所長」通道。
-4. 安全守護：所有見面僅限公開明亮公共場所，嚴禁私密空間。
-請保持專業、親切、帶有一點賽博龐克的神秘與高級感，用繁體中文簡明扼要地回答訪客。`;
+    const systemPrompt = `你現在是專屬「閒人案內所」的首席智慧風控官兼頂級萌系客服總監。✨
+你講話風格必須兼具「官方的專業嚴謹」與「超可愛的人性化貼心語氣」，說話時會帶點俏皮，並適當使用表情符號（如 ✨、👻、💖、💡、🥺）。
+身為所長的得力 AI 助手，你對訪客超級溫柔、有耐心，但在安全與合規防護上非常有原則（展現專業風控魂）。
+
+以下是你的核心知識庫與必須遵守的回答原則：
+1. 平台定位：我們是純粹的資訊媒合與交流平台！強力把關：所有參與者必須年滿 18 歲（含）以上，嚴格禁止任何特許違法行業！🚫
+2. 預約與金流：線下委託要先可愛地提醒對方支付 30% 定金（透過 TWQR、街口、台灣Pay），尾款 70% 現場付現。夥伴實拿 80%，平台抽 20%。一定要叮嚀雙方「妥善截圖保留轉帳明細」喔！📸
+3. 專人通道：如果訪客找不到方向，溫柔引導他們點擊主頁的「聯絡官方客服」；如果想找老大，可以去找創辦人「聯絡所長（我們的吉祥物 👻，真的找不到人可以敲他，但...不一定會回喔！😅庫)」。
+4. 安全守護：耳提面命提醒大家，所有見面約會「只能在公開明亮、合法的公共場所」，絕對禁止私密空間，安全第一！🛡️
+
+請用親切、高級感又帶點萌感的繁體中文回答，讓訪客感受到滿滿的溫暖與安心！`;
     let chatHistory = [{ role: "system", content: systemPrompt }];
 
     function toggleAIChat() {
@@ -1880,15 +1884,15 @@
         const lowerText = text.toLowerCase();
         let localReply = "";
         if (lowerText.includes('發文格式') || lowerText.includes('出租') || lowerText.includes('委託')) {
-            localReply = "📋 【發文格式參考】\n• 出租格式：【地區/性別】名字｜專長/特色｜想說的話\n• 委託格式：【地區/需求】想找什麼樣的夥伴陪伴｜預計時間與預算\n記得詳閱 18 歲限制與公共場所規範喔！✨";
+            localReply = "📋 **【發文格式參考】**✨\n• 出租格式：【地區/性別】名字｜專長/特色｜想說的話\n• 委託格式：【地區/需求】想找什麼樣的夥伴陪伴｜預計時間與預算\n記得要滿 18 歲，且約在公開公共場所喔！💖";
         } else if (lowerText.includes('線下') || lowerText.includes('定金')) {
-            localReply = "💳 【線下定金格式與說明】\n• 需透過 TWQR / 街口支付轉帳 30% 定金。\n• 非常重要：雙方務必保留轉帳成功畫面與匯款明細截圖以供查核！尾款 70% 於現場付現。";
+            localReply = "💳 **【線下定金格式與說明】**💡\n• 請透過 TWQR / 街口支付轉帳 **30% 定金**。\n• **超重要叮嚀**：雙方（特別是出租人）一定要妥善保留轉帳成功的畫面與匯款明細截圖以供查核喔！尾款 70% 現場付現即可✨";
         } else if (lowerText.includes('線上') || lowerText.includes('預付')) {
-            localReply = "🌐 【線上委託說明】\n• 線上委託採全額預付制。\n• 最長預付期嚴格控管以 2 個月（60天）為限。";
+            localReply = "🌐 **【線上委託說明】**✨\n• 線上委託是採全額預付制喔！\n• 最長預付期嚴格控管以 2 個月（60天）為限，超過恕不受理唷～";
         } else if (lowerText.includes('取消') || lowerText.includes('違約金') || lowerText.includes('退費')) {
-            localReply = "💰 【退費與違約金計算】\n• 7天前取消：全額退還（僅扣跨行手續費）。\n• 7天內臨退/放鳥：扣除總金額 30% 作為違約金（20% 平台手續費 + 10% 時間補償給夥伴）。";
+            localReply = "💰 **【退費與違約金計算】**🥺\n• 7天前取消：全額退還（僅扣除必要跨行手續費）。\n• 7天內臨退/放鳥：扣除總金額 30% 作為違約金（20% 平台手續費 + 10% 時間補償給夥伴）。";
         } else if (lowerText.includes('聯繫') || lowerText.includes('管管') || lowerText.includes('客服') || lowerText.includes('所長')) {
-            localReply = "👤 【專人聯絡通道】\n請直接點擊主頁的：\n• 聯絡官方客服（即時專人處理）\n• 聯絡所長（吉祥物通道，不一定會回喔！XD）";
+            localReply = "👤 **【專人聯絡通道】**👻\n請直接點擊主頁的：\n• **聯絡官方客服**（即時專人處理您的需求）\n• **聯絡所長**（吉祥物通道，真的找不到人可以找他，但...不一定會回喔！😅）";
         }
 
         if (localReply) {
@@ -1920,14 +1924,14 @@
         if (success) {
             container.innerHTML += `<div class="ai-msg bot">${escapeHtml(rawText)}</div>`;
         } else {
-            container.innerHTML += `<div class="ai-msg bot">🤖 AI 伺服器目前排隊壅塞中。您可以直接點擊下方快速按鈕（發文格式、定金格式等），系統會立刻秒回您解答！✨</div>`;
+            container.innerHTML += `<div class="ai-msg bot">🤖 哎呀！AI 伺服器目前正在塞車排隊中。不過您可以直接點擊下方快速按鈕（發文格式、定金格式等），系統會立刻秒回您解答喔！✨💖</div>`;
         }
         container.scrollTop = container.scrollHeight;
     }
 
     function clearChatHistory() {
         const container = document.getElementById('ai-messages');
-        if (container) container.innerHTML = `<div class="ai-msg bot">對話紀錄已清空。✨</div>`;
+        if (container) container.innerHTML = `<div class="ai-msg bot">對話紀錄已清空。✨ 有什麼問題隨時問我喔！</div>`;
     }
 
     function escapeHtml(str) { 
