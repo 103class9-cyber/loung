@@ -456,7 +456,7 @@
     .link-desc { font-size: 12px; color: var(--text-gray); }
     .badge { font-size: 10px; padding: 4px 10px; border-radius: 14px; font-weight: 700; background: rgba(255, 115, 36, 0.22); color: #ffb06e; border: 1px solid rgba(255, 115, 36, 0.45); }
 
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
     .contact-card { display: flex; flex-direction: column; align-items: center; padding: 22px 16px; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1); border-radius: 22px; text-decoration: none; color: #fff; transition: var(--transition-smooth); box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
     .contact-card:hover { border-color: var(--neon-gold); transform: translateY(-2px); background: rgba(255,176,32,0.07); box-shadow: 0 16px 40px rgba(255,176,32,0.25); }
     .contact-avatar { width: 52px; height: 52px; border-radius: 50%; background: #0c061a; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 10px; border: 1px solid rgba(255, 176, 32, 0.5); box-shadow: 0 0 18px rgba(255,176,32,0.25); }
@@ -573,6 +573,15 @@
 </div>
 </a>
 
+<!-- 👑 主頁亮點：TOP 3 質感夥伴動態公告板 -->
+<div class="card-box" style="background: linear-gradient(135deg, rgba(255, 176, 32, 0.08) 0%, rgba(179, 102, 255, 0.06) 100%); border-color: rgba(255, 176, 32, 0.4); box-shadow: 0 0 25px rgba(255, 176, 32, 0.15);">
+<div class="card-header" style="color: var(--neon-gold); text-shadow: 0 0 12px rgba(255, 176, 32, 0.45);">👑 本週質感星級 ｜ TOP 3 夥伴榜單</div>
+<div style="font-size: 12px; color: var(--text-gray); margin-bottom: 14px; text-align: left;">
+    高滿意度口碑推薦！點擊卡片快速查看個人詳細介紹與聯絡：
+</div>
+<div class="featured-grid" id="home-featured-grid-container"></div>
+</div>
+
 <div class="card-box">
 <div class="card-header">🏢 其他功能社群</div>
 <a class="link-card chat-card" href="https://line.me/ti/g2/e6dpmauumRi3WjFxnmdOvXQJrDAGCRfEN4YxSw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" onclick="triggerHaptic(15)">
@@ -594,18 +603,16 @@
 </a>
 </div>
 
-<div class="card-box">
-<div class="card-header">👤 一對一 專人聯絡</div>
-<div class="contact-grid">
-<a class="contact-card" href="https://line.me/ti/p/mR19KggePp" target="_blank" onclick="triggerHaptic(15)">
-<div class="contact-avatar">👨‍💼</div>
-<div class="contact-name">聯絡所長</div>
-</a>
-<a class="contact-card" href="https://line.me/ti/p/L1iM3COUPl" target="_blank" onclick="triggerHaptic(15)">
-<div class="contact-avatar">👩‍💼</div>
-<div class="contact-name">聯絡管管</div>
-</a>
+<!-- 聯絡官方（放大顯眼版） -->
+<div class="card-box" style="background: linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(179, 102, 255, 0.2) 100%); border: 2px solid var(--neon-cyan); box-shadow: 0 0 35px rgba(0, 240, 255, 0.35);">
+<div class="card-header" style="color: var(--neon-cyan); font-size: 15.5px; text-shadow: 0 0 12px rgba(0,240,255,0.6);">⚡ 官方核心服務通道</div>
+<a class="primary-card" href="https://lin.ee/9R2sLhB" target="_blank" onclick="triggerHaptic(20)" style="background: linear-gradient(135deg, rgba(0, 240, 255, 0.25) 0%, rgba(18, 12, 35, 0.9) 100%) !important; border: 1.5px solid var(--neon-cyan) !important; box-shadow: 0 0 25px rgba(0, 240, 255, 0.3) !important; margin-bottom: 0 !important;">
+<div class="primary-icon" style="font-size: 36px !important; margin-right: 18px !important; filter: drop-shadow(0 0 10px var(--neon-cyan)) !important; animation: pulseGlow 1.5s infinite alternate;">💬</div>
+<div style="text-align: left; flex-grow: 1;">
+<div style="font-size: 17px; font-weight: 900; color: #fff; margin-bottom: 4px; letter-spacing: 0.5px;">點我立即：聯絡官方客服 ➔</div>
+<div style="font-size: 12.5px; color: #b2ced4; font-weight: 700;">全天候專人接待，快速處理您的各項諮詢與需求</div>
 </div>
+</a>
 </div>
 
 <div class="card-box" style="background: rgba(255, 176, 32, 0.03); border-color: rgba(255, 176, 32, 0.2);">
@@ -615,7 +622,19 @@
 <div id="quick-calc-output" style="font-size: 11.5px; color: var(--neon-gold); font-weight: 700; line-height: 1.5;">請輸入金額進行快速試算。</div>
 </div>
 
-<div class="safety-card" style="margin-top: 35px; margin-bottom: 10px;">
+<!-- 聯絡所長（放到最下面，備註吉祥物 真的找不到人可以找我但是不一定會回） -->
+<div class="card-box" style="background: rgba(179, 102, 255, 0.03); border-color: rgba(179, 102, 255, 0.25);">
+<div class="card-header" style="color: var(--neon-purple); text-shadow: 0 0 10px rgba(179,102,255,0.4);">👑 創辦人專區</div>
+<a class="primary-card" href="https://line.me/ti/p/mR19KggePp" target="_blank" onclick="triggerHaptic(15)" style="background: linear-gradient(90deg, rgba(179, 102, 255, 0.16) 0%, rgba(18, 12, 35, 0.82) 100%) !important; border-color: var(--neon-purple) !important; margin-bottom: 0 !important;">
+<div class="primary-icon">👨‍💼</div>
+<div style="text-align: left; flex-grow: 1;">
+<div style="font-size: 14.5px; font-weight: 800; color: #fff;">聯絡所長 ➔ 創辦人通道</div>
+<div style="font-size: 11.5px; color: #edd6ff;">備註：吉祥物 真的找不到人可以找我但是不一定會回</div>
+</div>
+</a>
+</div>
+
+<div class="safety-card" style="margin-top: 20px; margin-bottom: 10px;">
     <div class="safety-title">🛡️ 安全守護與信譽防護</div>
     <div class="safety-desc">本社群全面採用匿名隱私保護與信用評級機制。線下見面若遇突發狀況、越線騷擾或安全疑慮，請立即離開現場並點擊下方按鈕一對一通報管管。</div>
     <a class="safety-btn" href="https://line.me/ti/p/L1iM3COUPl" target="_blank" onclick="triggerHaptic(20)">🚨 SOS 緊急通報 / 聯繫管管</a>
@@ -724,7 +743,7 @@
 <div class="tab-panel" id="panel-rooms">
 <div class="card-box phone-box">
 <div class="card-header blue-header">📞 HOTLINE ｜ 即時語音諮詢</div>
-<a class="primary-card" href="https://line.me/ti/g2/wxs8HU9a3dQJKFlBm1k-2qEYB3hPhIGrlFi6Ig?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank">
+<a class="primary-card" href="https://line.me/ti/g2/7i-EpK7NYFvugpd3_rO9CPDdsIrOaplFHhxRBg?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" onclick="triggerHaptic(15)">
 <div class="primary-icon">📞</div>
 <div style="text-align: left;">
 <div style="font-size: 16px; font-weight: 800;">招待所 ➔ 電話專用頻道</div>
@@ -732,37 +751,71 @@
 </div>
 </a>
 </div>
+
+<!-- 🔮 靈性玄學會客室 -->
+<div class="card-box" style="border-color: rgba(179, 102, 255, 0.5); box-shadow: 0 0 35px rgba(179, 102, 255, 0.25), 0 20px 50px rgba(0, 0, 0, 0.65);">
+<div class="card-header" style="color: var(--neon-purple); text-shadow: 0 0 12px rgba(179, 102, 255, 0.5);">🔮 MYSTIC ｜ 靈性玄學會客室</div>
+<a class="primary-card" href="https://meet.google.com/pmj-kujt-kej" target="_blank" onclick="triggerHaptic(15)" style="background: linear-gradient(90deg, rgba(179, 102, 255, 0.25) 0%, rgba(255, 176, 32, 0.15) 100%) !important; border: 1.5px solid var(--neon-purple) !important; box-shadow: 0 0 25px rgba(179, 102, 255, 0.35) !important;">
+<div class="primary-icon" style="filter: drop-shadow(0 0 10px var(--neon-purple)) !important;">🔮</div>
+<div style="text-align: left;">
+<div style="font-size: 16px; font-weight: 800; color: #fff;">招待所 ➔ 命理玄學諮詢室</div>
+<div style="font-size: 12px; color: #edd6ff;">點擊進入 Google Meet 專屬視訊房 ｜ 塔羅・紫微・靈性交流</div>
+</div>
+</a>
+</div>
+
+<!-- ⚡ 101~110 房間網格 -->
 <div class="card-box">
 <div class="card-header">⚡ VIP Lounge ｜ 101 - 110（會員限定）</div>
 <div class="grid-rooms">
-<a class="room-item busy" href="https://line.me/ti/g2/_pozcfjocgAIcl5oXuMb0s1RJ0uKrlmKp8L84g" target="_blank" onclick="triggerHaptic(10)">101<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/m4OF-0zcsdEALTD3QE4lpSkwfU8uZjZ3rsTqSQ" target="_blank" onclick="triggerHaptic(10)">102<span>ROOM</span></a>
-<a class="room-item busy" href="https://line.me/ti/g2/k2lIL7GMrhOquBmdFLw6r7Wpu-K0a_QM_p6MHA" target="_blank" onclick="triggerHaptic(10)">103<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/hlx3ehotkyYz307eerHCDhezkqlkIo9XXyH9Dg" target="_blank" onclick="triggerHaptic(10)">104<span>ROOM</span></a>
-<a class="room-item busy" href="https://line.me/ti/g2/5HBoo3LVf3zmvU49X_1AmrnUAlO949XHltnrvA" target="_blank" onclick="triggerHaptic(10)">105<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/TmjoaxprqX5LMZIOEhQ9Dmp5hlirHKwyDr3CnQ" target="_blank" onclick="triggerHaptic(10)">106<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/jU7YjqDh3ndA94BMpP6QKwnPfEth0dxT5q3dkg" target="_blank" onclick="triggerHaptic(10)">107<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/AwxKpQUhZf4HA2AS6HxMGG861ZnNxGDPVO8tTg" target="_blank" onclick="triggerHaptic(10)">108<span>ROOM</span></a>
-<a class="room-item busy" href="https://line.me/ti/g2/AYcDvBN5lkxjPEyGR4QStfEdduJAVKSir9n7JA" target="_blank" onclick="triggerHaptic(10)">109<span>ROOM</span></a>
-<a class="room-item busy" href="https://line.me/ti/g2/o_uIRGp-rTHkarNc0H9D5n5KMtUSl_FC9PlvvQ" target="_blank" onclick="triggerHaptic(10)">110<span>ROOM</span></a>
+<a class="room-item" data-room="101" href="https://line.me/ti/g2/_pozcfjocgAIcl5oXuMb0s1RJ0uKrlmKp8L84g" target="_blank" onclick="triggerHaptic(10)">101<span>ROOM</span></a>
+<a class="room-item" data-room="102" href="https://line.me/ti/g2/m4OF-0zcsdEALTD3QE4lpSkwfU8uZjZ3rsTqSQ" target="_blank" onclick="triggerHaptic(10)">102<span>ROOM</span></a>
+<a class="room-item" data-room="103" href="https://line.me/ti/g2/k2lIL7GMrhOquBmdFLw6r7Wpu-K0a_QM_p6MHA" target="_blank" onclick="triggerHaptic(10)">103<span>ROOM</span></a>
+<a class="room-item" data-room="104" href="https://line.me/ti/g2/hlx3ehotkyYz307eerHCDhezkqlkIo9XXyH9Dg" target="_blank" onclick="triggerHaptic(10)">104<span>ROOM</span></a>
+<a class="room-item" data-room="105" href="https://line.me/ti/g2/5HBoo3LVf3zmvU49X_1AmrnUAlO949XHltnrvA" target="_blank" onclick="triggerHaptic(10)">105<span>ROOM</span></a>
+<a class="room-item" data-room="106" href="https://line.me/ti/g2/TmjoaxprqX5LMZIOEhQ9Dmp5hlirHKwyDr3CnQ" target="_blank" onclick="triggerHaptic(10)">106<span>ROOM</span></a>
+<a class="room-item" data-room="107" href="https://line.me/ti/g2/jU7YjqDh3ndA94BMpP6QKwnPfEth0dxT5q3dkg" target="_blank" onclick="triggerHaptic(10)">107<span>ROOM</span></a>
+<a class="room-item" data-room="108" href="https://line.me/ti/g2/AwxKpQUhZf4HA2AS6HxMGG861ZnNxGDPVO8tTg" target="_blank" onclick="triggerHaptic(10)">108<span>ROOM</span></a>
+<a class="room-item" data-room="109" href="https://line.me/ti/g2/AYcDvBN5lkxjPEyGR4QStfEdduJAVKSir9n7JA" target="_blank" onclick="triggerHaptic(10)">109<span>ROOM</span></a>
+<a class="room-item" data-room="110" href="https://line.me/ti/g2/o_uIRGp-rTHkarNc0H9D5n5KMtUSl_FC9PlvvQ" target="_blank" onclick="triggerHaptic(10)">110<span>ROOM</span></a>
 </div>
 </div>
+
+<!-- ⚡ 201~210 房間網格 -->
 <div class="card-box">
 <div class="card-header">⚡ VIP Lounge ｜ 201 - 210（會員限定）</div>
 <div class="grid-rooms">
-<a class="room-item busy" href="https://line.me/ti/g2/-OR5NdJlXu9cA4TIVepqCtqVW1IIhdMTTRFfrA" target="_blank" onclick="triggerHaptic(10)">201<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/G82ouWUBpRvx1TWV6WbHKdh4fp3rNLJx10cicw" target="_blank" onclick="triggerHaptic(10)">202<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/yYxAF4LPd4n4gxZAGpmRUIyoHl06unOuOPsJGg" target="_blank" onclick="triggerHaptic(10)">203<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/ZEvB1tJOkQRXysiLR15gIwtJb2IRNZI0ZTUyvA" target="_blank" onclick="triggerHaptic(10)">204<span>ROOM</span></a>
-<a class="room-item busy" href="https://line.me/ti/g2/-iIOpFDLnPY5PcRKJj0jYw2V0-pWYVRScHZE5w" target="_blank" onclick="triggerHaptic(10)">205<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/a7wG0W_ZUg1Lu1ADbrTlA0p1BdsPJs4J5Q8BQg" target="_blank" onclick="triggerHaptic(10)">206<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/JNCL2JNdFD8OHUqXNpYvybo25hwnAcugJkce6Q" target="_blank" onclick="triggerHaptic(10)">207<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/GfUp7qx4DO6do_S8TZUgTwdpmwht0djXYIfbKg" target="_blank" onclick="triggerHaptic(10)">208<span>ROOM</span></a>
-<a class="room-item" href="https://line.me/ti/g2/m1uOuZNgJA07iCzdvy4POGc9ZZpgKjJ2i0zq8Q" target="_blank" onclick="triggerHaptic(10)">209<span>ROOM</span></a>
-<a class="room-item busy" href="https://line.me/ti/g2/3eeJF2Og-tHV1T6Zq6c0RaiEbnrJgkt_Ms48nA" target="_blank" onclick="triggerHaptic(10)">210<span>ROOM</span></a>
+<a class="room-item" data-room="201" href="https://line.me/ti/g2/-OR5NdJlXu9cA4TIVepqCtqVW1IIhdMTTRFfrA" target="_blank" onclick="triggerHaptic(10)">201<span>ROOM</span></a>
+<a class="room-item" data-room="202" href="https://line.me/ti/g2/G82ouWUBpRvx1TWV6WbHKdh4fp3rNLJx10cicw" target="_blank" onclick="triggerHaptic(10)">202<span>ROOM</span></a>
+<a class="room-item" data-room="203" href="https://line.me/ti/g2/yYxAF4LPd4n4gxZAGpmRUIyoHl06unOuOPsJGg" target="_blank" onclick="triggerHaptic(10)">203<span>ROOM</span></a>
+<a class="room-item" data-room="204" href="https://line.me/ti/g2/ZEvB1tJOkQRXysiLR15gIwtJb2IRNZI0ZTUyvA" target="_blank" onclick="triggerHaptic(10)">204<span>ROOM</span></a>
+<a class="room-item" data-room="205" href="https://line.me/ti/g2/-iIOpFDLnPY5PcRKJj0jYw2V0-pWYVRScHZE5w" target="_blank" onclick="triggerHaptic(10)">205<span>ROOM</span></a>
+<a class="room-item" data-room="206" href="https://line.me/ti/g2/a7wG0W_ZUg1Lu1ADbrTlA0p1BdsPJs4J5Q8BQg" target="_blank" onclick="triggerHaptic(10)">206<span>ROOM</span></a>
+<a class="room-item" data-room="207" href="https://line.me/ti/g2/JNCL2JNdFD8OHUqXNpYvybo25hwnAcugJkce6Q" target="_blank" onclick="triggerHaptic(10)">207<span>ROOM</span></a>
+<a class="room-item" data-room="208" href="https://line.me/ti/g2/GfUp7qx4DO6do_S8TZUgTwdpmwht0djXYIfbKg" target="_blank" onclick="triggerHaptic(10)">208<span>ROOM</span></a>
+<a class="room-item" data-room="209" href="https://line.me/ti/g2/m1uOuZNgJA07iCzdvy4POGc9ZZpgKjJ2i0zq8Q" target="_blank" onclick="triggerHaptic(10)">209<span>ROOM</span></a>
+<a class="room-item" data-room="210" href="https://line.me/ti/g2/3eeJF2Og-tHV1T6Zq6c0RaiEbnrJgkt_Ms48nA" target="_blank" onclick="triggerHaptic(10)">210<span>ROOM</span></a>
+</div>
+</div>
+
+<!-- ⚡ 301~310 房間網格 -->
+<div class="card-box">
+<div class="card-header">⚡ VIP Lounge ｜ 301 - 310（會員限定）</div>
+<div class="grid-rooms">
+<a class="room-item" data-room="301" href="https://line.me/ti/g2/cGyut3Z5-SSetio6B6Qef2XhLFze1kEAdhdK2g?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" onclick="triggerHaptic(10)">301<span>ROOM</span></a>
+<a class="room-item" data-room="302" href="https://line.me/ti/g2/pfd3x32SjVxwdSLXsah3Ry4__7GPSIomF4aH7A?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" onclick="triggerHaptic(10)">302<span>ROOM</span></a>
+<a class="room-item" data-room="303" href="https://line.me/ti/g2/dzJ0UTOcAQfeoTxqPajuF1p26xf0BGqYBQ-deg?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" onclick="triggerHaptic(10)">303<span>ROOM</span></a>
+<a class="room-item" data-room="304" href="https://line.me/ti/g2/vibFcJ_4WIMzYcc02GijQSLgdOXBUNn83GJ3gQ?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" onclick="triggerHaptic(10)">304<span>ROOM</span></a>
+<a class="room-item" data-room="305" href="https://line.me/ti/g2/wG0M4GuWDX2lRfql_DyijHMRRTbgCnXkGB7AyQ?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" onclick="triggerHaptic(10)">305<span>ROOM</span></a>
+<a class="room-item" data-room="306" href="https://line.me/ti/g2/Ed0yCPmF9EHstLwmjZSjTgJKHzvLUBHw2fbdKw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" onclick="triggerHaptic(10)">306<span>ROOM</span></a>
+<a class="room-item" data-room="307" href="https://line.me/ti/g2/5_sLs6CDy-nMHHNNU7lx1Jsgr-c9fnE-DzN3jg?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" onclick="triggerHaptic(10)">307<span>ROOM</span></a>
+<a class="room-item" data-room="308" href="https://line.me/ti/g2/wyEcr34wyTIhsQ1Ka3oTx37tWim96dWM4i--ZQ?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" onclick="triggerHaptic(10)">308<span>ROOM</span></a>
+<a class="room-item" data-room="309" href="https://line.me/ti/g2/6eeXlWUia5-RFVeZ1LnLc6p30m7l8xVJK4bS3Q?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" onclick="triggerHaptic(10)">309<span>ROOM</span></a>
+<a class="room-item" data-room="310" href="https://line.me/ti/g2/fiFgZYLxvKFdpOemk6G_gLeRhXA0YORstLHt7A?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" onclick="triggerHaptic(10)">310<span>ROOM</span></a>
 </div>
 </div>
 </div>
+
 <!-- 模組 5：【營運公告】 -->
 <div class="tab-panel" id="panel-notice">
 <div class="card-box">
@@ -840,7 +893,7 @@
 <div class="sub-tab-panel" id="sub-panel-sub-policy">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title">💳 退費, 改期與不可抗力規範</div>
+        <div class="policy-item-title">💳 退費、改期與不可抗力規範</div>
         <div class="policy-item-desc">• <strong>提前取消：</strong>於服務約定時間 <strong>7 天前</strong>提出取消申請者，全額退還已付金額（僅扣除必要之跨行轉帳手續費）。<br/>• <strong>不可抗力：</strong>如遇政府公告之天然災害（如颱風停班課）或法定傳染病管制，平台將優先協助雙方免費改期；若無法配合改期，則於次月 15 號辦理全額退費。</div>
     </div>
     <div class="policy-item notice-pink">
@@ -1154,8 +1207,9 @@
     }
 
     function renderFeaturedSection() {
-        const container = document.getElementById('featured-grid-container');
-        if (!container) return;
+        const container1 = document.getElementById('featured-grid-container');
+        const container2 = document.getElementById('home-featured-grid-container');
+        if (!container1 && !container2) return;
 
         let scored = allPartnersData.map(r => {
             const name = r[0], region = r[2], record = userRatings[name];
@@ -1199,7 +1253,8 @@
                 </div>
             `;
         });
-        container.innerHTML = html;
+        if (container1) container1.innerHTML = html;
+        if (container2) container2.innerHTML = html;
     }
 
     function renderPartners(dataArray) {
@@ -1570,32 +1625,6 @@
         out.innerHTML = `💡 試算：應收定金(30%) $${deposit} ｜ 夥伴實拿(80%) $${partnerEarn}`;
     }
 
-    // 動態房間渲染與 busy 狀態點燈
-    function renderRooms() {
-        const roomGroups = [
-            { id: 'rooms-grid-1', start: 101, end: 110 },
-            { id: 'rooms-grid-2', start: 201, end: 210 }
-        ];
-
-        roomGroups.forEach(group => {
-            const container = document.getElementById(group.id);
-            if (!container) return;
-            let html = '';
-            for (let roomNum = group.start; roomNum <= group.end; roomNum++) {
-                let currentPeopleCount = 2; 
-                if ([101, 103, 104, 105, 106, 109, 110, 201, 205, 210].includes(roomNum)) {
-                    currentPeopleCount = 6; 
-                }
-                
-                let isBusy = currentPeopleCount >= 4;
-                let busyClass = isBusy ? 'room-item busy' : 'room-item';
-                
-                html += `<a class="${busyClass}" data-room="${roomNum}" href="https://line.me/ti/g2/yTUYTMHUoV1Dbs6UFvddBsYXef7qJTfHASS1jw" target="_blank" onclick="triggerHaptic(10)">${roomNum}<span>ROOM</span></a>`;
-            }
-            container.innerHTML = html;
-        });
-    }
-
     function openBookingModal(name, region) {
         triggerHaptic(15);
         currentBookingPartner = name;
@@ -1620,9 +1649,9 @@
         
         navigator.clipboard.writeText(template).then(() => {
             showToast("📋 已複製格式並開啟 LINE！");
-            setTimeout(() => { window.location.href = 'https://line.me/ti/p/L1iM3COUPl'; }, 800);
+            setTimeout(() => { window.location.href = 'https://lin.ee/9R2sLhB'; }, 800);
         }).catch(() => {
-            window.location.href = 'https://line.me/ti/p/L1iM3COUPl';
+            window.location.href = 'https://lin.ee/9R2sLhB';
         });
 
         closeBookingModal();
@@ -1681,13 +1710,33 @@
         updatePartnersData();
     }
 
+    async function autoUpdateRoomLights() {
+        try {
+            const response = await fetch('rooms.json?t=' + Date.now());
+            if (!response.ok) return;
+            const statusData = await response.json();
+            
+            document.querySelectorAll('.room-item').forEach(item => {
+                const roomId = item.getAttribute('data-room');
+                if (roomId && statusData[roomId] !== undefined) {
+                    if (statusData[roomId]) {
+                        item.classList.add('busy');
+                    } else {
+                        item.classList.remove('busy');
+                    }
+                }
+            });
+        } catch (e) {
+            console.error("載入房間即時狀態失敗", e);
+        }
+    }
+
     function updatePartnersData() {
         populateGenderOptions();
         populateRegionOptions();
         populateNameOptions();
         renderFeaturedSection();
         renderClientsSection();
-        renderRooms();
         applyFilters(); 
     }
 
@@ -1857,6 +1906,8 @@
             currentThemeIdx = themes.indexOf(savedTheme);
         }
         fetchPartners();
+        autoUpdateRoomLights();
+        setInterval(autoUpdateRoomLights, 60000);
 
         const userInput = document.getElementById('ai-user-input');
         if (userInput) {
