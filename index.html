@@ -456,12 +456,6 @@
     .link-desc { font-size: 12px; color: var(--text-gray); }
     .badge { font-size: 10px; padding: 4px 10px; border-radius: 14px; font-weight: 700; background: rgba(255, 115, 36, 0.22); color: #ffb06e; border: 1px solid rgba(255, 115, 36, 0.45); }
 
-    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
-    .contact-card { display: flex; flex-direction: column; align-items: center; padding: 22px 16px; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1); border-radius: 22px; text-decoration: none; color: #fff; transition: var(--transition-smooth); box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
-    .contact-card:hover { border-color: var(--neon-gold); transform: translateY(-2px); background: rgba(255,176,32,0.07); box-shadow: 0 16px 40px rgba(255,176,32,0.25); }
-    .contact-avatar { width: 52px; height: 52px; border-radius: 50%; background: #0c061a; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 10px; border: 1px solid rgba(255, 176, 32, 0.5); box-shadow: 0 0 18px rgba(255,176,32,0.25); }
-    .contact-name { font-weight: 800; font-size: 13.5px; color: #fff2ab; }
-
     .grid-rooms { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
     .room-item { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 54px; background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; color: #f4effc; text-decoration: none; font-size: 12.5px; font-weight: 700; transition: var(--transition-smooth); box-shadow: 0 8px 18px rgba(0,0,0,0.35); }
     .room-item span { font-size: 7.5px; color: var(--text-gray); margin-top: 2px; font-weight: 600; }
@@ -843,7 +837,7 @@
 <div class="policy-list">
     <div class="policy-item notice-cyan">
         <div class="policy-item-title">⚖️ 平台定位與第三方免責聲明</div>
-        <div class="policy-item-desc">本平台（閒人案內所）僅提供<strong>「純粹資訊媒合與交流平台服務」</strong>。本平台並非雙方僱傭或履約合約之當事人，亦不介入雙方於線下互動之實質行為。用戶在平台外或私下所產生之任何口頭承諾、金錢往來、個人行為或安全糾紛，<strong style="color: var(--neon-pink);">本平台概不負任何民事、刑事或行政之連帶法律責任</strong>。</div>
+        <div class="policy-item-desc">本平台（閒人案內所）僅提供<strong>「純粹資訊媒合與交流平台服務」</strong>。本平台並非雙方僱傭或履約合約之當事人，亦不介入雙方於線下互動之實質行為。用戶在平台外或私下所產生之任何口頭承諾、金錢往來、個人行為或安全糾紛，<strong style="color: var(--neon-pink);">本平台概不負任何民事, 刑事或行政之連帶法律責任</strong>。</div>
     </div>
     <div class="policy-item notice-blue">
         <div class="policy-item-title">🔞 年齡限制與特許行業禁令</div>
@@ -984,7 +978,7 @@
         </div>
     </div>
     <div class="ai-chat-messages" id="ai-messages">
-        <div class="ai-msg bot">您好，我是閒人案內所的數位風控與客服總監。請問有關於預約媒合、委託人排行或平台規則的問題想諮詢嗎？✨</div>
+        <div class="ai-msg bot">您好，我是閒人案內所的頂級數位風控官兼首席智能客服總監。請問有關於平台規則、預約定金或是時間出租的問題想諮詢嗎？✨</div>
     </div>
     <div class="ai-quick-chips">
         <button onclick="sendQuickQuestion('請問委託或出租的發文格式？')">📋 發文格式</button>
@@ -1853,7 +1847,13 @@
         if (subPanel) subPanel.classList.add('active');
     }
 
-    const systemPrompt = "你現在是專屬的「閒人案內所」頂級數位風控官兼首席智能客服總監。";
+    const systemPrompt = `你現在是專屬「閒人案內所」的首席智慧風控官兼頂級客服總監。
+你的任務是協助訪客解答所有關於平台的問題。以下是你的核心知識庫：
+1. 平台定位：純粹資訊媒合與交流平台，年滿18歲方可參與，嚴禁特許違法行業。
+2. 預約與金流：線下委託需先付 30% 定金（透過 TWQR / 街口 / 台灣Pay），尾款 70% 現場付現。出租人/夥伴實拿 80%，平台抽 20%。
+3. 聯絡方式：主頁有「聯絡官方」與備註為吉祥物的「聯絡所長」通道。
+4. 安全守護：所有見面僅限公開明亮公共場所，嚴禁私密空間。
+請保持專業、親切、帶有一點賽博龐克的神秘與高級感，用繁體中文簡明扼要地回答訪客。`;
     let chatHistory = [{ role: "system", content: systemPrompt }];
 
     function toggleAIChat() {
@@ -1877,16 +1877,52 @@
         input.value = '';
         container.scrollTop = container.scrollHeight;
 
-        try {
-            const apiUrl = `https://text.pollinations.ai/${encodeURIComponent(text)}?system=${encodeURIComponent(systemPrompt)}`;
-            const response = await fetch(apiUrl);
-            const rawText = await response.text();
-            container.innerHTML += `<div class="ai-msg bot">${escapeHtml(rawText)}</div>`;
-            container.scrollTop = container.scrollHeight;
-        } catch (error) {
-            container.innerHTML += `<div class="ai-msg bot">系統忙碌中，請點擊主頁聯絡管管 👻</div>`;
-            container.scrollTop = container.scrollHeight;
+        const lowerText = text.toLowerCase();
+        let localReply = "";
+        if (lowerText.includes('發文格式') || lowerText.includes('出租') || lowerText.includes('委託')) {
+            localReply = "📋 【發文格式參考】\n• 出租格式：【地區/性別】名字｜專長/特色｜想說的話\n• 委託格式：【地區/需求】想找什麼樣的夥伴陪伴｜預計時間與預算\n記得詳閱 18 歲限制與公共場所規範喔！✨";
+        } else if (lowerText.includes('線下') || lowerText.includes('定金')) {
+            localReply = "💳 【線下定金格式與說明】\n• 需透過 TWQR / 街口支付轉帳 30% 定金。\n• 非常重要：雙方務必保留轉帳成功畫面與匯款明細截圖以供查核！尾款 70% 於現場付現。";
+        } else if (lowerText.includes('線上') || lowerText.includes('預付')) {
+            localReply = "🌐 【線上委託說明】\n• 線上委託採全額預付制。\n• 最長預付期嚴格控管以 2 個月（60天）為限。";
+        } else if (lowerText.includes('取消') || lowerText.includes('違約金') || lowerText.includes('退費')) {
+            localReply = "💰 【退費與違約金計算】\n• 7天前取消：全額退還（僅扣跨行手續費）。\n• 7天內臨退/放鳥：扣除總金額 30% 作為違約金（20% 平台手續費 + 10% 時間補償給夥伴）。";
+        } else if (lowerText.includes('聯繫') || lowerText.includes('管管') || lowerText.includes('客服') || lowerText.includes('所長')) {
+            localReply = "👤 【專人聯絡通道】\n請直接點擊主頁的：\n• 聯絡官方客服（即時專人處理）\n• 聯絡所長（吉祥物通道，不一定會回喔！XD）";
         }
+
+        if (localReply) {
+            setTimeout(() => {
+                container.innerHTML += `<div class="ai-msg bot">${escapeHtml(localReply)}</div>`;
+                container.scrollTop = container.scrollHeight;
+            }, 300);
+            return;
+        }
+
+        let success = false;
+        let rawText = "";
+        for (let attempt = 1; attempt <= 2; attempt++) {
+            try {
+                const apiUrl = `https://text.pollinations.ai/${encodeURIComponent(text)}?system=${encodeURIComponent(systemPrompt)}`;
+                const response = await fetch(apiUrl);
+                rawText = await response.text();
+                
+                if (response.ok && !rawText.includes('Queue full') && !rawText.includes('error')) {
+                    success = true;
+                    break;
+                }
+                if (attempt === 1) await new Promise(r => setTimeout(r, 1500));
+            } catch (e) {
+                if (attempt === 1) await new Promise(r => setTimeout(r, 1500));
+            }
+        }
+
+        if (success) {
+            container.innerHTML += `<div class="ai-msg bot">${escapeHtml(rawText)}</div>`;
+        } else {
+            container.innerHTML += `<div class="ai-msg bot">🤖 AI 伺服器目前排隊壅塞中。您可以直接點擊下方快速按鈕（發文格式、定金格式等），系統會立刻秒回您解答！✨</div>`;
+        }
+        container.scrollTop = container.scrollHeight;
     }
 
     function clearChatHistory() {
@@ -1913,6 +1949,13 @@
         if (userInput) {
             userInput.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter') { e.preventDefault(); sendAIMessage(); }
+            });
+        }
+
+        const quickInput = document.getElementById('quick-calc-input');
+        if (quickInput) {
+            quickInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') { e.preventDefault(); quickCalculateDeposit(); }
             });
         }
     });
