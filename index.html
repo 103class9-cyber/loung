@@ -333,7 +333,7 @@
     .featured-chip-vertical.rank-3 {
         background: linear-gradient(135deg, rgba(179, 102, 255, 0.25) 0%, rgba(16, 12, 30, 0.98) 100%);
         border: 1.5px solid rgba(179, 102, 255, 0.6);
-        box-shadow: 0 0 26px rgba(179, 102, 255, 0.25), inset 0 0 15px rgba(179, 102, 255, 0.12);
+        box-shadow: 0 0 26px rgba(179, 102, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.12);
     }
     .featured-chip-vertical.rank-3::before { content: ''; position: absolute; top: 0; left: 0; width: 4.5px; height: 100%; background: var(--neon-purple); box-shadow: 0 0 14px var(--neon-purple); }
 
@@ -535,7 +535,7 @@
 <div class="container">
 <div class="system-badge"><span></span> 系統運行中 ｜ 24H 智慧媒合 (PWA已啟動)</div>
 <div class="marquee-box">
-    <div class="marquee-content">📢 【重要公告】管理人休假全面指定 <strong style="color: #ff2a6d;">@啾寶好餓吃不飽</strong> 為官方代理！🚗 嚴禁搭乘私家車 ｜ 🚫 嚴禁飛單私單 ｜ 🔞 年滿 18 歲方可參與✨</div>
+    <div class="marquee-content">📢 【重要公告】管理人休假全面指定 <strong style="color: #ff2a6d;">@啾寶好餓吃不飽</strong> 為官方代理！🚗 嚴禁搭乘私家車 ｜ 💳 尾款限本人給付 ｜ 🛡️ 委託人退群/封鎖 出租人仍享10%補償✨</div>
 </div>
 
 <div class="header">
@@ -824,14 +824,10 @@
         • 👤 <strong class="badge-tag-gold">官方代理人公告</strong>：管理人休假調整步伐期間，各項求租與出租正常營運。全面指定 <strong class="danger-red">@啾寶好餓吃不飽</strong> 為官方代理人負責日常事務！<br>
         • 🚗 <strong class="danger-red">交通鐵律（重大違規）</strong>：<strong class="danger-red">絕對嚴禁搭乘委託人之私人汽車、機車（即便坐後座亦同）</strong>！移動一律各自搭乘大眾運輸、計程車/Uber 或步行。<br>
         • 📍 <strong class="danger-red">空間與第三方報備</strong>：全程僅限公開明亮場所。若有第三方友人出席或場地包含包廂，<strong class="danger-red">必須提前告知並取得同意</strong>，隱瞞或突發帶人夥伴可拒絕服務並安全撤離！<br>
-        • 💰 <strong class="danger-red">見面即清 70% 尾款</strong>：預約付 30% 定金；剩餘 70% 尾款必須於<strong class="danger-red">「雙方現場見面照面時」一次結清</strong>，以保障夥伴撤離機制不受影響。<br>
+        • 💰 <strong class="danger-red">尾款限本人給付與見面清結</strong>：預約支付 30% 定金；剩餘 70% 尾款<strong class="danger-red">必須由委託人本人親自給付（嚴禁交由他人代付）</strong>，並於<strong class="danger-red">「雙方現場見面照面時」一次結清</strong>。<br>
+        • 🛡️ <strong class="danger-red">10% 補償機制與中斷/退群規範</strong>：定金與行程款項提撥以「完成委託」為前提；<strong class="danger-red">若行程中途因違規、突發帶人、隱瞞密閉空間等情事提前中斷委託，或委託人遭踢出/自行退出社群導致後續預約作廢，該 30% 定金全額沒收不退，且平台一律提撥 10% 全額撥付予出租人（夥伴）作為檔期損失與工時補償</strong>！<br>
         • 🔨 <strong class="danger-red">違規累計封鎖門檻</strong>：線下行程違規滿 <strong class="danger-red">2 次</strong> ｜ 線上發單違規滿 <strong class="danger-red">3 次</strong> ➡️ <strong class="danger-red">永久封鎖並請離社群</strong>！
     </div>
-</div>
-
-<!-- ⚠️ 情境處分示範模組（去名字泛化版） -->
-<div style="background: rgba(255, 176, 32, 0.06); border: 1px solid rgba(255, 176, 32, 0.35); border-radius: 18px; padding: 14px 18px; margin-bottom: 22px; text-align: left; font-size: 12px; color: #f8ecc4; line-height: 1.75;">
-    ⚠️ <strong style="color: var(--neon-gold);">【情境處分示範案例】：</strong>若委託人出現「嚴重遲到、未提前報備第三方同行友人或隱瞞包廂等私密空間、態度極不友善」等違規情事，平台將依規處以<strong class="danger-red">記線規警告 1 次</strong>，預付之 30% 定金全數沒收並提撥 10% 補貼現場夥伴，且現場行程將被強制終止！
 </div>
 
 <div class="card-box" style="padding: 22px 18px; margin-bottom: 22px;">
@@ -840,7 +836,7 @@
         <div class="step-item"><div class="step-num">1</div><div class="step-content"><div class="step-title">挑選心儀對象</div><div class="step-desc">至「夥伴」或「委託人」專區挑選合適對象，點擊預約按鈕。</div></div></div>
         <div class="step-item"><div class="step-num">2</div><div class="step-content"><div class="step-title">具體化發單與討論</div><div class="step-desc">嚴禁模稜兩可字眼。案件必須載明目的、地點、時間、項目與預算；單據下方討論串僅限討論該案細節。</div></div></div>
         <div class="step-item"><div class="step-num">3</div><div class="step-content"><div class="step-title">支付 30% 定金並留存明細</div><div class="step-desc">透過 TWQR / 街口支付轉帳 30% 定金，<strong class="danger-red">雙方（特別是出租人）必須妥善保留轉帳截圖與明細</strong>備查。</div></div></div>
-        <div class="step-item"><div class="step-num">4</div><div class="step-content"><div class="step-title">見面照面即清結 70% 尾款</div><div class="step-desc"><strong class="danger-red">雙方現場照面時一次清結尾款</strong>（建議網銀轉帳留存憑證），確保行程與安全撤離機制正常運行。</div></div></div>
+        <div class="step-item"><div class="step-num">4</div><div class="step-content"><div class="step-title">見面照面即清結 70% 尾款（限本人給付）</div><div class="step-desc">尾款<strong class="danger-red">必須由委託人本人給付，不得交由他人代付</strong>，並於現場照面時一次清結（建議網銀即時轉帳），確保行程與安全撤離機制正常運行。</div></div></div>
         <div class="step-item"><div class="step-num">5</div><div class="step-content"><div class="step-title">24H 自動結案歸檔</div><div class="step-desc">服務完成後 24 小時無重大爭議回報，系統自動結案並開放雙向評分。</div></div></div>
     </div>
 </div>
@@ -882,12 +878,12 @@
         </div>
     </div>
     <div class="policy-item notice-blue">
-        <div class="policy-item-title"><span>💳 30% 定金預付與 70% 現場照面結清</span><span class="badge-tag-gold">款項金流</span></div>
-        <div class="policy-item-desc">• 線上委託採全額預付（最長預付期嚴控以 <strong class="danger-red">2 個月/60天</strong> 為限）。<br>• 線下委託預約成立支付 30% 定金，剩餘 70% 尾款於<strong class="danger-red">「雙方現場見面照面時」一次結清</strong>，確保夥伴撤離機制正常運行。</div>
+        <div class="policy-item-title"><span>💳 30% 定金預付與 70% 現場本人給付結清</span><span class="badge-tag-gold">款項金流</span></div>
+        <div class="policy-item-desc">• 線上委託採全額預付（最長預付期嚴控以 <strong class="danger-red">2 個月/60天</strong> 為限）。<br>• 線下委託預約成立支付 30% 定金，其餘 70% 尾款<strong class="danger-red">必須由委託人本人親自給付（嚴禁交由他人代付）</strong>，並於「雙方現場見面照面時」一次結清，確保夥伴撤離機制正常運行。</div>
     </div>
     <div class="policy-item notice-pink">
         <div class="policy-item-title"><span>👥 第三方友人與包廂報備義務</span><span class="badge-tag-red">隱瞞重罰</span></div>
-        <div class="policy-item-desc">行程若有第三方同行友人出席或涉及包廂等隱密空間，<strong class="danger-red">必須提前告知並取得同意</strong>。若隱瞞或突發帶人，出租人有權拒絕服務並撤離，<strong class="danger-red">30% 定金全數不退並沒收，且提撥 10% 補貼出租人</strong>！</div>
+        <div class="policy-item-desc">行程若有第三方同行友人出席或涉及包廂等隱密空間，<strong class="danger-red">必須提前告知並取得同意</strong>。若隱瞞或突發帶人，出租人有權拒絕服務並撤離，<strong class="danger-red">30% 定金全數不退並沒收，且提撥 10% 轉為補償出租人</strong>！</div>
     </div>
 </div>
 </div>
@@ -926,11 +922,14 @@
         </div>
     </div>
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title"><span>💳 退費、放鳥違約金與工時補貼政策</span><span class="badge-tag-gold">保障條款</span></div>
+        <div class="policy-item-title"><span>💳 退費、放鳥違約金與 10% 補償規範</span><span class="badge-tag-gold">保障條款</span></div>
         <div class="policy-item-desc">
             • <strong>7天前取消</strong>：全額退還已付定金（扣除跨行手續費）。<br>
             • <strong>7天內臨退/放鳥</strong>：扣除總金額 30% 作為違約金（20% 平台行政費 + 10% 時間補償予夥伴）。<br>
-            • <strong>現場違規中止補償</strong>：若委託人突發帶人或隱瞞密閉空間，定金沒收，並提撥 10% 作為夥伴車馬費與精神損失補償！
+            • <strong class="danger-red">10% 補償前提、中斷與退群規範</strong>：<br>
+              1. 10% 費用之提撥以「完成委託」為常態前提。<br>
+              2. 若行程中途因委託人突發帶人、隱瞞密閉空間或越線騷擾等事件導致<strong class="danger-red">提前中斷委託</strong>，30% 定金全額沒收不退，並直接將 10% 轉為現場夥伴之工時、車馬費與精神損失補償！<br>
+              3. 若預約成立後，<strong class="danger-red">因委託人遭封鎖踢出社群或自行退出社群，其名下後續所有已預約行程強制終止作廢，30% 定金沒收不退，出租人（夥伴）一樣可獲派該筆訂單 10% 之檔期損失補償</strong>！
         </div>
     </div>
     <div class="policy-item notice-blue">
@@ -988,7 +987,7 @@
         </div>
         <div style="margin-bottom: 14px; text-align: left;">
             <div style="font-size: 11px; color: var(--text-gray); font-weight: 800; margin-bottom: 4px;" id="comments-list-title">💬 真實評價留言紀錄：</div>
-            <div id="sheet-comments-list" style="display: flex; direction: column; gap: 6px; max-height: 90px; overflow-y: auto;"></div>
+            <div id="sheet-comments-list" style="display: flex; flex-direction: column; gap: 6px; max-height: 90px; overflow-y: auto;"></div>
         </div>
         <div style="font-size:11.5px; color:var(--text-gray); margin-bottom:4px; font-weight:700;">完整介紹：</div>
         <div id="sheet-intro" style="font-size:12.5px; color:#f4effc; line-height:1.7; background:rgba(0,0,0,0.5); padding:14px; border-radius:14px; margin-bottom:18px; max-height:95px; overflow-y:auto; border:1px solid rgba(255,255,255,0.06);"></div>
@@ -1021,14 +1020,14 @@
         </div>
     </div>
     <div class="ai-chat-messages" id="ai-messages">
-        <div class="ai-msg bot">您好呀！我是閒人案內所的首席智慧風控官兼萌系客服總監～✨ 管理人休假期間由官方代理人 @啾寶好餓吃不飽 協助處理日常事務！有任何發單格式、出租四大禁令、交通鐵律（嚴禁搭私家車）或定金結算問題，隨時問我喔！👻💖</div>
+        <div class="ai-msg bot">您好呀！我是閒人案內所的首席智慧風控官兼萌系客服總監～✨ 管理人休假期間由官方代理人 @啾寶好餓吃不飽 協助處理日常事務！有任何發單格式、四大禁令、尾款限本人給付、或委託人退群/中斷行程之 10% 補償問題，隨時問我喔！👻💖</div>
     </div>
     <div class="ai-quick-chips">
         <button onclick="sendQuickQuestion('請問委託或出租的發文格式？')">📋 發文格式</button>
-        <button onclick="sendQuickQuestion('線下委託格式是什麼？')">💳 30%定金/70%尾款</button>
+        <button onclick="sendQuickQuestion('尾款給付規定與定金是多少？')">💳 尾款限本人給付</button>
+        <button onclick="sendQuickQuestion('委託人退群或中斷行程如何補償？')">🛡️ 10%補償規範</button>
         <button onclick="sendQuickQuestion('出租人有哪四大禁令？')">🚫 四大禁令</button>
         <button onclick="sendQuickQuestion('交通安全鐵律是什麼？')">🚗 嚴禁私家車</button>
-        <button onclick="sendQuickQuestion('違規處罰與累計門檻是什麼？')">🔨 違規累計封鎖</button>
         <button onclick="sendQuickQuestion('如何聯繫真人管管或代理人？')">👤 專人客服</button>
     </div>
     <div class="ai-chat-input-area">
@@ -1144,6 +1143,36 @@
     function closeRatingPopup() {
         triggerHaptic(10);
         document.getElementById('rating-popup-modal').style.display = 'none';
+    }
+
+    function copyToClipboard(text) {
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("📋 已複製到剪貼簿！");
+            }).catch(() => {
+                showToast("⚠️ 複製失敗，請手動複製");
+            });
+        }
+    }
+
+    function addToGoogleCalendar() {
+        const date = document.getElementById('modal-date').value;
+        const time = document.getElementById('modal-time').value || '14:00';
+        const amount = document.getElementById('modal-amount').value || '1000';
+        
+        if (!date) {
+            showToast("❌ 請先選擇預約日期！");
+            return;
+        }
+
+        const title = encodeURIComponent(`閒人案內所 ｜ ${currentBookingPartner} 預約委託行程`);
+        const details = encodeURIComponent(`預約對象：${currentBookingPartner}\n活動地區：${currentBookingRegion}\n委託總金額：$${amount}\n\n提醒：\n1. 移動嚴禁搭乘私家車！\n2. 尾款 70% 見面照面時由本人親自結清。`);
+        const location = encodeURIComponent(currentBookingRegion);
+        
+        const cleanDate = date.replace(/-/g, '');
+        const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${cleanDate}T060000Z/${cleanDate}T080000Z`;
+        
+        window.open(gCalUrl, '_blank');
     }
 
     function toggleFavorite(name, event) {
@@ -1897,16 +1926,13 @@
 
 以下是你的核心知識庫與必須遵守的回答原則：
 1. 平台定位與代理機制：健康之「綠色陪伴平台」，管理人休假期間全面指定 @啾寶好餓吃不飽 為官方代理人處理日常各項事務！所有參與者必須年滿 18 歲（含）以上，嚴格禁止違法特許行業！🚫
-2. 出租人四大禁令（違者直接除名終止合作）：
-   - 不准「戀愛經營」：禁止曖昧話術、情感勒索或打著戀愛名義經營客人。
-   - 不准「強迫下單」：禁止死纏爛打（硬盧）要求客人加時或轉實體行程。
-   - 不准「故意超時」：時間到即結案，禁止故意拖延對話強制要求補單。
-   - 不准「踩一捧一」：嚴禁惡意攻擊、貶低其他夥伴來抬高自己。
-3. 交通與安全鐵律（重點）：行程期間「絕對禁止搭乘委託人之私人汽車、機車」（即便坐後座亦同！移動一律各自搭乘大眾運輸、計程車/Uber或步行）。全程僅限公開明亮場所，嚴禁私密空間！若有第三方友人或包廂，必須提前告知取得同意，隱瞞者沒收定金並提撥10%補償夥伴！🚗📍
+2. 出租人四大禁令（違者直接除名終止合作）：不准「戀愛經營」、不准「強迫下單」、不准「故意超時」、不准「踩一捧一」。
+3. 交通與安全鐵律（重點）：行程期間「絕對禁止搭乘委託人之私人汽車、機車」（即便坐後座亦同！移動一律各自搭乘大眾運輸、計程車/Uber或步行）。全程僅限公開明亮場所，嚴禁私密空間！若有第三方友人或包廂，必須提前告知取得同意！🚗📍
 4. 發單具體化與討論串：求租嚴禁使用「你懂的」等模糊字眼，須具體記載目的、地點、時間、項目與預算；討論串僅限討論該案細節，禁止閒聊插話！
-5. 款項與結算流程：預約支付 30% 定金；剩餘 70% 尾款必須於「雙方現場見面照面時」一次清結（建議手機網銀轉帳）。夥伴實拿 80%，平台抽 20%。
-6. 違規處罰累計門檻：線下行程違規滿 2 次 ｜ 線上發單違規滿 3 次 ➡️ 永久封鎖並踢出社群！
-7. 專人通道：引導訪客點擊主頁的「聯絡官方客服」或創辦人「聯絡所長（吉祥物 👻，不一定會回喔！😅）」。
+5. 款項與結算流程：預約支付 30% 定金；剩餘 70% 尾款「必須由委託人本人親自給付，不得交由他人代付」，且必須於「雙方現場見面照面時」一次清結（建議手機網銀轉帳）。夥伴實拿 80%，平台抽 20%。
+6. 10% 補償前提、中斷與退群機制：10% 之提撥以「完成委託」為常態前提；若行程中途發生事情（如違規、隱瞞第三方、包廂或越線）導致提前中斷委託，或預約成立後委託人遭封鎖踢出/自行退群導致後續預約作廢，該 30% 定金全額沒收不退，且平台一律提撥 10% 作為出租人（夥伴）之工時、車馬與精神損失「補償」！
+7. 違規處罰累計門檻：線下行程違規滿 2 次 ｜ 線上發單違規滿 3 次 ➡️ 永久封鎖並踢出社群！
+8. 專人通道：引導訪客點擊主頁的「聯絡官方客服」或創辦人「聯絡所長（吉祥物 👻，不一定會回喔！😅）」。
 
 請用親切、高級感又帶點萌感的繁體中文回答，讓訪客感受到滿滿的溫暖與安心！`;
     let chatHistory = [{ role: "system", content: systemPrompt }];
@@ -1937,13 +1963,15 @@
         if (lowerText.includes('發文格式') || lowerText.includes('出租') || lowerText.includes('委託') || lowerText.includes('求租')) {
             localReply = "📋 **【發文格式與討論串規範】**✨\n• 求租/發案內容須具體化：明確記載 (1)目的/行程 (2)地點 (3)時間 (4)項目 (5)預算報酬，嚴禁使用「你懂的」等模稜兩可字眼！\n• 單據下方討論串僅限討論該案具體細節，非相關人員嚴禁閒聊插話唷！💖";
         } else if (lowerText.includes('定金') || lowerText.includes('尾款') || lowerText.includes('結算') || lowerText.includes('線下')) {
-            localReply = "💳 **【交易與結算流程】**💡\n• 預約成立支付 **30% 定金** 鎖定檔期（TWQR / 街口 / 台灣Pay）。\n• **超重要**：剩餘 **70% 尾款必須於「雙方現場見面照面時」一次清結**（建議使用手機網銀即時轉帳並留存憑證）！";
+            localReply = "💳 **【交易與結算流程】**💡\n• 預約成立支付 **30% 定金** 鎖定檔期。\n• **超重要**：剩餘 **70% 尾款必須由委託人本人親自給付（嚴禁交由他人代付）**，並於「雙方現場見面照面時」一次清結！";
+        } else if (lowerText.includes('補償') || lowerText.includes('10%') || lowerText.includes('中斷') || lowerText.includes('退群') || lowerText.includes('被踢') || lowerText.includes('封鎖')) {
+            localReply = "🛡️ **【10% 補償前提、中斷與退群規範】**💡\n1. 10% 費用之提撥以「完成委託」為常態前提。\n2. 若中途因違規、隱瞞第三方/包廂等情事提前中斷委託，30% 定金沒收不退，並提撥 **10% 轉為現場夥伴之工時、車馬與精神損失補償**！\n3. 若委託人遭封鎖踢出或自行退群，名下已定預約行程強制終止，定金不退，**出租人（夥伴）一樣享有 10% 檔期損失補償**喔！✨";
         } else if (lowerText.includes('車') || lowerText.includes('交通') || lowerText.includes('私家車')) {
             localReply = "🚗 **【交通安全鐵律（零容忍）】**🚨\n• **絕對禁止搭乘委託人之私人汽車或機車**（坐後座也不行唷！）\n• 行程移動一律各自搭乘大眾運輸、計程車/Uber 或步行，違者直接嚴懲停權！✨";
         } else if (lowerText.includes('禁令') || lowerText.includes('四大禁令')) {
             localReply = "🚫 **【出租人四大禁令（違者直接除名）】**⚠️\n1. 不准「戀愛經營」（禁止曖昧話術、情感勒索）\n2. 不准「強迫下單」（禁止硬盧加時）\n3. 不准「故意超時」（時間到即結案）\n4. 不准「踩一捧一」（嚴禁惡意貶低其他夥伴）\n保持健康良性競爭，違者直接終止合作！";
         } else if (lowerText.includes('違規') || lowerText.includes('處罰') || lowerText.includes('累計') || lowerText.includes('門檻')) {
-            localReply = "🔨 **【違規累計與懲處標準】**⚖️\n• **線下行程**：違規累計滿 **2 次** ➡️ 永久封鎖並踢出社群！\n• **線上發單**：違規累計滿 **3 次** ➡️ 永久封鎖並踢出社群！\n• 若有突發帶人或未報備包廂，定金沒收並提撥 10% 補貼夥伴！";
+            localReply = "🔨 **【違規累計與懲處標準】**⚖️\n• **線下行程**：違規累計滿 **2 次** ➡️ 永久封鎖並踢出社群！\n• **線上發單**：違規累計滿 **3 次** ➡️ 永久封鎖並踢出社群！\n• 若有突發帶人或未報備包廂，定金沒收並提撥 10% 補償夥伴！";
         } else if (lowerText.includes('聯繫') || lowerText.includes('管管') || lowerText.includes('客服') || lowerText.includes('所長') || lowerText.includes('代理')) {
             localReply = "👤 **【專人聯絡與代理通道】**👻\n• 管理人休假期間由官方代理人 **@啾寶好餓吃不飽** 協助處理日常事務！\n• 請點擊主頁的 **聯絡官方客服** 或創辦人 **聯絡所長**（吉祥物通道，不一定會回喔！😅）";
         }
