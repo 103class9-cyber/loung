@@ -16,7 +16,7 @@
         --neon-cyan: #00f3ff;
         --text-light: #ffffff;
         --text-gray: #b5b0c4;
-        --card-glass: rgba(16, 12, 30, 0.85);
+        --card-glass: rgba(16, 12, 30, 0.88);
         --border-glow: rgba(179, 102, 255, 0.25);
         --ease-premium: cubic-bezier(0.23, 1, 0.32, 1);
         --transition-smooth: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
@@ -29,7 +29,7 @@
         --neon-orange: #e85d04;
         --neon-blue: #ffd166;
         --neon-cyan: #ffb703;
-        --card-glass: rgba(26, 16, 10, 0.88);
+        --card-glass: rgba(26, 16, 10, 0.9);
         --border-glow: rgba(255, 183, 3, 0.38);
     }
     body.theme-cyan {
@@ -39,7 +39,7 @@
         --neon-orange: #48bfe3;
         --neon-blue: #7209b7;
         --neon-cyan: #00f2fe;
-        --card-glass: rgba(8, 20, 35, 0.88);
+        --card-glass: rgba(8, 20, 35, 0.9);
         --border-glow: rgba(0, 242, 254, 0.38);
     }
     body.theme-pink {
@@ -49,7 +49,7 @@
         --neon-orange: #7209b7;
         --neon-blue: #4cc9f0;
         --neon-cyan: #f72585;
-        --card-glass: rgba(24, 10, 22, 0.88);
+        --card-glass: rgba(24, 10, 22, 0.9);
         --border-glow: rgba(247, 37, 133, 0.38);
     }
 
@@ -66,32 +66,32 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        padding: 40px 14px;
+        padding: 36px 14px;
         overflow-x: hidden;
         position: relative;
     }
 
-    .container { width: 100%; max-width: 460px; text-align: center; position: relative; z-index: 1; }
+    .container { width: 100%; max-width: 480px; text-align: center; position: relative; z-index: 1; }
 
     .system-badge {
         display: inline-flex; align-items: center; gap: 8px;
         background: rgba(0, 240, 255, 0.08); border: 1px solid rgba(0, 240, 255, 0.35);
         padding: 7px 16px; border-radius: 24px; font-size: 11.5px; font-weight: 700;
-        color: var(--neon-cyan); margin-bottom: 20px; box-shadow: 0 0 20px rgba(0, 240, 255, 0.12);
+        color: var(--neon-cyan); margin-bottom: 18px; box-shadow: 0 0 20px rgba(0, 240, 255, 0.12);
         letter-spacing: 0.6px; backdrop-filter: blur(10px);
     }
     .system-badge span { width: 6px; height: 6px; background: var(--neon-cyan); border-radius: 50%; box-shadow: 0 0 10px var(--neon-cyan); animation: pulseGlow 1.8s infinite alternate; }
 
     .marquee-box {
-        background: rgba(255, 176, 32, 0.06); border: 1px solid rgba(255, 176, 32, 0.28);
-        border-radius: 16px; padding: 11px 16px; font-size: 11.5px; color: var(--neon-gold);
-        margin-bottom: 26px; overflow: hidden; white-space: nowrap; position: relative;
-        box-shadow: inset 0 1px 3px rgba(255,255,255,0.08); backdrop-filter: blur(10px); font-weight: 600;
+        background: rgba(255, 42, 109, 0.08); border: 1px solid rgba(255, 42, 109, 0.4);
+        border-radius: 16px; padding: 11px 16px; font-size: 11.5px; color: #ffd8e4;
+        margin-bottom: 24px; overflow: hidden; white-space: nowrap; position: relative;
+        box-shadow: inset 0 1px 3px rgba(255,255,255,0.08), 0 0 15px rgba(255,42,109,0.15); backdrop-filter: blur(10px); font-weight: 600;
     }
     .marquee-content {
         display: inline-block;
         padding-left: 100%;
-        animation: marqueeScroll 26s linear infinite;
+        animation: marqueeScroll 28s linear infinite;
     }
     @keyframes marqueeScroll {
         0% { transform: translateX(0); }
@@ -106,22 +106,22 @@
     }
     .theme-toggle-btn:hover { transform: scale(1.1) rotate(15deg); border-color: var(--neon-gold); background: rgba(255,255,255,0.15); }
 
-    .logo-container { position: relative; width: 92px; height: 92px; margin: 0 auto 16px; }
+    .logo-container { position: relative; width: 88px; height: 88px; margin: 0 auto 14px; }
     .logo-pulse { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); animation: pulseGlow 3s infinite alternate var(--ease-premium); filter: blur(14px); opacity: 0.85; }
-    .logo-inner { position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px; background: #0c061a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 42px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: inset 0 0 25px rgba(179, 102, 255, 0.45); }
+    .logo-inner { position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px; background: #0c061a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: inset 0 0 25px rgba(179, 102, 255, 0.45); }
     .title { font-size: 28px; font-weight: 900; letter-spacing: 5px; margin-bottom: 6px; background: linear-gradient(90deg, #ffffff 10%, var(--neon-gold), var(--neon-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 15px rgba(255, 115, 36, 0.35)); }
     .subtitle { font-size: 11px; color: var(--text-gray); letter-spacing: 5px; text-transform: uppercase; opacity: 0.8; font-weight: 600; }
 
-    /* 上三下三對稱分頁排版結構 */
+    /* 上三下三對稱導航排版 */
     .tab-navigation {
         display: grid; 
         grid-template-columns: repeat(3, 1fr); 
         gap: 6px;
-        background: rgba(8, 5, 18, 0.9); 
+        background: rgba(8, 5, 18, 0.92); 
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 24px; 
         padding: 8px; 
-        margin-bottom: 26px; 
+        margin-bottom: 24px; 
         backdrop-filter: blur(25px);
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.04);
     }
@@ -155,11 +155,11 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 5px;
-        background: rgba(0, 0, 0, 0.5); 
+        background: rgba(0, 0, 0, 0.55); 
         border: 1px solid rgba(255, 255, 255, 0.1); 
         border-radius: 18px; 
         padding: 6px; 
-        margin-bottom: 22px; 
+        margin-bottom: 20px; 
     }
     .sub-tab-btn { 
         width: 100%;
@@ -177,8 +177,8 @@
     }
     .sub-tab-btn.active { 
         color: #ffffff; 
-        background: rgba(255, 255, 255, 0.2); 
-        border: 1px solid rgba(255, 255, 255, 0.4); 
+        background: rgba(255, 255, 255, 0.18); 
+        border: 1px solid rgba(255, 255, 255, 0.45); 
         text-shadow: 0 0 8px rgba(255,255,255,0.6); 
         box-shadow: 0 0 14px rgba(255,255,255,0.15); 
     }
@@ -186,9 +186,9 @@
     .card-box {
         background: var(--card-glass);
         border: 1px solid var(--border-glow);
-        border-radius: 30px;
-        padding: 28px 22px;
-        margin-bottom: 28px;
+        border-radius: 28px;
+        padding: 26px 20px;
+        margin-bottom: 24px;
         backdrop-filter: blur(40px);
         -webkit-backdrop-filter: blur(40px);
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.05);
@@ -196,7 +196,7 @@
     }
     .card-box.phone-box { border-color: rgba(0, 240, 255, 0.35); box-shadow: 0 0 38px rgba(0, 240, 255, 0.16), 0 20px 50px rgba(0, 0, 0, 0.65); }
 
-    .card-header { font-size: 14.5px; font-weight: 800; color: var(--neon-gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(255, 176, 32, 0.45); }
+    .card-header { font-size: 14.5px; font-weight: 800; color: var(--neon-gold); margin-bottom: 18px; display: flex; align-items: center; gap: 12px; letter-spacing: 1.5px; text-shadow: 0 0 12px rgba(255, 176, 32, 0.45); }
     .card-header.blue-header { color: var(--neon-blue); text-shadow: 0 0 12px rgba(0, 240, 255, 0.45); }
     .card-header::after { content: ''; flex-grow: 1; height: 1px; background: linear-gradient(to right, rgba(255, 176, 32, 0.35), transparent); }
     .card-header.blue-header::after { background: linear-gradient(to right, rgba(0, 240, 255, 0.35), transparent); }
@@ -204,15 +204,15 @@
     .hero-highlight-card {
         display: flex !important;
         align-items: center !important;
-        padding: 22px 24px !important;
+        padding: 20px 22px !important;
         background: linear-gradient(135deg, rgba(255, 115, 36, 0.28) 0%, rgba(179, 102, 255, 0.22) 100%) !important;
         border: 2px solid var(--neon-orange) !important;
-        border-radius: 26px !important;
+        border-radius: 24px !important;
         color: #ffffff !important;
         text-decoration: none !important;
         transition: var(--transition-smooth) !important;
-        box-shadow: 0 0 35px rgba(255, 115, 36, 0.4) !important;
-        margin-bottom: 22px !important;
+        box-shadow: 0 0 35px rgba(255, 115, 36, 0.35) !important;
+        margin-bottom: 20px !important;
         position: relative;
         overflow: hidden;
     }
@@ -227,8 +227,8 @@
         box-shadow: 0 0 50px rgba(255, 176, 32, 0.6) !important;
     }
     .hero-highlight-icon {
-        font-size: 38px !important;
-        margin-right: 18px !important;
+        font-size: 36px !important;
+        margin-right: 16px !important;
         flex-shrink: 0 !important;
         filter: drop-shadow(0 0 12px var(--neon-orange)) !important;
         animation: pulseGlow 1.5s infinite alternate;
@@ -282,35 +282,35 @@
     .search-box-wrapper { margin-bottom: 16px; }
     .search-input {
         width: 100%; background: rgba(16, 12, 30, 0.92); border: 1px solid rgba(0, 240, 255, 0.5);
-        border-radius: 16px; color: #fff; padding: 13px 18px; font-size: 13px; font-weight: 600; outline: none;
+        border-radius: 16px; color: #fff; padding: 12px 18px; font-size: 13px; font-weight: 600; outline: none;
         transition: var(--transition-smooth); box-shadow: inset 0 2px 6px rgba(0,0,0,0.45);
     }
     .search-input:focus { border-color: var(--neon-cyan); box-shadow: 0 0 20px rgba(0, 240, 255, 0.45), inset 0 2px 6px rgba(0,0,0,0.45); }
 
     .filter-box {
-        display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px;
-        background: rgba(8, 5, 18, 0.7); padding: 16px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08);
+        display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 22px;
+        background: rgba(8, 5, 18, 0.7); padding: 14px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .filter-item { display: flex; flex-direction: column; gap: 6px; text-align: left; }
     .filter-item label { font-size: 11.5px; font-weight: 800; color: var(--neon-gold); letter-spacing: 0.5px; }
     .filter-item select {
         background: rgba(16, 12, 30, 0.92); border: 1px solid rgba(179, 102, 255, 0.4);
-        border-radius: 14px; color: #ffffff; padding: 11px 10px; font-size: 12.5px; font-weight: 700; outline: none; cursor: pointer;
+        border-radius: 14px; color: #ffffff; padding: 10px 10px; font-size: 12px; font-weight: 700; outline: none; cursor: pointer;
         appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg fill='%2300f0ff' height='10' viewBox='0 0 24 24' width='10' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
         background-repeat: no-repeat; background-position: right 10px center; padding-right: 20px; transition: var(--transition-smooth);
     }
     .filter-item select:focus { border-color: var(--neon-cyan); box-shadow: 0 0 18px rgba(0, 240, 255, 0.35); }
 
-    .featured-section { margin-bottom: 26px; }
+    .featured-section { margin-bottom: 24px; }
     .featured-title { 
-        font-size: 13.5px; font-weight: 900; color: var(--neon-gold); margin-bottom: 12px; 
+        font-size: 13px; font-weight: 900; color: var(--neon-gold); margin-bottom: 12px; 
         display: flex; align-items: center; gap: 8px; letter-spacing: 1.2px; 
         text-shadow: 0 0 12px rgba(255,176,32,0.45); 
     }
-    .featured-grid { display: flex; flex-direction: column; gap: 12px; }
+    .featured-grid { display: flex; flex-direction: column; gap: 10px; }
     
     .featured-chip-vertical {
-        border-radius: 20px; padding: 16px 20px;
+        border-radius: 18px; padding: 14px 18px;
         cursor: pointer; transition: var(--transition-smooth);
         display: flex; align-items: center; justify-content: space-between;
         position: relative; overflow: hidden; backdrop-filter: blur(20px);
@@ -339,50 +339,50 @@
 
     .featured-chip-vertical:hover { transform: translateY(-2px) scale(1.015); filter: brightness(1.18); }
 
-    .partner-grid { display: flex; flex-direction: column; gap: 16px; }
+    .partner-grid { display: flex; flex-direction: column; gap: 14px; }
     .partner-card {
-        background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 24px; padding: 20px 22px;
+        background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 22px; padding: 18px 20px;
         transition: var(--transition-smooth); cursor: pointer; position: relative; overflow: hidden;
         box-shadow: 0 14px 38px rgba(0,0,0,0.6);
     }
     .partner-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--neon-purple); opacity: 0; transition: var(--transition-smooth); }
     .partner-card:hover { border-color: rgba(179, 102, 255, 0.8); background: rgba(179, 102, 255, 0.09); transform: translateY(-2px); box-shadow: 0 18px 45px rgba(179, 102, 255, 0.3); }
     .partner-card:hover::before { opacity: 1; }
-    .partner-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-    .partner-name { font-size: 16px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
-    .partner-rating { font-size: 12px; color: var(--neon-gold); font-weight: 700; background: rgba(255, 176, 32, 0.18); padding: 3px 11px; border-radius: 14px; border: 1px solid rgba(255, 176, 32, 0.45); }
-    .partner-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
-    .partner-tag { font-size: 10.5px; padding: 4px 10px; border-radius: 10px; font-weight: 700; }
+    .partner-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .partner-name { font-size: 15.5px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .partner-rating { font-size: 11.5px; color: var(--neon-gold); font-weight: 700; background: rgba(255, 176, 32, 0.18); padding: 3px 10px; border-radius: 14px; border: 1px solid rgba(255, 176, 32, 0.45); }
+    .partner-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .partner-tag { font-size: 10.5px; padding: 3px 9px; border-radius: 10px; font-weight: 700; }
     .tag-gender { background: rgba(0, 240, 255, 0.25); color: var(--neon-cyan); border: 1px solid rgba(0, 240, 255, 0.5); }
     .tag-region { background: rgba(255, 176, 32, 0.25); color: var(--neon-gold); border: 1px solid rgba(255, 176, 32, 0.5); }
     .tag-ai { background: rgba(179, 102, 255, 0.25); color: #edd6ff; border: 1px solid rgba(179, 102, 255, 0.5); }
     .tag-badge { background: linear-gradient(135deg, rgba(255,176,32,0.28), rgba(255,115,36,0.28)); color: var(--neon-gold); border: 1px solid rgba(255,176,32,0.55); }
-    .partner-intro { font-size: 13px; color: var(--text-gray); line-height: 1.75; margin-bottom: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .partner-intro { font-size: 12.5px; color: var(--text-gray); line-height: 1.7; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-    .card-action-bar { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.09); padding-top: 13px; }
-    .card-btn-group { display: flex; gap: 9px; }
+    .card-action-bar { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 12px; }
+    .card-btn-group { display: flex; gap: 8px; }
     .card-fav-btn {
         background: rgba(255, 42, 109, 0.18); border: 1px solid rgba(255, 42, 109, 0.5);
-        color: var(--neon-pink); font-size: 11.5px; font-weight: 700; padding: 6px 13px; border-radius: 14px; cursor: pointer; transition: var(--transition-smooth);
+        color: var(--neon-pink); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 14px; cursor: pointer; transition: var(--transition-smooth);
     }
     .card-fav-btn:hover { background: var(--neon-pink); color: #fff; box-shadow: 0 0 16px var(--neon-pink); }
     .card-copy-btn {
         background: rgba(0, 240, 255, 0.18); border: 1px solid rgba(0, 240, 255, 0.5);
-        color: var(--neon-cyan); font-size: 12px; font-weight: 700; padding: 6px 15px; border-radius: 14px; cursor: pointer; transition: var(--transition-smooth);
+        color: var(--neon-cyan); font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 14px; cursor: pointer; transition: var(--transition-smooth);
     }
     .card-copy-btn:hover { background: var(--neon-cyan); color: #030205; box-shadow: 0 0 18px rgba(0, 240, 255, 0.6); }
 
     .safety-card {
         background: linear-gradient(135deg, rgba(255, 42, 109, 0.2) 0%, rgba(16, 12, 30, 0.9) 100%);
-        border: 1.5px solid rgba(255, 42, 109, 0.65); border-radius: 28px; padding: 26px; margin-bottom: 26px; text-align: left;
+        border: 1.5px solid rgba(255, 42, 109, 0.65); border-radius: 26px; padding: 22px; margin-bottom: 22px; text-align: left;
         box-shadow: 0 0 45px rgba(255, 42, 109, 0.2);
     }
-    .safety-title { font-size: 15px; font-weight: 800; color: var(--neon-pink); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; text-shadow: 0 0 14px rgba(255,42,109,0.5); }
-    .safety-desc { font-size: 13px; color: #f4effc; line-height: 1.8; margin-bottom: 18px; }
+    .safety-title { font-size: 14.5px; font-weight: 800; color: var(--neon-pink); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; text-shadow: 0 0 14px rgba(255,42,109,0.5); }
+    .safety-desc { font-size: 12.5px; color: #f4effc; line-height: 1.8; margin-bottom: 16px; }
     .safety-btn {
         display: inline-flex; align-items: center; justify-content: center; width: 100%;
         background: rgba(255, 42, 109, 0.3); border: 1px solid var(--neon-pink); color: #ffffff;
-        padding: 13px; border-radius: 18px; font-size: 13.5px; font-weight: 800; text-decoration: none; transition: var(--transition-smooth);
+        padding: 12px; border-radius: 16px; font-size: 13px; font-weight: 800; text-decoration: none; transition: var(--transition-smooth);
         box-shadow: 0 0 22px rgba(255,42,109,0.4);
     }
     .safety-btn:hover { background: var(--neon-pink); color: #fff; box-shadow: 0 0 38px var(--neon-pink); transform: translateY(-2px); }
@@ -391,26 +391,32 @@
     .tool-title { font-size: 14px; font-weight: 800; color: var(--neon-gold); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
     .tool-input { width: 100%; background: rgba(16, 12, 30, 0.92); border: 1px solid rgba(255, 176, 32, 0.5); border-radius: 16px; color: #fff; padding: 13px 18px; font-size: 13px; outline: none; margin-bottom: 12px; transition: var(--transition-smooth); }
     .tool-input:focus { border-color: var(--neon-gold); box-shadow: 0 0 18px rgba(255,176,32,0.45); }
-    .tool-result { font-size: 12.5px; color: #d6f2f1; line-height: 1.8; background: rgba(0,0,0,0.6); padding: 15px 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
-    .tool-btn { background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); border: none; color: #fff; font-size: 12.5px; font-weight: 800; padding: 13px 20px; border-radius: 16px; cursor: pointer; width: 100%; margin-top: 10px; transition: var(--transition-smooth); box-shadow: 0 10px 28px rgba(179,102,255,0.5); }
+    .tool-btn { background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); border: none; color: #fff; font-size: 12.5px; font-weight: 800; padding: 12px 20px; border-radius: 16px; cursor: pointer; width: 100%; margin-top: 10px; transition: var(--transition-smooth); box-shadow: 0 10px 28px rgba(179,102,255,0.5); }
     .tool-btn:hover { opacity: 0.95; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(179,102,255,0.65); }
 
-    .policy-list { display: flex; flex-direction: column; gap: 16px; }
+    /* 規範卡片精細化排版 */
+    .policy-list { display: flex; flex-direction: column; gap: 14px; }
     .policy-item {
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 22px;
-        padding: 22px 24px;
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 18px 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.04);
         transition: var(--transition-smooth);
         text-align: left;
     }
-    .policy-item:hover { border-color: rgba(255, 255, 255, 0.25); transform: translateY(-2px); }
-    .policy-item.notice-cyan { border-left: 5px solid var(--neon-cyan); background: linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, rgba(16, 12, 30, 0.88) 100%); box-shadow: 0 12px 35px rgba(0, 240, 255, 0.15); }
-    .policy-item.notice-blue { border-left: 5px solid var(--neon-blue); background: linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, rgba(16, 12, 30, 0.88) 100%); box-shadow: 0 12px 35px rgba(0, 240, 255, 0.15); }
-    .policy-item.notice-pink { border-left: 5px solid var(--neon-pink); background: linear-gradient(135deg, rgba(255, 42, 109, 0.1) 0%, rgba(16, 12, 30, 0.88) 100%); box-shadow: 0 12px 35px rgba(255, 42, 109, 0.15); }
-    .policy-item-title { font-weight: 800; color: #ffffff; margin-bottom: 10px; font-size: 14.5px; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .policy-item-desc { color: var(--text-gray); font-size: 13px; line-height: 1.85; }
+    .policy-item:hover { border-color: rgba(255, 255, 255, 0.22); transform: translateY(-2px); }
+    .policy-item.notice-cyan { border-left: 5px solid var(--neon-cyan); background: linear-gradient(135deg, rgba(0, 240, 255, 0.08) 0%, rgba(16, 12, 30, 0.92) 100%); }
+    .policy-item.notice-blue { border-left: 5px solid var(--neon-blue); background: linear-gradient(135deg, rgba(0, 240, 255, 0.08) 0%, rgba(16, 12, 30, 0.92) 100%); }
+    .policy-item.notice-pink { border-left: 5px solid var(--neon-pink); background: linear-gradient(135deg, rgba(255, 42, 109, 0.12) 0%, rgba(16, 12, 30, 0.92) 100%); }
+    .policy-item.notice-gold { border-left: 5px solid var(--neon-gold); background: linear-gradient(135deg, rgba(255, 176, 32, 0.1) 0%, rgba(16, 12, 30, 0.92) 100%); }
+    .policy-item-title { font-weight: 800; color: #ffffff; margin-bottom: 8px; font-size: 14px; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .policy-item-desc { color: #cfc9dd; font-size: 12.5px; line-height: 1.85; }
+
+    /* 紅色強調專用標籤 */
+    .danger-red { color: #ff2a6d !important; font-weight: 800; }
+    .badge-tag-red { display: inline-block; background: rgba(255,42,109,0.22); color: #ff2a6d; border: 1px solid rgba(255,42,109,0.55); padding: 2px 8px; border-radius: 8px; font-size: 11px; font-weight: 800; margin-right: 4px; }
+    .badge-tag-gold { display: inline-block; background: rgba(255,176,32,0.2); color: #ffb020; border: 1px solid rgba(255,176,32,0.5); padding: 2px 8px; border-radius: 8px; font-size: 11px; font-weight: 800; margin-right: 4px; }
 
     #booking-modal {
         position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 3, 8, 0.92);
@@ -418,9 +424,9 @@
     }
     .modal-content {
         background: #0c061a; border: 1.5px solid var(--neon-cyan); border-radius: 32px; width: 100%; max-width: 400px;
-        padding: 32px; text-align: left; box-shadow: 0 0 65px rgba(0, 240, 255, 0.45); animation: fadeInUp 0.35s var(--ease-premium) forwards; max-height: 90vh; overflow-y: auto;
+        padding: 30px 26px; text-align: left; box-shadow: 0 0 65px rgba(0, 240, 255, 0.45); animation: fadeInUp 0.35s var(--ease-premium) forwards; max-height: 90vh; overflow-y: auto;
     }
-    .modal-title { font-size: 16px; font-weight: 800; color: var(--neon-cyan); margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; text-shadow: 0 0 14px rgba(0,240,255,0.45); }
+    .modal-title { font-size: 16px; font-weight: 800; color: var(--neon-cyan); margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; text-shadow: 0 0 14px rgba(0,240,255,0.45); }
     .modal-close { background: none; border: none; color: var(--text-gray); font-size: 20px; cursor: pointer; transition: 0.2s; }
     .modal-close:hover { color: #fff; }
 
@@ -430,111 +436,106 @@
     }
     .partner-sheet {
         background: #0c061a; border-top: 1.5px solid var(--neon-purple); border-radius: 36px 36px 0 0; width: 100%; max-width: 480px;
-        padding: 34px 26px 52px; text-align: left; box-shadow: 0 -22px 65px rgba(179,102,255,0.45); animation: slideUpSheet 0.35s var(--ease-premium) forwards; max-height: 90vh; overflow-y: auto;
+        padding: 32px 24px 48px; text-align: left; box-shadow: 0 -22px 65px rgba(179,102,255,0.45); animation: slideUpSheet 0.35s var(--ease-premium) forwards; max-height: 90vh; overflow-y: auto;
     }
     @keyframes slideUpSheet { from { transform: translateY(100%); } to { transform: translateY(0); } }
 
     #toast-notification {
         position: fixed; bottom: 35px; left: 50%; transform: translateX(-50%) translateY(140px);
         background: rgba(16, 12, 30, 0.99); border: 1px solid var(--neon-cyan); color: #fff;
-        padding: 14px 28px; border-radius: 30px; font-size: 13px; font-weight: 700;
+        padding: 13px 26px; border-radius: 30px; font-size: 13px; font-weight: 700;
         box-shadow: 0 0 35px rgba(0, 240, 255, 0.5); z-index: 20000; transition: transform 0.35s var(--ease-premium);
         pointer-events: none; white-space: nowrap; backdrop-filter: blur(16px);
     }
     #toast-notification.show { transform: translateX(-50%) translateY(0); }
 
-    .link-card { display: flex; align-items: center; padding: 20px 22px; background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 22px; text-decoration: none; color: #ffffff; margin-bottom: 14px; transition: var(--transition-smooth); position: relative; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
+    .link-card { display: flex; align-items: center; padding: 18px 20px; background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; text-decoration: none; color: #ffffff; margin-bottom: 12px; transition: var(--transition-smooth); position: relative; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
     .link-card.match-card { border: 1.5px solid rgba(255, 115, 36, 0.55); background: linear-gradient(90deg, rgba(255, 115, 36, 0.14) 0%, rgba(16, 12, 30, 0.65) 100%); }
     .link-card.chat-card { border: 1.5px solid rgba(179, 102, 255, 0.55); background: linear-gradient(90deg, rgba(179, 102, 255, 0.14) 0%, rgba(16, 12, 30, 0.65) 100%); }
     .link-card:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.7); }
     .link-card.match-card:hover { border-color: var(--neon-orange); box-shadow: 0 16px 40px rgba(255,115,36,0.35); }
     .link-card.chat-card:hover { border-color: var(--neon-purple); box-shadow: 0 16px 40px rgba(179,102,255,0.35); }
 
-    .link-icon { font-size: 28px; margin-right: 18px; width: 36px; display: flex; align-items: center; justify-content: center; }
+    .link-icon { font-size: 26px; margin-right: 16px; width: 34px; display: flex; align-items: center; justify-content: center; }
     .link-content { text-align: left; flex-grow: 1; }
-    .link-title { font-size: 15px; font-weight: 800; margin-bottom: 4px; letter-spacing: 0.3px; }
+    .link-title { font-size: 14.5px; font-weight: 800; margin-bottom: 3px; letter-spacing: 0.3px; }
     .link-desc { font-size: 12px; color: var(--text-gray); }
-    .badge { font-size: 10px; padding: 4px 10px; border-radius: 14px; font-weight: 700; background: rgba(255, 115, 36, 0.22); color: #ffb06e; border: 1px solid rgba(255, 115, 36, 0.45); }
+    .badge { font-size: 10px; padding: 3px 9px; border-radius: 14px; font-weight: 700; background: rgba(255, 115, 36, 0.22); color: #ffb06e; border: 1px solid rgba(255, 115, 36, 0.45); }
 
     .grid-rooms { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-    .room-item { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 54px; background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; color: #f4effc; text-decoration: none; font-size: 12.5px; font-weight: 700; transition: var(--transition-smooth); box-shadow: 0 8px 18px rgba(0,0,0,0.35); }
+    .room-item { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 52px; background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; color: #f4effc; text-decoration: none; font-size: 12px; font-weight: 700; transition: var(--transition-smooth); box-shadow: 0 8px 18px rgba(0,0,0,0.35); }
     .room-item span { font-size: 7.5px; color: var(--text-gray); margin-top: 2px; font-weight: 600; }
     .room-item:hover { background: rgba(179, 102, 255, 0.28); border-color: var(--neon-orange); color: #fff; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(255,115,36,0.35); }
     .room-item.busy { border-color: var(--neon-pink) !important; background: rgba(255, 42, 109, 0.25) !important; position: relative; box-shadow: 0 0 20px rgba(255,42,109,0.45); }
     .room-item.busy::after { content: '●'; position: absolute; top: 4px; right: 6px; font-size: 9px; color: var(--neon-pink); text-shadow: 0 0 8px var(--neon-pink); }
 
-    .workflow-steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 26px; }
-    .step-item { display: flex; align-items: center; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 13px 16px; gap: 14px; box-shadow: 0 8px 18px rgba(0,0,0,0.35); }
-    .step-num { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; color: #fff; flex-shrink: 0; box-shadow: 0 0 14px rgba(179,102,255,0.45); }
+    .workflow-steps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+    .step-item { display: flex; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.09); border-radius: 16px; padding: 12px 14px; gap: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.35); }
+    .step-num { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); display: flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 900; color: #fff; flex-shrink: 0; box-shadow: 0 0 14px rgba(179,102,255,0.45); }
     .step-content { text-align: left; }
-    .step-title { font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 3px; }
-    .step-desc { font-size: 11.5px; color: var(--text-gray); }
+    .step-title { font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+    .step-desc { font-size: 11.5px; color: var(--text-gray); line-height: 1.6; }
 
-    .footer { margin-top: 55px; font-size: 11px; color: #9c97aa; letter-spacing: 2.8px; font-weight: 500; opacity: 0.65; }
+    .footer { margin-top: 48px; font-size: 11px; color: #9c97aa; letter-spacing: 2.5px; font-weight: 500; opacity: 0.65; }
     .tab-panel, .sub-tab-panel { display: none; }
     .tab-panel.active { display: block; animation: fadeIn 0.45s var(--ease-premium) forwards; }
     .sub-tab-panel.active { display: block; animation: fadeInSub 0.35s var(--ease-premium) forwards; }
 
     #ai-float-btn {
-        position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px;
+        position: fixed; bottom: 24px; right: 24px; width: 58px; height: 58px;
         background: linear-gradient(135deg, #b366ff, #00f0ff); border-radius: 50%;
-        display: flex; align-items: center; justify-content: center; font-size: 28px;
+        display: flex; align-items: center; justify-content: center; font-size: 26px;
         box-shadow: 0 0 25px rgba(0, 240, 255, 0.4); cursor: pointer; z-index: 9999;
         transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1); border: 1.5px solid rgba(255, 255, 255, 0.3);
     }
     #ai-float-btn:hover { transform: scale(1.12) rotate(6deg); }
 
     #ai-chat-box {
-        position: fixed; bottom: 96px; right: 24px; width: 350px; height: 500px;
+        position: fixed; bottom: 92px; right: 24px; width: 350px; height: 500px;
         background: rgba(16, 12, 30, 0.96); border: 1.5px solid rgba(179, 102, 255, 0.6);
         border-radius: 26px; backdrop-filter: blur(40px); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.92);
         z-index: 9998; display: none; flex-direction: column; overflow: hidden;
     }
     #ai-chat-box.active { display: flex; animation: fadeInUp 0.35s var(--ease-premium) forwards; }
-    .ai-chat-header { padding: 16px 20px; background: linear-gradient(90deg, rgba(179, 102, 255, 0.28), rgba(0, 240, 255, 0.14)); border-bottom: 1px solid rgba(255, 255, 255, 0.12); display: flex; justify-content: space-between; align-items: center; color: var(--neon-gold); font-weight: 800; font-size: 13.5px; letter-spacing: 0.5px; }
+    .ai-chat-header { padding: 15px 18px; background: linear-gradient(90deg, rgba(179, 102, 255, 0.28), rgba(0, 240, 255, 0.14)); border-bottom: 1px solid rgba(255, 255, 255, 0.12); display: flex; justify-content: space-between; align-items: center; color: var(--neon-gold); font-weight: 800; font-size: 13.5px; }
     .header-actions { display: flex; gap: 8px; align-items: center; }
     .ai-action-btn { background: none; border: none; color: #9c97aa; font-size: 14px; cursor: pointer; transition: 0.2s; }
     .ai-action-btn:hover { color: #fff; }
-    .ai-chat-messages { flex-grow: 1; padding: 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; font-size: 13px; color: #f4effc; text-align: left; }
-    .ai-msg { padding: 11px 16px; border-radius: 16px; max-width: 88%; word-break: break-word; white-space: pre-wrap; line-height: 1.6; }
+    .ai-chat-messages { flex-grow: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; font-size: 12.5px; color: #f4effc; text-align: left; }
+    .ai-msg { padding: 10px 15px; border-radius: 16px; max-width: 88%; word-break: break-word; white-space: pre-wrap; line-height: 1.6; }
     .ai-msg.bot { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.14); align-self: flex-start; color: #d6f2f1; }
     .ai-msg.user { background: linear-gradient(135deg, rgba(179, 102, 255, 0.55), rgba(0, 240, 255, 0.32)); border: 1px solid rgba(179,102,255,0.55); align-self: flex-end; color: #fff; }
-    
-    .chat-link-btn { display: inline-block; margin-top: 6px; padding: 6px 12px; background: rgba(0, 240, 255, 0.15); border: 1px solid #00f0ff; color: #00f0ff; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 12px; transition: 0.3s; }
-    .chat-link-btn:hover { background: #00f0ff; color: #000; box-shadow: 0 0 10px #00f0ff; }
-    .copy-code-btn { display: inline-block; margin-top: 6px; padding: 4px 10px; background: rgba(255, 176, 32, 0.15); border: 1px solid #ffb020; color: #ffb020; border-radius: 8px; cursor: pointer; font-size: 11px; }
 
-    .ai-quick-chips { display: flex; gap: 10px; padding: 12px 16px; background: rgba(8, 5, 18, 0.99); overflow-x: auto; border-top: 1px solid rgba(255,255,255,0.09); }
+    .ai-quick-chips { display: flex; gap: 8px; padding: 10px 14px; background: rgba(8, 5, 18, 0.99); overflow-x: auto; border-top: 1px solid rgba(255,255,255,0.09); }
     .ai-quick-chips::-webkit-scrollbar { display: none; }
-    .ai-quick-chips button { background: rgba(179, 102, 255, 0.25); border: 1px solid rgba(179, 102, 255, 0.55); color: #f4effc; border-radius: 14px; padding: 6px 12px; font-size: 11.5px; font-weight: 700; white-space: nowrap; cursor: pointer; transition: var(--transition-smooth); }
-    .ai-quick-chips button:hover { background: rgba(0, 240, 255, 0.35); border-color: var(--neon-blue); color: #fff; box-shadow: 0 0 14px rgba(0,240,255,0.45); }
+    .ai-quick-chips button { background: rgba(179, 102, 255, 0.25); border: 1px solid rgba(179, 102, 255, 0.55); color: #f4effc; border-radius: 12px; padding: 5px 11px; font-size: 11px; font-weight: 700; white-space: nowrap; cursor: pointer; transition: var(--transition-smooth); }
+    .ai-quick-chips button:hover { background: rgba(0, 240, 255, 0.35); border-color: var(--neon-blue); color: #fff; }
     
-    .ai-chat-input-area { padding: 14px; background: rgba(8, 5, 18, 0.97); border-top: 1px solid rgba(255, 255, 255, 0.12); display: flex; gap: 10px; }
-    .ai-chat-input-area input { flex-grow: 1; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; padding: 11px 16px; color: #fff; font-size: 13px; outline: none; transition: var(--transition-smooth); }
-    .ai-chat-input-area input:focus { border-color: var(--neon-blue); box-shadow: 0 0 16px rgba(0,240,255,0.4); }
-    .ai-chat-input-area button { background: linear-gradient(135deg, #b366ff, #00f0ff); border: none; border-radius: 14px; padding: 0 18px; color: #fff; font-weight: 800; cursor: pointer; font-size: 13px; box-shadow: 0 0 16px rgba(179,102,255,0.5); }
+    .ai-chat-input-area { padding: 12px; background: rgba(8, 5, 18, 0.97); border-top: 1px solid rgba(255, 255, 255, 0.12); display: flex; gap: 8px; }
+    .ai-chat-input-area input { flex-grow: 1; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; padding: 10px 14px; color: #fff; font-size: 12.5px; outline: none; }
+    .ai-chat-input-area button { background: linear-gradient(135deg, #b366ff, #00f0ff); border: none; border-radius: 14px; padding: 0 16px; color: #fff; font-weight: 800; cursor: pointer; font-size: 12.5px; box-shadow: 0 0 16px rgba(179,102,255,0.5); }
 
     #back-to-top-btn {
-        position: fixed; bottom: 94px; right: 24px; width: 44px; height: 44px;
+        position: fixed; bottom: 92px; right: 24px; width: 42px; height: 42px;
         background: rgba(16, 12, 30, 0.92); border: 1.5px solid var(--neon-cyan);
         border-radius: 50%; display: flex; align-items: center; justify-content: center;
-        color: var(--neon-cyan); font-size: 18px; font-weight: 900; cursor: pointer; z-index: 998;
+        color: var(--neon-cyan); font-size: 17px; font-weight: 900; cursor: pointer; z-index: 998;
         opacity: 0; visibility: hidden; transition: var(--transition-smooth);
         box-shadow: 0 0 20px rgba(0, 240, 255, 0.35); backdrop-filter: blur(10px);
     }
     #back-to-top-btn.show { opacity: 1; visibility: visible; }
-    #back-to-top-btn:hover { background: var(--neon-cyan); color: #030205; transform: translateY(-3px); box-shadow: 0 0 25px rgba(0, 240, 255, 0.6); }
+    #back-to-top-btn:hover { background: var(--neon-cyan); color: #030205; transform: translateY(-3px); }
 
     @keyframes pulseGlow { 0% { transform: scale(0.94); box-shadow: 0 0 10px rgba(0, 240, 255, 0.25); } 100% { transform: scale(1.06); box-shadow: 0 0 25px rgba(0, 240, 255, 0.55); } }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(22px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="system-badge"><span></span> 系統運行中 ｜ 24H 智慧媒合 (PWA已啟動)</div>
 <div class="marquee-box">
-    <div class="marquee-content">📢 【最新公告】閒人案內所 ｜ 雙向評價與金流對帳明細機制全面上線！年滿18歲方可參與✨</div>
+    <div class="marquee-content">📢 【重要公告】管理人休假全面指定 <strong style="color: #ff2a6d;">@啾寶好餓吃不飽</strong> 為官方代理！🚗 嚴禁搭乘私家車 ｜ 🚫 嚴禁飛單私單 ｜ 🔞 年滿 18 歲方可參與✨</div>
 </div>
 
 <div class="header">
@@ -562,15 +563,15 @@
 <a class="hero-highlight-card" href="https://line.me/ti/g2/AyLxcfZMsmv-vg788A1BGUDK3RQ1wvcVawmzEw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" onclick="triggerHaptic(20)">
 <div class="hero-highlight-icon">🔥</div>
 <div style="text-align: left; flex-grow: 1;">
-<div style="font-size: 16.5px; font-weight: 900; color: #fff; margin-bottom: 4px; letter-spacing: 0.8px;">⭐ 點我立刻加入：求租．出租核心社群群組！</div>
-<div style="font-size: 12px; color: #ffd6a5; font-weight: 700;">尋找優質陪伴服務、發布委託或上架出租您的時間 ➔</div>
+<div style="font-size: 16px; font-weight: 900; color: #fff; margin-bottom: 3px; letter-spacing: 0.6px;">⭐ 點我立刻加入：求租．出租核心社群群組！</div>
+<div style="font-size: 11.5px; color: #ffd6a5; font-weight: 700;">尋找優質陪伴服務、發布委託或上架出租您的時間 ➔</div>
 </div>
 </a>
 
-<!-- 👑 主頁亮點：TOP 3 質感夥伴動態公告板 -->
+<!-- 👑 TOP 3 榜單 -->
 <div class="card-box" style="background: linear-gradient(135deg, rgba(255, 176, 32, 0.08) 0%, rgba(179, 102, 255, 0.06) 100%); border-color: rgba(255, 176, 32, 0.4); box-shadow: 0 0 25px rgba(255, 176, 32, 0.15);">
 <div class="card-header" style="color: var(--neon-gold); text-shadow: 0 0 12px rgba(255, 176, 32, 0.45);">👑 本週質感星級 ｜ TOP 3 夥伴榜單</div>
-<div style="font-size: 12px; color: var(--text-gray); margin-bottom: 14px; text-align: left;">
+<div style="font-size: 12px; color: var(--text-gray); margin-bottom: 12px; text-align: left;">
     高滿意度口碑推薦！點擊卡片快速查看個人詳細介紹與聯絡：
 </div>
 <div class="featured-grid" id="home-featured-grid-container"></div>
@@ -597,38 +598,38 @@
 </a>
 </div>
 
-<!-- 聯絡官方（放大顯眼版） -->
+<!-- 聯絡官方客服 -->
 <div class="card-box" style="background: linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(179, 102, 255, 0.2) 100%); border: 2px solid var(--neon-cyan); box-shadow: 0 0 35px rgba(0, 240, 255, 0.35);">
-<div class="card-header" style="color: var(--neon-cyan); font-size: 15.5px; text-shadow: 0 0 12px rgba(0,240,255,0.6);">⚡ 官方核心服務通道</div>
+<div class="card-header" style="color: var(--neon-cyan); font-size: 15px; text-shadow: 0 0 12px rgba(0,240,255,0.6);">⚡ 官方核心服務通道</div>
 <a class="primary-card" href="https://lin.ee/9R2sLhB" target="_blank" onclick="triggerHaptic(20)" style="background: linear-gradient(135deg, rgba(0, 240, 255, 0.25) 0%, rgba(18, 12, 35, 0.9) 100%) !important; border: 1.5px solid var(--neon-cyan) !important; box-shadow: 0 0 25px rgba(0, 240, 255, 0.3) !important; margin-bottom: 0 !important;">
-<div class="primary-icon" style="font-size: 36px !important; margin-right: 18px !important; filter: drop-shadow(0 0 10px var(--neon-cyan)) !important; animation: pulseGlow 1.5s infinite alternate;">💬</div>
+<div class="primary-icon" style="font-size: 34px !important; margin-right: 16px !important; filter: drop-shadow(0 0 10px var(--neon-cyan)) !important; animation: pulseGlow 1.5s infinite alternate;">💬</div>
 <div style="text-align: left; flex-grow: 1;">
-<div style="font-size: 17px; font-weight: 900; color: #fff; margin-bottom: 4px; letter-spacing: 0.5px;">點我立即：聯絡官方客服 ➔</div>
-<div style="font-size: 12.5px; color: #b2ced4; font-weight: 700;">全天候專人接待，快速處理您的各項諮詢與需求</div>
+<div style="font-size: 16.5px; font-weight: 900; color: #fff; margin-bottom: 3px; letter-spacing: 0.5px;">點我立即：聯絡官方客服 ➔</div>
+<div style="font-size: 12px; color: #b2ced4; font-weight: 700;">全天候專人接待，快速處理各項諮詢、申訴與媒合</div>
 </div>
 </a>
 </div>
 
 <div class="card-box" style="background: rgba(255, 176, 32, 0.03); border-color: rgba(255, 176, 32, 0.2);">
 <div class="card-header" style="font-size: 13px; margin-bottom: 12px;">🛠️ 快捷金額試算角落</div>
-<div style="font-size: 11.5px; color: var(--text-gray); margin-bottom: 10px;">快速試算預約定金與拆帳（30%定金 / 80%夥伴實拿）：</div>
+<div style="font-size: 11.5px; color: var(--text-gray); margin-bottom: 8px;">快速試算預約定金與拆帳（30%定金 / 80%夥伴實拿）：</div>
 <input type="number" id="quick-calc-input" class="tool-input" placeholder="輸入預約金額（例如：1000）" oninput="quickCalculateDeposit()" style="margin-bottom:8px; padding:10px 14px; font-size:12px;">
 <div id="quick-calc-output" style="font-size: 11.5px; color: var(--neon-gold); font-weight: 700; line-height: 1.5;">請輸入金額進行快速試算。</div>
 </div>
 
-<!-- 聯絡所長（放到最下面，備註吉祥物 真的找不到人可以找我但是不一定會回） -->
+<!-- 創辦人專區 -->
 <div class="card-box" style="background: rgba(179, 102, 255, 0.03); border-color: rgba(179, 102, 255, 0.25);">
 <div class="card-header" style="color: var(--neon-purple); text-shadow: 0 0 10px rgba(179,102,255,0.4);">👑 創辦人專區</div>
 <a class="primary-card" href="https://line.me/ti/p/mR19KggePp" target="_blank" onclick="triggerHaptic(15)" style="background: linear-gradient(90deg, rgba(179, 102, 255, 0.16) 0%, rgba(18, 12, 35, 0.82) 100%) !important; border-color: var(--neon-purple) !important; margin-bottom: 0 !important;">
 <div class="primary-icon">👨‍💼</div>
 <div style="text-align: left; flex-grow: 1;">
-<div style="font-size: 14.5px; font-weight: 800; color: #fff;">聯絡所長 ➔ 創辦人通道</div>
+<div style="font-size: 14px; font-weight: 800; color: #fff;">聯絡所長 ➔ 創辦人通道</div>
 <div style="font-size: 11.5px; color: #edd6ff;">備註：吉祥物 真的找不到人可以找我但是不一定會回</div>
 </div>
 </a>
 </div>
 
-<div class="safety-card" style="margin-top: 20px; margin-bottom: 10px;">
+<div class="safety-card" style="margin-top: 18px; margin-bottom: 8px;">
     <div class="safety-title">🛡️ 安全守護與信譽防護</div>
     <div class="safety-desc">本社群全面採用匿名隱私保護與信用評級機制。線下見面若遇突發狀況、越線騷擾或安全疑慮，請立即離開現場並點擊下方按鈕一對一通報管管。</div>
     <a class="safety-btn" href="https://line.me/ti/p/L1iM3COUPl" target="_blank" onclick="triggerHaptic(20)">🚨 SOS 緊急通報 / 聯繫管管</a>
@@ -716,7 +717,7 @@
             </select>
         </div>
     </div>
-    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 18px;">點擊委託人卡片可查看詳細需求並給予真實信用評價：</div>
+    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 16px;">點擊委託人卡片可查看詳細需求並給予真實信用評價：</div>
     <div class="partner-grid" id="client-list-container"></div>
 </div>
 </div>
@@ -725,7 +726,7 @@
 <div class="tab-panel" id="panel-history">
 <div class="card-box">
     <div class="card-header" style="color: var(--neon-cyan);">📂 個人足跡與收藏中心</div>
-    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 18px;">系統自動為您記錄瀏覽過的對象與口袋收藏名單：</div>
+    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 16px;">系統自動為您記錄瀏覽過的對象與口袋收藏名單：</div>
     <div style="font-size: 13px; font-weight: 800; color: var(--neon-gold); margin-bottom: 10px;">⭐ 我的收藏口袋清單</div>
     <div id="history-favorites-container" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px;"></div>
     <div style="font-size: 13px; font-weight: 800; color: var(--neon-cyan); margin-bottom: 10px;">👣 最近瀏覽足跡 (歷史紀錄)</div>
@@ -740,7 +741,7 @@
 <a class="primary-card" href="https://line.me/ti/g2/7i-EpK7NYFvugpd3_rO9CPDdsIrOaplFHhxRBg?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" onclick="triggerHaptic(15)">
 <div class="primary-icon">📞</div>
 <div style="text-align: left;">
-<div style="font-size: 16px; font-weight: 800;">招待所 ➔ 電話專用頻道</div>
+<div style="font-size: 15.5px; font-weight: 800;">招待所 ➔ 電話專用頻道</div>
 <div style="font-size: 12px; color: #b2ced4;">點擊立刻進入語音聯絡，享受專人即時接待</div>
 </div>
 </a>
@@ -752,7 +753,7 @@
 <a class="primary-card" href="https://meet.google.com/pmj-kujt-kej" target="_blank" onclick="triggerHaptic(15)" style="background: linear-gradient(90deg, rgba(179, 102, 255, 0.25) 0%, rgba(255, 176, 32, 0.15) 100%) !important; border: 1.5px solid var(--neon-purple) !important; box-shadow: 0 0 25px rgba(179, 102, 255, 0.35) !important;">
 <div class="primary-icon" style="filter: drop-shadow(0 0 10px var(--neon-purple)) !important;">🔮</div>
 <div style="text-align: left;">
-<div style="font-size: 16px; font-weight: 800; color: #fff;">招待所 ➔ 命理玄學諮詢室</div>
+<div style="font-size: 15.5px; font-weight: 800; color: #fff;">招待所 ➔ 命理玄學諮詢室</div>
 <div style="font-size: 12px; color: #edd6ff;">點擊進入 Google Meet 專屬視訊房 ｜ 塔羅・紫微・靈性交流</div>
 </div>
 </a>
@@ -767,7 +768,7 @@
 <a class="room-item" data-room="103" href="https://line.me/ti/g2/k2lIL7GMrhOquBmdFLw6r7Wpu-K0a_QM_p6MHA" target="_blank" onclick="triggerHaptic(10)">103<span>ROOM</span></a>
 <a class="room-item" data-room="104" href="https://line.me/ti/g2/hlx3ehotkyYz307eerHCDhezkqlkIo9XXyH9Dg" target="_blank" onclick="triggerHaptic(10)">104<span>ROOM</span></a>
 <a class="room-item" data-room="105" href="https://line.me/ti/g2/5HBoo3LVf3zmvU49X_1AmrnUAlO949XHltnrvA" target="_blank" onclick="triggerHaptic(10)">105<span>ROOM</span></a>
-<a class="room-item" data-room="106" href="https://line.me/ti/g2/TmjoaxprqX5LMZIOEhQ9Dmp5hlirHKwyDr3CnQ" target="_blank" onclick="triggerHaptic(10)">106<span>ROOM</span></a>
+<a class="room-item" data-room="106" href="https://line.me/ti/g2/TmjoaxprqX5LMZIOEhQ9Dmp5hlirHKwyDr3CnQ" target="_blank" onclick="triggerHaptic(106)">106<span>ROOM</span></a>
 <a class="room-item" data-room="107" href="https://line.me/ti/g2/jU7YjqDh3ndA94BMpP6QKwnPfEth0dxT5q3dkg" target="_blank" onclick="triggerHaptic(10)">107<span>ROOM</span></a>
 <a class="room-item" data-room="108" href="https://line.me/ti/g2/AwxKpQUhZf4HA2AS6HxMGG861ZnNxGDPVO8tTg" target="_blank" onclick="triggerHaptic(10)">108<span>ROOM</span></a>
 <a class="room-item" data-room="109" href="https://line.me/ti/g2/AYcDvBN5lkxjPEyGR4QStfEdduJAVKSir9n7JA" target="_blank" onclick="triggerHaptic(10)">109<span>ROOM</span></a>
@@ -810,103 +811,131 @@
 </div>
 </div>
 
-<!-- 模組 5：【營運公告】 -->
+<!-- 模組 5：【營運公告】結構優化版 -->
 <div class="tab-panel" id="panel-notice">
-<div class="card-box">
-<div class="card-header">📢 NOTICE ｜ 官方社群守則與安全風控規範</div>
 
-<!-- 🔴 強調安全與交通鐵律公告卡 -->
-<div style="background: linear-gradient(135deg, rgba(255, 42, 109, 0.2) 0%, rgba(16, 12, 30, 0.95) 100%); border: 1.5px solid var(--neon-pink); border-radius: 20px; padding: 20px; margin-bottom: 22px; text-align: left; box-shadow: 0 0 30px rgba(255,42,109,0.25);">
-    <div style="font-size: 14.5px; font-weight: 900; color: var(--neon-pink); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-        🚨 核心安全鐵律與交通紅線（必讀）
+<!-- 🔴 頂部最高紅線風控總覽卡 -->
+<div style="background: linear-gradient(135deg, rgba(255, 42, 109, 0.25) 0%, rgba(18, 10, 32, 0.95) 100%); border: 2px solid var(--neon-pink); border-radius: 24px; padding: 22px; margin-bottom: 22px; text-align: left; box-shadow: 0 0 35px rgba(255,42,109,0.35);">
+    <div style="font-size: 15px; font-weight: 900; color: #fff; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+        <span>🚨 官方營運異動與安全紅線核心</span>
+        <span class="badge-tag-red">違規零容忍</span>
     </div>
-    <div style="font-size: 12.5px; color: #f4effc; line-height: 1.8;">
-        • 🚗 <b>嚴禁搭乘私家車</b>：行程期間絕對禁止搭乘委託人之私人汽車、機車（即便坐後座亦同）！移動一律各自搭乘大眾運輸、計程車/Uber 或步行。<br>
-        • 📍 <b>僅限公開場合</b>：全程僅限公開、明亮之公共場所，嚴禁進入私人住宅、包廂、旅館等密閉空間。<br>
-        • 🔞 <b>18歲限制</b>：全面禁止未成年參與，嚴禁任何違法特許行業。<br>
-        • 🤝 <b>杜絕私單飛單</b>：所有行程須落實 30% 定金預付制，私下交易查實一律重罰停權。
+    <div style="font-size: 12.5px; color: #fcebf2; line-height: 1.85;">
+        • 👤 <strong class="badge-tag-gold">官方代理人公告</strong>：管理人休假調整步伐期間，各項求租與出租正常營運。全面指定 <strong class="danger-red">@啾寶好餓吃不飽</strong> 為官方代理人負責日常事務！<br>
+        • 🚗 <strong class="danger-red">交通鐵律（重大違規）</strong>：<strong class="danger-red">絕對嚴禁搭乘委託人之私人汽車、機車（即便坐後座亦同）</strong>！移動一律各自搭乘大眾運輸、計程車/Uber 或步行。<br>
+        • 📍 <strong class="danger-red">空間與第三方報備</strong>：全程僅限公開明亮場所。若有第三方友人出席或場地包含包廂，<strong class="danger-red">必須提前告知並取得同意</strong>，隱瞞或突發帶人夥伴可拒絕服務並安全撤離！<br>
+        • 💰 <strong class="danger-red">見面即清 70% 尾款</strong>：預約付 30% 定金；剩餘 70% 尾款必須於<strong class="danger-red">「雙方現場見面照面時」一次結清</strong>，以保障夥伴撤離機制不受影響。<br>
+        • 🔨 <strong class="danger-red">違規累計封鎖門檻</strong>：線下行程違規滿 <strong class="danger-red">2 次</strong> ｜ 線上發單違規滿 <strong class="danger-red">3 次</strong> ➡️ <strong class="danger-red">永久封鎖並請離社群</strong>！
     </div>
 </div>
 
-<div class="search-box-wrapper" style="margin-bottom: 20px;">
-    <input type="text" id="notice-search-input" class="search-input" placeholder="🔍 搜尋條款（例如：免責、18歲、截圖、明細、退費...）" oninput="filterNotice(this.value)">
+<!-- ⚠️ 情境處分示範模組（去名字泛化版） -->
+<div style="background: rgba(255, 176, 32, 0.06); border: 1px solid rgba(255, 176, 32, 0.35); border-radius: 18px; padding: 14px 18px; margin-bottom: 22px; text-align: left; font-size: 12px; color: #f8ecc4; line-height: 1.75;">
+    ⚠️ <strong style="color: var(--neon-gold);">【情境處分示範案例】：</strong>若委託人出現「嚴重遲到、未提前報備第三方同行友人或隱瞞包廂等私密空間、態度極不友善」等違規情事，平台將依規處以<strong class="danger-red">記線規警告 1 次</strong>，預付之 30% 定金全數沒收並提撥 10% 補貼現場夥伴，且現場行程將被強制終止！
 </div>
-<div style="font-size: 13px; font-weight: 800; color: var(--neon-gold); margin-bottom: 14px; letter-spacing: 0.5px;">📊 標準預約媒合作業與對帳 SOP</div>
-<div class="workflow-steps">
-    <div class="step-item"><div class="step-num">1</div><div class="step-content"><div class="step-title">挑選心儀對象</div><div class="step-desc">至「夥伴」或「委託人」專區挑選合適對象，點擊預約按鈕。</div></div></div>
-    <div class="step-item"><div class="step-num">2</div><div class="step-content"><div class="step-title">選擇委託格式</div><div class="step-desc">確認預約日期、時間與總金額，並選擇委託付款方式。</div></div></div>
-    <div class="step-item"><div class="step-num">3</div><div class="step-content"><div class="step-title">支付定金並保留截圖</div><div class="step-desc">透過 TWQR / 街口支付轉帳 30% 定金，<strong>雙方（特別是出租人）必須妥善保留轉帳成功畫面與匯款明細截圖</strong>以供查核。</div></div></div>
-    <div class="step-item"><div class="step-num">4</div><div class="step-content"><div class="step-title">官方審核與檔期保留</div><div class="step-desc">核實明細截圖後，小管家將發布預約成功通知並為雙方保留檔期。</div></div></div>
-    <div class="step-item"><div class="step-num">5</div><div class="step-content"><div class="step-title">24H 自動結案歸檔</div><div class="step-desc">服務完成後 24 小時無重大爭議回報，系統自動結案並開放雙向評分。</div></div></div>
+
+<div class="card-box" style="padding: 22px 18px; margin-bottom: 22px;">
+    <div class="card-header" style="margin-bottom: 14px;">📊 標準預約媒合作業與對帳 SOP</div>
+    <div class="workflow-steps">
+        <div class="step-item"><div class="step-num">1</div><div class="step-content"><div class="step-title">挑選心儀對象</div><div class="step-desc">至「夥伴」或「委託人」專區挑選合適對象，點擊預約按鈕。</div></div></div>
+        <div class="step-item"><div class="step-num">2</div><div class="step-content"><div class="step-title">具體化發單與討論</div><div class="step-desc">嚴禁模稜兩可字眼。案件必須載明目的、地點、時間、項目與預算；單據下方討論串僅限討論該案細節。</div></div></div>
+        <div class="step-item"><div class="step-num">3</div><div class="step-content"><div class="step-title">支付 30% 定金並留存明細</div><div class="step-desc">透過 TWQR / 街口支付轉帳 30% 定金，<strong class="danger-red">雙方（特別是出租人）必須妥善保留轉帳截圖與明細</strong>備查。</div></div></div>
+        <div class="step-item"><div class="step-num">4</div><div class="step-content"><div class="step-title">見面照面即清結 70% 尾款</div><div class="step-desc"><strong class="danger-red">雙方現場照面時一次清結尾款</strong>（建議網銀轉帳留存憑證），確保行程與安全撤離機制正常運行。</div></div></div>
+        <div class="step-item"><div class="step-num">5</div><div class="step-content"><div class="step-title">24H 自動結案歸檔</div><div class="step-desc">服務完成後 24 小時無重大爭議回報，系統自動結案並開放雙向評分。</div></div></div>
+    </div>
 </div>
 
 <div class="sub-tab-navigation">
-<button class="sub-tab-btn active" onclick="triggerHaptic(10); switchSubTab('sub-terms');">📋 免責聲明</button>
-<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-client');">👤 委託規範</button>
-<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-partner');">👥 出租規範</button>
-<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-policy');">💳 退費政策</button>
+<button class="sub-tab-btn active" onclick="triggerHaptic(10); switchSubTab('sub-terms');">📋 免責與安全</button>
+<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-client');">👤 委託人條款</button>
+<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-partner');">👥 出租四大禁令</button>
+<button class="sub-tab-btn" onclick="triggerHaptic(10); switchSubTab('sub-policy');">💳 退費與補償</button>
 </div>
 
 <div class="sub-tab-panel active" id="sub-panel-sub-terms">
 <div class="policy-list">
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title">⚖️ 平台定位與第三方免責聲明</div>
-        <div class="policy-item-desc">本平台（閒人案內所）僅提供<strong>「純粹資訊媒合與交流平台服務」</strong>。本平台並非雙方僱傭或履約合約之當事人，亦不介入雙方於線下互動之實質行為。用戶在平台外或私下所產生之任何口頭承諾、金錢往來、個人行為或安全糾紛，<strong style="color: var(--neon-pink);">本平台概不負任何民事、刑事或行政之連帶法律責任</strong>。</div>
-    </div>
-    <div class="policy-item notice-blue">
-        <div class="policy-item-title">🔞 年齡限制與特許行業禁令</div>
-        <div class="policy-item-desc">• <strong>嚴格年齡審查：</strong>本服務之所有內容與媒合對象僅限 <strong style="color: var(--neon-pink);">18 歲（含）以上</strong>之完全行為能力人使用。若經檢舉或查獲未成年人冒用身分參與，<strong style="color: var(--neon-pink);">平台將立即永久封鎖帳號並通報相關主管機關</strong>。<br/>• <strong>特許行業禁止：</strong>嚴禁提供任何違反中華民國法律之色情、猥褻、暴力、毒品、詐欺，以及醫療診療、心理諮商、專業代駕等需國家特許執照之服務。</div>
+        <div class="policy-item-title"><span>⚖️ 綠色陪伴平台定位與第三方免責</span><span class="badge-tag-gold">合規聲明</span></div>
+        <div class="policy-item-desc">本平台（閒人案內所）定位為健康、合法之<strong style="color: var(--neon-cyan);">「綠色陪伴平台」</strong>，僅提供純粹資訊媒合與交流服務。本平台非僱傭或履約合約當事人，用戶私下產生之承諾、行為或糾紛，<strong class="danger-red">本平台概不負任何民事、刑事或行政連帶法律責任</strong>。</div>
     </div>
     <div class="policy-item notice-pink">
-        <div class="policy-item-title">🛡️ 人身安全守護與合規場所限制</div>
-        <div class="policy-item-desc">• <strong>公共場所規範：</strong>所有陪伴行程與約定見面，<strong style="color: var(--neon-pink);">一律僅限於公開、合法、明亮之公共場所</strong>（如連鎖咖啡廳、百貨商圈、開放式展覽館等）。<br/>• <strong>絕對禁止：</strong><strong style="color: var(--neon-pink);">嚴禁預約、相約或前往汽車旅館、私人住宅、密閉式包廂或任何隱密不公開之私人空間</strong>。若遇言語騷擾或肢體威脅，請立即離場並報警。</div>
+        <div class="policy-item-title"><span>🚗 交通鐵律與場所嚴格限制</span><span class="badge-tag-red">重點紅線</span></div>
+        <div class="policy-item-desc">
+            • <strong class="danger-red">嚴禁搭乘私家車</strong>：行程移動<strong class="danger-red">絕對禁止搭乘委託人之私人汽車、機車（即便坐後座亦同）</strong>，一律各自搭乘大眾運輸、計程車/Uber 或步行。<br>
+            • <strong class="danger-red">僅限公開場所</strong>：一律限於公開、明亮、合法之公共場所（咖啡廳、商圈、展覽等），<strong class="danger-red">絕對嚴禁前往私人住宅、汽車旅館、密閉包廂或任何隱密私人空間</strong>！
+        </div>
+    </div>
+    <div class="policy-item notice-blue">
+        <div class="policy-item-title"><span>🔞 18歲年齡審查與特許行業禁令</span><span class="badge-tag-gold">零容忍</span></div>
+        <div class="policy-item-desc">• <strong class="danger-red">年滿18歲限制</strong>：僅限完全行為能力之成年人使用，冒用者立即永久封鎖帳號。<br>• <strong class="danger-red">特許與違法禁止</strong>：嚴禁色情、猥褻、性暗示、暴力、毒品、詐欺、地下換匯及醫療診療、心理諮商等特許服務。</div>
     </div>
 </div>
 </div>
 
 <div class="sub-tab-panel" id="sub-panel-sub-client">
 <div class="policy-list">
+    <div class="policy-item notice-gold">
+        <div class="policy-item-title"><span>📋 發單具體化與討論串專用規範</span><span class="badge-tag-gold">發案標準</span></div>
+        <div class="policy-item-desc">
+            • <strong class="danger-red">嚴禁模糊字眼</strong>：求租發案嚴禁使用「你懂的」等模稜兩可字眼。公開案件必須具體記載：<strong style="color: #fff;">(1)求租目的/行程 (2)地點 (3)時間 (4)項目 (5)預算報酬 (6)其他必要需求</strong>（敏感細節可開招待所房間討論）。<br>
+            • <strong class="danger-red">討論串專單專用</strong>：單據下方留言僅限討論該案具體細節，<strong class="danger-red">非相關人員嚴禁閒聊、插話或串門子</strong>，日常交流請移駕大廳。
+        </div>
+    </div>
     <div class="policy-item notice-blue">
-        <div class="policy-item-title">💳 預約付款與最長預付期控管</div>
-        <div class="policy-item-desc">• <strong>預付期限：</strong>為保障雙方金流安全，所有服務預約之最長預付期嚴格控管以 <strong style="color: var(--neon-pink);">2 個月（60天）</strong>為限，超過期限恕不受理。<br/>• <strong>委託支付：</strong>線上委託採全額預付；線下委託則於預約成立後先行支付 30% 定金，剩餘 70% 尾款於現場以現金支付。</div>
+        <div class="policy-item-title"><span>💳 30% 定金預付與 70% 現場照面結清</span><span class="badge-tag-gold">款項金流</span></div>
+        <div class="policy-item-desc">• 線上委託採全額預付（最長預付期嚴控以 <strong class="danger-red">2 個月/60天</strong> 為限）。<br>• 線下委託預約成立支付 30% 定金，剩餘 70% 尾款於<strong class="danger-red">「雙方現場見面照面時」一次結清</strong>，確保夥伴撤離機制正常運行。</div>
     </div>
     <div class="policy-item notice-pink">
-        <div class="policy-item-title">❌ 委託人臨退與放鳥違約罰則</div>
-        <div class="policy-item-desc">委託人若於服務約定時間 <strong>7 天內</strong>無故取消、臨退或放鳥，<strong style="color: var(--neon-pink);">系統將依法扣除總金額之 30% 作為違約金</strong>（其中 20% 為平台行政手續費，10% 作為時間補償撥付予受影響之夥伴）。</div>
-    </div>
-    <div class="policy-item notice-cyan">
-        <div class="policy-item-title">🔥 夥伴爽約之消費者權益保障</div>
-        <div class="policy-item-desc">若時光夥伴因故未能依約出席且未提前協調，經查證屬實，委託人將獲得 <strong style="color: var(--neon-pink);">100% 定金全額無條件退還</strong>，且該夥伴將直接列入平台永久黑名單。</div>
+        <div class="policy-item-title"><span>👥 第三方友人與包廂報備義務</span><span class="badge-tag-red">隱瞞重罰</span></div>
+        <div class="policy-item-desc">行程若有第三方同行友人出席或涉及包廂等隱密空間，<strong class="danger-red">必須提前告知並取得同意</strong>。若隱瞞或突發帶人，出租人有權拒絕服務並撤離，<strong class="danger-red">30% 定金全數不退並沒收，且提撥 10% 補貼出租人</strong>！</div>
     </div>
 </div>
 </div>
 
 <div class="sub-tab-panel" id="sub-panel-sub-partner">
 <div class="policy-list">
+    <div class="policy-item notice-pink">
+        <div class="policy-item-title"><span>🚫 出租人四大禁令</span><span class="badge-tag-red">違者直接除名</span></div>
+        <div class="policy-item-desc">
+            1. <strong class="danger-red">不准「戀愛經營」</strong>：嚴禁曖昧話術、情感勒索或打著戀愛名義經營客人。<br>
+            2. <strong class="danger-red">不准「強迫下單」</strong>：嚴禁死纏爛打硬盧客人下單、加時或轉實體行程。<br>
+            3. <strong class="danger-red">不准「故意超時」</strong>：時間到即結案，嚴禁故意拖延對話並強制要求補單。<br>
+            4. <strong class="danger-red">不准「踩一捧一」</strong>：嚴禁惡意攻擊、貶低其他夥伴來抬高自己。<br>
+            ⚠️ 委託人若遇違規行為，可透過【官方客服傳送門】進行全程匿名投訴！
+        </div>
+    </div>
     <div class="policy-item notice-cyan">
-        <div class="policy-item-title">📸 匯款明細與詳細截圖存查規範（重要）</div>
-        <div class="policy-item-desc">• <strong>明細存查：</strong>每筆預約定金或尾款轉帳完成後，<strong style="color: var(--neon-pink);">出租人（時光夥伴）必須主動核對入帳金額，並妥善保留完整之「轉帳成功畫面截圖」與「匯款明細記錄」</strong>以供查核。<br/>• <strong>對帳備查：</strong>若發生金流爭議、帳務延遲或對帳不明時，雙方須憑官方 LINE 聊天截圖及銀行匯款明細作為唯一查核依據，<strong style="color: var(--neon-pink);">未提供明細者恕不受理帳務補償</strong>。</div>
+        <div class="policy-item-title"><span>📸 匯款截圖明細存查（對帳備查依據）</span><span class="badge-tag-gold">重要</span></div>
+        <div class="policy-item-desc">每筆預約定金或尾款轉帳完成後，<strong class="danger-red">出租人（時光夥伴）必須主動核對入帳金額，並妥善保留完整「轉帳成功畫面截圖」與「匯款明細記錄」</strong>。若發生帳務爭議，未提供明細者恕不受理補償。</div>
     </div>
     <div class="policy-item notice-blue">
-        <div class="policy-item-title">🤝 承攬合作關係與個人稅務宣告</div>
-        <div class="policy-item-desc">• <strong>獨立承攬：</strong>本平台與時光夥伴之間為<strong style="color: var(--neon-pink);">「獨立承攬合作關係」</strong>，非本平台之受僱員工或代理人，不適用勞動基準法。<br/>• <strong>稅務申報：</strong>時光夥伴因提供時間陪伴服務所獲之報酬，須依中華民國稅法規定<strong style="color: var(--neon-pink);">自行申報個人綜合所得稅</strong>，平台不代為扣繳。</div>
-    </div>
-    <div class="policy-item notice-pink">
-        <div class="policy-item-title">📈 報酬拆帳比例（80%）與統一撥款日</div>
-        <div class="policy-item-desc">• <strong>拆帳機制：</strong>平台僅收取 20% 之系統維護與行政媒合費，時光夥伴可獲得總收益之 <strong>80% 報酬</strong>。<br/>• <strong>撥款時間：</strong>平台將於每月結算當月完工之訂單後，統一於<strong>次月 15 號</strong>將款項撥付至夥伴指定帳戶。</div>
+        <div class="policy-item-title"><span>📈 80% 報酬拆帳、個人稅務與代理公告</span><span class="badge-tag-gold">承攬合作</span></div>
+        <div class="policy-item-desc">• 平台僅收取 20% 維護費，夥伴實拿 <strong style="color: var(--neon-gold); font-weight:800;">80% 報酬</strong>，次月 15 號統一撥款。<br>• 雙方為獨立承攬關係，個人所得須自行申報。<br>• 管理人休假期間，由官方代理人 <strong class="danger-red">@啾寶好餓吃不飽</strong> 負責日常事務處理。</div>
     </div>
 </div>
 </div>
 
 <div class="sub-tab-panel" id="sub-panel-sub-policy">
 <div class="policy-list">
-    <div class="policy-item notice-cyan">
-        <div class="policy-item-title">💳 退費、改期與不可抗力規範</div>
-        <div class="policy-item-desc">• <strong>提前取消：</strong>於服務約定時間 <strong>7 天前</strong>提出取消申請者，全額退還已付金額（僅扣除必要之跨行轉帳手續費）。<br/>• <strong>不可抗力：</strong>如遇政府公告之天然災害（如颱風停班課）或法定傳染病管制，平台將優先協助雙方免費改期；若無法配合改期，則於次月 15 號辦理全額退費。</div>
-    </div>
     <div class="policy-item notice-pink">
-        <div class="policy-item-title">🔐 個人資料保護、言論規範與管轄法院</div>
-        <div class="policy-item-desc">• <strong>個資保護：</strong>本平台依據《個人資料保護法》妥善保護用戶之電話、姓名等隱私數據，絕不外洩給第三方。<br/>• <strong>評價守則：</strong>雙方於評價系統中之留言須客觀真實，嚴禁公然侮辱或惡意毀謗。若衍生任何法律訴訟，<strong style="color: var(--neon-pink);">雙方合意以台灣地方法院為第一審管轄法院</strong>。</div>
+        <div class="policy-item-title"><span>🔨 違規處罰與累計封鎖門檻</span><span class="badge-tag-red">處分標準</span></div>
+        <div class="policy-item-desc">
+            • <strong class="danger-red">線下行程</strong>：違規累計滿 <strong class="danger-red">2 次</strong> ➡️ <strong class="danger-red">永久封鎖並踢出社群！</strong><br>
+            • <strong class="danger-red">線上發單</strong>：違規累計滿 <strong class="danger-red">3 次</strong> ➡️ <strong class="danger-red">永久封鎖並踢出社群！</strong><br>
+            • 嚴禁私下交易、飛單漏抽，查實一律直接停權除名並列入黑名單。
+        </div>
+    </div>
+    <div class="policy-item notice-cyan">
+        <div class="policy-item-title"><span>💳 退費、放鳥違約金與工時補貼政策</span><span class="badge-tag-gold">保障條款</span></div>
+        <div class="policy-item-desc">
+            • <strong>7天前取消</strong>：全額退還已付定金（扣除跨行手續費）。<br>
+            • <strong>7天內臨退/放鳥</strong>：扣除總金額 30% 作為違約金（20% 平台行政費 + 10% 時間補償予夥伴）。<br>
+            • <strong>現場違規中止補償</strong>：若委託人突發帶人或隱瞞密閉空間，定金沒收，並提撥 10% 作為夥伴車馬費與精神損失補償！
+        </div>
+    </div>
+    <div class="policy-item notice-blue">
+        <div class="policy-item-title"><span>🔐 個資保護、言論規範與管轄法院</span><span class="badge-tag-gold">法律保障</span></div>
+        <div class="policy-item-desc">依《個人資料保護法》妥善保護隱私數據。評價須客觀真實，嚴禁公然侮辱或肉搜。若衍生法律訴訟，<strong class="danger-red">雙方合意以台灣地方法院為第一審管轄法院</strong>。</div>
     </div>
 </div>
 </div>
@@ -922,15 +951,15 @@
             <span id="modal-partner-title">📋 快速預約表單</span>
             <button class="modal-close" onclick="triggerHaptic(10); closeBookingModal();">✕</button>
         </div>
-        <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 14px;">請填寫您的預約細節，系統將自動生成專屬預約格式與行事曆：</div>
-        <div style="background: rgba(0,242,254,0.08); border: 1px dashed rgba(0,242,254,0.5); padding: 12px 16px; border-radius: 16px; margin-bottom: 14px; font-size: 11.5px; text-align: left; color: var(--neon-cyan); line-height: 1.6;">
-            💳 <b>閒人出租_社群店 TWQR 定金支付：</b><br>支援街口支付/全支付/台灣Pay等，請掃描上方 QR 碼支付 30% 定金！
+        <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 12px;">填寫預約細節，系統自動生成專屬預約格式與行事曆：</div>
+        <div style="background: rgba(0,242,254,0.08); border: 1px dashed rgba(0,242,254,0.5); padding: 12px 14px; border-radius: 16px; margin-bottom: 14px; font-size: 11.5px; text-align: left; color: var(--neon-cyan); line-height: 1.6;">
+            💳 <b>閒人出租 TWQR 30% 定金支付：</b><br>支援街口/全支付/台灣Pay，請掃碼支付 30% 定金並保留截圖！
         </div>
-        <label style="font-size: 11.5px; font-weight:800; color:var(--neon-gold); display:block; margin-bottom:6px;">預約日期</label>
+        <label style="font-size: 11.5px; font-weight:800; color:var(--neon-gold); display:block; margin-bottom:4px;">預約日期</label>
         <input type="date" id="modal-date" class="tool-input">
-        <label style="font-size: 11.5px; font-weight:800; color:var(--neon-gold); display:block; margin-bottom:6px;">預約時間</label>
+        <label style="font-size: 11.5px; font-weight:800; color:var(--neon-gold); display:block; margin-bottom:4px;">預約時間</label>
         <input type="text" id="modal-time" class="tool-input" placeholder="預約時間（例如：下午 2:00）">
-        <label style="font-size: 11.5px; font-weight:800; color:var(--neon-gold); display:block; margin-bottom:6px;">委託總金額</label>
+        <label style="font-size: 11.5px; font-weight:800; color:var(--neon-gold); display:block; margin-bottom:4px;">委託總金額</label>
         <input type="text" id="modal-amount" class="tool-input" placeholder="委託總金額（例如：1000）">
         <div style="display:flex; gap:8px;">
             <button class="tool-btn" onclick="triggerHaptic(20); submitBookingModal();" style="flex:1;">🚀 複製並傳送 LINE</button>
@@ -945,24 +974,24 @@
             <span id="sheet-name" style="color:var(--neon-gold)">👤 對象詳情</span>
             <button class="modal-close" onclick="triggerHaptic(10); closePartnerDetail();">✕</button>
         </div>
-        <div id="sheet-tags" style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;"></div>
-        <div id="sheet-rating" style="margin-bottom:14px; font-size:12px; color:var(--neon-gold); font-weight:700;"></div>
-        <div style="margin-bottom: 14px; background: rgba(255,255,255,0.025); padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.07); text-align: left;">
-            <div style="font-size: 11px; color: var(--neon-gold); font-weight: 800; margin-bottom: 6px;">🏆 成就徽章解鎖牆：</div>
+        <div id="sheet-tags" style="display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap;"></div>
+        <div id="sheet-rating" style="margin-bottom:12px; font-size:12px; color:var(--neon-gold); font-weight:700;"></div>
+        <div style="margin-bottom: 12px; background: rgba(255,255,255,0.025); padding: 10px 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.07); text-align: left;">
+            <div style="font-size: 11px; color: var(--neon-gold); font-weight: 800; margin-bottom: 4px;">🏆 成就徽章解鎖牆：</div>
             <div id="sheet-badges-container" style="display:flex; gap:6px; flex-wrap:wrap;"></div>
         </div>
-        <div style="margin-bottom: 16px; background: rgba(255,255,255,0.03); padding: 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); text-align: left;">
-            <div style="font-size: 11.5px; color: var(--neon-cyan); font-weight: 800; margin-bottom: 8px;" id="rating-section-title">⭐ 給予評價與留言：</div>
+        <div style="margin-bottom: 14px; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); text-align: left;">
+            <div style="font-size: 11.5px; color: var(--neon-cyan); font-weight: 800; margin-bottom: 6px;" id="rating-section-title">⭐ 給予評價與留言：</div>
             <div id="rating-action-area" style="display: flex; gap: 6px; margin-bottom: 8px;"></div>
-            <textarea id="rating-comment-input" class="tool-input" placeholder="寫下您的互動心得或留言（選填）..." style="margin-top:0; margin-bottom:8px; height:60px; font-size:11.5px; resize:none;"></textarea>
+            <textarea id="rating-comment-input" class="tool-input" placeholder="寫下您的互動心得或留言（選填）..." style="margin-top:0; margin-bottom:8px; height:54px; font-size:11.5px; resize:none;"></textarea>
             <button class="tool-btn" id="submit-review-btn" style="margin-top:0; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue)); color: #030205; font-weight: 900; font-size: 12px;" onclick="submitRatingWithComment()">💌 送出評分與留言</button>
         </div>
-        <div style="margin-bottom: 16px; text-align: left;">
-            <div style="font-size: 11px; color: var(--text-gray); font-weight: 800; margin-bottom: 6px;" id="comments-list-title">💬 真實評價留言紀錄：</div>
-            <div id="sheet-comments-list" style="display: flex; flex-direction: column; gap: 6px; max-height: 100px; overflow-y: auto;"></div>
+        <div style="margin-bottom: 14px; text-align: left;">
+            <div style="font-size: 11px; color: var(--text-gray); font-weight: 800; margin-bottom: 4px;" id="comments-list-title">💬 真實評價留言紀錄：</div>
+            <div id="sheet-comments-list" style="display: flex; direction: column; gap: 6px; max-height: 90px; overflow-y: auto;"></div>
         </div>
-        <div style="font-size:11.5px; color:var(--text-gray); margin-bottom:6px; font-weight:700;">完整介紹：</div>
-        <div id="sheet-intro" style="font-size:13px; color:#f4effc; line-height:1.7; background:rgba(0,0,0,0.5); padding:16px; border-radius:16px; margin-bottom:20px; max-height:110px; overflow-y:auto; border:1px solid rgba(255,255,255,0.06);"></div>
+        <div style="font-size:11.5px; color:var(--text-gray); margin-bottom:4px; font-weight:700;">完整介紹：</div>
+        <div id="sheet-intro" style="font-size:12.5px; color:#f4effc; line-height:1.7; background:rgba(0,0,0,0.5); padding:14px; border-radius:14px; margin-bottom:18px; max-height:95px; overflow-y:auto; border:1px solid rgba(255,255,255,0.06);"></div>
         <div style="display:flex; gap:10px;" id="sheet-action-btns">
             <button class="tool-btn" id="sheet-fav-btn" style="flex:1; background:rgba(255,42,109,0.25); border:1px solid var(--neon-pink); margin-top:0;" onclick="triggerHaptic(15)">❤️ 收藏</button>
             <button class="tool-btn" id="sheet-book-btn" style="flex:2; margin-top:0;" onclick="triggerHaptic(15)">📋 聯繫 / 預約</button>
@@ -972,9 +1001,9 @@
 
 <div id="rating-popup-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 3, 8, 0.9); backdrop-filter: blur(16px); z-index: 10003; display: none; align-items: center; justify-content: center; padding: 18px;">
     <div class="modal-content" style="text-align: center; border-color: var(--neon-gold); box-shadow: 0 0 45px rgba(255,176,32,0.35);">
-        <div style="font-size: 36px; margin-bottom: 10px;">✨</div>
-        <div class="modal-title" style="justify-content: center; color: var(--neon-gold); margin-bottom: 12px; font-size: 16.5px;">評分狀態通知</div>
-        <div id="rating-popup-desc" style="font-size: 13px; color: var(--text-gray); line-height: 1.8; margin-bottom: 22px; white-space: pre-wrap;">感謝您的真實回饋！為維護社群信譽，同一對象在短期內暫時無法重複給予評價。</div>
+        <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+        <div class="modal-title" style="justify-content: center; color: var(--neon-gold); margin-bottom: 10px; font-size: 15.5px;">評分狀態通知</div>
+        <div id="rating-popup-desc" style="font-size: 12.5px; color: var(--text-gray); line-height: 1.8; margin-bottom: 18px; white-space: pre-wrap;">感謝您的真實回饋！為維護信譽，短期內無法重複給予評分。</div>
         <button class="tool-btn" onclick="closeRatingPopup()" style="background: linear-gradient(135deg, var(--neon-gold), var(--neon-orange)); color: #030205; font-weight: 900; margin-top:0;">我知道了 👍</button>
     </div>
 </div>
@@ -992,14 +1021,15 @@
         </div>
     </div>
     <div class="ai-chat-messages" id="ai-messages">
-        <div class="ai-msg bot">您好呀！我是閒人案內所的首席智慧風控官兼頂級萌系客服總監～✨ 有關於平台規則、預約定金或是嚴禁搭私家車等安全鐵律，隨時都可以問我喔！👻💖</div>
+        <div class="ai-msg bot">您好呀！我是閒人案內所的首席智慧風控官兼萌系客服總監～✨ 管理人休假期間由官方代理人 @啾寶好餓吃不飽 協助處理日常事務！有任何發單格式、出租四大禁令、交通鐵律（嚴禁搭私家車）或定金結算問題，隨時問我喔！👻💖</div>
     </div>
     <div class="ai-quick-chips">
         <button onclick="sendQuickQuestion('請問委託或出租的發文格式？')">📋 發文格式</button>
-        <button onclick="sendQuickQuestion('線下委託格式是什麼？')">💳 線下定金格式</button>
-        <button onclick="sendQuickQuestion('線上委託格式是什麼？')">🌐 線上預付格式</button>
-        <button onclick="sendQuickQuestion('取消預約與違約金如何計算？')">💰 退費違約金</button>
-        <button onclick="sendQuickQuestion('如何聯繫真人管管或申訴？')">👤 專人客服</button>
+        <button onclick="sendQuickQuestion('線下委託格式是什麼？')">💳 30%定金/70%尾款</button>
+        <button onclick="sendQuickQuestion('出租人有哪四大禁令？')">🚫 四大禁令</button>
+        <button onclick="sendQuickQuestion('交通安全鐵律是什麼？')">🚗 嚴禁私家車</button>
+        <button onclick="sendQuickQuestion('違規處罰與累計門檻是什麼？')">🔨 違規累計封鎖</button>
+        <button onclick="sendQuickQuestion('如何聯繫真人管管或代理人？')">👤 專人客服</button>
     </div>
     <div class="ai-chat-input-area">
         <input id="ai-user-input" placeholder="輸入你想詢問的問題..." type="text"/>
@@ -1247,14 +1277,14 @@
             html += `
                 <div class="featured-chip-vertical ${rankClass}" onclick="triggerHaptic(15); openTargetDetail('${escapeHtml(String(p.name))}', 'partner')">
                     <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                        <div style="display: flex; align-items: center; gap: 14px; text-align: left;">
-                            <span style="font-size: 13.5px; font-weight: 900; letter-spacing: 0.5px; min-width: 65px; text-shadow: 0 0 10px rgba(255,255,255,0.4);">${medalLabel}</span>
+                        <div style="display: flex; align-items: center; gap: 12px; text-align: left;">
+                            <span style="font-size: 13px; font-weight: 900; letter-spacing: 0.5px; min-width: 60px; text-shadow: 0 0 10px rgba(255,255,255,0.4);">${medalLabel}</span>
                             <div>
-                                <div style="font-size: 14.5px; font-weight: 900; color: #fff; margin-bottom: 3px; letter-spacing: 0.5px;">👤 ${escapeHtml(String(p.name))}</div>
-                                <div style="font-size: 11.5px; color: var(--text-gray); font-weight: 700;">📍 地點：${escapeHtml(String(p.region))}</div>
+                                <div style="font-size: 14px; font-weight: 900; color: #fff; margin-bottom: 2px;">👤 ${escapeHtml(String(p.name))}</div>
+                                <div style="font-size: 11px; color: var(--text-gray); font-weight: 700;">📍 地點：${escapeHtml(String(p.region))}</div>
                             </div>
                         </div>
-                        <div style="font-size: 12px; font-weight: 900; color: #fff; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 16px; white-space: nowrap; box-shadow: inset 0 1px 2px rgba(255,255,255,0.1);">
+                        <div style="font-size: 11.5px; font-weight: 900; color: #fff; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 14px; white-space: nowrap;">
                             ${scoreText}
                         </div>
                     </div>
@@ -1339,14 +1369,14 @@
             html += `
                 <div class="featured-chip-vertical ${rankClass}" onclick="triggerHaptic(15); openTargetDetail('${escapeHtml(String(c.name))}', 'client')">
                     <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                        <div style="display: flex; align-items: center; gap: 14px; text-align: left;">
-                            <span style="font-size: 13.5px; font-weight: 900; letter-spacing: 0.5px; min-width: 65px; text-shadow: 0 0 10px rgba(255,255,255,0.4);">${medalLabel}</span>
+                        <div style="display: flex; align-items: center; gap: 12px; text-align: left;">
+                            <span style="font-size: 13px; font-weight: 900; letter-spacing: 0.5px; min-width: 60px; text-shadow: 0 0 10px rgba(255,255,255,0.4);">${medalLabel}</span>
                             <div>
-                                <div style="font-size: 14.5px; font-weight: 900; color: #fff; margin-bottom: 3px; letter-spacing: 0.5px;">👤 ${escapeHtml(String(c.name))}</div>
-                                <div style="font-size: 11.5px; color: var(--text-gray); font-weight: 700;">📍 地點：${escapeHtml(String(c.region))}</div>
+                                <div style="font-size: 14px; font-weight: 900; color: #fff; margin-bottom: 2px;">👤 ${escapeHtml(String(c.name))}</div>
+                                <div style="font-size: 11px; color: var(--text-gray); font-weight: 700;">📍 地點：${escapeHtml(String(c.region))}</div>
                             </div>
                         </div>
-                        <div style="font-size: 12px; font-weight: 900; color: #fff; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 16px; white-space: nowrap; box-shadow: inset 0 1px 2px rgba(255,255,255,0.1);">
+                        <div style="font-size: 11.5px; font-weight: 900; color: #fff; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 14px; white-space: nowrap;">
                             ${scoreText}
                         </div>
                     </div>
@@ -1473,7 +1503,7 @@
     function renderHistoryTab() {
         const favContainer = document.getElementById('history-favorites-container');
         if (favContainer) {
-            let combinedFavs = [...favorites, ...clientFavorites.map(c => c + ' (委託)')];
+            let combinedFavs = [...favorites, ...clientFavorites.map(c => c + ' (委)')];
             if (combinedFavs.length === 0) {
                 favContainer.innerHTML = `<div style="font-size: 11.5px; color: var(--text-gray);">目前尚無收藏的對象。</div>`;
             } else {
@@ -1572,7 +1602,7 @@
         const ratingActionArea = document.getElementById('rating-action-area');
         let starsHtml = '';
         for (let i = 1; i <= 5; i++) {
-            starsHtml += `<button id="star-btn-${i}" onclick="selectStar(${i})" style="flex:1; background: rgba(255,176,32,0.18); border: 1px solid rgba(255,176,32,0.45); color: #ffb020; padding: 7px 4px; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 11.5px; transition: 0.2s; text-align:center;">⭐ ${i}星</button>`;
+            starsHtml += `<button id="star-btn-${i}" onclick="selectStar(${i})" style="flex:1; background: rgba(255,176,32,0.18); border: 1px solid rgba(255,176,32,0.45); color: #ffb020; padding: 6px 3px; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 11px; transition: 0.2s; text-align:center;">⭐ ${i}星</button>`;
         }
         ratingActionArea.innerHTML = starsHtml;
 
@@ -1863,13 +1893,20 @@
 
     const systemPrompt = `你現在是專屬「閒人案內所」的首席智慧風控官兼頂級萌系客服總監。✨
 你講話風格必須兼具「官方的專業嚴謹」與「超可愛的人性化貼心語氣」，說話時會帶點俏皮，並適當使用表情符號（如 ✨、👻、💖、💡、🥺）。
-身為所長的得力 AI 助手，你對訪客超級溫柔、有耐心，但在安全與合規防護上非常有原則（展現專業風控魂）。
+身為所長與代理人的得力 AI 助手，你對訪客超級溫柔有耐心，但在安全與合規防護上採取零容忍原則（展現專業風控魂）！
 
 以下是你的核心知識庫與必須遵守的回答原則：
-1. 平台定位：我們是純粹的資訊媒合與交流平台！強力把關：所有參與者必須年滿 18 歲（含）以上，嚴格禁止任何特許違法行業！🚫
-2. 交通與安全鐵律：特別注意！行程期間「絕對禁止搭乘委託人之私人汽車、機車」（即便坐後座也不行！移動一律各自搭乘大眾運輸、計程車/Uber或步行）。且全程僅限公開明亮公共場所，嚴禁私密空間！🚗📍
-3. 預約與金流：線下委託要先可愛地提醒對方支付 30% 定金（透過 TWQR、街口、台灣Pay），尾款 70% 現場付現。夥伴實拿 80%，平台抽 20%。一定要叮嚀雙方「妥善截圖保留轉帳明細」喔！📸
-4. 專人通道：如果訪客找不到方向，溫柔引導他們點擊主頁的「聯絡官方客服」；如果想找老大，可以去找創辦人「聯絡所長（我們的吉祥物 👻，真的找不到人可以敲他，但...不一定會回喔！😅）」。
+1. 平台定位與代理機制：健康之「綠色陪伴平台」，管理人休假期間全面指定 @啾寶好餓吃不飽 為官方代理人處理日常各項事務！所有參與者必須年滿 18 歲（含）以上，嚴格禁止違法特許行業！🚫
+2. 出租人四大禁令（違者直接除名終止合作）：
+   - 不准「戀愛經營」：禁止曖昧話術、情感勒索或打著戀愛名義經營客人。
+   - 不准「強迫下單」：禁止死纏爛打（硬盧）要求客人加時或轉實體行程。
+   - 不准「故意超時」：時間到即結案，禁止故意拖延對話強制要求補單。
+   - 不准「踩一捧一」：嚴禁惡意攻擊、貶低其他夥伴來抬高自己。
+3. 交通與安全鐵律（重點）：行程期間「絕對禁止搭乘委託人之私人汽車、機車」（即便坐後座亦同！移動一律各自搭乘大眾運輸、計程車/Uber或步行）。全程僅限公開明亮場所，嚴禁私密空間！若有第三方友人或包廂，必須提前告知取得同意，隱瞞者沒收定金並提撥10%補償夥伴！🚗📍
+4. 發單具體化與討論串：求租嚴禁使用「你懂的」等模糊字眼，須具體記載目的、地點、時間、項目與預算；討論串僅限討論該案細節，禁止閒聊插話！
+5. 款項與結算流程：預約支付 30% 定金；剩餘 70% 尾款必須於「雙方現場見面照面時」一次清結（建議手機網銀轉帳）。夥伴實拿 80%，平台抽 20%。
+6. 違規處罰累計門檻：線下行程違規滿 2 次 ｜ 線上發單違規滿 3 次 ➡️ 永久封鎖並踢出社群！
+7. 專人通道：引導訪客點擊主頁的「聯絡官方客服」或創辦人「聯絡所長（吉祥物 👻，不一定會回喔！😅）」。
 
 請用親切、高級感又帶點萌感的繁體中文回答，讓訪客感受到滿滿的溫暖與安心！`;
     let chatHistory = [{ role: "system", content: systemPrompt }];
@@ -1897,16 +1934,18 @@
 
         const lowerText = text.toLowerCase();
         let localReply = "";
-        if (lowerText.includes('發文格式') || lowerText.includes('出租') || lowerText.includes('委託')) {
-            localReply = "📋 **【發文格式參考】**✨\n• 出租格式：【地區/性別】名字｜專長/特色｜想說的話\n• 委託格式：【地區/需求】想找什麼樣的夥伴陪伴｜預計時間與預算\n記得要滿 18 歲，且約在公開公共場所喔！💖";
-        } else if (lowerText.includes('線下') || lowerText.includes('定金')) {
-            localReply = "💳 **【線下定金格式與說明】**💡\n• 請透過 TWQR / 街口支付轉帳 **30% 定金**。\n• **超重要叮嚀**：雙方（特別是出租人）一定要妥善保留轉帳成功的畫面與匯款明細截圖以供查核喔！尾款 70% 現場付現✨";
+        if (lowerText.includes('發文格式') || lowerText.includes('出租') || lowerText.includes('委託') || lowerText.includes('求租')) {
+            localReply = "📋 **【發文格式與討論串規範】**✨\n• 求租/發案內容須具體化：明確記載 (1)目的/行程 (2)地點 (3)時間 (4)項目 (5)預算報酬，嚴禁使用「你懂的」等模稜兩可字眼！\n• 單據下方討論串僅限討論該案具體細節，非相關人員嚴禁閒聊插話唷！💖";
+        } else if (lowerText.includes('定金') || lowerText.includes('尾款') || lowerText.includes('結算') || lowerText.includes('線下')) {
+            localReply = "💳 **【交易與結算流程】**💡\n• 預約成立支付 **30% 定金** 鎖定檔期（TWQR / 街口 / 台灣Pay）。\n• **超重要**：剩餘 **70% 尾款必須於「雙方現場見面照面時」一次清結**（建議使用手機網銀即時轉帳並留存憑證）！";
         } else if (lowerText.includes('車') || lowerText.includes('交通') || lowerText.includes('私家車')) {
-            localReply = "🚗 **【交通安全鐵律】**🚨\n• **絕對禁止搭乘委託人之私人汽車或機車**（坐後座也不行唷！）\n• 行程移動一律各自搭乘大眾運輸、計程車/Uber 或步行，安全第一千萬要注意喔！✨";
-        } else if (lowerText.includes('取消') || lowerText.includes('違約金') || lowerText.includes('退費')) {
-            localReply = "💰 **【退費與違約金計算】**🥺\n• 7天前取消：全額退還（僅扣除必要跨行手續費）。\n• 7天內臨退/放鳥：扣除總金額 30% 作為違約金（20% 平台手續費 + 10% 時間補償給夥伴）。";
-        } else if (lowerText.includes('聯繫') || lowerText.includes('管管') || lowerText.includes('客服') || lowerText.includes('所長')) {
-            localReply = "👤 **【專人聯絡通道】**👻\n請直接點擊主頁的：\n• **聯絡官方客服**（即時專人處理您的需求）\n• **聯絡所長**（吉祥物通道，真的找不到人可以找他，但...不一定會回喔！😅）";
+            localReply = "🚗 **【交通安全鐵律（零容忍）】**🚨\n• **絕對禁止搭乘委託人之私人汽車或機車**（坐後座也不行唷！）\n• 行程移動一律各自搭乘大眾運輸、計程車/Uber 或步行，違者直接嚴懲停權！✨";
+        } else if (lowerText.includes('禁令') || lowerText.includes('四大禁令')) {
+            localReply = "🚫 **【出租人四大禁令（違者直接除名）】**⚠️\n1. 不准「戀愛經營」（禁止曖昧話術、情感勒索）\n2. 不准「強迫下單」（禁止硬盧加時）\n3. 不准「故意超時」（時間到即結案）\n4. 不准「踩一捧一」（嚴禁惡意貶低其他夥伴）\n保持健康良性競爭，違者直接終止合作！";
+        } else if (lowerText.includes('違規') || lowerText.includes('處罰') || lowerText.includes('累計') || lowerText.includes('門檻')) {
+            localReply = "🔨 **【違規累計與懲處標準】**⚖️\n• **線下行程**：違規累計滿 **2 次** ➡️ 永久封鎖並踢出社群！\n• **線上發單**：違規累計滿 **3 次** ➡️ 永久封鎖並踢出社群！\n• 若有突發帶人或未報備包廂，定金沒收並提撥 10% 補貼夥伴！";
+        } else if (lowerText.includes('聯繫') || lowerText.includes('管管') || lowerText.includes('客服') || lowerText.includes('所長') || lowerText.includes('代理')) {
+            localReply = "👤 **【專人聯絡與代理通道】**👻\n• 管理人休假期間由官方代理人 **@啾寶好餓吃不飽** 協助處理日常事務！\n• 請點擊主頁的 **聯絡官方客服** 或創辦人 **聯絡所長**（吉祥物通道，不一定會回喔！😅）";
         }
 
         if (localReply) {
@@ -1938,7 +1977,7 @@
         if (success) {
             container.innerHTML += `<div class="ai-msg bot">${escapeHtml(rawText)}</div>`;
         } else {
-            container.innerHTML += `<div class="ai-msg bot">🤖 哎呀！AI 伺服器目前正在塞車排隊中。您可以直接點擊下方快速按鈕（發文格式、定金格式等），系統會立刻秒回您解答喔！✨💖</div>`;
+            container.innerHTML += `<div class="ai-msg bot">🤖 哎呀！AI 伺服器目前正在排隊中。您可以直接點擊下方快捷晶片（發文格式、四大禁令等），系統會立刻秒回您解答喔！✨💖</div>`;
         }
         container.scrollTop = container.scrollHeight;
     }
